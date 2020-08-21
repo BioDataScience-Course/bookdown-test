@@ -1,6 +1,7 @@
 Package: placeholder
 Type: Book
-Title: Book SDD-UMONS.
-Version: 0.0.2
+Title: SDD I UMONS version 2020
+Version: 3.0.0
 Imports: bookdown
+Depends: learndown
 Remotes: rstudio/bookdown

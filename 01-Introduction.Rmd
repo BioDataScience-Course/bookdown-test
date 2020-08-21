@@ -2,10 +2,6 @@
 
 # Introduction {#intro}
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "#", fig.align = "center")
-```
-
 ##### Objectifs {-}
 
 - Appréhender ce qu'est la science des données et les (bio)statistiques.

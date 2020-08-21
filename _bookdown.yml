@@ -1,7 +1,6 @@
-book_filename: 'sdd-umons'
-#chapter_name: 'Module '
-repo: https://github.com/BioDataScience-Course/sdd-umons
-output_dir: docs
+book_filename: 'sdd-umons-2020'
+repo: 'https://github.com/BioDataScience-Course/sdd-umons-2020'
+output_dir: '../wp.sciviews.org/htdocs/sdd-umons-2020'
 clean: [packages.bib, bookdown.bbl]
 delete_merged_file: yes
 new_session: yes
@@ -9,12 +8,13 @@ language:
   label:
     fig: 'Figure '
     tab: 'Tableau '
-    eq: 'Equation '
-    thm: 'Théorème '
+    eq: 'Équation '
+    thm: 'Théoreme '
     lem: 'Lemme '
-    def: 'Définition '
     cor: 'Corollaire '
     prp: 'Proposition '
+    cnj: 'Conjecture '
+    def: 'Définition '
     exm: 'Exemple '
     exr: 'Exercice '
     proof: 'Preuve. '
@@ -23,3 +23,5 @@ language:
   ui:
     edit: Editer
     chapter_name: 'Module '
+    appendix_name: 'Appendice '
+before_chapter_script: 'setup.R'

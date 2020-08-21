@@ -1,0 +1,198 @@
+<script>
+function getParameterByName(name, url) {
+  name = name.replace(/[\[\]]/g,"\\$&");
+  // Try to get the value from local storage
+  if (window.localStorage) {
+    return localStorage.getItem(name);
+  } else {
+    return '';
+  }
+}
+
+// Collect parameters and store their values (as passed by Moodle/Wordpress)
+var login       = getParameterByName('login');
+var email       = getParameterByName('email');
+var displayname = getParameterByName('displayname');
+var firstname   = getParameterByName('firstname');
+var lastname    = getParameterByName('lastname');
+var iemail      = getParameterByName('iemail');
+var iid         = getParameterByName('iid');
+var ifirstname  = getParameterByName('ifirstname');
+var ilastname   = getParameterByName('ilastname');
+var institution = getParameterByName('institution');
+var icourse     = getParameterByName('icourse');
+var ictitle     = getParameterByName('ictitle');
+var iurl        = getParameterByName('iurl');
+var iref        = getParameterByName('iref');
+
+let institutions = ['UMONS', 'noinstitution'];
+let courses = ['S-BIOG-006', 'S-BIOG-027', 'S-BIOG-921', 'nocourse'];
+
+function toggleDisplay(item, target) {
+  var style = item == target ? 'block' : 'none';
+  var elems = document.getElementsByClassName(item);
+  for (i = 0; i < elems.length; i++) {
+    var elem = elems[i];
+    elem.style.display = style;
+  }
+}
+
+function toggleInstitution(name) {
+  // Disable all institutions except that one
+  // Since they are already all hidden, just reenable it and hide noinstitution
+  toggleDisplay('noinstitution', name);
+  toggleDisplay(name, name);
+}
+
+function toggleCourse(name) {
+  // Disable all courses except that one
+  // Since they are already all hidden, just reenable it and hide nocourse
+  toggleDisplay('nocourse', name);
+  toggleDisplay(name, name);
+}
+
+function processParameters() {
+  // Content related to an institution
+  if (institution !== null) {
+    toggleInstitution(institution);
+  }
+  // Content relative to a course
+  if (icourse !== null) {
+    toggleCourse(icourse);
+  }
+  // Process other parameters too here...
+  // ...
+}
+
+
+function hideCode() {
+  //var codes = document.querySelectorAll('pre:not([class])');
+  var codes = document.getElementsByClassName('hidden-code');
+  var code, i, d, s, p;
+  for (i = 0; i < codes.length; i++) {
+    // We want to place the parent div into details instead
+    code = codes[i].parentNode;
+    p = code.parentNode;
+    d = document.createElement('details');
+    s = document.createElement('summary');
+    s.innerText = 'Voir le code';
+    //<details><summary>hide.code.msg</summary></details>
+    d.appendChild(s);
+    // move the code into <details>
+    p.replaceChild(d, code);
+    d.appendChild(code);
+  }
+}
+
+
+function retargetLinks() {
+  // If displayed in an iframe, open external links into parent
+  // Adapted from Yihui Xie blog
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href')) &&
+      links[i].target != null) {
+      links[i].target = '_parent';
+    }
+  }
+};
+
+window.onload = function() {processParameters(); hideCode(); retargetLinks();};
+
+function encodeQueryParam(name, first = false) {
+  var value = localStorage.getItem(name);
+  if (value === null || value == '') return '';
+  var sep = first ? '' : '&';
+  return sep + encodeURIComponent(name) + '=' + encodeURIComponent(value);
+}
+
+function encodeQueryString() {
+  // We got data from localStorage. So, if no data, no query string!
+  if (!window.localStorage) return('');
+  query = encodeQueryParam('login', true);
+  query += encodeQueryParam('email') + encodeQueryParam('displayname');
+  query += encodeQueryParam('firstname') + encodeQueryParam('lastname');
+  query += encodeQueryParam('iemail') + encodeQueryParam('iid');
+  query += encodeQueryParam('ifirstname') + encodeQueryParam('ilastname');
+  query += encodeQueryParam('institution');
+  query += encodeQueryParam('icourse') + encodeQueryParam('ictitle');
+  query += encodeQueryParam('iurl') + encodeQueryParam('iref');
+  // Detect if we have the Sepia or Night theme
+  // TODO: refine this because it is *always* detected
+  //if (document.getElementsByClassName('color-theme-1')) {
+  //  if (query == '') {
+  //    query = 'theme=Sepia';
+  //  } else {
+  //    query += '&theme=Sepia';
+  //  }
+  //}
+  //if (document.getElementsByClassName('color-theme-22')) {
+  //  if (query == '') {
+  //    query = 'theme=Night';
+  //  } else {
+  //    query += '&theme=Night';
+  //  }
+  //}
+  return query;
+}
+
+//var params = window.location.toString().split('?')[1];
+var params = encodeQueryString();
+
+if (params !== undefined && params != '') {
+  var apps = document.getElementsByClassName('app');
+  for (i = 0; i < apps.length; i++) {
+    var appitem = apps[i];
+    appitem.src = appitem.src + '?' + params;
+  }
+
+  //var h5ps = document.getElementsByClassName('h5p');
+  //for (i = 0; i < h5ps.length; i++) {
+  //  var h5pitem = h5ps[i];
+  //  h5pitem.src = h5pitem.src + '&' + params;
+  //}
+}
+
+launchApp = function(id, src) {
+  //var params = window.location.toString().split('?')[1];
+  var params = encodeQueryString();
+  if (params !== undefined && params != '') {
+    src = src + '?' + params;
+  }
+  var img = document.getElementById('img' + id);
+  var app = document.getElementById(id);
+  app.src = src;
+  app.style.display='block';
+  img.style.display='none';
+}
+
+var H5PIntegration = parent.H5PIntegration;
+var wpAJAXurl = 'https:\/\/wp.sciviews.org\/wp-admin\/admin-ajax.php';
+var debugEnabled = '0';
+var captureAllH5pContentTypes = '1';
+var h5pContentTypes = [''];
+</script>
+
+<link rel='stylesheet' id='h5p-core-styles-h5p-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p.css' media='all' />
+<link rel='stylesheet' id='h5p-core-styles-h5p-confirmation-dialog-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-confirmation-dialog.css' media='all' />
+<link rel='stylesheet' id='h5p-core-styles-h5p-core-button-css'  href='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/styles/h5p-core-button.css' media='all' />
+
+<script src='https://wp.sciviews.org/wp-includes/js/wp-embed.min.js'></script>
+
+<!--
+<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script src='https://wp.sciviews.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+-->
+
+<script src='https://wp.sciviews.org/wp-content/plugins/h5pxapikatchu/js/h5pxapikatchu-variables.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/jquery.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-event-dispatcher.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api-event.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-x-api.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-content-type.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-confirmation-dialog.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/h5p-action-bar.js'></script>
+<script src='https://wp.sciviews.org/wp-content/plugins/h5p/h5p-php-library/js/request-queue.js'></script>
+
+

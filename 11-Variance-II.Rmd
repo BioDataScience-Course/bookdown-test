@@ -1,12 +1,6 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Variance II {#variance2}
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, results='hide'}
-knitr::opts_chunk$set(comment = '#', fig.align = "center")
 SciViews::R
 ```
 

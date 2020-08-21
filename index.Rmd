@@ -1,38 +1,39 @@
 --- 
-title: "Science des données biologiques"
-author: "Philippe Grosjean & Guyliann Engels with contributions of Raphael Conotte"
+title: "Science des données biologiques I"
+author: "Philippe Grosjean & Guyliann Engels (avec des contributions de Raphaël Conotte)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
+    info: yes
     includes:
-      after_body: disqus.html
+      in_header: header.html
+      after_body: footer.html
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: biodatascience-course/sdd-umons
-url: 'https\://biodatascience-course.sciviews.org/sdd-umons/'
-description: "Tutoriel interactif pour la science des données avec R & SciViews-R."
+github-repo: 'BioDataScience-Course/sdd-umons-2020'
+url: 'https\://wp.sciviews.org/sdd-umons/'
+description: "Tutoriel interactif pour la science des données avec R & SciViews-R I."
 cover-image: "images/front-cover.png"
 ---
 
 # Préambule {-}
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "#", fig.align = "center")
-# Automatically create a bib database for R packages
 knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
 ```
 
- 
+`r learndown::diagnose_login(lang = "fr")`
+
 Cet ouvrage interactif est le premier volume d'une série de trois ouvrages traitant de la science des données biologiques. L'écriture de cette suite de livres a débuté au cours de l'année académique 2018-2019. 
 
-Pour l'année académique 2019-2020, cet ouvrage interactif est le support des cours suivants :
+Pour l'année académique 2020-2021, cet ouvrage interactif est le support des cours suivants\ :
 
-- [Science des données I : Visualisation et inférence, UMONS](http://applications.umons.ac.be/web/fr/pde/2019-2020/ue/US-B2-SCBIOL-006-M.htm) dont le responsable est Grosjean Philippe
+- [Science des données I : Visualisation et inférence, UMONS](http://applications.umons.ac.be/web/fr/pde/2020-2021/ue/US-B2-SCBIOL-006-M.htm) dont le responsable est Philippe Grosjean
 
-- [Bio-informatique et sciences des données, UMONS-ULB](http://applications.umons.ac.be/web/fr/pde/2019-2020/ue/US-B2-SCBIOC-926-C.htm) dont le responsable est Conotte Raphael
+- [Bio-informatique et sciences des données, UMONS-ULB](http://applications.umons.ac.be/web/fr/pde/2020-2021/ue/US-B2-SCBIOC-926-C.htm) dont le responsable est Raphaël Conotte
 
 Cet ouvrage est conçu pour être utilisé de manière interactive en ligne. En effet, nous y ajoutons des vidéos, des démonstrations interactives ainsi que des exercices sous forme de questionnaires interactifs. **Ces différents éléments ne sont, bien évidemment, utilisables qu'en ligne.**
 
@@ -44,14 +45,13 @@ _Le matériel dans cet ouvrage est distribué sous licence [CC BY-NC-SA 4.0](htt
 
 ----
 
-
 ## Vue générale des cours {-}
 
 Le cours de  **Science des données I: visualisation et inférence**  est dispensé aux biologistes de second Bachelier en Faculté des Sciences de l'Université de Mons à partir de l'année académique 2018-2019.
 
 Le cours de **Bio-informatique et sciences des données, UMONS-ULB** est dispensé au biologistes de second Bachelier en Faculté des Sciences à Charleroi en co-diplomation entre l'Université de Mons (UMONS) et l'Université Libre de Bruxelles (ULB) à partir de l'année académique 2019-2020.
 
-La matière est divisée en 12 modules de sessions de 6h chacuns en présentiel. Il nécessitera environ un tiers de ce temps (voir plus, en fonction de votre rythme et de votre technique d'apprentissage) en travail à domicile. **Une première séance de 2h précèdera ces 12 modules afin d'installer les logiciels (SciViews Box, R, RStudio, Github Desktop), et de se familiariser avec eux.**
+La matière est divisée en 12 modules de sessions de 6h chacun en présentiel. Il nécessitera environ un tiers de ce temps (voir plus, en fonction de votre rythme et de votre technique d'apprentissage) en travail à domicile. **Une première séance de 2h précèdera ces 12 modules afin d'installer les logiciels (SciViews Box, R, RStudio, Github Desktop), et de se familiariser avec eux.**
 
 ```{r diagram-sddI, out.width = '80%', fig.asp = .75, fig.align = 'center', echo = FALSE, warning = FALSE, cache = TRUE}
 DiagrammeR::grViz("
@@ -108,10 +108,9 @@ digraph general_flow {
 ", width = 600, height = 600)
 ```
 
-
 ## Matériel pédagogique {-}
 
-Le matériel pédagogique rassemblé dans ce syllabus interactif est aussi varié que possible. Vous pourrez ainsi piocher dans l'offre en fonction de vos envies et de votre profil d'apprenant pour optimiser votre travail. Vous trouverez:
+Le matériel pédagogique rassemblé dans ce syllabus interactif est aussi varié que possible. Vous pourrez ainsi piocher dans l'offre en fonction de vos envies et de votre profil d'apprenant pour optimiser votre travail. Vous trouverez\ :
 
 - le présent ouvrage en ligne,
 
@@ -121,12 +120,11 @@ Le matériel pédagogique rassemblé dans ce syllabus interactif est aussi vari�
 
 - des dépôts Github Classroom dans la section `BioDataScience-Course` (vous apprendrez ce que c'est très rapidement dès le premier module) pour réaliser et documenter vos travaux personnels.
 
-- des renvois vers des documents externes en ligne, types vidéos youtube ou vimeo, des ouvrages en ligne en anglais ou en français, des blogs, des tutoriaux, des parties gratuites de cours Datacamp ou équivalents, des questions sur des sites comme "Stackoverflow" ou issues des "mailing lists" R, ...
+- des renvois vers des documents externes en ligne, types vidéos youtube ou vimeo, des ouvrages en ligne en anglais ou en français, des blogs, des tutoriaux, des questions sur des sites comme "Stackoverflow" ou issues des "mailing lists" R, ...
 
 ```{block, type='info'}
-Tout ce matériel est accessible à partir du [site Web du cours](http://biodatascience-course.sciviews.org), du présent syllabus interactif (et de Moodle pour les étudiants de l'UMONS et de Charleroi). Ces derniers ont aussi accès au dossier ` SDD` sur `StudentTemp` en Intranet à l'UMONS. Les aspects pratiques seront à réaliser en utilisant la **'SciViews Box'**, une machine virtuelle préconfigurée que nous installerons ensemble lors du premier cours^[Il est donc très important que vous soyez présent à ce cours, et vous pouvez venir aussi si vous le souhaitez avec votre propre ordinateur portable.]. Il vous faudra donc avoir accès à un ordinateur (sous Windows, MacOS, ou Linux peu importe, suffisamment puissant et connecté à Internet ou à l'Intranet UMONS). Enfin, vous pourrez poser vos questions par mail à l'adresse `sdd@sciviews.org`.
+Tout ce matériel est accessible à partir du [site Web du cours](http://biodatascience-course.sciviews.org), du présent syllabus interactif (et de Moodle pour les étudiants de l'UMONS et de Charleroi). Ces derniers ont aussi accès au dossier ` SDD` sur `StudentTemp` en Intranet à l'UMONS. Les aspects pratiques seront à réaliser en utilisant la **'SciViews Box 2020'**, une machine virtuelle préconfigurée que nous installerons ensemble lors du premier cours^[Il est donc très important que vous soyez présent à ce cours, et vous pouvez venir aussi si vous le souhaitez avec votre propre ordinateur portable.]. Il vous faudra donc avoir accès à un ordinateur (sous Windows, MacOS, ou Linux peu importe, suffisamment puissant et connecté à Internet ou à l'Intranet UMONS). Enfin, vous pourrez poser vos questions par mail à l'adresse `sdd@sciviews.org`.
 ```
-
 
 ## Comment apprendre? {-}
 
@@ -138,9 +136,8 @@ Version courte: **en pratiquant et en faisant des erreurs !**
 
 Version longue: aujourd'hui --et encore plus à l'avenir-- les données sont complexes et ne se manipulent plus simplement avec un tableur comme Microsoft Excel. Vous apprendrez donc à maitriser des outils professionnels très puissants mais aussi relativement complexes. La méthode d'apprentissage que nous vous proposons a pour objectif prioritaire de vous faciliter la tâche, quelles que soient vos aptitudes au départ. Envisagez votre voyage en science des données comme l'apprentissage d'une nouvelle langue. **C'est en pratiquant, et en pratiquant encore sur le long terme que vous allez progresser.** Pour vous aider dans cet apprentissage progressif et sur la durée, la formation s'étale sur quatre années, et est répartie en cinq cours de difficulté croissante. N'hésitez pas à expérimenter, tester ou essayer des nouvelles idées (même au delà de ce qui sera demandé dans les exercices) et surtout, **n'ayez pas peur de faire des erreurs**. Vous en ferez, ... beaucoup ... _nous vous le souhaitons!_ La meilleure manière d'apprendre, c'est en faisant des erreurs et en mettant ensuite tout en oeuvre pour les comprendre et les corriger. Donc, si un message d'erreur, ou un "warning" apparait, ne soyez pas intimidé. Prenez une bonne respiration, lisez-le attentivement, essayez de le comprendre, et au besoin faites-vous aider: la solution est sur le Net, 'Google^[Il existe tout de même des outils plus pointus pour obtenir de l'aide sur le logiciel R comme [rseek.org](https://rseek.org), [rdocumentation.org](https://www.rdocumentation.org) ou [rdrr.io](https://rdrr.io). Rien ne sert de chercher 'R' dans Goggle.] est votre ami'!
 
-
 ##### System information {-}
 
-```{r}
+```{r, class.source='hidden-code'}
 sessioninfo::session_info()
 ```

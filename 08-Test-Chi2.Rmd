@@ -1,7 +1,6 @@
 # Test Chi carré {#chi2}
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, results='hide'}
-knitr::opts_chunk$set(comment = '#', fig.align = "center")
 SciViews::R
 ```
 
@@ -201,12 +200,13 @@ Pour répondre à la question, il nous faut une loi de distribution statistique 
 #curve(.d(x), xlim = range(.x), xaxs = "i", n = 1000, col = .col,
 #  add = .add, xlab = "Quantiles", ylab = "Probability density") # Curve
 #abline(h = 0, col = "gray") # Baseline
-chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité")
 ```
 
 
@@ -236,23 +236,24 @@ q_ref <- qchisq(0.05, df = 1, lower.tail = FALSE)
 .x2 <- .x
 .x2[.x2 < q_ref] <- NA
 
-chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité") +
-  ylim(0, 0.5) +
-  geom_vline(xintercept = 5.61, col = "red") +
-  annotate("text", x = 1.4, y = 0.04, label = "Zone de non rejet", col = "black") +
-  annotate("text", x = 4, y = 0.1, label = "plain(Zone ~ de ~ rejet) == plain(seuil) ~ alpha", parse = TRUE, col = "red") +
-  annotate("segment", x = 4.5, y = 0.09, xend = 4.2, yend = 0.01,
-    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
-  annotate("text", x = 6.5, y = 0.25, label = "chi[obs]^2 == 5.61", parse = TRUE,
-    col = "red", fontface = "bold.italic") +
-  annotate("text", x = 7.4, y = 0.2, label = "(aire à droite = valeur P)",
-    col = "red", fontface = "bold.italic")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité") +
+#  ylim(0, 0.5) +
+#  geom_vline(xintercept = 5.61, col = "red") +
+#  annotate("text", x = 1.4, y = 0.04, label = "Zone de non rejet", col = "black") +
+#  annotate("text", x = 4, y = 0.1, label = "plain(Zone ~ de ~ rejet) == plain(seuil) ~ alpha", parse = TRUE, col = "red") +
+#  annotate("segment", x = 4.5, y = 0.09, xend = 4.2, yend = 0.01,
+#    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
+#  annotate("text", x = 6.5, y = 0.25, label = "chi[obs]^2 == 5.61", parse = TRUE,
+#    col = "red", fontface = "bold.italic") +
+#  annotate("text", x = 7.4, y = 0.2, label = "(aire à droite = valeur P)",
+#    col = "red", fontface = "bold.italic")
 ```
 
 Où se situe la limite\ ? Nous pouvons facilement la calculer\ :

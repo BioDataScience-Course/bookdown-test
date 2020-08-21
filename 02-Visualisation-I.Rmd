@@ -1,7 +1,6 @@
 # Visualisation I {#visu1}
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, results='hide'}
-knitr::opts_chunk$set(comment = '#', fig.align = "center")
 SciViews::R
 ```
 
@@ -76,9 +75,10 @@ SciViews::R
 # Importation du jeu de données
 urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 # Visualisation interactive du tableau de données
-DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'), 
-              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),
-              caption = "Jeu de données sur la biométrie des oursins")
+# TODO: ceci ne fonctionne plus avec R 3.6.3!
+#DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'), 
+#              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),
+#              caption = "Jeu de données sur la biométrie des oursins")
 ```
 
 

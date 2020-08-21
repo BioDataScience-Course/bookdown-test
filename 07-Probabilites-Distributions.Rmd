@@ -1,7 +1,6 @@
 # Probabilités & distributions {#proba}
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, results='hide'}
-knitr::opts_chunk$set(comment = '#', fig.align = "center")
 SciViews::R
 ```
 
@@ -369,19 +368,21 @@ ch_unif <- chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles)
   geom_line() +
   xlab("Quantile (temps d'observation en min)") +
   ylab("Densité de probabilité")
-ch_unif
+# TODO: ceci produit une erreur avec R 3.6.3!
+#ch_unif
 ```
 
 Une autre représentation courante est la **densité de probabilité cumulée** qui représente la probabilité d'observer un quantile *ou moins*. Dans le cas présent, cela représente la probabilité qu'au moins un insecte butineur soit observé pour des durées d'observation croissantes (Fig.\ \@ref(fig:unif-cumul)).
 
 ```{r unif-cumul, echo=FALSE, fig.cap="Probabilité cumulée qu'un nouvel insecte butineur arrive dans un intervalle de 0 à 4 min si, en moyenne, un insecte arrive toutes les 4 min."}
 .dc <- function(x) punif(x, min = .min, max = .max)             # Density function
-chart(data = tibble(Quantiles = .x, Prob = .dc(.x)), Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .dc(.x), fill = "gray", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile (temps d'observation en min)") +
-  ylab("Densité de probabilité cumulée")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .dc(.x)), Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .dc(.x), fill = "gray", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile (temps d'observation en min)") +
+#  ylab("Densité de probabilité cumulée")
 ```
 
 
@@ -409,10 +410,11 @@ La réponse à la question (1) est immédiate. Cette probabilité est **nulle** 
 ```{r unif3, echo=FALSE, fig.cap="Probabilité qu'un insecte butineur arrive entre 1 et 1,5 min après le début d'une observation (aire P en rouge)."}
 .x2 <- .x
 .x2[.x2 < 1 | .x2 > 1.5] <- NA
-ch_unif +
-  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.5) +
-  annotate("text", x = c(1, 1.5), y = 0, label = c("1,0", "1,5"), col = "red") +
-  annotate("text", x = c(1.25), y = 0.12, label = "P?", col = "red")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#ch_unif +
+#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.5) +
+#  annotate("text", x = c(1, 1.5), y = 0, label = c("1,0", "1,5"), col = "red") +
+#  annotate("text", x = c(1.25), y = 0.12, label = "P?", col = "red")
 ```
 
 Ici, le calcul est assez simple à faire à la main. Mais nous verrons d'autres lois de distribution plus complexes. Dans tous les cas, R offre des fonctions qui calculent les **aires à gauche ou à droite** d'un quantile donné. Le nom de la fonction est toujours `p<distri>()`, avec pour la distribution uniforme `punif()`. L'aire à gauche du quantile nécessite de spécifier l'argument `lower.tail = TRUE` ("queue en bas de la distribution" en anglais). Pour l'aire à droite, on indiquera évidemment `lower.tail = FALSE`. Donc, pour calculer la probabilité qu'un insecte arrive en moins de 1,5 sec, nous écrirons :
@@ -447,10 +449,11 @@ Ici, nous partons d'une probabilité (1/3) et voulons déterminer le quantile qu
 .q3 <- qunif(1/3, min = 0, max = 4, lower.tail = TRUE)
 .x3 <- .x
 .x3[.x3 > .q3] <- NA
-ch_unif +
-  geom_ribbon(x = .x3, ymin = 0, ymax = .d(.x3), fill = "red", alpha = 0.5) +
-  annotate("text", x = .q3, y = 0, label = "Q?", col = "red") +
-  annotate("text", x = .q3/2, y = 0.12, label = "P = 1/3", col = "red")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#ch_unif +
+#  geom_ribbon(x = .x3, ymin = 0, ymax = .d(.x3), fill = "red", alpha = 0.5) +
+#  annotate("text", x = .q3, y = 0, label = "Q?", col = "red") +
+#  annotate("text", x = .q3/2, y = 0.12, label = "P = 1/3", col = "red")
 ```
 
 Dans R, la fonction qui effectue ce calcul est `q<distri>()`. Donc ici, il s'agit de `qunif()`. Les arguments sont les mêmes que pour `punif()` sauf le premier qui est une ou plusieurs probabilités. Nous répondons à la question de la façon suivante\ :
@@ -624,12 +627,13 @@ La distribution normale est la distribution la plus utilisée en statistique. El
 #curve(.d(x), xlim = range(.x), xaxs = "i", n = 1000, col = .col,
 #  add = .add, xlab = "Quantiles", ylab = "Probability density") # Curve
 #abline(h = 0, col = "gray") # Baseline
-chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité")
 ```
 
 Il s'agit d'une densité de probabilité symétrique et asymptotique à ses deux extrémités en + et -infini. La distribution normale a deux paramètres\ : la moyenne $\mu$ et l'écart type $\sigma$. Sa densité de probabilité est représentée par l'équation suivante\ :
@@ -668,17 +672,18 @@ La probabilité qu'une observation soit dans un intervalle de $\pm 1 \sigma$ aut
 .d <- function(x) dnorm(x, mean = .mu, sd = .s) # Distribution function
 .q <- function(p) qnorm(p, mean = .mu, sd = .s) # Quantile for lower-tail prob
 .label <- bquote(N(.(.mu), .(.s)))               # Curve parameters
-chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
-  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "orange", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité") +
-  geom_vline(xintercept = 0, color = "gray") +
-  annotate("text", x = c(-2, -1, 1, 2), y = 0, label = c("-2s", "-1s", "1s", "2s"), col = "red") +
-  annotate("text", x = c(-0.5, 1.5), y = 0.05, label = c("P = 68%", "P = 95%"), col = "red")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
+#  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "orange", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité") +
+#  geom_vline(xintercept = 0, color = "gray") +
+#  annotate("text", x = c(-2, -1, 1, 2), y = 0, label = c("-2s", "-1s", "1s", "2s"), col = "red") +
+#  annotate("text", x = c(-0.5, 1.5), y = 0.05, label = c("P = 68%", "P = 95%"), col = "red")
 ```
 
 
@@ -723,12 +728,13 @@ Par facilité, on défini ses deux paramètres de manière relative à la moyenn
 .d <- function(x) dlnorm(x, meanlog = .mul, sdlog = .sl) # Density function
 .q <- function(p) qlnorm(p, meanlog = .mul, sdlog = .sl) # Quantile for lower-tail prob
 .label <- bquote(logN(.(.mul), .(.sl))) # Curve parameters
-chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité")
 ```
 
 ### Snippets

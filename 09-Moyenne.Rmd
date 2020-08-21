@@ -1,7 +1,6 @@
 # Moyenne {#moyenne}
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, results='hide'}
-knitr::opts_chunk$set(comment = '#', fig.align = "center")
 SciViews::R
 ```
 
@@ -193,17 +192,18 @@ Il s'agit du quantile 6,76. Le graphique correspondant est le suivant\ :
 .x2 <- .x
 .x2[.x > 6.7603] <- NA
 
-chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
-  Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
-  geom_line() +
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
+#  Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
+#  geom_line() +
   # Normal distribution superposed in blue
-  geom_line(aes(y = Prob_N), col = "lightblue3") +
-  xlab("Quantile") +
-  ylab("Densité de probabilité") +
-  annotate("text", x = 6.5, y = 0.02, label = "5%", col = "red")
+#  geom_line(aes(y = Prob_N), col = "lightblue3") +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité") +
+#  annotate("text", x = 6.5, y = 0.02, label = "5%", col = "red")
 ```
 
 Nous pouvons voir sur la Fig. \@ref(fig:tdistri1) que la distribution *t* de Student est plus resserrée en son centre, mais plus étalée aux extrémités que la distribution normale de même moyenne et écart type. Néanmoins, elle est d'autant plus proche d'une normale que les degrés de libertés sont grands. On dit qu'elle converge vers une normale lorsque $dll \longrightarrow \infty$. En pratique, pour des degrés de liberté égaux ou supérieurs à 30, nous pourrons considérer que les deux distributions sont pratiquement confondues.
@@ -255,16 +255,17 @@ On pourra aussi dire que la moyenne d'un échantillon de neuf observations issu 
 .x1[.x > 6.4627] <- NA
 .x2[.x < 9.5373] <- NA
 
-chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
-  Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
-  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité") +
-  annotate("text", x = c(6.25, 9.75), y = 0.015, label = c("2.5%", "2.5%"), col = "red")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
+#  Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
+#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité") +
+#  annotate("text", x = c(6.25, 9.75), y = 0.015, label = c("2.5%", "2.5%"), col = "red")
 ```
 
 
@@ -327,19 +328,20 @@ Comme pour tout en statistique, nous devons accepter un certain risque de nous t
 .x3[.x > .mu + .s * qt(0.05, df = 8, lower.tail = TRUE)] <- NA
 .x4[.x < .mu + .s * qt(0.05, df = 8, lower.tail = FALSE)] <- NA
 
-chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
-  Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
-  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
-  geom_ribbon(x = .x3, ymin = 0, ymax = .d(.x3), fill = "orange", alpha = 0.2) +
-  geom_ribbon(x = .x4, ymin = 0, ymax = .d(.x4), fill = "orange", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité") +
-  annotate("text", x = c(6.25, 9.75, 6.65, 9.35), y = 0.015,
-    label = c("2.5%", "2.5%", "5%", "5%"), col = "red")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
+#  Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
+#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
+#  geom_ribbon(x = .x3, ymin = 0, ymax = .d(.x3), fill = "orange", alpha = 0.2) +
+#  geom_ribbon(x = .x4, ymin = 0, ymax = .d(.x4), fill = "orange", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité") +
+#  annotate("text", x = c(6.25, 9.75, 6.65, 9.35), y = 0.015,
+#    label = c("2.5%", "2.5%", "5%", "5%"), col = "red")
 ```
 
 
@@ -497,25 +499,26 @@ Le raisonnement est le suivant. Sous $H_0$, la distribution de $\Delta rear$ est
 .x1[.x > qt(0.025, df = 198, lower.tail = TRUE)] <- NA
 .x2[.x < qt(0.025, df = 198, lower.tail = FALSE)] <- NA
 
-chart(data = tibble(Quantiles = .x, Prob = .d(.x)),
-  Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
-  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité") +
-  annotate("text", x = c(-2.2, 2.2), y = 0.015, label = c("2.5%", "2.5%"), col = "red") +
-  geom_vline(xintercept = 4.29, col = "red") +
-  annotate("text", x = 0, y = 0.11, label = "Zone de non rejet", col = "black") +
-  annotate("text", x = 3, y = 0.11, label = "Zone de rejet", col = "red") +
-  annotate("segment", x = 3, y = 0.09, xend = 2.8, yend = 0.01,
-    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
-  annotate("segment", x = 3, y = 0.09, xend = -1.9, yend = 0.01,
-    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
-  annotate("text", x = 3.5, y = 0.3, label = "t[obs] == 4.29", parse = TRUE,
-    col = "red", fontface = "bold.italic")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x)),
+#  Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
+#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité") +
+#  annotate("text", x = c(-2.2, 2.2), y = 0.015, label = c("2.5%", "2.5%"), col = "red") +
+#  geom_vline(xintercept = 4.29, col = "red") +
+#  annotate("text", x = 0, y = 0.11, label = "Zone de non rejet", col = "black") +
+#  annotate("text", x = 3, y = 0.11, label = "Zone de rejet", col = "red") +
+#  annotate("segment", x = 3, y = 0.09, xend = 2.8, yend = 0.01,
+#    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
+#  annotate("segment", x = 3, y = 0.09, xend = -1.9, yend = 0.01,
+#    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
+#  annotate("text", x = 3.5, y = 0.3, label = "t[obs] == 4.29", parse = TRUE,
+#    col = "red", fontface = "bold.italic")
 ```
 
 
@@ -630,22 +633,23 @@ Notez que la valeur *P* a été divisée par deux par rapport au test bilatéral
 .x1 <- .x
 .x1[.x < qt(0.05, df = 198, lower.tail = FALSE)] <- NA
 
-chart(data = tibble(Quantiles = .x, Prob = .d(.x)),
-  Prob ~ Quantiles) +
-  geom_hline(yintercept = 0, col = "gray") +
-  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
-  geom_line() +
-  xlab("Quantile") +
-  ylab("Densité de probabilité") +
-  annotate("text", x = 2.1, y = 0.015, label = "5%", col = "red") +
-  geom_vline(xintercept = 4.29, col = "red") +
-  annotate("text", x = 0, y = 0.11, label = "Zone de non rejet", col = "black") +
-  annotate("text", x = 3, y = 0.11, label = "Zone de rejet", col = "red") +
-  annotate("segment", x = 3, y = 0.09, xend = 2.6, yend = 0.01,
-    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
-  annotate("text", x = 3.5, y = 0.3, label = "t[obs] == 4.29", parse = TRUE,
-    col = "red", fontface = "bold.italic")
+# TODO: ceci produit une erreur avec R 3.6.3!
+#chart(data = tibble(Quantiles = .x, Prob = .d(.x)),
+#  Prob ~ Quantiles) +
+#  geom_hline(yintercept = 0, col = "gray") +
+#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
+#  geom_ribbon(x = .x1, ymin = 0, ymax = .d(.x1), fill = "red", alpha = 0.2) +
+#  geom_line() +
+#  xlab("Quantile") +
+#  ylab("Densité de probabilité") +
+#  annotate("text", x = 2.1, y = 0.015, label = "5%", col = "red") +
+#  geom_vline(xintercept = 4.29, col = "red") +
+#  annotate("text", x = 0, y = 0.11, label = "Zone de non rejet", col = "black") +
+#  annotate("text", x = 3, y = 0.11, label = "Zone de rejet", col = "red") +
+#  annotate("segment", x = 3, y = 0.09, xend = 2.6, yend = 0.01,
+#    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
+#  annotate("text", x = 3.5, y = 0.3, label = "t[obs] == 4.29", parse = TRUE,
+#    col = "red", fontface = "bold.italic")
 ```
 
 Un autre exemple évident de test unilatéral\ : si nous mesurons la concentration d'une substance en solution $[S]$ et que nous nous demandons si cette substance est présente, nous aurons\ :
