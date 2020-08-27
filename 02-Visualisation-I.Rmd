@@ -75,10 +75,10 @@ SciViews::R
 # Importation du jeu de données
 urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 # Visualisation interactive du tableau de données
-# TODO: ceci ne fonctionne plus avec R 3.6.3!
-#DT::datatable(urchin , filter = 'top', class = c('compact', 'cell-border'), 
-#              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),
-#              caption = "Jeu de données sur la biométrie des oursins")
+
+DT::datatable(urchin , filter = 'top', class = "cell-border compact", 
+              rownames = FALSE, options = list(pageLength = 5, scrollX = TRUE),
+              caption = "Jeu de données sur la biométrie des oursins")
 ```
 
 

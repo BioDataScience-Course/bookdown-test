@@ -267,23 +267,22 @@ q_ref <- qf(0.05, df1 = .df1, df2 = .df2, lower.tail = FALSE)
 .x2 <- .x
 .x2[.x2 < q_ref] <- NA
 
-# TODO: ceci produit une erreur avec R 3.6.3!
-#chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
-#  geom_hline(yintercept = 0, col = "gray") +
-#  geom_ribbon(x = .x, ymin = 0, ymax = .d(.x), fill = "gray", alpha = 0.2) +
-#  geom_ribbon(x = .x2, ymin = 0, ymax = .d(.x2), fill = "red", alpha = 0.2) +
-#  geom_line() +
-#  xlab("Quantile") +
-#  ylab("Densité de probabilité") +
-#  geom_vline(xintercept = 3.5, col = "red") +
-#  annotate("text", x = 1.2, y = 0.1, label = "Zone de non rejet", col = "black") +
-#  annotate("text", x = 5, y = 0.1, label = "plain(Zone ~ de ~ rejet) == plain(seuil) ~ alpha", parse = TRUE, col = "red") +
-#  annotate("segment", x = 4.5, y = 0.09, xend = 4.2, yend = 0.01,
-#    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
-#  annotate("text", x = 3.8, y = 0.35, label = "F[obs]", parse = TRUE,
-#    col = "red", fontface = "bold.italic") +
-#  annotate("text", x = 4.7, y = 0.3, label = "(aire à droite = valeur P)",
-#    col = "red", fontface = "bold.italic")
+chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
+  geom_hline(yintercept = 0, col = "gray") +
+  geom_ribbon(aes(x = .x, ymin = 0, ymax = .d(.x)), fill = "gray", alpha = 0.2) +
+  geom_ribbon(aes(x = .x2, ymin = 0, ymax = .d(.x2)), fill = "red", alpha = 0.2) +
+  geom_line() +
+  xlab("Quantile") +
+  ylab("Densité de probabilité") +
+  geom_vline(xintercept = 3.5, col = "red") +
+  annotate("text", x = 1.2, y = 0.1, label = "Zone de non rejet", col = "black") +
+  annotate("text", x = 5, y = 0.1, label = "plain(Zone ~ de ~ rejet) == plain(seuil) ~ alpha", parse = TRUE, col = "red") +
+  annotate("segment", x = 4.5, y = 0.09, xend = 4.2, yend = 0.01,
+    size = 0.5, col = "red", arrow = arrow(length = unit(0.2, "cm"))) +
+  annotate("text", x = 3.8, y = 0.35, label = "F[obs]", parse = TRUE,
+    col = "red", fontface = "bold.italic") +
+  annotate("text", x = 4.7, y = 0.3, label = "(aire à droite = valeur P)",
+    col = "red", fontface = "bold.italic")
 ```
 
 Nous commençons à avoir l'habitude maintenant. La valeur *P* est calculée comme l'aire à droite du quantile correspondant à *F~obs~*. Enfin, nous rejetterons $H_0$ seulement si la valeur *P* est inférieure au seuil $\alpha$ qui a été choisi préalablement au test. Ceci revient à constater que, graphiquement, *F~obs~* vient se positionner dans la zone de rejet en rouge comme sur la Fig. \@ref(fig:fplot).
