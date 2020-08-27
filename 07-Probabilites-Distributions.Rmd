@@ -1,3 +1,5 @@
+# (PART) SDD I: inférence {-}
+
 # Probabilités & distributions {#proba}
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, results='hide'}

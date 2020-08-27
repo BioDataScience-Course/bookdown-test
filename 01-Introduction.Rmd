@@ -1,4 +1,4 @@
-# (PART) Cours I: visualisation et inférence {-}
+# (PART) SDD I: visualisation {-}
 
 # Introduction {#intro}
 
@@ -238,9 +238,9 @@ Quand vous avez terminé, cliquez dans la fenêtre **Console** de RStudio et app
 ```
 
 
-## Premier document en markdown {#premier-markdown}
+## Premier document en Markdown {#premier-markdown}
 
-Dans le cadre de ce premier module, vous allez réaliser votre premier document écrit en markdown. Nous vous proposons pour ce faire, d'écrire une petite introduction d'un article scientifique sur un animal de votre choix. Vous trouverez le lien pour cette activité dans le rubrique "A vous de jouer" ci-dessous. 
+Dans le cadre de ce premier module, vous allez réaliser votre premier document écrit en Markdown. Nous vous proposons pour ce faire, d'écrire une petite introduction d'un article scientifique sur un animal de votre choix. Vous trouverez le lien pour cette activité dans le rubrique "A vous de jouer" ci-dessous. 
 
 L'accès a cette tâche, qui est un travail **individuel**, se fait en utilisant GitHub Classroom \@ref(github-classroom). 
 
