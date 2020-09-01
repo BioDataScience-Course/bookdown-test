@@ -44,21 +44,14 @@ La science des données est complexe et requiert d'employer des outils performan
 
 La **SciViews Box** est une machine virtuelle (un ordinateur complet, mais totalement indépendant du matériel -le hardware- et qui peut être déployé sur pratiquement n'importe quel ordinateur physique). Cette SciViews Box est complètement configurée et dédiée à la sciences des données biologiques. Elle contient tout ce qu’il faut pour importer et analyser vos données, et ensuite écrire des rapports ou d'autres documents prêts à publication ou à présentation. Elle vous servira également à collaborer avec d'autres chercheurs qui peuvent facilement utiliser exactement la même machine virtuelle (aspect reproductible de vos analyses).
 
-Des explications détaillées se trouvent dans l'annexe \@ref(svbox) dédiée à l'installation, la configuration et l'utilisation de la SciViews Box.
-
 ```{r echo=FALSE, out.width="256px", fig.cap="Logo de la SciViews Box"}
 knitr::include_graphics('images/sdd1_01/svBox-256.png')
 ```
 
-```{block, type = 'bdd'}
-Une fois connecté au compte `sv` dans la machine virtuelle, réalisez l'activité : **Découverte de la machine virtuelle**
-<https://github.com/BioDataScience-Course/sdd_lesson/blob/2019-2020/sdd1_01/presentations/sdd1_01_svbox.pdf>
-
-Après avoir réalisé l'activité, un document récapitulatif est mis à votre disposition : 
-<https://htmlpreview.github.io/?https://github.com/BioDataScience-Course/sdd_lesson/blob/2019-2020/sdd1_01/exercises/sdd1_01_svbox.html>
-```
+Des explications détaillées se trouvent dans l'annexe \@ref(svbox) dédiée à l'installation, la configuration et l'utilisation de la SciViews Box.
 
 
+`r h5p(18, height = 270)`
 
 ### RStudio
 
@@ -68,17 +61,7 @@ RStudio est l'outil au sein de la SciViews Box que vous allez utiliser le plus f
 
 Il fournit un environnement complet et optimisé pour réaliser vos analyses, vos graphiques et vos rapports. RStudio travaille main dans la main avec le logiciel R qui effectue l'ensemble des traitements.
 
-![](images/sdd1_01/rstudio_description_mod.png)
-
-L'interface utilisateur de RStudio est divisée en quatre zones importantes (A-D) avec une barre d'outils générale par dessus : 
-
-A. Une zone d'édition 
-
-B. Plusieurs onglets sont présents comme `Environment`, `History` ou encore `Connections`. Par exemple, les différents items (on parle d’objets) chargés en mémoire dans R sont visibles dans l'onglet `Environment` (mais pour l’instant, il n’y a encore rien).
-
-C. La `Console` est l'endroit où vous pouvez entrer des instructions dans R pour manipuler vos données
-
-D. Une zone multiusage où vous pouvez manipuler vos fichiers (`Files`), vos graphiques (`Plots`), les différents "addins" de R (on parle de `Packages`), accéder aux pages d'aide (`Help`) ou encore, visualiser le rendu final de vos rapports (`Viewer`).
+`r h5p(16, height = 270)`
 
 Des explications détaillées se trouvent dans l'annexe \@ref(rs) qui présente les bases de l'utilisation de RStudio. Vous avez également à votre disposition un aide-mémoire afin d'appréhender cette interface [RStudio IDE Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf). 
 
@@ -104,6 +87,7 @@ Vous avez à votre disposition deux aide-mémoires pour apprendre **Markdown** :
 
 Après avoir rédigé votre document, vous devez cliquer sur le bouton `Preview` ou `Knit` (selon le type de document édité) dans la barre d'outils de la zone d'édition pour obtenir la version finale formatée.
 
+`r h5p(17, height = 270)`
 
 ##### Pour en savoir plus {-}
 
@@ -179,9 +163,11 @@ Lorsque l'on travaille seul tout en utilisant GitHub, l'évolution de notre proj
 
 On réalise un envoi (**push**) lorsque l'on souhaite synchroniser nos changements locaux avec la version sur le "cloud". Plusieurs **commit**s peuvent être envoyés avec un seul **push** sur le réseau, et c'est d'ailleurs généralement comme cela que l'on procède. L'inverse (rapatrier localement les changements que d'autres collaborateurs ont envoyés sur la version réseau de notre projet) s'appelle faire un "**pull**".
 
+`r h5p(15, height = 270)`
+
 L'avantage principal de **GitHub** ne réside pas vraiment dans la possibilité de réaliser une sauvegarde en ligne mais plutôt dans la possibilité de collaborer avec d'autres personnes présentes sur ce réseau comme l'illustre la figure ci-dessous. Deux scientifiques (les versions représentées par des boules bleues et des boules vertes) collaborent sur un même projet que l'on appelle un **dépôt** (**repository** en anglais) lorsqu'il est en ligne. Le premier chercheur (boules bleues) va initier le dépôt et réaliser un "push"" pour rendre son travail accessible sur le réseau (boules oranges). Son collaborateur (boules vertes) va **clôner** (**clone** en anglais) le dépôt sur son ordinateur afin d'y travailler également en local sur son PC. Après avoir fait des changements, il réalise également un **push** sur le réseau. Le premier scientifique, avant de travailler à nouveau sur le projet, va donc réaliser un **pull** afin d'obtenir en local l'ensemble des modifications fournies par son ou ses collaborateurs, et ensuite après modifications en local il effectuera à nouveau un "push". 
 
-![Différentes versions d'un projet sur GitHub lorsque deux personnes différentes collaborent sur le même dépôt.](images/sdd1_01/github1.png)
+`r h5p(14, height = 270)`
 
 Vous venez d'apprendre le B-A-BA de la terminologie nécessaire à la bonne compréhension de Git et GitHub\ :
 
@@ -223,20 +209,9 @@ Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails d
 
 *Maintenant que vous comprenez mieux avec quels outils informatiques nous allons travaillez, vous pouvez passer à votre premier exercice pour découvrir la SciViews Box, RStudio, Markdown, Git et GitHub : vous allez réaliser un site web professionnel en ligne...*
 
-Avant de poursuivre, vous allez devoir effectuer une séance d'exercice de type learnR. Pour apprendre à utiliser ces tutoriels, reportez-vous à l'appendice \@ref(learnr).
+Avant de poursuivre, Répondez aux questions ci-dessous 
 
-```{block2, type='bdd'}
-Démarrez la SciViews Box et RStudio. 
-
-Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante suivie de la touche `Entrée` pour ouvrir le tutoriel relatif aux différents outils que nous venons de voir et répondez ensuite aux questions qui vous sont posées :
-
-    BioDataScience::run("01a_base")
-
-Quand vous avez terminé, cliquez dans la fenêtre **Console** de RStudio et appuyez sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel.
-
-([BioDataScience](https://github.com/BioDataScience-Course/BioDataScience) est un package R spécialement développé pour ce cours et que vous avez dû installer lors de la configuration de votre SciViews Box, voir Appendice \@ref(install-tuto)).
-```
-
+`r h5p(13, height = 270)`
 
 ## Premier document en Markdown {#premier-markdown}
 
@@ -252,15 +227,31 @@ Lorsque votre assignation est réalisée, faites un clone local de votre dépôt
 ```{block, type = 'bdd'}
 Maintenant que vous avez appréhendé les différents outils, lancez vous dans la création de votre premier document rédigé en markdown via l’adresse suivante : 
 
-Les explications relatives à la tâche qui vous est assignée sont dans le fichier `README.md`du dépôt accessible depuis : 
+Les explications relatives à la tâche qui vous est assignée sont dans le fichier `README.md`du dépôt accessible ci-dessous : 
 
-* Pour l'année académique 2019-2020, les URLs à utiliser pour accéder à votre tâche sont les suivants : 
-  
-    * Cours de Bioinformatique et Sciences des données à Charleroi : <https://classroom.github.com/a/GY_xtRk6>
-    * Cours de Sciences des données I à Mons : <https://classroom.github.com/a/cfirRjgx>
-  
-* Pour les autres utilisateurs de ce livre, veuillez faire un "fork" du dépôt [markdown-decouverte](https://github.com/BioDataScience-Course/markdown-decouverte). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la branche correspondante à l'année que vous recherchez.  
+----
+
+::: {.S-BIOG-006}
+
+> Cours de Sciences des données I à Mons : TADA
+:::
+
+::: {.S-BIOG-921}
+
+> Cours de Bioinformatique et Sciences des données à Charleroi : TADA
+:::
+
+
+::: {.nocourse}
+
+> Veuillez faire un "fork" du dépôt [markdown-decouverte](https://github.com/BioDataScience-Course/markdown-decouverte). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la release correspondante à l'année que vous recherchez.  
+
+:::
+
+----
+
 ```
+
 
 Si vous n'êtes pas famillarisé avec Github Classroom, vous pouvez vous référer à l'Appendice \@ref(github-classroom).
 
