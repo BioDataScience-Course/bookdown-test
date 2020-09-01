@@ -209,7 +209,9 @@ Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails d
 
 *Maintenant que vous comprenez mieux avec quels outils informatiques nous allons travaillez, vous pouvez passer à votre premier exercice pour découvrir la SciViews Box, RStudio, Markdown, Git et GitHub : vous allez réaliser un site web professionnel en ligne...*
 
+
 Avant de poursuivre, Répondez aux questions ci-dessous 
+
 
 `r h5p(13, height = 270)`
 
@@ -233,7 +235,7 @@ Les explications relatives à la tâche qui vous est assignée sont dans le fich
 
 ::: {.S-BIOG-006}
 
-> Cours de Sciences des données I à Mons : TADA
+> Cours de Sciences des données I à Mons : <https://classroom.github.com/a/hjIYR1-M>
 :::
 
 ::: {.S-BIOG-921}
@@ -244,7 +246,7 @@ Les explications relatives à la tâche qui vous est assignée sont dans le fich
 
 ::: {.nocourse}
 
-> Veuillez faire un "fork" du dépôt [markdown-decouverte](https://github.com/BioDataScience-Course/markdown-decouverte). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la release correspondante à l'année que vous recherchez.  
+> Veuillez faire un "fork" du dépôt [sdd1_module01](https://github.com/BioDataScience-Course/sdd1_module01). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la release correspondante à l'année que vous recherchez.  
 
 :::
 
