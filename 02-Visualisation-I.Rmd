@@ -140,27 +140,16 @@ combine_charts(list(a, b, c, d))
 
 Appliquez par vous même les modifications des échelles via l'application ci-dessous
 
-<iframe src="https://guyliannengels.shinyapps.io/scatterplot/" width="800" height="470" frameborder="0"></iframe>
+`r launch_shiny("https://sdd.umons.ac.be/A02_limits/", height = 600)`
+
 
 ### Transformation des données
 
-Vous avez la possibilité d'appliquer une transformation de vos données (il est même conseillé de le faire) afin qu'elles soient plus facilement analysables. Par exemple, il est possible d'utiliser des fonctions de puissance, racines, logarithmes, exponentielles^[Pour les proportions (`prop`) ou les pourcentages (`perc`) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : $prop′ = \arcsin \sqrt{prop}$ ou $perc′ = \arcsin \sqrt{perc / 100}$.] pour modifier l'apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d'analyser statistiquement des données qui s'alignent le long d'une droite). Par exemple, sur nos données de hauteurs et masses d'oursins, la transformation double-logarithmique (log(x) *et* log(Y)) fonctionne très bien pour rendre le nuage de points plus linéaire :
+Vous avez la possibilité d'appliquer une transformation de vos données (il est même conseillé de le faire) afin qu'elles soient plus facilement analysables. Par exemple, il est possible d'utiliser des fonctions de puissance, racines, logarithmes, exponentielles^[Pour les proportions (`prop`) ou les pourcentages (`perc`) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : $prop′ = \arcsin \sqrt{prop}$ ou $perc′ = \arcsin \sqrt{perc / 100}$.] pour modifier l'apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d'analyser statistiquement des données qui s'alignent le long d'une droite).
 
-```{r, fig.cap = "A) Hauteur [mm] en fonction de la masse [g] d'oursins violets. B) Logarithme en base 10 de la hauteur [mm] en fonction du logarithme en base 10 de la masse [g] de ces mêmes oursins."}
-# Réalisation du graphique de la hauteur en fonction de la masse
-a <- chart(urchin, height ~  weight) + 
-  geom_point()
-# Application du logarithme sur les deux variables représentées
-b <- chart(urchin, log10(height) ~  log10(weight)) + 
-  geom_point() +
-  labs(x = "log(Masse totale [g])", y = "log(Hauteur du test [mm])")
-# Assemblage des graphiques
-combine_charts(list(a, b))
-```
+Appliquez la meilleure transformation sur nos données de hauteurs et de masses d'oursins ci-dessous
 
-Appliquez par vous même les transformations des variables via l'application ci-dessous
-
-<iframe src="https://guyliannengels.shinyapps.io/transfo_data/" width="800" height="470" frameborder="0"></iframe>
+`r launch_shiny("https://sdd.umons.ac.be/A02_transformation/", height = 600)`
 
 <!-- Pour inclure des pages web ou des applis shiny, utiliser plutôt -->
 
