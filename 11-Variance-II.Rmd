@@ -28,7 +28,7 @@ En lien avec ce module vous avez une série d'exercices à réaliser. Vous avez 
 
 Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("11a_anova2")
+    BioDataScience1::run("A11a_anova2")
 
 *Ce projet doit être terminé à la fin de ce module*
 
@@ -53,7 +53,7 @@ Lisez attentivement le README.
 
 Afin d'appliquer directement les concepts vus au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("11b_syntaxr")
+    BioDataScience1::run("A11b_syntaxr")
 
 *Ce projet doit être terminé à la fin de ce module*
 ```
@@ -783,7 +783,7 @@ Maintenant que nous sommes familiarisés avec les différents modes d'indiçage 
 
 Afin d'appliquer directement les concepts vus au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("11b_syntaxr")
+    BioDataScience1::run("A11b_syntaxr")
 
 ```
 

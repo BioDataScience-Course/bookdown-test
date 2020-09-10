@@ -4,7 +4,7 @@
 SciViews::R
 ```
 
-La rédaction de textes scientifiques doit respecter un certain caneva et différentes règles qui sont résumés dans cette annexe. 
+La rédaction de textes scientifiques doit respecter un certain canevas et différentes règles qui sont résumés dans cette annexe. 
 
 
 ##### Pour en savoir plus {-}

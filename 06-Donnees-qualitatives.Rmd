@@ -85,7 +85,7 @@ Avant toute analyse, vérifier le type de tableau de données que vous avez à d
 Les tableaux de données que vous avez traités jusqu'à présent étaient tous des tableaux **cas par variables**. Chaque ligne représentait un _individu_ sur qui une ou plusieurs _variables_ (en colonnes) étaient mesurées.
 
 ```{r}
-biometry <- read("biometry", package = "BioDataScience", lang = "fr")
+biometry <- read("biometry", package = "BioDataScience1", lang = "fr")
 head(biometry)
 ```
 
@@ -441,7 +441,7 @@ A partir des données du tableau général consolidé, personne à part lui ne p
 
 Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("06a_test")
+    BioDataScience1::run("A06a_test")
 
 ```
 
@@ -732,7 +732,7 @@ Il existe, en fait, plusieurs versions pour la fusion de tableaux, représentée
 
 Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("06b_recombinaison")
+    BioDataScience1::run("A06b_recombinaison")
 
 ```
 

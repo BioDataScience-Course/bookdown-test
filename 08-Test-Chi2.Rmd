@@ -70,7 +70,7 @@ Les deux hypothèses ne sont pas symétriques. Notre intention est de **rejeter 
 
 Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console pour effectuer les exercices d'auto-évaluation en parallèle à la lecture du texte ci-dessous\ :
 
-    BioDataScience::run("08a_chi2")
+    BioDataScience1::run("A08a_chi2")
 
 ```
 
@@ -297,7 +297,7 @@ Dans le cas d'un tableau de contingence à **double entrée**, qui croise les ni
 ```{block2, type='bdd'}
 Une séance d'exercice vous est proposée en lien avec le test Chi^2^ d'indépendance. Vous pouvez réaliser ces exercices en parallèle à la lecture de la présente section. Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("08b_chi2")
+    BioDataScience1::run("A08b_chi2")
 
 ```
 
@@ -578,10 +578,10 @@ Le jeu de données sur la biométrie humaine que vous avez vous-mêmes réalisé
 
 Rappelons nous que nous avons déjà utilisé une métrique avec l'imc et les différentes classes proposées par l'OMS.
 
-Prenons le jeu de données `biometry` du package `BioDataScience`  comme exemple.
+Prenons le jeu de données `biometry` du package `BioDataScience1`  comme exemple.
 
 ```{r}
-biometry <- read("biometry", package = "BioDataScience", lang = "FR") %>.%
+biometry <- read("biometry", package = "BioDataScience1", lang = "FR") %>.%
   select(., height, weight)
 
 biometry

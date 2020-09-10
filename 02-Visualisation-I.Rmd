@@ -29,13 +29,13 @@ Avant de poursuivre, vous allez devoir découvrir les premiers rudiments de R af
 ```{block2, type='bdd'}
 Démarrez la SciViews Box et RStudio. Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante suivie de la touche `Entrée` pour ouvrir le tutoriel concernant les bases de R :
 
-    BioDataScience::run("02a_base")
+    BioDataScience1::run("A02a_base")
 
 Ensuite, vous pouvez également parcourir le tutoriel qui vous permettra de découvrir R sur base d'une analyse concrète (cliquez dans la fenêtre **Console** de RStudio et appuyez sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel) :
 
-    BioDataScience::run("02b_decouverte")
+    BioDataScience:1:run("A02b_decouverte")
 
-([BioDataScience](https://github.com/BioDataScience-Course/BioDataScience) est un package R spécialement développé pour ce cours et que vous avez dû installer lors de la configuration de votre SciViews Box, voir Appendice \@ref(install-tuto)).
+([BioDataScience](https://github.com/BioDataScience-Course/BioDataScience1) est un package R spécialement développé pour ce cours et que vous avez dû installer lors de la configuration de votre SciViews Box, voir Appendice \@ref(install-tuto)).
 ```
 
 
@@ -109,7 +109,7 @@ Cette vidéo ne vous a montré que les principaux outils disponibles lors de la 
 ```{block2, type='bdd'}
 Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante suivie de la touche `Entrée` pour ouvrir le tutoriel concernant le nuage de points :
 
-    BioDataScience::run("02c_nuage_de_points")
+    BioDataScience1::run("A02c_nuage_de_points")
 
 N'oubliez pas d'appuyer sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel)
 ```
@@ -217,7 +217,7 @@ Prêtez une attention toute particulière à l'organisation d'un script R. En pl
 ```{block2, type='bdd'}
 Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante et puis appuyez sur la touche `Entrée` pour ouvrir le tutoriel de challenge concernant le nuage de points :
 
-    BioDataScience::run("02d_np_challenge")
+    BioDataScience1::run("A02d_np_challenge")
 
 N'oubliez pas de vous enregistrer (login GitHub et email UMONS) au début, et d'appuyer sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel.
 ```

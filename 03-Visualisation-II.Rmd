@@ -308,7 +308,7 @@ Reprenez vos différents projets et étudiez la distribution de variables numér
 
 Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console :
 
-    BioDataScience::run("03a_test")
+    BioDataScience1::run("A03a_test")
 
 ```
 

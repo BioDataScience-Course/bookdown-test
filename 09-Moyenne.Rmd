@@ -46,7 +46,7 @@ Le contrat que Gosset a signé avec son employeur l'empêchait de publier des r�
 ```{block, type='bdd'}
 Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("09a_ttest")
+    BioDataScience1::run("A09a_ttest")
 
 ```
 
@@ -580,7 +580,7 @@ Appliquez les test de student dans votre projet portant sur la biométrie humain
 ```{block, type='bdd'}
 Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("09b_ttest_wmw")
+    BioDataScience1::run("A09b_ttest_wmw")
 
 ```
 

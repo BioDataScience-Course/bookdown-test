@@ -245,7 +245,7 @@ La **statistique _F_~obs~ est le rapport des carrés moyens inter/intra.** Elle 
 ```{block, type='bdd'}
 Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("10a_anova")
+    BioDataScience1::run("A10a_anova")
 
 ```
 
@@ -530,7 +530,7 @@ Au final que conclure\ ? Lorsque l'ANOVA peut être utilisée, elle est à préf
 
 Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("10b_anova_kruskal")
+    BioDataScience:1:run("A10b_anova_kruskal")
 
 ```
 

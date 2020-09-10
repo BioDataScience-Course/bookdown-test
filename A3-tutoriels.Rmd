@@ -4,7 +4,7 @@ En complément de ce syllabus, vous allez utiliser également des tutoriels inte
 
 Entrez l'instruction ci-dessous dans la fenêtre **Console** de RStudio suivie de la touche `Entrée` :
 
-    BioDataScience::run()
+    BioDataScience1::run()
 
 La liste des tutoriels vous est proposée (notez que ces tutoriels comme les autres outils pédagogiques sont encore en cours de développement, mais plusieurs vous seront disponibles): 
 

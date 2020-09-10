@@ -78,7 +78,7 @@ La fonction `geom_bar()` se charge d'ajouter les barres verticales dans le graph
 
 ```{r}
 # Importation des données biometry
-(biometry <- read("biometry", package = "BioDataScience", lang = "FR"))
+(biometry <- read("biometry", package = "BioDataScience1", lang = "FR"))
 # Conversion de la variable year_measure de numérique à facteur
 biometry$year_measure <- as.factor(biometry$year_measure)
 label(biometry$year_measure) <- "Année de la mesure"
@@ -792,7 +792,7 @@ Terminez ce module en vérifiant que vous avez acquis l'ensemble des notions abo
 
 Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console :
 
-    BioDataScience::run("04a_test")
+    BioDataScience1::run("A04a_test")
 
 ```
 

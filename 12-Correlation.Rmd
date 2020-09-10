@@ -33,7 +33,7 @@ En lien avec ce module vous avez une série d'exercices à réaliser. Vous avez 
 
 Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("12a_correlation")
+    BioDataScience1::run("A12a_correlation")
 
 ```
 
@@ -345,7 +345,7 @@ Vous avez a présent toutes les connaissances théoriques afin de :
 
 Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
-    BioDataScience::run("12a_correlation")
+    BioDataScience1::run("A12a_correlation")
 
 ```
 
