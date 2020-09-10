@@ -140,7 +140,7 @@ combine_charts(list(a, b, c, d))
 
 Appliquez par vous même les modifications des échelles via l'application ci-dessous
 
-`r launch_shiny("https://sdd.umons.ac.be/A02_limits/", height = 600)`
+`r launch_shiny("https://sdd.umons.ac.be/A02a_limits/", height = 500, delay = 10)`
 
 
 ### Transformation des données
@@ -149,7 +149,7 @@ Vous avez la possibilité d'appliquer une transformation de vos données (il est
 
 Appliquez la meilleure transformation sur nos données de hauteurs et de masses d'oursins ci-dessous
 
-`r launch_shiny("https://sdd.umons.ac.be/A02_transformation/", height = 600)`
+`r launch_shiny("https://sdd.umons.ac.be/A02a_transformation/", height = 500, delay = 10)`
 
 <!-- Pour inclure des pages web ou des applis shiny, utiliser plutôt -->
 
