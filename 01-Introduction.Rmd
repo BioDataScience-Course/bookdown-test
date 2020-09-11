@@ -4,40 +4,42 @@
 
 ##### Objectifs {-}
 
-- Appréhender ce qu'est la science des données et les (bio)statistiques.
+- Se familiariser avec les outils de base (SciViews Box, RStudio, Markdown, Git, GitHub).
 
-- S'initier à des outils de base (SciViews Box, RStudio, Markdown, Git, GitHub).
+- Maîtriser la terminologie particulière liée à Git (un système de gestion de versions de vos documents que nous utiliserons intensivement ensuite).
+
+- Réaliser son premier document écrit en Markdown, un système de formattage de teste.
 
 
-## Le monde il y a 25 ans {#donnees}
+## Le monde il y a 30 ans {#donnees}
 
-Il y a 25 ans, pas d'internet, pas de smartphone. Essayez d'imaginer ce que serait votre vie aujourd'hui si ces outils qui font partie de votre quotidien n'existaient pas.
+Il y a 30 ans, pas d'internet (ou un embryon d'internet disponible uniquement pour quelques privilégiés dans les universités et l'armée américaine), pas de smartphone. Essayez d'imaginer ce que serait votre vie aujourd'hui si ces outils qui font partie de votre quotidien n'existaient pas.
 
 - Les révolutions industrielles:
-    * 1770 (1756) révolution 1: mécanisation
-    * 1870 révolution 2: maîtrise de l'énergie
-    * 1970 (1979) révolution 3: informatique
-    * 1990 révolution 4: internet (1990 Web, 1992 ISOC = Internet society, 1993 = premier navigateur web)
-    * 2000 révolution 5: numérique. GAFA = Google - Apple - Facebook - Amazon + Microsoft = GAFAM aux USA et BATX en Chine = Baidu - Alibaba - Tencent - Xiaomi. Aussi NATU = Netflix - Airbnb - Tesla - Uber.
-    * 2010 révolution 6: NBIC = nanotechnologies - biotechnologies - informatique - sciences cognitives.
+    * 1770 (1756) révolution 1\ : mécanisation
+    * 1870 révolution 2\ : maîtrise de l'énergie
+    * 1970 (1979) révolution 3\ : informatique
+    * 1990 révolution 4\ : internet (1990 Web, 1992 ISOC = Internet society, 1993 = premier navigateur web)
+    * 2000 révolution 5\ : numérique. GAFA = Google - Apple - Facebook - Amazon + Microsoft = GAFAM aux USA et BATX en Chine = Baidu - Alibaba - Tencent - Xiaomi. Aussi NATU = Netflix - Airbnb - Tesla - Uber.
+    * 2010 révolution 6\ : NBIC = nanotechnologies - biotechnologies - informatique - sciences cognitives.
     * 2020 = date prévue pour que l'ordinateur ait la même puissance de traitement de l'information que le cerveau humain
-    * 2030 = trans-humanisme: ordinateur plus puissant que l'homme et le remplacera probablement dans de nombreuses tâches.
+    * 2030 = trans-humanisme\ : ordinateur plus puissant que l'homme et le remplacera probablement dans de nombreuses tâches.
 
-- Valeur estimée des données et informations mises à disposition par les utilisateurs du net: 1000 milliards de dollar par an (écrivez ce nombre en chiffres pour vous donner une meilleure idée de ce que cela représente) !
+- Valeur estimée des données et informations mises à disposition par les utilisateurs du net: 1000 milliards de dollar par an (écrivez ce nombre en chiffres pour vous donner une meilleure idée de ce que cela représente)\ !
 
-- En 2020, quantité d'information ajoutée sur le net: 1000 milliards de milliards par semaine (écrivez ce nombre en chiffres également).
+- En 2020, quantité d'information ajoutée sur le net\ : 1000 milliards de milliards par semaine (écrivez ce nombre en chiffres également).
 
-- Comparaison de puissance de traitement du cerveau humain _versus_ un ordinateur: 89 milliards de neurones, mais travail en multitâche alors qu'un processeur est monotâche => difficile à comparer. Une étude a montré en 2017 que l'un des 5 ordinateurs les plus puissants a été capable de simuler le fonctionnement d'environ 1% du cerveau humain en 1 sec. Il lui a fallu 40 min de calcul pour y arriver. Intel estime que l'évolution permettra d'égaler le cerveau humain en terme de vitesse de traitement vers 2020.
+- Comparaison de puissance de traitement du cerveau humain _versus_ un ordinateur\ : 89 milliards de neurones et travail en multitâche d'un côté, contre 2 milliards de transistors pour un travail essentiellement monotâche pour le petit carré de silicium. Il faut bien avouer que c'est difficile à comparer (combien de transistors équivalent à un neurone\ ?). Une étude a montré en 2017 que l'un des cinq ordinateurs les plus puissants du moment a été capable de simuler le fonctionnement d'environ 1% du cerveau humain en une seconde. Il lui a fallu 40 minutes de calcul pour y arriver. Intel (l'un des principaux constructeurs de processeurs) estimait il y a à peine quelques années que l'évolution permettra d'égaler le cerveau humain en terme de vitesse de traitement vers 2020... On y est, l'intelligence artificielle est partout autour de nous, mais ne nous remplace pas encore (heureusement\ !)
 
-- Consommation électrique du supercalculateur: se mesure en mégawatts, alors que le cerveau humain consomme 12-13W seulement!
+- Consommation électrique d'un supercalculateur\ : se mesure en mégawatts, alors que le cerveau humain consomme 12-13W seulement\ !
 
 - "Le **transhumanisme** est une approche interdisciplinaire qui nous amène à comprendre et à évaluer les avenues qui nous permettrons de surmonter nos limites biologiques par les progrès technologiques. Les trans-humanistes cherchent à développer les possibilités techniques afin que les gens vivent plus longtemps et ..."
 
-Vous pouvez maintenant avoir un aperçu de l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Pour ce cours de sciences des données,  plusieurs outils puissants sont mis à votre disposition (Vous trouverez sur l'hyperlien suivant, un poster présentant la philosophie du cours <https://github.com/BioDataScience-Course/RencontresRRennes2018>)
-
+Ce petit rappel historique et ces quelques informations concernant les données vous donne d'une part un aperçu de la vitesse à laquelle notre monde change, et d'autre part ils vous montrent que le monde dans lequel nous vivons est de plus en plus inondé d'information. Vous pouvez maintenant imaginer l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Pour ce cours de sciences des données,  plusieurs outils puissants sont mis à votre disposition (Vous trouverez sur l'hyperlien suivant, un poster présentant la philosophie du cours <https://github.com/BioDataScience-Course/RencontresRRennes2018>)
 
 ## Découverte des outils
-La science des données est complexe et requiert d'employer des outils performants que nous avons sélectionnés pour vous.
+
+La science des données est complexe et requiert d'employer des outils performants que nous avons sélectionnés parce que nous faisons le pari que ce seront les outils qui vous seront les plus utiles... dans les 30 prochaines années, c'est-à-dire pendant une bonne partie de votre carrière (mais nous sommes conscients que c'est un pari risqué\ !).
 
 
 ### Machine virtuelle
@@ -50,12 +52,11 @@ knitr::include_graphics('images/sdd1_01/svBox-256.png')
 
 Des explications détaillées se trouvent dans l'annexe \@ref(svbox) dédiée à l'installation, la configuration et l'utilisation de la SciViews Box.
 
-
 `r h5p(18, height = 270)`
 
 ### RStudio
 
-RStudio est l'outil au sein de la SciViews Box que vous allez utiliser le plus fréquemment durant ce cours. 
+RStudio est l'outil au sein de la SciViews Box que vous allez utiliser le plus fréquemment durant ce cours.
 
 ![](images/sdd1_01/rstudio.gif)
 
@@ -105,9 +106,9 @@ Après avoir rédigé votre document, vous devez cliquer sur le bouton `Preview`
 - [Écrire tout simplement – Introduction à Markdown](http://www.boiteaoutils.info/2013/02/ecrire-tout-simplement-introduction/). Pourquoi utiliser Markdown ?
 
 
-### Gestionnaire de version 
+### Gestionnaire de version Git
 
-Lors de la rédaction de travaux un petit peu conséquents, comme un travail de fin d'étude, une publication scientifique ou un rapport volumineux, on se retrouve rapidement avec plusieurs fichiers correspondant à des états d'avancements du travail : 
+Lors de la rédaction de travaux un petit peu conséquents, comme un travail de fin d'étude, une publication scientifique ou un rapport volumineux, on se retrouve rapidement avec plusieurs fichiers correspondant à des états d'avancements du travail\ : 
 
 - TFE_final
 - TFE_final1
@@ -131,9 +132,9 @@ Lors de différents essais, on aura tendance à tout garder dans différents fic
 - TFE_final...
 - TFE_final99
 
-Dans quel fichier se trouve la dernière version de chaque personne ayant collaboré sur le projet ? Un petit peu dans différents fichiers, sans doute. 
+Dans quel fichier se trouve la dernière version de chaque personne ayant collaboré sur le projet\ ? Un petit peu dans différents fichiers, sans doute. 
 
-Différents outils informatiques existent pour faciliter le travail collaboratif comme :
+Différents outils informatiques existent pour faciliter le travail collaboratif comme\ :
 
 - Le partage de fichiers en ligne ([Dropbox](https://www.dropbox.com/business/landing-t68fl?_tk=sem_b_goog&_camp=sem-b-goog-emea-be-fre-exact-restructure&_kw=dropbox|e&_ad=244691468861|1t1|c&gclid=CjwKCAjwzenbBRB3EiwAItS-u3vb9iSK6F4MFnw3oWaEq0gwxQk74_ekOASIah0P-9u_pYFis8hxFxoCdOIQAvD_BwE), [Google Drive](https://www.google.com/drive/), [One Drive](https://onedrive.live.com/about/fr-be/)). Ces espaces de stockage sur le "cloud" ne règlent toujours pas le problème de collaboration sur le même fichier.
 
@@ -150,7 +151,6 @@ La gestion de versions est gérée par **Git**. Cet outil remplacera les nombreu
 
 Comme vous pouvez le voir ci-dessus, on peut suivre la progression de notre projet via un nombre d'étapes successives représentées sur le schéma par des boules bleues. Chaque étape capture l'état de notre projet au moment où nous avons décidé de l'enregistrer. Pour enregistrer une nouvelle version de votre projet, vous réalisez un **commit** qui sera accompagné d'un message spécifiant les modifications apportées. Git comprend de nombreux outils très intéressant pour la gestion de versions que vous utiliserez par la suite.
 
-
 #### GitHub
 
 Un réseau social a été conçu autour de Git pour sauvegarder vos projets sur le "cloud", les partager et collaborer avec d'autres personnes. Ce système se nomme [GitHub](https://github.com) (tout comme Facebook ou LinkedIn). GitHub rassemble donc "Git", la gestion de version et "Hub" relatif au réseau. D'autres réseaux équivalents existent comme [Gitlab](https://about.gitlab.com) ou [Bitbucket](https://bitbucket.org), mais dans ce cours, nous utiliserons GitHub ensemble, sachant que les notions apprises ici seront réutilisables ailleurs.
@@ -163,11 +163,17 @@ Lorsque l'on travaille seul tout en utilisant GitHub, l'évolution de notre proj
 
 On réalise un envoi (**push**) lorsque l'on souhaite synchroniser nos changements locaux avec la version sur le "cloud". Plusieurs **commit**s peuvent être envoyés avec un seul **push** sur le réseau, et c'est d'ailleurs généralement comme cela que l'on procède. L'inverse (rapatrier localement les changements que d'autres collaborateurs ont envoyés sur la version réseau de notre projet) s'appelle faire un "**pull**".
 
+*L'image suivante est interactive. Il vous est maintenant demandé de cliquer dessus pour indiquer quelles flèches représentent une action particulière dans le schéma présenté.*
+
 `r h5p(15, height = 270)`
 
-L'avantage principal de **GitHub** ne réside pas vraiment dans la possibilité de réaliser une sauvegarde en ligne mais plutôt dans la possibilité de collaborer avec d'autres personnes présentes sur ce réseau comme l'illustre la figure ci-dessous. Deux scientifiques (les versions représentées par des boules bleues et des boules vertes) collaborent sur un même projet que l'on appelle un **dépôt** (**repository** en anglais) lorsqu'il est en ligne. Le premier chercheur (boules bleues) va initier le dépôt et réaliser un "push"" pour rendre son travail accessible sur le réseau (boules oranges). Son collaborateur (boules vertes) va **clôner** (**clone** en anglais) le dépôt sur son ordinateur afin d'y travailler également en local sur son PC. Après avoir fait des changements, il réalise également un **push** sur le réseau. Le premier scientifique, avant de travailler à nouveau sur le projet, va donc réaliser un **pull** afin d'obtenir en local l'ensemble des modifications fournies par son ou ses collaborateurs, et ensuite après modifications en local il effectuera à nouveau un "push". 
+L'avantage principal de **GitHub** ne réside pas vraiment dans la possibilité de réaliser une sauvegarde en ligne mais plutôt dans la possibilité de collaborer avec d'autres personnes présentes sur ce réseau comme l'illustre la figure ci-dessous. Deux scientifiques (les versions représentées par des boules bleues et des boules vertes) collaborent sur un même projet que l'on appelle un **dépôt** (**repository** en anglais) lorsqu'il est en ligne. Le premier chercheur (boules bleues) va initier le dépôt et réaliser un "push"" pour rendre son travail accessible sur le réseau (boules oranges). Son collaborateur (boules vertes) va **clôner** (**clone** en anglais) le dépôt sur son ordinateur afin d'y travailler également en local sur son PC. Après avoir fait des changements, il réalise également un **push** sur le réseau. Le premier scientifique, avant de travailler à nouveau sur le projet, va donc réaliser un **pull** afin d'obtenir en local l'ensemble des modifications fournies par son ou ses collaborateurs, et ensuite après modifications en local il effectuera à nouveau un "push".
+
+*Pour être certain que vous ayez bien compris, encore une image interactive à cliquer...*
 
 `r h5p(14, height = 270)`
+
+```{block2, type='note'}
 
 Vous venez d'apprendre le B-A-BA de la terminologie nécessaire à la bonne compréhension de Git et GitHub\ :
 
@@ -181,8 +187,9 @@ Vous venez d'apprendre le B-A-BA de la terminologie nécessaire à la bonne comp
 
 - **pull**\ : rapatrier les modifications que les autres utilisateurs ont appliquées dans le dépôt GitHub vers sa propre version locale.
 
-Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails dans les liens ci-dessous et dans les Appendices. Il est, par exemple, possible de travailler sur une version en parallèle d'un dépôt original pour lequel on n'a pas de droits en écriture. Dans ce cas, il faudra faire une copie dans notre propre compte GitHub du dépôt. Cela s'appelle faire un **fork**. Il n'est pas possible de faire un **push** vers le dépôt d'origine puisqu'on n'a pas les droits en écriture. Dans ce cas, on fera un **pull request**, suggérant ainsi à l'auteur d'origine que nous avons fait des modifications qui pourraient l'intéresser. Si c'est effectivement le cas, il pourra accepter notre "pull request" et intégrer nos suggestions dans le dépôt d'origine. Vous serez amenés à "forker" des dépôts GitHub pour vos exercices, et vous effectuerez également un "pull request" lorsque vous serez suffisamment aguerris avec les autres techniques de gestion de vos projets sous Git et GitHub.
+```
 
+Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails dans les liens ci-dessous et dans les Appendices. Il est, par exemple, possible de travailler sur une version en parallèle d'un dépôt original pour lequel on n'a pas de droits en écriture. Dans ce cas, il faudra faire une copie dans notre propre compte GitHub du dépôt. Cela s'appelle faire un **fork**. Il n'est pas possible de faire un **push** vers le dépôt d'origine puisqu'on n'a pas les droits en écriture. Dans ce cas, on fera un **pull request**, suggérant ainsi à l'auteur d'origine que nous avons fait des modifications qui pourraient l'intéresser. Si c'est effectivement le cas, il pourra accepter notre "pull request" et intégrer nos suggestions dans le dépôt d'origine. Vous serez amenés à "forker" des dépôts GitHub pour vos exercices, et vous effectuerez également un "pull request" lorsque vous serez suffisamment aguerris avec les autres techniques de gestion de vos projets sous Git et GitHub.
 
 ##### Pour en savoir plus {-}
 
@@ -212,7 +219,6 @@ Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails d
 
 Avant de poursuivre, Répondez aux questions ci-dessous 
 
-
 `r h5p(13, height = 270)`
 
 ## Premier document en Markdown {#premier-markdown}
@@ -223,37 +229,47 @@ L'accès a cette tâche, qui est un travail **individuel**, se fait en utilisant
 
 Lorsque votre assignation est réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé avec la SciViews Box `shared`. Vous aurez alors un nouveau projet RStudio \@ref(rs-projet)
 
-
 ##### A vous de jouer {-}
 
 ```{block, type = 'bdd'}
-Maintenant que vous avez appréhendé les différents outils, lancez vous dans la création de votre premier document rédigé en markdown via l’adresse suivante : 
+Maintenant que vous avez appréhendé les différents outils, lancez vous dans la création de votre [premier document rédigé en Markdown]{#sdd1_module01} via l’adresse suivante\ : 
 
-Les explications relatives à la tâche qui vous est assignée sont dans le fichier `README.md`du dépôt accessible ci-dessous : 
-
-----
+Les explications relatives à la tâche qui vous est assignée sont dans le fichier `README.md`du dépôt accessible ci-dessous\ : 
 
 ::: {.S-BIOG-006}
 
-> Cours de Sciences des données I à Mons : <https://classroom.github.com/a/hjIYR1-M>
+> **Cours de Sciences des données I à Mons\ :** <https://classroom.github.com/a/hjIYR1-M>
 :::
 
 ::: {.S-BIOG-921}
 
-> Cours de Bioinformatique et Sciences des données à Charleroi : TADA
+> **Cours de Bioinformatique et Sciences des données à Charleroi\ :** TADA
 :::
 
+> **Si vous ne suivez aucun cours à l'UMONS**, veuillez faire un "fork" du dépôt [sdd1_module01](https://github.com/BioDataScience-Course/sdd1_module01). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la "release" correspondante à l'année que vous recherchez à la droite de la page.
+```
 
-::: {.nocourse}
+Si vous souhaitez plus d'information sur Github Classroom, vous pouvez vous référer à l'Appendice \@ref(github-classroom).
 
-> Veuillez faire un "fork" du dépôt [sdd1_module01](https://github.com/BioDataScience-Course/sdd1_module01). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la release correspondante à l'année que vous recherchez.  
+## Récapitulatif des exercices
 
-:::
+```{block2, type='bdd'}
+Afin de terminer ce module en beauté, il est temps d'auto-évaluer votre apprentissage via un **tutoriel** dans RStudio. Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante et puis appuyez sur la touche `Entrée` pour ouvrir le tutoriel [d'auto-évaluation sur les outils et sur Git]{#A01a_git}\ :
 
-----
+    BioDataScience1::run("A01a_git")
 
+N'oubliez pas de vous enregistrer (login GitHub et email UMONS) au début, et d'appuyer sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel.
 ```
 
 
-Si vous n'êtes pas famillarisé avec Github Classroom, vous pouvez vous référer à l'Appendice \@ref(github-classroom).
 
+Dans ce module 1 consacré aux outils informatiques que nous utiliserons dans la suite du cours, vous aviez à réaliser les exercices suivants\ :
+
+- [Découverte de la SciViews Box](#h5p_18)
+- [L'environnement de RStudio](#h5p_16)
+- [Premiers exercices relatifs à Markdown](#h5p_17)
+- [GitHub\ : repérer les pushs](#h5p_15)
+- [GitHub\ : repérer les pulls](#h5p_14)
+- [Questions récapitulatives sur les outils](#h5p_13)
+- [Assignation\ : réalisation d'un premier document en Markdown](#sdd1_module01)
+- [Tutoriel\ : auto-évaluation sur les outils](#A01a_git) (juste ci-dessus)
