@@ -80,6 +80,20 @@ pre code {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+.tuto {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 5px;
+  background:  #f5f5f5 url("images/block-tuto.png") left center/3em no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.assign {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 5px;
+  background:  #f5f5f5 url("images/block-assign.png") left center/3em no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
 .sv {
   padding: 1em 1em 1em 4em;
   margin-bottom: 5px;

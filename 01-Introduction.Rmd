@@ -8,7 +8,7 @@
 
 - Maîtriser la terminologie particulière liée à Git (un système de gestion de versions de vos documents que nous utiliserons intensivement ensuite).
 
-- Réaliser son premier document écrit en Markdown, un système de formattage de teste.
+- Réaliser son premier document écrit en Markdown, un système de formatage de texte.
 
 
 ## Le monde il y a 30 ans {#donnees}
@@ -52,7 +52,7 @@ knitr::include_graphics('images/sdd1_01/svBox-256.png')
 
 Des explications détaillées se trouvent dans l'annexe \@ref(svbox) dédiée à l'installation, la configuration et l'utilisation de la SciViews Box.
 
-`r h5p(18, height = 270)`
+`r h5p(18, height = 270, toc = "Découverte de la SciViews Box")`
 
 ### RStudio
 
@@ -62,7 +62,7 @@ RStudio est l'outil au sein de la SciViews Box que vous allez utiliser le plus f
 
 Il fournit un environnement complet et optimisé pour réaliser vos analyses, vos graphiques et vos rapports. RStudio travaille main dans la main avec le logiciel R qui effectue l'ensemble des traitements.
 
-`r h5p(16, height = 270)`
+`r h5p(16, height = 270, toc = "L'environnement de RStudio")`
 
 Des explications détaillées se trouvent dans l'annexe \@ref(rs) qui présente les bases de l'utilisation de RStudio. Vous avez également à votre disposition un aide-mémoire afin d'appréhender cette interface [RStudio IDE Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf). 
 
@@ -88,7 +88,7 @@ Vous avez à votre disposition deux aide-mémoires pour apprendre **Markdown** :
 
 Après avoir rédigé votre document, vous devez cliquer sur le bouton `Preview` ou `Knit` (selon le type de document édité) dans la barre d'outils de la zone d'édition pour obtenir la version finale formatée.
 
-`r h5p(17, height = 270)`
+`r h5p(17, height = 270, toc = "Premiers exercices relatifs à Markdown")`
 
 ##### Pour en savoir plus {-}
 
@@ -109,7 +109,6 @@ Après avoir rédigé votre document, vous devez cliquer sur le bouton `Preview`
 ### Gestionnaire de version Git
 
 Lors de la rédaction de travaux un petit peu conséquents, comme un travail de fin d'étude, une publication scientifique ou un rapport volumineux, on se retrouve rapidement avec plusieurs fichiers correspondant à des états d'avancements du travail\ : 
-
 - TFE_final
 - TFE_final1
 - TFE_final2
@@ -156,7 +155,6 @@ Comme vous pouvez le voir ci-dessus, on peut suivre la progression de notre proj
 Un réseau social a été conçu autour de Git pour sauvegarder vos projets sur le "cloud", les partager et collaborer avec d'autres personnes. Ce système se nomme [GitHub](https://github.com) (tout comme Facebook ou LinkedIn). GitHub rassemble donc "Git", la gestion de version et "Hub" relatif au réseau. D'autres réseaux équivalents existent comme [Gitlab](https://about.gitlab.com) ou [Bitbucket](https://bitbucket.org), mais dans ce cours, nous utiliserons GitHub ensemble, sachant que les notions apprises ici seront réutilisables ailleurs.
 
 Une description plus détaillée de GitHub est présente dans l'annexe \@ref(github-annexe) 
-
 Lorsque l'on travaille seul tout en utilisant GitHub, l'évolution de notre projet ressemblera à l'arbre ci-dessous : 
 
 ![Représentation des versions successives d'un projet avec GitHub.](images/sdd1_01/github.png)
@@ -165,13 +163,13 @@ On réalise un envoi (**push**) lorsque l'on souhaite synchroniser nos changemen
 
 *L'image suivante est interactive. Il vous est maintenant demandé de cliquer dessus pour indiquer quelles flèches représentent une action particulière dans le schéma présenté.*
 
-`r h5p(15, height = 270)`
+`r h5p(15, height = 270, toc = "GitHub : repérer les pushs")`
 
 L'avantage principal de **GitHub** ne réside pas vraiment dans la possibilité de réaliser une sauvegarde en ligne mais plutôt dans la possibilité de collaborer avec d'autres personnes présentes sur ce réseau comme l'illustre la figure ci-dessous. Deux scientifiques (les versions représentées par des boules bleues et des boules vertes) collaborent sur un même projet que l'on appelle un **dépôt** (**repository** en anglais) lorsqu'il est en ligne. Le premier chercheur (boules bleues) va initier le dépôt et réaliser un "push"" pour rendre son travail accessible sur le réseau (boules oranges). Son collaborateur (boules vertes) va **clôner** (**clone** en anglais) le dépôt sur son ordinateur afin d'y travailler également en local sur son PC. Après avoir fait des changements, il réalise également un **push** sur le réseau. Le premier scientifique, avant de travailler à nouveau sur le projet, va donc réaliser un **pull** afin d'obtenir en local l'ensemble des modifications fournies par son ou ses collaborateurs, et ensuite après modifications en local il effectuera à nouveau un "push".
 
 *Pour être certain que vous ayez bien compris, encore une image interactive à cliquer...*
 
-`r h5p(14, height = 270)`
+`r h5p(14, height = 270, toc = "GitHub : repérer les pulls")`
 
 ```{block2, type='note'}
 
@@ -213,13 +211,12 @@ Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails d
 #### GitHub Classroom {#classroom}
 
 **GitHub Classroom** est une extension de GitHub qui facilite le travail avec GitHub dans le contexte d'exercices à réaliser dans le cadre d'un cours. Vous serez amené à cloner et modifier des dépôts issus de GitHub Classroom pour réaliser vos exercices. **Ces dépôts seront privés**. Cela signifie que, seuls vous-mêmes et vos enseignants auront accès à ces dépôts. A la fin de la formation, tous ces dépôts seront détruits. **Donc, si vous voulez les conserver, il faudra les "forker" sur votre propre compte.** Rassurez-vous : nous vous préviendrons avant de faire le ménage ! 
-
 *Maintenant que vous comprenez mieux avec quels outils informatiques nous allons travaillez, vous pouvez passer à votre premier exercice pour découvrir la SciViews Box, RStudio, Markdown, Git et GitHub : vous allez réaliser un site web professionnel en ligne...*
 
 
 Avant de poursuivre, Répondez aux questions ci-dessous 
 
-`r h5p(13, height = 270)`
+`r h5p(13, height = 270, toc = "Questions récapitulatives sur les outils")`
 
 ## Premier document en Markdown {#premier-markdown}
 
@@ -231,45 +228,25 @@ Lorsque votre assignation est réalisée, faites un clone local de votre dépôt
 
 ##### A vous de jouer {-}
 
-```{block, type = 'bdd'}
-Maintenant que vous avez appréhendé les différents outils, lancez vous dans la création de votre [premier document rédigé en Markdown]{#sdd1_module01} via l’adresse suivante\ : 
+Maintenant que vous avez appréhendé les différents outils, lancez vous dans la création de votre premier document rédigé en Markdown.
 
-Les explications relatives à la tâche qui vous est assignée sont dans le fichier `README.md`du dépôt accessible ci-dessous\ : 
-
-::: {.S-BIOG-006}
-
-> **Cours de Sciences des données I à Mons\ :** <https://classroom.github.com/a/hjIYR1-M>
-:::
-
-::: {.S-BIOG-921}
-
-> **Cours de Bioinformatique et Sciences des données à Charleroi\ :** TADA
-:::
-
-> **Si vous ne suivez aucun cours à l'UMONS**, veuillez faire un "fork" du dépôt [sdd1_module01](https://github.com/BioDataScience-Course/sdd1_module01). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la "release" correspondante à l'année que vous recherchez à la droite de la page.
+```{r, echo=FALSE, results='asis'}
+assignation("A01a_markdown", part = NULL,
+  url = "https://github.com/BioDataScience-Course/sdd1_module01",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/a/hjIYR1-M",
+    'S-BIOG-921' = "https://classroom.github.com/a/..."),
+  toc = "Assignation : réalisation d'un premier document en Markdown")
 ```
 
 Si vous souhaitez plus d'information sur Github Classroom, vous pouvez vous référer à l'Appendice \@ref(github-classroom).
 
+Afin de terminer ce module en beauté, il est temps d'auto-évaluer votre apprentissage via un **tutoriel** dans RStudio.
+
+`r learnr("A01a_outils", title = "Les différents outils", toc = "Tutoriel : auto-évaluation sur les outils")`
+
 ## Récapitulatif des exercices
-
-```{block2, type='bdd'}
-Afin de terminer ce module en beauté, il est temps d'auto-évaluer votre apprentissage via un **tutoriel** dans RStudio. Dans la fenêtre **Console** de RStudio, entrez l'instruction suivante et puis appuyez sur la touche `Entrée` pour ouvrir le tutoriel [d'auto-évaluation sur les outils et sur Git]{#A01a_git}\ :
-
-    BioDataScience1::run("A01a_git")
-
-N'oubliez pas de vous enregistrer (login GitHub et email UMONS) au début, et d'appuyer sur la touche `ESC` pour reprendre la main dans R à la fin d'un tutoriel.
-```
-
-
 
 Dans ce module 1 consacré aux outils informatiques que nous utiliserons dans la suite du cours, vous aviez à réaliser les exercices suivants\ :
 
-- [Découverte de la SciViews Box](#h5p_18)
-- [L'environnement de RStudio](#h5p_16)
-- [Premiers exercices relatifs à Markdown](#h5p_17)
-- [GitHub\ : repérer les pushs](#h5p_15)
-- [GitHub\ : repérer les pulls](#h5p_14)
-- [Questions récapitulatives sur les outils](#h5p_13)
-- [Assignation\ : réalisation d'un premier document en Markdown](#sdd1_module01)
-- [Tutoriel\ : auto-évaluation sur les outils](#A01a_git) (juste ci-dessus)
+`r show_ex_toc()`
