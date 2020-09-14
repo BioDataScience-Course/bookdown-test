@@ -190,7 +190,7 @@ Prêtez une attention toute particulière à l'organisation d'un script R. En pl
 
 ##### Testez vos acquis {-}
 
-`r learnr("A02d_np_challenge", title = "Challenge nuage de points", toc = "Atuo-évaluation des acquis concernant les nuages de points")`
+`r learnr("A02d_np_challenge", title = "Challenge nuage de points", toc = "Auto-évaluation des acquis concernant les nuages de points")`
 
 ## Graphiques dans R Markdown
 
