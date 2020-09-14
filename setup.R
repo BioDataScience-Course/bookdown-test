@@ -28,7 +28,7 @@ learndown <- list(
 #assignation("A01a_markdown", part = NULL,
 #  url = "https://github.com/BioDataScience-Course/sdd1_module01",
 #  course.urls = c(
-#    'S-BIOG-006' = "https://classroom.github.com/a/hjIYR1-M",
+#    'S-BIOG-006' = "https://classroom.github.com/a/...",
 #    'S-BIOG-921' = "https://classroom.github.com/a/..."),
 #  toc = "Assignation : réalisation d'un premier document en Markdown")
 #```
@@ -47,8 +47,7 @@ launch_shiny <- function(url, toc = "", fun = paste(learndown$package, "runApp",
   #ENalt1 = "*Click to start the Shiny application*",
   alt1 = "*Cliquez pour lancer l'application Shiny.*",
   #ENalt2 = "*Click to start or [run `{run.cmd}`]({run.url}{run.arg}) in RStudio.*",
-  alt2 = paste0(
-    "*Cliquez pour lancer ou [exécutez dans RStudio]({run.url}{run.arg}) `{run.cmd}`.*"), ...)
+  alt2 = "*Cliquez pour lancer ou [exécutez dans RStudio]({run.url}{run.arg}) `{run.cmd}`.*", ...)
   learndown::launch_shiny(url = url, toc = toc, imgdir = learndown$shiny_imgdir,
     fun = fun, alt1 = alt1, alt2 = alt2, toc.def = "Application Shiny {app}",
     run.url = paste(learndown$baseurl, "/", learndown$rstudio,  "?runrcode=", sep = ""),
@@ -67,7 +66,7 @@ text = "Effectuez maintenant les exercices du tutoriel")
     tuto.img = "images/list-tuto.png",
     tuto.link = paste(learndown$baseurl, "tutorial", sep = "/"))
 
-# Note: use course.urls = c(`S-BIOG-006` = "classroom url1", `S-BIOG-921` = "classroom url2"), ansd url = link to Github template repository for the assignation
+# Note: use course.urls = c(`S-BIOG-006` = "classroom url1", `S-BIOG-921` = "classroom url2"), and url = link to Github template repository for the assignation
 assignation <- function(name, url, course.urls = NULL, part = NULL, toc = "",
 texts = learndown::assignation_fr(course = "Assignation GitHub Classroom pour les \u00e9tudiants inscrits au cours de"))
   learndown::assignation(name = name, url = url, course.urls = course.urls,
