@@ -43,7 +43,7 @@ h5p <- function(id, toc = "", ...)
     h5p.img = "images/list-h5p.png",
     h5p.link = paste(learndown$baseurl, "h5p", sep = "/"), ...)
 
-launch_shiny <- function(url, toc = "", fun = paste(learndown$package, "runApp", sep = "::"),
+launch_shiny <- function(url, toc = "", fun = paste(learndown$package, "run_app", sep = "::"),
   #ENalt1 = "*Click to start the Shiny application*",
   alt1 = "*Cliquez pour lancer l'application Shiny.*",
   #ENalt2 = "*Click to start or [run `{run.cmd}`]({run.url}{run.arg}) in RStudio.*",
