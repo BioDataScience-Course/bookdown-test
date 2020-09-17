@@ -235,7 +235,7 @@ assignation("A01a_markdown", part = NULL,
   url = "https://github.com/BioDataScience-Course/sdd1_module01",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/a/hjIYR1-M",
-    'S-BIOG-921' = "https://classroom.github.com/a/..."),
+    'S-BIOG-921' = "https://classroom.github.com/a/ZhcUC_4v"),
   toc = "Assignation : réalisation d'un premier document en Markdown")
 ```
 
