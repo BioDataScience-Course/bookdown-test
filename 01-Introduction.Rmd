@@ -231,10 +231,11 @@ Lorsque votre assignation est réalisée, faites un clone local de votre dépôt
 Maintenant que vous avez appréhendé les différents outils, lancez vous dans la création de votre premier document rédigé en Markdown.
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A01a_markdown", part = NULL,
-  url = "https://github.com/BioDataScience-Course/sdd1_module01",
+assignation("A01Ga_markdown", part = NULL,
+  url = "https://github.com/BioDataScience-Course/A01Ga_markdown
+",
   course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/hjIYR1-M",
+    'S-BIOG-006' = "https://classroom.github.com/a/yMmiKjwp",
     'S-BIOG-921' = "https://classroom.github.com/a/ZhcUC_4v"),
   toc = "Assignation : réalisation d'un premier document en Markdown")
 ```
