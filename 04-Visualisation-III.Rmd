@@ -78,7 +78,7 @@ La fonction `geom_bar()` se charge d'ajouter les barres verticales dans le graph
 
 ```{r}
 # Importation des données biometry
-(biometry <- read("biometry", package = "BioDataScience1", lang = "FR"))
+(biometry <- read("biometry", package = "BioDataScience", lang = "FR"))
 # Conversion de la variable year_measure de numérique à facteur
 biometry$year_measure <- as.factor(biometry$year_measure)
 label(biometry$year_measure) <- "Année de la mesure"

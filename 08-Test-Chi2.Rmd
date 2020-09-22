@@ -581,7 +581,7 @@ Rappelons nous que nous avons déjà utilisé une métrique avec l'imc et les di
 Prenons le jeu de données `biometry` du package `BioDataScience1`  comme exemple.
 
 ```{r}
-biometry <- read("biometry", package = "BioDataScience1", lang = "FR") %>.%
+biometry <- read("biometry", package = "BioDataScience", lang = "FR") %>.%
   select(., height, weight)
 
 biometry

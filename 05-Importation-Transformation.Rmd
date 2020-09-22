@@ -41,7 +41,7 @@ small_dataset
 Dans la plupart des cas, vous utiliserez ou collecterez des données stockées dans des formats divers : feuilles Excel, fichiers CSV ("comma-separated-values", un format standard d'encodage d'un tableau de données sous forme textuelle), formats spécifiques à divers logiciels statistiques comme SAS, Stata ou Systat, ... Ces données peuvent être sur un disque local ou disponibles depuis un lien URL sur le net^[R permet également d'interroger des bases de données spécialisées, mais nous n'aborderons ce sujet spécifique qu'au cours de Science des Données Biologique 5 en Master 2.]. De nombreuses fonctions existent dans R pour importer toutes ces données. La fonction `read()` du package `data.io` est l'une des plus simples et conviviales d'entre-elles. Vous l'avez déjà utilisée, mais reprenons un exemple pour en discuter les détails.
 
 ```{r}
-(biometry <- read("biometry", package = "BioDataScience1", lang = "fr"))
+(biometry <- read("biometry", package = "BioDataScience", lang = "fr"))
 ```
 
 Le jeu de données `biometry` est disponible dans le package R **BioDataScience1**. Dans ce cas, il ne faut pas spécifier de chemin d'accès au fichier : R sait où le trouver tout seul. Il est également spécifié ici que la langue souhaitée est le français avec l'argument `lang = "fr"`. Le résultat de l'importation est assigné à la variable `biometry`(mais elle pourrait tout aussi bien porter un autre nom). Pour finir, le tout est entouré, de manière optionnelle, de parenthèses afin de forcer l'impression du résultat.
@@ -248,7 +248,7 @@ Le code a dû être modifier dans l'instruction `filter()` lors du passage à `u
 Lors de la réalisation de graphiques dans les modules précédents vous avez compris que toutes les variables ne sont pas équivalentes. Certains graphiques sont plutôt destinés à des variables **qualitatives** (par exemple, graphique en barres), alors que d'autres représentent des données **quantitatives** comme le nuage de points.
 
 ```{r}
-(biometry <- read("biometry", package = "BioDataScience1", lang = "fr"))
+(biometry <- read("biometry", package = "BioDataScience", lang = "fr"))
 ```
 
 La Figure \@ref(fig:two-boxplots) montre deux boites de dispersion parallèles différentes. Laquelle de ces deux représentations est incorrecte et pourquoi ? 
@@ -354,7 +354,7 @@ Les fonctions `as.factor()` ou `factor()` et `as.ordered()` ou `ordered()` effec
 La conversion d'une variable quantitative à qualitative doit souvent passer par une réduction des niveaux en rassemblant les valeurs proches dans des **classes**. Vous avez déjà utilisé de manière implicite le découpage en classes lorsque vous avez réalisé des histogrammes. Si les histogrammes sont bi- ou multimodaux, un découpage se justifie. Par exemple, le jeu de données portant sur la biométrie humaine est typique d'un cas de distribution bimodale. En fait, ce sont des étudiants (ayant tous une vingtaine d'années) qui ont réalisé ces mesures. La plupart ont choisi de s'inclure dans l'échantillon, d'où un premier mode vers une vingtaine d'années. Ensuite, ils ont pu mesurer d'autres personnes, éventuellement dans leur entourage. Beaucoup ont demandé à leurs parents, ce qui résulte en un second mode vers la cinquantaine^[Notez que ceci ne constitue **pas** un échantillonnage correct par rapport à la population générale du Hainaut pour plusieurs raisons. (1) toutes les tranches d'âges ne sont échantillonnées de manière équivalente pour les raisons évoquées, (2) des liens génétiques existent au sein des familles, ce qui résulte en une **non indépendance** des observations entre elles, et (3) seule une sous-population constituée de personnes fréquentant l'université et de leur entourage a été échantillonnée. Cependant, dans le cadre de l'exercice, nous accepterons ces biais, tout en étant conscients qu'ils existent.]. Donc, la distribution bimodale résulte plus de l'échantillonnage en lui-même que d'une réalité démographique ! Cela ne change cependant rien pour l'exercice.
 
 ```{r}
-biometry <- read("biometry", package = "BioDataScience1", lang = "fr")
+biometry <- read("biometry", package = "BioDataScience", lang = "fr")
 chart(data = biometry, ~ age) +
   geom_histogram(bins = 20) +
   ylab("Effectifs")
@@ -653,7 +653,7 @@ Le chaînage (ou "pipe" en anglais) permet de combiner une suite d'instructions 
 Différents opérateurs de chaînage existent dans R. Le [Tidyverse](https://www.tidyverse.org) et RStudio sont en faveur de l'adoption d'un opérateur de chaînage **`%>%`** issu du package **[magrittr](https://magrittr.tidyverse.org)**. Si nous sommes sensibles au clin d’œil fait ici à un artiste belge bien connu ("ceci n'est pas un pipe"), nous n'adhérons pas à ce choix pour des raisons multiples et plutôt techniques qui n'ont pas leur place dans ce document^[Le lecteur intéressé pourra lire les différents articles suivants : [more pipes in R](http://www.win-vector.com/blog/2017/12/more-pipes-in-r/), y compris les liens qui s'y trouvent, permet de se faire une idée de la diversité des opérateurs de chaînage dans R et de leur historique. [Dot pipe](https://winvector.github.io/wrapr/articles/dot_pipe.html) présente l'opérateur `%.>%` du package **wrapr** très proche du nôtre et [in praise of syntactic sugar](http://www.win-vector.com/blog/2017/07/in-praise-of-syntactic-sugar/) explique ses avantages. Nous partageons l'idée que le "pipe de base" ne devrait pas modifier l'instruction de droite contrairement à ce que fait `%>%` de **magrittr**, et notre opérateur `%>.%` va en outre plus loin encore que `%.>%` dans la facilité de débogage du code chaîne. ]. Nous vous présentons ici l'un des opérateurs de chaînage du package **flow** : **`%>.%`**. Le jeu de données sur la biométrie humaine est employé pour cette démonstration qui va comparer le remaniement d'un tableau de données avec et sans l'utilisation du chaînage.
 
 ```{r}
-biometry <- read("biometry", package = "BioDataScience1", lang = "fr")
+biometry <- read("biometry", package = "BioDataScience", lang = "fr")
 ```
 
 Vous vous intéressez à l'indice de masse corporelle ou IMC (BMI en anglais) des individus de moins de 25 ans. Vous souhaitez représenter la moyenne, la médiane et le nombre d'observations de manière séparée pour les hommes et les femmes. Pour obtenir ces résultats vous devez : 

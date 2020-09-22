@@ -47,7 +47,7 @@ launch_shiny <- function(url, toc = "", fun = paste(learndown$package, "run_app"
   #ENalt1 = "*Click to start the Shiny application*",
   alt1 = "*Cliquez pour lancer l'application Shiny.*",
   #ENalt2 = "*Click to start or [run `{run.cmd}`]({run.url}{run.arg}) in RStudio.*",
-  alt2 = "*Cliquez pour lancer ou [exécutez dans RStudio]({run.url}{run.arg}) `{run.cmd}`.*", ...)
+  alt2 = "*Cliquez pour lancer ou [exécutez dans RStudio]({run.url}{run.arg}){{target=\"_blank\"}} `{run.cmd}`.*", ...)
   learndown::launch_shiny(url = url, toc = toc, imgdir = learndown$shiny_imgdir,
     fun = fun, alt1 = alt1, alt2 = alt2, toc.def = "Application Shiny {app}",
     run.url = paste(learndown$baseurl, "/", learndown$rstudio,  "?runrcode=", sep = ""),

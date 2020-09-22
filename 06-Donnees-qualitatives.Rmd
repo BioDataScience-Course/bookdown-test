@@ -85,7 +85,7 @@ Avant toute analyse, vérifier le type de tableau de données que vous avez à d
 Les tableaux de données que vous avez traités jusqu'à présent étaient tous des tableaux **cas par variables**. Chaque ligne représentait un _individu_ sur qui une ou plusieurs _variables_ (en colonnes) étaient mesurées.
 
 ```{r}
-biometry <- read("biometry", package = "BioDataScience1", lang = "fr")
+biometry <- read("biometry", package = "BioDataScience", lang = "fr")
 head(biometry)
 ```
 
