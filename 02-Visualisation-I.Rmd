@@ -167,7 +167,7 @@ assignation("sdd1_urchin_bio", part = "I",
   url = "https://github.com/BioDataScience-Course/sdd1_urchin_bio",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/a/GxS0euIC",
-    'S-BIOG-921' = "https://classroom.github.com/a/p2m_RPt1"),
+    'S-BIOG-921' = "https://classroom.github.com/a/05EuaBKa"),
   toc = "Assignation : réaliser différents graphiques sur `urchin_bio`, partie I")
 ```
 
@@ -254,7 +254,7 @@ assignation("sdd1_urchin_bio", part = "II",
   url = "https://github.com/BioDataScience-Course/sdd1_urchin_bio",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/a/GxS0euIC",
-    'S-BIOG-921' = "https://classroom.github.com/a/p2m_RPt1"),
+    'S-BIOG-921' = "https://classroom.github.com/a/..."),
   toc = "Assignation : réaliser différents graphiques sur `urchin_bio`, partie II")
 ```
 
@@ -267,7 +267,7 @@ assignation("sdd1_biometry", part = "I",
   url = "https://github.com/BioDataScience-Course/sdd1_biometry",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/g/Q1-L0PhW",
-    'S-BIOG-921' = "https://classroom.github.com/g/jvDR9nhM"),
+    'S-BIOG-921' = "https://classroom.github.com/g/nL7d4Gr7"),
   toc = "Assignation : comparaison de workflows R-Word *versus* R-R Markdown")
 ```
 
