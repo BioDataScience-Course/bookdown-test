@@ -244,7 +244,7 @@ Si vous souhaitez plus d'information sur Github Classroom, vous pouvez vous réf
 
 Afin de terminer ce module en beauté, il est temps d'auto-évaluer votre apprentissage via un **tutoriel** dans RStudio.
 
-`r learnr("A01a_outils", title = "Les différents outils", toc = "Tutoriel : auto-évaluation sur les outils")`
+`r learnr("A01La_outils", title = "Les différents outils", toc = "Tutoriel : auto-évaluation sur les outils")`
 
 ## Récapitulatif des exercices
 
