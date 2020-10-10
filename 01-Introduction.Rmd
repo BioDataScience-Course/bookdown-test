@@ -244,10 +244,21 @@ Si vous souhaitez plus d'information sur Github Classroom, vous pouvez vous réf
 
 Afin de terminer ce module en beauté, il est temps d'auto-évaluer votre apprentissage via un **tutoriel** dans RStudio.
 
-`r learnr("A01a_outils", title = "Les différents outils", toc = "Tutoriel : auto-évaluation sur les outils")`
+`r learnr("A01La_outils", title = "Les différents outils", toc = "Tutoriel : auto-évaluation sur les outils")`
 
 ## Récapitulatif des exercices
 
 Dans ce module 1 consacré aux outils informatiques que nous utiliserons dans la suite du cours, vous aviez à réaliser les exercices suivants\ :
 
 `r show_ex_toc()`
+
+::: {.S-BIOG-006 .S-BIOG-027}
+
+```{block2, type = "bdd"}
+Dans le cadre d'une collaboration entre le cours English For Science et le cours de Science des données I, vous êtes amené à créer un blog scientifique. Ce blog va comprendre des articles qui traitent d'analyse de la littérature de vulgarisation scientifique et de description de données.
+
+Cliquez sur le lien et suivez les instructions : <https://github.com/BioDataScience-Course/blog-template> 
+  
+```
+
+:::
