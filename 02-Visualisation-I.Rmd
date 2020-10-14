@@ -24,11 +24,11 @@ Si ce n'est déjà fait, vous devez installer et vous familiariser avec la 'SciV
 
 Avant de poursuivre, vous allez devoir découvrir les premiers rudiments de R afin de pouvoir réaliser par la suite vos premiers graphiques. Pour cela, vous aurez à lire attentivement et effectuer tous les exercices de deux tutoriels^[Reportez-vous à l'Appendice \@ref(learnr) pour apprendre à utiliser ces tutoriels.].
 
-`r learnr("A02a_base", title = "Les bases de R", toc = "Tutoriel sur les bases de R")`
+`r learnr("A02La_base", title = "Les bases de R", toc = "Tutoriel sur les bases de R")`
 
 Ensuite vous pouvez également parcourir un second tutoriel qui vous permettra de découvrir un peu plus R à partir d'une analyse concrète\ :
 
-`r learnr("A02b_progression", title = "Progression R", toc = "Tutoriel de progression en R")`
+`r learnr("A02Lb_progression", title = "Progression R", toc = "Tutoriel de progression en R")`
 
 ([BioDataScience1](https://github.com/BioDataScience-Course/BioDataScience1) est un package R spécialement développé pour ce cours et que vous avez dû installer lors de la configuration de votre SciViews Box, voir Appendice \@ref(install-tuto)).
 
@@ -98,7 +98,7 @@ Cette vidéo ne vous a montré que les principaux outils disponibles lors de la 
 
 ##### A vous de jouer {-}
 
-`r learnr("A02c_nuage", title = "Nuage de points", toc = "Réalisation de graphiques en nuage de points dans R")`
+`r learnr("A02Lc_nuage", title = "Nuage de points", toc = "Réalisation de graphiques en nuage de points dans R")`
 
 ### Echelles de graphiques
 
@@ -109,6 +109,7 @@ Vous devez être vigilant lors de la réalisation d'un nuage de point particuli�
 - Quels est la précision des mesures effectuées ?
 
 Dans certains cas, la forme du nuage de points peut être distendu par la présence de valeurs aberrantes. Ce n'est pas le cas ici, mais nous pouvons le simuler en distendant artificiellement soit l'axe X, soit l'axe Y, soit les deux :
+
 
 ```{r, echo=FALSE, fig.cap="Piège du nuage de points. A) graphique initial montrant la variation de la hauteur [mm] en fonction de la masse [g]. B) graphique A avec la modification de l'échelle de l'axe X. C) Graphique A avec une seconde modification de l'axe X. D) Graphique A avec modification simultanée des deux axes."}
 a <- chart(data = urchin, height ~  weight) + 
@@ -123,28 +124,22 @@ d <- a + scale_x_continuous(limits = c(-400, 400)) +
 combine_charts(list(a, b, c, d))
 ```
 
+##### A vous de jouer {-} 
+
 Appliquez par vous même la modification des échelles des axes via l'application ci-dessous.
 
-`r launch_shiny("https://sdd.umons.ac.be/A02a_limits/", height = 500, delay = 10, toc = "Choisir l'étendue des axes pour un graphique")`
+`r launch_shiny("https://sdd.umons.ac.be/A02Sa_limits/", height = 500, delay = 10, toc = "Choisir l'étendue des axes pour un graphique")`
 
 ### Transformation des données
 
 Vous avez la possibilité d'appliquer une transformation de vos données (il est même conseillé de le faire) afin qu'elles soient plus facilement analysables. Par exemple, il est possible d'utiliser des fonctions de puissance, racines, logarithmes, exponentielles^[Pour les proportions (`prop`) ou les pourcentages (`perc`) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : $prop′ = \arcsin \sqrt{prop}$ ou $perc′ = \arcsin \sqrt{perc / 100}$.] pour modifier l'apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d'analyser statistiquement des données qui s'alignent le long d'une droite).
 
+
+##### A vous de jouer {-}
+
 Appliquez la meilleure transformation sur nos données de hauteurs et de masses d'oursins ci-dessous
 
-`r launch_shiny("https://sdd.umons.ac.be/A02a_transformation/", height = 500, delay = 10, toc = "Choisir la transformation des axes d'un graphique")`
-
-<!-- Pour inclure des pages web ou des applis shiny, utiliser plutôt -->
-
-```{r, include=FALSE, out.extra='style="border: none;"', out.width='100%'}
-knitr::include_app("https://yihui.shinyapps.io/miniUI/", height = "600px")
-```
-
-```{r, include=FALSE, out.extra='style="border: none;"', out.width='100%'}
-knitr::include_url("http://www.sciviews.org", height = "600px")
-```
-
+`r launch_shiny("https://sdd.umons.ac.be/A02Sa_transformation/", height = 500, delay = 10, toc = "Choisir la transformation des axes d'un graphique")`
 
 ##### Pièges et astuces {-}
 
@@ -163,12 +158,12 @@ Vous avez à votre disposition un ensemble de snippets que vous pouvez retrouver
 Une nouvelle tâche vous est demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Cette tâche est un travail **individuel**. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé avec la SciViews Box `shared`. Vous aurez alors un nouveau projet RStudio \@ref(rs-projet).
 
 ```{r, echo=FALSE, results='asis'}
-assignation("sdd1_urchin_bio", part = "I",
-  url = "https://github.com/BioDataScience-Course/sdd1_urchin_bio",
+assignation("A02Ga_nuagepoints", part = "I",
+  url = "https://github.com/BioDataScience-Course/A02Ga_nuagepoints",
   course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/GxS0euIC",
+    'S-BIOG-006' = "https://classroom.github.com/a/zRJk-Ie0",
     'S-BIOG-921' = "https://classroom.github.com/a/05EuaBKa"),
-  toc = "Assignation : réaliser différents graphiques sur `urchin_bio`, partie I")
+  toc = "Réalisez différents graphiques sur `urchin_bio` dans un script R, partie I")
 ```
 
 Inspirez-vous du script dans le dépôt **[sdd1_iris](https://github.com/BioDataScience-Course/sdd1_iris)**. Vous devez commencer par faire un "fork" du dépôt, puis un clone sur votre ordinateur en local pour pouvoir l'utiliser. 
@@ -188,9 +183,6 @@ Prêtez une attention toute particulière à l'organisation d'un script R. En pl
 
 - [geom_point()](http://ggplot2.tidyverse.org/reference/geom_point.html). La fiche technique de la fonction (en anglais).
 
-##### Testez vos acquis {-}
-
-`r learnr("A02d_np_challenge", title = "Challenge nuage de points", toc = "Auto-évaluation des acquis concernant les nuages de points")`
 
 ## Graphiques dans R Markdown
 
@@ -245,30 +237,26 @@ Vous ne devez bien évidemment pas commencer avec un script R. Vous pouvez comme
 
 ##### A vous de jouer {-}
 
-- Vous allez maintenant manipuler un **R Notebook** pour construire de manière interactive une analyse en même temps que le rapport associé.
-
-Partez du projet **sdd1_urchin_bio** que vous avez obtenu via le lien GitHub Classroom dans la première partie de ce module. Votre objectif est de comprendre les données proposées, en utilisant des visualisations graphiques appropriées et en documentant le fruit de votre étude dans un rapport R Notebook. Utilisez le graphique en nuage de points que vous venez d'étudier, bien sûr, mais vous êtes aussi encouragés à expérimenter d'autres formes de visualisation graphique.
+- Vous allez maintenant manipuler un **Rmarkdown** pour construire de manière interactive une analyse en même temps que le rapport associé.
 
 ```{r, echo=FALSE, results='asis'}
-assignation("sdd1_urchin_bio", part = "II",
-  url = "https://github.com/BioDataScience-Course/sdd1_urchin_bio",
+assignation("A02Ga_nuagepoints", part = "II",
+  url = "https://github.com/BioDataScience-Course/A02Ga_nuagepoints",
   course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/GxS0euIC",
-    'S-BIOG-921' = "https://classroom.github.com/a/..."),
-  toc = "Assignation : réaliser différents graphiques sur `urchin_bio`, partie II")
+    'S-BIOG-006' = "https://classroom.github.com/a/zRJk-Ie0",
+    'S-BIOG-921' = "https://classroom.github.com/a/05EuaBKa"),
+  toc = "Réalisez différents graphiques sur `urchin_bio` dans un R Markdown, partie II")
 ```
 
 - Comparaisons du flux de travail en biologie\ : R et Microsoft Word *versus* R et R Markdown.
 
-Une nouvelle tâche vous est demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Cette tâche est un travail **en équipe**. Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`.
-
 ```{r, echo=FALSE, results='asis'}
-assignation("sdd1_biometry", part = "I",
-  url = "https://github.com/BioDataScience-Course/sdd1_biometry",
+assignation("A02Gb_workflow", part = NULL,
+  url = "https://github.com/BioDataScience-Course/A02Gb_workflow",
   course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/g/Q1-L0PhW",
+    'S-BIOG-006' = "https://classroom.github.com/a/0bQq-LZG",
     'S-BIOG-921' = "https://classroom.github.com/g/nL7d4Gr7"),
-  toc = "Assignation : comparaison de workflows R-Word *versus* R-R Markdown")
+  toc = "Comparaison de workflows R-Word *versus* R-R Markdown")
 ```
 
 ## Récapitulatif des exercices
