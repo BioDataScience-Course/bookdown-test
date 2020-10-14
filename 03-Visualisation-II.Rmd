@@ -135,6 +135,7 @@ combine_charts(list(a, b, c, d))
 
 Comme vous pouvez le voir à la Fig. \@ref(fig:histo-classes), le changement du nombre de classes peut modifier complètement la perception des données via l'histogramme. Le choix idéal est un compromis entre plus de classes (donc plus de détails), et un d'coupage raisonnable en fonction de la quantité de données disponibles. Si l'intervalle des classes est trop petit, l'histogramme sera illisible. Si l'intervalle des classes est trop grand, il sera impossible de visualiser correctement les différents modes. Dans la figure en exemple, les variantes A et B sont acceptables, mais les C et D manquent de détails.
 
+`r launch_shiny("https://sdd.umons.ac.be/A03Sa_histogram/", height = 500, delay = 10, toc = "Choisir le nombre de classes d'un histogramme")`
 
 ##### Pièges et astuces {-}
 
@@ -302,15 +303,7 @@ En pratique, vous ne représenterez pas systématiquement tous ces types de grap
 
 ##### A vous de jouer {-}
 
-Reprenez vos différents projets et étudiez la distribution de variables numériques de différentes manières. Commentez vos différents graphiques par des paragraphes rédigés en Markdown. Précisez ceux qui vous semblent les plus appropriés et justifiez vos choix. Terminez ce module en vérifiant que vous avez bien compris les notions apprises jusqu'ici.
-
-```{block2, type='bdd'}
-
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console :
-
-    BioDataScience1::run("A03a_test")
-
-```
+`r learnr("A03La_univaries", title = "Graphiques univariés", toc = "Réalisation de différents graphiques univariés")`
 
 
 ##### Pour en savoir plus {-}
@@ -321,3 +314,8 @@ Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante da
 
 - Les [histogrammes à classes de largeurs variables](https://www.youtube.com/watch?v=IWyaMBV76EE).
 
+## Récapitulatif des exercices
+
+Ce module 3 vous a permis de réaliser différents graphiques pour visualiser des variables univariées. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
