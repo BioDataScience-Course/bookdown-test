@@ -21,25 +21,16 @@ Pour réaliser les exercices dans ce module, vous devez être capables de travai
 
 #####  Préparatifs {-}
 
-Une nouvelle tâche vous est demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`. Pour cette tâche, vous démarrerez d'un projet RStudio \@ref(rs-projet) que vous obtiendrez via une tâche GitHub Classroom.
+Une nouvelle tâche vous est demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`. Pour cette tâche, vous démarrerez d'un projet RStudio \@ref(rs-projet) que vous obtiendrez via une tâche GitHub Classroom. Il s'agit d'un projet trans-module qui devra donc être modifié après chaque nouveau module. Vous pouvez vous inspirer d'un exemple d'analyse sur le jeu de données `iris`, voir [sdd1_iris](https://github.com/BioDataScience-Course/sdd1_iris).
 
-```{block2, type='bdd'}
-Pour cette activité, vous allez **travailler en binôme** sur les données d'un projet étudiant le zooplancton provenant de Madagascar.
-
-Les explications relatives à la tâche qui vous est assignée sont dans le fichier `README.md`du dépôt accessible depuis : 
-
-* Pour l'année académique 2019-2020, les URLs à utiliser pour accéder à votre tâche sont les suivants : 
-  
-    * Cours de Bioinformatique et Sciences des données à Charleroi : https://classroom.github.com/g/qJZ0kmPG 
-    * Cours de Sciences des données I à Mons : https://classroom.github.com/g/AkOJKC3n 
-  
-* Pour les autres utilisateurs de ce livre, veuillez faire un "fork" du dépôt [sdd1_zooplankton](https://github.com/BioDataScience-Course/sdd1_zooplankton). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la branche correspondante à l'année que vous recherchez.  
-
+```{r, echo=FALSE, results='asis'}
+assignation("A03Ga_urchin", part = "II",
+  url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/a/...",
+    'S-BIOG-921' = "https://classroom.github.com/g/gqWaZbVm"),
+  toc = "Biométrie de l'oursin violet")
 ```
-
-
-Vous utiliserez à la fois votre projet sur la biométrie des oursins (du module précédent) et ce nouveau projet sur le zooplancton^[Le mot **zooplancton** ne se décline jamais au pluriel. On parle du *zooplancton* pour désigner une large communauté d'organismes zooplanctoniques, et non pas *des zooplanctons*.] pour découvrir les nouveaux outils graphiques décrits dans ce module. 
-
 
 ## Histogramme
 
@@ -305,6 +296,14 @@ En pratique, vous ne représenterez pas systématiquement tous ces types de grap
 
 `r learnr("A03La_univaries", title = "Graphiques univariés", toc = "Réalisation de différents graphiques univariés")`
 
+```{r, echo=FALSE, results='asis'}
+assignation("A03Gb_distribution", part = "II",
+  url = "https://github.com/BioDataScience-Course/A03Gb_distribution",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/a/...",
+    'S-BIOG-921' = "https://classroom.github.com/a/H4su2oCp"),
+  toc = "Réalisez différents graphiques de distribution sur `zooplakton`")
+```
 
 ##### Pour en savoir plus {-}
 
