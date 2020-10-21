@@ -24,7 +24,7 @@ Pour réaliser les exercices dans ce module, vous devez être capables de travai
 Une nouvelle tâche vous est demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`. Pour cette tâche, vous démarrerez d'un projet RStudio \@ref(rs-projet) que vous obtiendrez via une tâche GitHub Classroom. Il s'agit d'un projet trans-module qui devra donc être modifié après chaque nouveau module. Vous pouvez vous inspirer d'un exemple d'analyse sur le jeu de données `iris`, voir [sdd1_iris](https://github.com/BioDataScience-Course/sdd1_iris).
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A03Ga_urchin", part = "II",
+assignation("A03Ga_urchin", part = NULL,
   url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/a/...",
@@ -297,7 +297,7 @@ En pratique, vous ne représenterez pas systématiquement tous ces types de grap
 `r learnr("A03La_univaries", title = "Graphiques univariés", toc = "Réalisation de différents graphiques univariés")`
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A03Gb_distribution", part = "II",
+assignation("A03Gb_distribution", part = NULL,
   url = "https://github.com/BioDataScience-Course/A03Gb_distribution",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/a/...",

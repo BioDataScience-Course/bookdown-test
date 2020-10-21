@@ -84,7 +84,7 @@ biometry$year_measure <- as.factor(biometry$year_measure)
 label(biometry$year_measure) <- "Année de la mesure"
 ```
 
-Différentes représentations sont possibles pour observer des dénombrements tenant compte de plusieurs variables facteurs. Par défaut, l'argument `position =` a pour valeur par défaut `stack` (donc, lorsque cet argument n'est pas précisé dans `geom_bar()`).
+Différentes représentations sont possibles pour observer des dénombrements tenant compte de plusieurs variables facteurs. Par défaut, l'argument `position =` a pour valeur `stack` (donc, lorsque cet argument n'est pas précisé dans `geom_bar()`).
 
 ```{r barres-2facteurs, fig.cap="Dénombrement des hommes (H) et des femmes (F) dans l'étude sur l'obésité en Hainaut en tenant compte des années de mesure pour (B).", echo=TRUE}
 a <- chart(data = biometry, ~ gender) +
@@ -99,7 +99,7 @@ b <- chart(data = biometry, ~ gender %fill=% year_measure) +
 combine_charts(list(a, b), common.legend = TRUE)
 ```
 
-Il existe d'autres options en utilisant la valeur `dodge` ou `fill` pour l'argument `position =`.
+Il existe d'autres options possible en utilisant les valeurs `dodge` ou `fill` pour l'argument `position =`.
 
 ```{r barres-2facteurs2, fig.cap="Dénombrement des hommes (H) et des femmes (F) dans l'étude sur l'obésité en Hainaut en tenant compte des années de mesure (différentes présentations).", echo=TRUE}
 a <- chart(data = biometry, ~ gender %fill=% year_measure) +
@@ -145,7 +145,7 @@ chart(data = zooplankton, ~ class) +
   ylab("Effectifs")
 ```
 
-Avec la fonction `coord_flip()` ajoutée à votre graphique, vous pouvez effectuer une rotation des axes pour obtenir un **graphique en barres horizontales**. De plus, l’œil humain perçoit plus distinctement les différences de longueurs horizontales que verticales. Donc, de ce point de vue, le graphe en barres horizontal est considéré comme meilleur que le graphe en barres verticales.
+Avec la fonction `coord_flip()` ajoutée à votre graphique, vous pouvez effectuer une rotation des axes pour obtenir un **graphique en barres horizontales**. De plus, l’œil humain perçoit plus distinctement les différences de longueurs horizontales que verticales. Donc, de ce point de vue, le graphe en barres horizontales est considéré comme meilleur que le graphe en barres verticales.
 
 ```{r barres-rotation, fig.cap="Dénombrement des classes du jeu de données zooplankton (version avec barres horizontales)."}
 chart(data = zooplankton, ~ class) +
@@ -646,7 +646,7 @@ ggplot(data = urchin, mapping = aes(x = weight, y = height, col = origin)) +
 
 En comparant les Figs. \@ref(fig:chart-example) et \@ref(fig:ggplot2-example) (en faisant abstraction des instructions R utilisées pour l'instant), plusieurs points sautent immédiatement aux yeux:
 
-- Le thème par défaut de **ggplot2** est très reconnaissable avec un quadrillage blanc sur fond gris clair. On aime ou on n'aime pas, mais il est clair que (1) ce n'est pas une présentation "standard" d'un graphique scientifique, et (2) le thème tord un peu le cou à une règle importante pour réaliser un graphique de qualité : **minimiser la quantité d'"encre" nécessaire pour représenter un graphique**, autrement dit, plus le graphique est simple et sobre, mieux c'est. Le thème par défaut de `chart()` respecte mieux tout ceci^[Notez que plusieurs thèmes existent dans **ggplot2**. Il est facile d'en changer et des les personnaliser... mais c'est toujours appréciable d'avoir un rendu impeccable dès le premier essai.].
+- Le thème par défaut de **ggplot2** est très reconnaissable avec un quadrillage blanc sur fond gris clair. On aime ou on n'aime pas, mais il est clair que (1) ce n'est pas une présentation "standard" d'un graphique scientifique, et (2) le thème tord un peu le cou à une règle importante pour réaliser un graphique de qualité : **minimiser la quantité d'"encre" nécessaire pour représenter un graphique**, autrement dit, plus le graphique est simple et sobre, mieux c'est. Le thème par défaut de `chart()` respecte mieux tout ceci^[Notez que plusieurs thèmes existent dans **ggplot2**. Il est facile d'en changer et de les personnaliser... mais c'est toujours appréciable d'avoir un rendu impeccable dès le premier essai.].
 
 - La taille des caractères est légèrement plus grande dans la Fig. \@ref(fig:chart-example) réalisée avec `chart()`. Le manque de lisibilité des parties textuelles dans un graphique est un défaut fréquent, dépendant de la résolution et de la taille de reproduction du graphique dans le document final. Le choix de `chart()` recule un peu ce risque.
 
@@ -711,7 +711,7 @@ La quantité d'instructions nécessaires pour rendre la version **lattice** proc
 Par rapport à **ggplot2**, les graphiques **lattice** sont moins flexibles du fait qu'ils doivent être spécifiés en une seule instruction. Cependant, ils sont beaucoup plus rapides à générer (appréciable quand il y a beaucoup de points à tracer) ! **lattice** offre également quelques types de graphiques non supportés par **ggplot2** comme les graphiques en 3D à facettes, par exemple.
 ```
 
-Voici un graphique à facettes réalisé avec `chart()` et le moteur **lattice**. Notez que la formule utilisée est *identique* à cette employée pour la version **ggplot2** avec `chart()`.
+Voici un graphique à facettes réalisé avec `chart()` et le moteur **lattice**. Notez que la formule utilisée est *identique* à celle employée pour la version **ggplot2** avec `chart()`.
 
 ```{r lattice-facets, fig.cap= "Graphique à facettes, avec `chart()` version **lattice**."}
 chart$xyplot(data = urchin, height ~ weight | origin,
@@ -788,14 +788,7 @@ Proposez cinq graphiques inédits (qui n'ont pas été vu jusqu'ici) dans vos di
 
 Terminez ce module en vérifiant que vous avez acquis l'ensemble des notions abordées.
 
-```{block2, type='bdd'}
-
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console :
-
-    BioDataScience1::run("A04a_test")
-
-```
-
+`r learnr("A04La_graphs_adv", title = "Graphiques avancés", toc = "Réalisation de différents graphiques avancés")`
 
 ##### Pour en savoir plus {-}
 
