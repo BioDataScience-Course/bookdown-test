@@ -19,19 +19,6 @@ SciViews::R
 Pour réaliser les exercices dans ce module, vous devez être capables de travailler dans la SciViews Box et dans RStudio. Vous devez également maîtriser les bases de Git et GitHub. Tout ceci est enseigné dans le module \@ref(intro). Vous devez également être familiarisés avec les graphiques dans R et R Markdown, une matière qui fait l'objet du module \@ref(visu1).
 
 
-#####  Préparatifs {-}
-
-Une nouvelle tâche vous est demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Une fois votre assignation réalisée, faites un clone de votre dépôt et placez-le dans le dossier `shared/projects`. Pour cette tâche, vous démarrerez d'un projet RStudio \@ref(rs-projet) que vous obtiendrez via une tâche GitHub Classroom. Il s'agit d'un projet trans-module qui devra donc être modifié après chaque nouveau module. Vous pouvez vous inspirer d'un exemple d'analyse sur le jeu de données `iris`, voir [sdd1_iris](https://github.com/BioDataScience-Course/sdd1_iris).
-
-```{r, echo=FALSE, results='asis'}
-assignation("A03Ga_urchin", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/...",
-    'S-BIOG-921' = "https://classroom.github.com/g/gqWaZbVm"),
-  toc = "Biométrie de l'oursin violet")
-```
-
 ## Histogramme
 
 Vous souhaitez visualiser l'étalement de vos données sur un axe (on parle de **distribution**^[La **distribution** des données en statistique se réfère à la fréquence avec laquelle les différentes valeurs d'une variable s'observent.] en statistique) pour l'une des variables étudiées. L'histogramme est l'un des outils pouvant vous apporter cette information. Ce graphique représente sous forme de barres un découpage en plusieurs **classes**^[Une variable numérique est **découpée en classes** en spécifiant différents intervalles, et ensuite en dénombrant le nombre de fois que les observations rentrent dans ces classes.] d'une variable numérique.
@@ -181,6 +168,12 @@ chart(data = iris, ~ sepal_length %fill=% species | species) +
 Vous découvrez sans doute que les graphiques réalisables avec R sont modulables à souhait en ajoutant une série d'instructions successives qui créent autant de couches superposées dans le graphique. Cette approche permet de réaliser quasiment une infinité de graphiques différents en combinant seulement quelques dizaines d'instructions. Pour s'y retrouver, les fonctions qui ajoutent des couches commencent toutes par `geom_`, et celles qui manipulent les couleurs par `scale_`, par exemple. Vous découvrirez encore d'autres fonctions graphiques plus loin.
 
 
+##### A vous de jouer {-}
+
+`r learnr("A03La_univaries", title = "Graphiques univariés", toc = "Réalisation de différents graphiques univariés")`
+
+**note:** Ce tutoriel couvre l'ensemble de la matière de ce module. N'hésitez pas à la réaliser en parallèle de votre lecture
+
 ## Graphique de densité
 
 L'histogramme n'est pas le seul outil à votre disposition. Vous pouvez également employer le **graphique de densité** qui se présente un peu comme un histogramme lissé. Le passage d'un histogramme vers un graphe de densité se base sur une **estimation par noyaux gaussien**^[L'opération effectuée pour passer d'un histogramme à une courbe de densité consiste effectivement à lisser les pics plus ou moins fort dans l'histogramme de départ.]
@@ -228,6 +221,18 @@ chart(data = zooplankton, ~ size) +
 
 Ici, nous utilisons donc la fonction `geom_density()`.
 
+##### A vous de jouer {-}
+
+```{r, echo=FALSE, results='asis'}
+assignation("A03Gb_distribution", part = NULL,
+  url = "https://github.com/BioDataScience-Course/A03Gb_distribution",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/a/H4su2oCp",
+    'S-BIOG-921' = "https://classroom.github.com/a/H4su2oCp"),
+  toc = "Réalisez différents graphiques de distribution sur `zooplakton`")
+```
+
+**note:** Cette assignation individuelle couvre l'ensemble de la matière de ce module. N'hésitez pas à la réaliser en parallèle de votre lecture.
 
 ## Diagramme en violon
 
@@ -292,19 +297,6 @@ chart(data = zooplankton, class ~ size) +
 
 En pratique, vous ne représenterez pas systématiquement tous ces types de graphiques pour toutes les variables. Il faudra choisir le graphique le plus adapté à la situation. La plupart du temps, cela se fait de manière *itérative* : vous essayez diverses variantes, vous les comparez, et vous gardez celle(s) qui visualisent le mieux les données dans le cas particulier de votre étude.
 
-##### A vous de jouer {-}
-
-`r learnr("A03La_univaries", title = "Graphiques univariés", toc = "Réalisation de différents graphiques univariés")`
-
-```{r, echo=FALSE, results='asis'}
-assignation("A03Gb_distribution", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A03Gb_distribution",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/...",
-    'S-BIOG-921' = "https://classroom.github.com/a/H4su2oCp"),
-  toc = "Réalisez différents graphiques de distribution sur `zooplakton`")
-```
-
 ##### Pour en savoir plus {-}
 
 - Si vous avez encore du mal avec la compréhension de l'histogramme, voyez [cette vidéo](https://www.youtube.com/watch?v=lNfeCYGa07Y) qui vous montre comment le construire à la main.
@@ -312,6 +304,28 @@ assignation("A03Gb_distribution", part = NULL,
 - Dans la section "How to build an histogram" dans [cette page](https://tinlizzie.org/histograms/), vous verrez une animation qui visualise étape par étape la construction d'un histogramme (en anglais).
 
 - Les [histogrammes à classes de largeurs variables](https://www.youtube.com/watch?v=IWyaMBV76EE).
+
+
+## Travail collaboratif
+
+Jusqu'à présent vous avez réaliser plusieurs assignations individuelles. Cependant, GitHub est prévu pour collaborer.En tant que scientifiques, vous êtes amené à collaborer sur de très nombreux projets. 
+
+La collaboration entre plusieurs personnes mène inévitablement à la gestion de conflit. N'ayez pas peur des conflits. Il suffit de les gérer.
+
+**Cette section en cours d'écriture**
+
+##### A vous de jouer {-}
+
+Une nouvelle tâche vous est demandée. Cette nouvelle assignation GitHub Classroom est un exercice à réaliser en *binôme*. Ce projet est un projet trans-module. Nous allons donc y revenir à plusieurs reprises.
+
+```{r, echo=FALSE, results='asis'}
+assignation("A03Ga_urchin", part = NULL,
+  url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/g/GDEEO7QD",
+    'S-BIOG-921' = "https://classroom.github.com/g/gqWaZbVm"),
+  toc = "Biométrie de l'oursin violet")
+```
 
 ## Récapitulatif des exercices
 
