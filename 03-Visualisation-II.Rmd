@@ -229,7 +229,7 @@ Ici, nous utilisons donc la fonction `geom_density()`.
 assignation("A03Gb_distribution", part = NULL,
   url = "https://github.com/BioDataScience-Course/A03Gb_distribution",
   course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/H4su2oCp",
+    'S-BIOG-006' = "https://classroom.github.com/a/qi2q9R1N",
     'S-BIOG-921' = "https://classroom.github.com/a/H4su2oCp"),
   toc = "Réalisez différents graphiques de distribution sur `zooplakton`")
 ```
