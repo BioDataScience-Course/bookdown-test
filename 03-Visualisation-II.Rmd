@@ -397,8 +397,7 @@ Ce module 3 vous a permis de réaliser différents graphiques pour visualiser de
 ```{block2, type = "bdd"}
 Dans le cadre d'une collaboration entre le cours English For Science et le cours de Science des données I, vous êtes amené à créer un blog scientifique. Ce blog va comprendre des articles qui traitent d'analyse de la littérature de vulgarisation scientifique et de description de données.
 
-Vous devez à présent ajouter disqus à votre blog. Cliquez sur le lien et suivez les instructions : <https://github.com/BioDataScience-Course/blog-creation> 
-  
+Vous devez à présent ajouter disqus à votre blog. Cliquez sur le lien et suivez les instructions : <http://biodatascience-course.sciviews.org/sdd_blog/>
 ```
 
 :::
