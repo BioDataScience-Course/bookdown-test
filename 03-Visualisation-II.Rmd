@@ -310,11 +310,67 @@ En pratique, vous ne représenterez pas systématiquement tous ces types de grap
 
 ## Travail collaboratif
 
-Jusqu'à présent vous avez réaliser plusieurs assignations individuelles. Cependant, GitHub est prévu pour collaborer.En tant que scientifiques, vous êtes amené à collaborer sur de très nombreux projets. 
+Jusqu'à présent vous avez réalisé plusieurs assignations individuelles. Cependant, GitHub est prévu pour collaborer.En tant que scientifiques, vous êtes amenés à collaborer sur de très nombreux projets. 
 
-La collaboration entre plusieurs personnes mène inévitablement à la gestion de conflit. N'ayez pas peur des conflits. Il suffit de les gérer.
+### Ajout d'un collaborateur
 
-**Cette section en cours d'écriture**
+Partons directement d'un cas pratique entre deux chercheurs. [Marie](https://github.com/MarieHuart93) prend contact avec [Guyliann](https://github.com/GuyliannEngels) afin de collaborer sur un projet lié à la [biométrie humaine](https://github.com/MarieHuart93/biometry). Guyliann accepte volontiers de l'aider. Cependant, Marie doit lui donner accès à son dépôt. Pour cela, elle se rend dans sur son dépôt, puis va dans `Settings` puis `Manage access`  et enfin ajoute un collaborateur en cliquant sur `Invite a collaborator`.
+
+![](images/sdd1_03/add_collaborators.gif)
+
+Guyliann reçoit un mail afin d'accepter ou non de collaborer. Il peut maintenant cloner le projet en local sur son ordinateur. 
+
+Les deux collaborateurs vont pouvoir travailler sur le même document et progresser ensemble dans l'analyse du jeu de données sur la biométrie humaine. En cliquant tout simplement sur le dernier `Commit` réalisé on peut retrouver la succession des commits qui ont été réalisé.
+
+![](images/sdd1_03/github_collaboration.gif)
+
+Jusqu'à présent, les deux scientifiques ont échangé par mail. Cependant, Il est possible d'être plus efficace et d'utiliser les `issues` pour cela. 
+
+La création d'une issue peut se faire facilement comme le montre la procédure ci-dessous.
+
+![](images/sdd1_03/github_issues.gif)
+
+Une issue est un endroit de discussion scientifique sur un problème scientifique. On y discute de problèmes de code ou de l'orientation d'un projet. Il ne s'agit pas d'un système de chat comme Discord, messenger,...
+
+![](images/sdd1_03/github_issues1.png)
+
+Une issue doit également être fermée lorsque le sujet de cette dernière a été débattu. 
+
+*Github comprend plusieurs outils pour améliorer l'efficacité d'un travail en équipe. Dans les issues vous pouvez ajouter des labels à vos questions par exemple. Il existe également dans la section Projects un outil de planification de projets.*
+
+### Gestion de conflit
+
+La collaboration entre plusieurs personnes mène inévitablement à la gestion de conflits. N'ayez pas peur des conflits. Il suffit de les gérer.
+
+Imaginons que nos deux collaborateurs réalisent une modification du documents `biometry_note.Rmd` en même temps et sur la même partie du document. 
+
+`r h5p(30, height = 270, toc = "Deux version d'un même fichier")`
+
+Que va-t-il se passer selon vous ? Lequel des deux collaborateurs va-t-il avoir le droit d'écraser le contenu de l'autre ? 
+
+Github n'est pas capable de décider quelle version est la meilleure. Il va donc demander au dernier collaborateur qui réalise son `push` de gérer ce conflit.
+
+![](images/sdd1_03/conflit1.gif)
+
+On peut voir que lorsque le `Push` est réalisé une erreur apparaît. Il faut d'abord réaliser un `Pull` afin de récupérer ce qui est sur GitHub. 
+
+`r h5p(29, height = 270, toc = "Résolution d'un conflit")`
+
+Vous pouvez après vous rendre dans chaque fichier problématique pour retrouver la/les zone(s) de conflit.
+
+`r h5p(31, height = 270, toc = "Résolution d'un conflit suite")`
+
+La résolution est simple. Vous devez choisir la partie qui vous semble la plus pertinente.
+
+![](images/sdd1_03/conflit2.gif)
+
+La gestion du conflit se termine par la réalisation d'un `Commit` et d'un `Push`.
+
+```{block2, type='note'}
+Lorsque vous vous lancez dans un projet, il faut toujours faire un `Pull` afin de vous assurer que vous avez la dernière version en ligne sur GitHub. 
+
+Lorsque vous avez terminé de travailler sur un projet. Il est conseillé de faire un `Commit` et un `Push`. Vous éviterez comme cela un maximum de conflits.
+````
 
 ##### A vous de jouer {-}
 
