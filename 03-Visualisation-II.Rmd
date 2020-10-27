@@ -373,7 +373,7 @@ On peut voir que lorsque le `push` est réalisé, une erreur apparaît. Il faut 
 
 `r h5p(29, height = 270, toc = "Résolution d'un conflit")`
 
-Vous pouvez ensuite vous rendre dans chaque fichier problématique pour retrouver la/les zone(s) de conflit (utiliser l'outil de recherche avec l'icone loupe dans l'éditeur RStudio et recherchez par exemple `>>>>>`).
+Vous pouvez ensuite vous rendre dans chaque fichier problématique pour retrouver la/les zone(s) de conflit (utiliser l'outil de recherche avec l'icône loupe dans l'éditeur RStudio et recherchez par exemple `>>>>>`).
 
 `r h5p(31, height = 270, toc = "Résolution d'un conflit suite")`
 
