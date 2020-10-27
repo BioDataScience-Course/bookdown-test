@@ -390,3 +390,15 @@ assignation("A03Ga_urchin", part = NULL,
 Ce module 3 vous a permis de réaliser différents graphiques pour visualiser des variables univariées. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
 
 `r show_ex_toc()`
+
+
+::: {.S-BIOG-006 .S-BIOG-027}
+
+```{block2, type = "bdd"}
+Dans le cadre d'une collaboration entre le cours English For Science et le cours de Science des données I, vous êtes amené à créer un blog scientifique. Ce blog va comprendre des articles qui traitent d'analyse de la littérature de vulgarisation scientifique et de description de données.
+
+Vous devez à présent ajouter disqus à votre blog. Cliquez sur le lien et suivez les instructions : <https://github.com/BioDataScience-Course/blog-creation> 
+  
+```
+
+:::
