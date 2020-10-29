@@ -205,6 +205,9 @@ Ici, nous faisons appel à une autre famille de fonctions : celles qui effectuen
 Le graphe en barres pour représenter les moyennes est très répandu dans le domaine scientifique malgré le grand nombre d'arguments en sa défaveur et que vous pouvez lire dans la section **pour en savoir plus** ci-dessous. L'un des arguments le plus important est la faible information qu'il véhicule puisque l'ensemble des données n'est plus représenté que par une valeur (la moyenne) pour chaque niveau de la variable facteur. Pour un petit nombre d'observations, il vaut mieux toutes les représenter à l'aide d'un nuage de points. Si le nombre d'observations devient très grand (dizaines ou plus), le graphique en boites de dispersion est plus indiqué (voir plus loin dans ce module).
 ```
 
+##### A vous de jouer {-}
+
+`r learnr("A04La_barres", title = "Graphique en barres", toc = "Réalisation de graphiques en barres dans R")`
 
 ##### Pour en savoir plus {-} 
 
@@ -261,6 +264,9 @@ chart(data = df, ~ Facteur %fill=% Facteur) +
 
 Dans ce dernier cas, c'est bien plus facile : il y a effectivement 24 observations relatives à la lettre **H**.
 
+##### A vous de jouer {-}
+
+`r learnr("A04Lb_barres", title = "Graphique en camembert", toc = "Réalisation de graphiques en camembert dans R")`
 
 ##### Pour en savoir plus {-} 
 
@@ -532,6 +538,10 @@ chart(data = tooth_growth, len ~ supp %fill=% dose) +
 ```
 
 
+##### A vous de jouer {-}
+
+`r learnr("A04Lc_boxplot", title = "Boite de dispersion", toc = "Réalisation de boites de dispersion dans R")`
+
 ##### Pour en savoir plus {-} 
 
 - [Un tutoriel boites de dispersion à l'aide de `ggplot()`](http://www.sthda.com/french/wiki/ggplot2-box-plot-guide-de-demarrage-rapide-logiciel-r-et-visualisation-de-donnees) présentant encore bien d'autres variantes possibles.
@@ -598,7 +608,18 @@ combine_charts(list(a, b), common.legend = TRUE)
 
 Il existe d'autres fonctions permettant de combiner plusieurs graphiques comme [`plot_grid()`](https://cran.r-project.org/web/packages/cowplot/vignettes/plot_grid.html) du package **cowplot**, mais avec `combine_charts()` vous pourrez déjà faire beaucoup. De plus, un libellé sous forme d'une lettre majuscule est automatiquement associé à chaque sous-région de la figure composée. Cela permet d'y faire plus facilement référence dans le texte et/ou dans la légende.
 
+##### A vous de jouer {-}
 
+`r learnr("A04Ld_fig_composees", title = "Graphiques composés", toc = "Réalisation de graphiques composés dans R")`
+
+```{r, echo=FALSE, results='asis'}
+assignation("A03Ga_graphe_avance", part = NULL,
+  url = "https://github.com/BioDataScience-Course/A04Ga_graphe_avance",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/a/...",
+    'S-BIOG-921' = "https://classroom.github.com/a/3EMyegs8"),
+  toc = "Réalisation de différents graphiques avancés.")
+```
 ##### Pour en savoir plus {-} 
 
 - [Partitionnement des graphiques en facettes](http://www.sthda.com/french/wiki/ggplot2-facet-diviser-un-graphique-en-plusieurs-panneaux-logiciel-r-et-visualisation-de-donnees). Différentes options sont présentées ici.
@@ -807,3 +828,10 @@ Terminez ce module en vérifiant que vous avez acquis l'ensemble des notions abo
 - [Autres exemples de graphiques R de base](http://www.sthda.com/english/wiki/scatter-plots-r-base-graphs)
 
 - [ggplot2 comparé aux graphiques R de base](https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/). Un point de vue différent d'un utilisateur habitué aux graphiques R de base (en anglais).
+
+
+## Récapitulatif des exercices
+
+Ce module 4 vous a permis de réaliser de découvrir de nouveau graphiques. Vous savez maintenant réaliser des graphiques en barres, des graphiques en camembert et des boites de dispersion. Vous êtes aussi capable de réaliser des graphiques composés. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
