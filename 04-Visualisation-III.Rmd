@@ -616,7 +616,7 @@ Il existe d'autres fonctions permettant de combiner plusieurs graphiques comme [
 assignation("A03Ga_graphe_avance", part = NULL,
   url = "https://github.com/BioDataScience-Course/A04Ga_graphe_avance",
   course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/...",
+    'S-BIOG-006' = "https://classroom.github.com/a/eKp2zsPG",
     'S-BIOG-921' = "https://classroom.github.com/a/3EMyegs8"),
   toc = "Réalisation de différents graphiques avancés.")
 ```
@@ -800,16 +800,12 @@ A l'issue de cette comparaison, vous pourrez décider du moteur graphique que vo
 
 ##### A vous de jouer {-}
 
-Proposez cinq graphiques inédits (qui n'ont pas été vu jusqu'ici) dans vos différents projets. Employez par exemple les liens suivants pour vous inspirer :
+Proposez trois graphiques inédits (qui n'ont pas été vu jusqu'ici) dans vos différents projets. Employez par exemple les liens suivants pour vous inspirer :
 
 - <https://www.r-graph-gallery.com>
 
 - <http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html>
 
-
-Terminez ce module en vérifiant que vous avez acquis l'ensemble des notions abordées.
-
-`r learnr("A04La_graphs_adv", title = "Graphiques avancés", toc = "Réalisation de différents graphiques avancés")`
 
 ##### Pour en savoir plus {-}
 
