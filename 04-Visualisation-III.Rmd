@@ -620,6 +620,7 @@ assignation("A03Ga_graphe_avance", part = NULL,
     'S-BIOG-921' = "https://classroom.github.com/a/3EMyegs8"),
   toc = "Réalisation de différents graphiques avancés.")
 ```
+
 ##### Pour en savoir plus {-} 
 
 - [Partitionnement des graphiques en facettes](http://www.sthda.com/french/wiki/ggplot2-facet-diviser-un-graphique-en-plusieurs-panneaux-logiciel-r-et-visualisation-de-donnees). Différentes options sont présentées ici.
