@@ -50,7 +50,7 @@ Les instructions dans R afin de produire un histogramme à l'aide de la fonction
 chart(data = zooplankton, ~ size) +
   geom_histogram(bins = 50) +
   ylab("Effectifs")
-# bins permet de préciser le nombre de classes souhaitées
+# bins= permet de préciser le nombre de classes souhaitées
 ```
 
 La fonction `chart()` requiert comme argument le jeu de donnée (`data = zooplankton`), ainsi que la formule à employer dans laquelle vous avez indiqué le nom de la variable que vous voulez sur l'axe des abscisses à droite de la formule, après le tilde `~`. Parmi toutes les variables du jeu de données, nous avons choisi ici de représenter `size`. Jusqu'ici, nous avons spécifié _ce que_ nous voulons représenter, mais pas encore _comment_ (sous quelle apparence), nous voulons matérialiser cela sur le graphique. Avec les graphiques de type `ggplot()` que nous réalisons ici à l'aide de `chart()`, nous **ajoutons** des couches au graphique à l'aide de l'opérateur `+`.  Pour un histogramme, nous devons ajouter une couche avec la fonction `geom_histogram()`, tout comme pour le nuage de point, nous utilisions `geom_point()`. L'argument `bins=` dans cette fonction permet de préciser le nombre de classes souhaitées. Le découpage en classe de la variable `size` se fait ici automatiquement.
@@ -111,7 +111,7 @@ d <- chart(data = zooplankton, ~ size) +
 combine_charts(list(a, b, c, d))
 ```
 
-Comme vous pouvez le voir à la Fig. \@ref(fig:histo-classes), le changement du nombre de classes peut modifier complètement la perception des données via l'histogramme. Le choix idéal est un compromis entre plus de classes (donc plus de détails), et un découpage raisonnable en fonction de la quantité de données disponibles. Si l'intervalle des classes est trop petit, l'histogramme sera illisible. Si l'intervalle des classes est trop grand, il sera impossible de visualiser correctement les différents modes. Dans la figure en exemple, les variantes A et B sont acceptables, mais les C et D manquent de détails.
+Comme vous pouvez le voir à la Fig. \@ref(fig:histo-classes), le changement du nombre de classes peut modifier complètement la perception des données via l'histogramme (notez l'utilisation de la fonction `combine_charts()` pour réaliser une figure composite, nous étudierons cette fonction plus en détails dans le prochain module). Le choix idéal est un compromis entre plus de classes (donc plus de détails), et un découpage raisonnable en fonction de la quantité de données disponibles. Si l'intervalle des classes est trop petit, l'histogramme sera illisible. Si l'intervalle des classes est trop grand, il sera impossible de visualiser correctement les différents modes. Dans la figure en exemple, les variantes A et B sont acceptables, mais les C et D manquent de détails.
 
 ##### A vous de jouer {-}
 
@@ -264,7 +264,7 @@ chart(data = ., size ~ class %fill=% class) +
         axis.line.y = element_line(colour = "#a80039"))
 ```
 
-Les instructions en R pour produire un diagramme en violon à l'aide de la fonction `chart()` sont :
+Les instructions en R pour produire un diagramme en violon à l'aide de la fonction `chart()` sont présentées ci-dessous. Comme le jeu de données `zooplankton` contient 17 classes différentes, nous décidons ici d'en extraire un sous-tableau ne contenant que les quatre classes de crustacés copépodes à l'aide d'une fonction `filter()`. Pour l'instant, retenez simplement que ce genre de remaniement de tableau est possible. Nous étudierons ces fonctions plus en détail dans les modules 5 et 6. Notre tableau réduit à quatre classes se nomme `zooplankton_sub` et c'est à partir de lui que nous réalisons notre graphique.
 
 ```{r violin-plot2, fig.cap="Distribution des tailles pour 4 groupes taxonomiques de zooplancton."}
 # Importation du jeu de données
@@ -289,7 +289,7 @@ chart(data = zooplankton, size ~ class) +
   geom_violin() 
 ```
 
-La fonction `coord_flip()` permute les axes. Ainsi les labels ne se chevauchent plus sur l'axe des ordonnées.
+La fonction `coord_flip()` permute les axes. Ainsi les libellés ne se chevauchent plus sur l'axe des ordonnées.
 
 ```{r violin-plot-ordonnees, fig.cap="Distribution de tailles des 17 classes d'organismes planctoniques (diagramme en violon avec l'ajout de la fonction `coord_flip()`)."}
 chart(data = zooplankton, size ~ class) +

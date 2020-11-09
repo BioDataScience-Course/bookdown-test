@@ -7,18 +7,18 @@ SciViews::R
 
 ##### Objectifs {-}
 
-- Savoir réaliser différents graphiques pour représenter des variables facteurs comme le graphique en barres, ou le graphique en camembert dans R avec la fonction `chart()`
+- Être capable de réaliser différents graphiques pour représenter des variables facteurs comme le graphique en barres, ou le graphique en camembert dans R avec la fonction `chart()`
 
 - Comprendre et utiliser la boîte de dispersion pour _synthétiser_ la distribution de données numériques 
 
 - Arranger différents graphiques dans une figure unique
 
-- Découvrir différents systèmes graphiques (graphiques de base, lattice, ggplot2) et les comparer entre eux
+- **De manière optionelle**, découvrir différents systèmes graphiques (graphiques de base, lattice, ggplot2) et les comparer entre eux
 
 
 ##### Prérequis {-}
 
-Assurez-vous de bien maîtriser les bases relatives à la représentation graphiques vues dans le module \@ref(visu1) et que vous êtes à l'aise dans l'utilisation de vos outils logiciels (SciViews Box, RStudio, R Markdown).
+Assurez-vous de bien maîtriser les bases relatives à la représentation graphiques vues dans le module \@ref(visu1) et d'être à l'aise dans l'utilisation des outils logiciels (SciViews Box, RStudio, R Markdown, Git & GitHub).
 
 
 ## Graphique en barres
@@ -30,7 +30,7 @@ Le graphique en barres (on dit aussi graphique en bâtons) compare les effectifs
 
 La question du nombre et/ou de l'intervalle des classes ne se pose pas dans le cas du graphique en barres. Par défaut, les barres seront séparées les unes des autres par un petit espace vide pour bien indiquer visuellement qu'il n'y a pas continuité entre les classes (dans l'histogramme, les barres sont accolées les unes aux autres pour matérialiser justement cette continuité).
 
-La formule que vous utiliserez, ici encore, ne fait appel qu'à une seule variable et s'écrira donc :
+La formule que vous utiliserez, ici encore, ne fait appel qu'à une seule variable et s'écrira donc\ :
 
 $$\sim variable \ facteur$$
 
@@ -51,47 +51,94 @@ chart(data = copepoda, ~ class) +
         axis.line.y = element_line(colour = "#a80039"))
 ```
 
-Outre les barres elles-mêmes, prêtez toujours attention aux éléments suivants du graphique (ici mis en évidence en couleurs) :
+Outre les barres elles-mêmes, prêtez toujours attention aux éléments suivants du graphique (ici mis en évidence en couleurs)\ :
 
 - les axes avec les graduations (en rouge)
 - les niveaux de la variable facteur (en rouge également)
 - le label des axes (en bleu)
 
-Les instructions dans R pour produire un graphique en barres à l'aide de la fonction `chart()` sont :
+Les instructions dans R pour produire un graphique en barres à l'aide de la fonction `chart()` sont les suivantes. Nous partons d'un jeu de données `zooplankton` que nous importons et dont nous extrayons un sous-ensemble à l'aide de la fonction `filter()`(vous étudierez en détail les fonctions de remaniement de tableaux dans les deux prochains modules) avant de réaliser notre graphique à l'aide de `chart()`\ :
 
 ```{r barres-facteur2, fig.cap="Abondances de quatres types de copépodes dans un échantillon de zooplancton."}
 # Importation du jeu de données
 (zooplankton <- read("zooplankton", package = "data.io", lang = "FR"))
-# Réduction du jeu de données 
+# Réduction du jeu de données à quatre classes seulement
 (copepoda <- filter(zooplankton,
   class %in% c("Calanoïde", "Cyclopoïde",  "Harpacticoïde",  "Poecilostomatoïde")))
 # Réalisation du graphique
 chart(data = copepoda, ~ class) +
   geom_bar() +
+  xlab("Classe") +
   ylab("Effectifs")
 ```
 
-La fonction `geom_bar()` se charge d'ajouter les barres verticales dans le graphique. La hauteur de ces barres correspond au nombre d'observations rencontrées dans le jeu de données pour chaque niveau (ou classe, ou groupe) de la variable facteur représentée.
+La fonction `geom_bar()` se charge d'ajouter les barres verticales dans le graphique. La hauteur de ces barres correspond au nombre d'observations rencontrées dans le jeu de données pour chaque niveau (ou classe, ou groupe) de la variable facteur représentée. Avec cet exemple, vous voyez également au passage comment réduire le nombre de niveaux dans un jeu de données avec `filter()`.
 
 
-### Effectifs par 2 facteurs
+### Effectifs par deux facteurs
+
+Reprenons maintenant le jeu de données `biometry`
 
 ```{r}
 # Importation des données biometry
 (biometry <- read("biometry", package = "BioDataScience", lang = "FR"))
+```
+
+Nous voulons représenter des barres pour les effectifs d'hommes et de femmes dans ce jeu de données (variable `gender`), mais en les séparant par années (variable `year_measure`). C'est faisable, mais notez que, si `gender` est déjà une variable facteur `<fct>`, `year_measure` est encodé comme variable quantitative numérique (c'est un "double" indiqué `<dbl>`, c'est-à-dire un nombre décimal par opposition à entier `<int>`). Or nous devons **absolument utiliser des variables facteur ici**. Nous allons donc effectuer la conversion avec la fonction `as.factor()` avant de réaliser notre graphique en barres. Nous en profitons pour indiquer un `label()` en français pour cette variable.
+
+```{r}
 # Conversion de la variable year_measure de numérique à facteur
 biometry$year_measure <- as.factor(biometry$year_measure)
 label(biometry$year_measure) <- "Année de la mesure"
 ```
 
-Différentes représentations sont possibles pour observer des dénombrements tenant compte de plusieurs variables facteurs. Par défaut, l'argument `position =` a pour valeur `stack` (donc, lorsque cet argument n'est pas précisé dans `geom_bar()`).
+Notez bien comment on se réfère à la variable `year_measure` à l'intérieur du jeu de données `biometry` avec `biometry$year_measure`. Et cette notation peut aussi bien être utilisée pour récupérer la colonne `year_measure` dans un argument d'une fonction (à droite), que comme résultat de l'assignation (à gauche de l'opérateur d'assignation `<-`). Ainsi l'instruction qui tranforme en facteur **remplace** la varision dans le jeu de données `biometry`. Maintenant, considérons que nous nous intéressons aux mesures antérieures à 2017 (cela nous permettra d'illustrer des points importants relatifs à l'utilisation de variables facteurs).
 
-```{r barres-2facteurs, fig.cap="Dénombrement des hommes (H) et des femmes (F) dans l'étude sur l'obésité en Hainaut en tenant compte des années de mesure pour (B).", echo=TRUE}
-a <- chart(data = biometry, ~ gender) +
+```{block2, type='note'}
+Les variables facteurs sont encodées dans R comme des entiers 1, 2, 3, ... pour les différents niveaux avec en plus, un attribut `levels` qui y associe une description textuelle à chacun des niveaux. Cela peut être perturbant quand la description textuelle est constituée d'un nombre comme ici pour `year_measure`. Mais les calculs sont prohibés sur les variables facteurs.
+```
+
+```{r}
+tail(biometry)$year_measure
+```
+
+Nous utilisons `head()` et `tail()` pour extraire les quelques lignes de début ou de fin d'un tableau. C'est utile pour en réduire la taille à l'impression. Faites très attention\ : lorsque vous imprimez le contenu d'une variable facteur, R *substitue* automatiquement les niveaux 1, 2, 3, ... par le contenu textuel tel qu'indiqué dans la dernière ligne `Levels: ...`, et **l'imprime sans mettre le texte entre guillemets**. Cela peut renforcer la fausse impression que c'est bien des valeurs numériques.
+
+Vous commencez à comprendre que si vous effectuez maintenant la comparaison `year_measure < 2017` lorsque cette variable est encodée comme facteur, ça ne fonctionnera pas comme vous le souhaitez\ ! Si on est chanceux, un message d'erreur ou d'avis ("warning") est imprimé. C'est le cas de `filter()` que nous avons déjà utilisé.
+
+```{r, error=TRUE}
+biometry2 <- filter(biometry, year_measure < 2017) 
+```
+
+Notez au passage que `filter()` n'utilise pas la notation `biometry$year_measure`, mais prend un premier argument qui est le jeu de données `biometry`, et la suite se réfère aux variables de ce jeu de données telle que `year_measure` en priorité aux autres variables disponibles dans l'environnement utilisateur de R. C'est donc une approche bien plus puissante que la notation traditionnelle. Aussi `filter()` renvoie tout le tableau remanié. Donc, nous devons l'affecté simplement à une variable qui contient ce tableau (`biometry2` ici).
+
+Dans d'autres cas, le résultat peut être dramatique car le calcul est appliqué à l'encodage des niveaux de la variable facteur. Or, avec quatre niveaux, les encodages sont 1, 2, 3 et 4, ... et ils sont bien évidemment tous inférieurs à 2017 (pour rappel, "2013", "2014", "2016" et "2017" sont les libellés textuels des niveaux de la variable facteur)\ !
+
+```{block2, type='warning'}
+De manière générale, n'effectuez **jamais** de calcul sur des variables facteurs. Tranformez-les toujours avant. Si les libellés contiennent des valeurs numériques sur lesquelles vous voulez faire des calculs, utilisez `as.numeric(as.character(VARFACT))`, et une fois le calcul réalisé, retransformez en facteur avec `as.factor()`.
+```
+
+Le calcul explicite et sûr est donc le suivant\ :
+
+```{r}
+# Transforme de manière sûre factor -> numeric (double)
+biometry$year_measure <- as.numeric(as.character(biometry$year_measure))
+# Filtre les données sur une copie du tableau
+biometry2 <- filter(biometry, year_measure < 2017)
+# Retransforme en variable factor
+biometry2$year_measure <- as.factor(biometry2$year_measure)
+# Vérification
+tail(biometry2)$year_measure
+```
+
+Naturellement ici, la bonne stratégie est d'effectuer le calcul sur le tableau de départ **avant** de transformer en facteur, mais nous sommes partis de la variable facteur à titre d'illustration d'un cas qui peut se rencontrer en pratique. A présent que nous avons notre jeu de données sans les individus de 2017, et les variables correctement encodées, nous pouvons aborder différentes représentations pour observer des dénombrements tenant compte de plusieurs variables facteurs. Par défaut, l'argument `position =` a pour valeur `stack` (donc, lorsque cet argument n'est pas précisé dans `geom_bar()`, les barres sont empilées par rapport à la seconde variable facteur).
+
+```{r barres-2facteurs, echo=TRUE, fig.cap="Dénombrement des hommes (H) et des femmes (F) dans l'étude sur l'obésité en Hainaut, (A) graphique utilisant un seul facteur. (B) graphique prenant en compte les années de mesure."}
+a <- chart(data = biometry2, ~ gender) +
   geom_bar() +
   ylab("Effectifs")
 
-b <- chart(data = biometry, ~ gender %fill=% year_measure) +
+b <- chart(data = biometry2, ~ gender %fill=% year_measure) +
   geom_bar() +
   ylab("Effectifs") +
   scale_fill_viridis_d()
@@ -99,20 +146,20 @@ b <- chart(data = biometry, ~ gender %fill=% year_measure) +
 combine_charts(list(a, b), common.legend = TRUE)
 ```
 
-Il existe d'autres options possible en utilisant les valeurs `dodge` ou `fill` pour l'argument `position =`.
+Il existe d'autres options en utilisant les valeurs `dodge` ou `fill` pour l'argument `position =`.
 
 ```{r barres-2facteurs2, fig.cap="Dénombrement des hommes (H) et des femmes (F) dans l'étude sur l'obésité en Hainaut en tenant compte des années de mesure (différentes présentations).", echo=TRUE}
-a <- chart(data = biometry, ~ gender %fill=% year_measure) +
+a <- chart(data = biometry2, ~ gender %fill=% year_measure) +
   geom_bar(position = "stack") +
   ylab("Effectifs") +
   scale_fill_viridis_d()
 
-b <- chart(data = biometry, ~ gender %fill=% year_measure) +
+b <- chart(data = biometry2, ~ gender %fill=% year_measure) +
   geom_bar(position = "dodge") +
   ylab("Effectifs") +
   scale_fill_viridis_d()
 
-c <- chart(data = biometry, ~ gender %fill=% year_measure) +
+c <- chart(data = biometry2, ~ gender %fill=% year_measure) +
   geom_bar(position = "fill") +
   ylab("Fractions") +
   scale_fill_viridis_d()
@@ -120,7 +167,7 @@ c <- chart(data = biometry, ~ gender %fill=% year_measure) +
 combine_charts(list(a, b, c), common.legend = TRUE)
 ```
 
-Soyez vigilant à la différence entre l'argument `position = stack` et `position = fill` qui malgré un rendu semblable ont l'axe des ordonnées qui diffère (dans le cas de `fill`, il s'agit de la **fraction** par rapport au total qui est représentée, et non pas des **effectifs** absolus dénombrés).
+Soyez vigilant à la différence entre l'argument `position = stack` et `position = fill` qui malgré un rendu semblable ont l'axe des ordonnées qui diffèrent (dans le cas de `fill`, il s'agit de la **fraction** par rapport au total qui est représentée, et non pas des **effectifs** absolus dénombrés).
 
 
 ##### Pièges et Astuces {-}
@@ -145,15 +192,28 @@ chart(data = zooplankton, ~ class) +
   ylab("Effectifs")
 ```
 
-Avec la fonction `coord_flip()` ajoutée à votre graphique, vous pouvez effectuer une rotation des axes pour obtenir un **graphique en barres horizontales**. De plus, l’œil humain perçoit plus distinctement les différences de longueurs horizontales que verticales. Donc, de ce point de vue, le graphe en barres horizontales est considéré comme meilleur que le graphe en barres verticales.
+Dans ce cas, il est possible de réaliser un graphique en **barres horizontales** qui laisse plus de place pour le libellé sur l'axe. Il existe deux manières de le faire\ : préférentiellement en utilisant l'argument `orientation = "y"` de `geom_bar()` (mais alors il faut utiliser `aes(y = ...)` à la place de la formule), et ensuite, on peut garder tout le code identique, mais rajouter `coord_flip()` tout à la fin. Utilisons successivement ces deux approches.
 
-```{r barres-rotation, fig.cap="Dénombrement des classes du jeu de données zooplankton (version avec barres horizontales)."}
+```{r barres-rotation, fig.cap="Dénombrement des classes du jeu de données zooplankton (version avec barres horizontales en utilisant `orientation = \"y\"`)."}
+chart(data = zooplankton, aes(y = class)) +
+  geom_bar(orientation = "y") +
+  xlab("Effectifs")
+```
+
+Pourquoi ne peut-on pas utiliser de formule dans ce cas\ ? En fait, il faudrait écrire `class ~`, ... seulement voilà, une formule ne *peut pas* avoir un membre de droite vide. Donc, on est dans une impasse et on doit utiliser la forme explicite `aes()` pour "aesthetics" en anglais qui indique quelle variable est utilisée pour quoi dans le graphique en indiquant `y=`.
+
+Avec la fonction `coord_flip()` ajoutée à votre graphique, vous pouvez effectuer une rotation des axes (l'axe X devient Y et inversément) pour obtenir un **graphique en barres horizontales**. De plus, l’œil humain perçoit plus distinctement les différences de longueurs horizontales que verticales. Donc, de ce point de vue, le graphe en barres horizontales est considéré comme meilleur que le graphe en barres verticales.
+
+```{r barres-rotation2, fig.cap="Dénombrement des classes du jeu de données zooplankton (version avec barres horizontales en utilisant `coord_flip()`)."}
 chart(data = zooplankton, ~ class) +
   geom_bar() +
   ylab("Effectifs") +
   coord_flip()
 ```
 
+```{block2, type='warning'}
+Avec `coord_flip()`, pensez toujours que vos axes *finaux* X et Y sont inversés avant l'utilisation de cette instruction. Ainsi, si vous voulez changer le libellé de l'axes X sur le graphique final, mais *avant* d'avoir indiqué `coord_flip()`, gardez bien à l'esprit que c'est en fait le libellé de l'axe Y que vous devez indiquer avec, par exemple `ylab()` comme c'est le cas dans la figure précédente pour le libellé "Effectifs".
+```
 
 ##### Pour en savoir plus {-}
 
@@ -166,15 +226,15 @@ chart(data = zooplankton, ~ class) +
 
 ### Valeurs moyennes  {#barres-mean}
 
-Le graphique en barres peut être aussi employé pour résumer des données numériques via la moyenne. Il ne s'agit plus de dénombrer les effectifs d'une variable facteur mais de résumer des données numériques en fonction d'une variable facteur. On peut exprimer cette relation dans R sous la forme de
+Le graphique en barres peut être aussi employé pour résumer des données numériques via la moyenne. Il ne s'agit plus de dénombrer les effectifs d'une variable facteur mais de résumer des données numériques en fonction d'une variable facteur. On peut exprimer cette relation dans R sous la forme de\ :
 
 $$y \sim x$$
 
-que l'on peut lire :
+que l'on peut lire\ :
 
 $$y \ en \ fonction \ de \ x$$
 
-Avec _y_ une variable numérique et _x_ une variable facteur. Considérez l'échantillon suivant :
+Avec _y_ une variable numérique et _x_ une variable facteur. Considérez l'échantillon suivant\ :
 
 ```
 1, 71, 55, 68, 78, 60, 83, 120, 82 ,53, 26
@@ -192,14 +252,15 @@ x <- c(1, 71, 55, 68, 78, 60, 83, 120, 82, 53, 26)
 mean(x)
 ```
 
-Les instructions pour produire ce graphe en barres à l'aide de `chart()` sont :
+Les instructions pour produire ce graphe en barres à l'aide de `chart()` sont\ :
 
 ```{r barres-mean, fig.cap="Exemple de graphique en barres représentant les moyennes de tailles par groupe zooplanctonique."}
 chart(data = copepoda, size ~ class) +
-  stat_summary(geom = "col", fun.y = "mean")
+  stat_summary(geom = "col", fun = "mean") +
+  xlab("Classe")
 ```
 
-Ici, nous faisons appel à une autre famille de fonctions : celles qui effectuent des calculs sur les données avant de les représenter graphiquement.
+Ici, nous faisons appel à une autre famille de fonctions\ : celles qui effectuent des calculs sur les données avant de les représenter graphiquement. Leurs noms commencent toujours par `stat_`.
 
 ```{block2, type='warning'}
 Le graphe en barres pour représenter les moyennes est très répandu dans le domaine scientifique malgré le grand nombre d'arguments en sa défaveur et que vous pouvez lire dans la section **pour en savoir plus** ci-dessous. L'un des arguments le plus important est la faible information qu'il véhicule puisque l'ensemble des données n'est plus représenté que par une valeur (la moyenne) pour chaque niveau de la variable facteur. Pour un petit nombre d'observations, il vaut mieux toutes les représenter à l'aide d'un nuage de points. Si le nombre d'observations devient très grand (dizaines ou plus), le graphique en boites de dispersion est plus indiqué (voir plus loin dans ce module).
@@ -228,15 +289,15 @@ chart(data = copepoda, ~ factor(0) %fill=% class) +
   scale_fill_viridis_d()
 ```
 
-Ce graphique est plus difficile à réaliser à l'aide de `chart()` ou `ggplot()`. En fait, il faut ruser ici, et l'auteur du package **ggplot2** n'avait tout simplement pas l'intention d'ajouter ce type de graphique dans la panoplie proposée. En effet, il faut savoir que l’œil humain est nettement moins bon pour repérer des angles que pour comparer des longueurs. **Donc, le diagramme en barres est souvent meilleur pour comparer des effectifs par classes.** Mais d'une part, le graphique en camembert est (malheureusement) un graphique très répandu et il faut savoir l'interpréter, et d'autre part, il peut s'avérer quand même utile dans certaines situations. Notez l'utilisation de la fonction `theme_void()` qui crée un graphique sans axes.
+Ce graphique est plus difficile à réaliser à l'aide de `chart()` ou `ggplot()`. En fait, il faut ruser ici, et l'auteur du package **ggplot2** n'avait tout simplement pas l'intention d'ajouter ce type de graphique dans la panoplie proposée. En effet, il faut savoir que l’œil humain est nettement moins bon pour repérer des angles que pour comparer des longueurs. **Donc, le diagramme en barres est souvent meilleur pour comparer des effectifs par classes.** Mais d'une part, le graphique en camembert est (malheureusement) un graphique très répandu et il faut savoir l'interpréter, et d'autre part, il peut s'avérer quand même utile dans certaines situations. Notez l'utilisation des fonctions `coord_polar()` qui crée des coordonnées polaires et la fonction `theme_void()` qui crée un graphique sans axes. En fait, un graphique en camembert peut aussi se concevoir comme un graphique en barres représenté en coordonnées polaires.
 
 
 ##### Pièges et astuces {-}
 
-Partons d'un exemple fictif pour vous convaincre qu'un graphique en barres est souvent plus lisible qu'un graphique en camembert. Combien d'observations comptez-vous pour la lettre **H** ? 
+Partons d'un exemple fictif pour vous convaincre qu'un graphique en barres est souvent plus lisible qu'un graphique en camembert. Combien d'observations comptez-vous pour la lettre **H**\ ?
 
 ```{r, echo=FALSE}
-df <- data_frame(
+df <- tibble(
   Index    = 1:347,
   Facteur  = as.factor(rep(LETTERS[1:10],
     times = c(10, 1, 1, 50, 2, 78, 101, 24, 31, 49)
@@ -253,7 +314,7 @@ chart(data = df, ~ factor(0) %fill=% Facteur) +
   scale_fill_viridis_d()
 ```
 
-Maintenant, effectuez le même exercice sur base d'un graphique en barres, combien d'observations pour la lettre **H** ?
+Maintenant, effectuez le même exercice sur base d'un graphique en barres, combien d'observations pour la lettre **H**\ ?
 
 ```{r barchart2, echo=FALSE, fig.cap="Dénombrement des niveaux d'une variable facteur sur un graphique en barres."}
 chart(data = df, ~ Facteur %fill=% Facteur) +
@@ -262,7 +323,7 @@ chart(data = df, ~ Facteur %fill=% Facteur) +
   scale_fill_viridis_d()
 ```
 
-Dans ce dernier cas, c'est bien plus facile : il y a effectivement 24 observations relatives à la lettre **H**.
+Dans ce dernier cas, c'est bien plus facile\ : il y a effectivement 24 observations relatives à la lettre **H** (vous ne voyez peut-être pas que l'effectif de *H* est exactement 24, mais vous pouvez voir sans problème qu'il est d'*environ* 25, alors que sur le graphique en camembert, nous le voyons beaucoup moins bien).
 
 ##### A vous de jouer {-}
 
