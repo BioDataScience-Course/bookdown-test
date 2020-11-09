@@ -342,14 +342,15 @@ Dans ce dernier cas, c'est bien plus facile\ : il y a effectivement 24 observati
 
 ## Boite de dispersion {#boxplot}
 
-Vous souhaitez représenter graphiquement cette fois *un résumé* d'une variable numérique mesurée sur un nombre (relativement) important d'individus, soit depuis une dizaine jusqu'à plusieurs millions. Vous souhaitez également conserver de l'information sur la distribution des données, et voulez éventuellement comparer plusieurs distributions entre elles : soit différentes variables, soit différents niveaux d'une variable facteur. Nous avons déjà vu au module \@ref(visu2) les diagrammes en violon et en lignes de crêtes pour cet usage. Nous allons étudier ici les **boites de dispersion** (encore appelée boite à moustaches) comme option alternative intéressante. La boite de dispersion représentera graphiquement cinq descripteurs appelés les **cinq nombres**.
+Vous souhaitez représenter graphiquement cette fois *un résumé* d'une variable numérique mesurée sur un nombre (relativement) important d'individus, soit depuis une dizaine jusqu'à plusieurs millions. Vous souhaitez également conserver de l'information sur la distribution des données, et voulez éventuellement comparer plusieurs distributions entre elles : soit différentes variables, soit différents niveaux d'une variable facteur. Nous avons déjà vu au module \@ref(visu2) les diagrammes en violon et en lignes de crêtes pour cet usage. Nous allons étudier ici les **boites de dispersion** (encore appelée boite à moustaches) comme option alternative intéressante. La boite de dispersion représentera graphiquement cinq descripteurs communément appelés les **cinq nombres**.
 
-Considérez l'échantillon suivant :
+Considérez l'échantillon suivant\ :
 
 ```
 1, 71, 55, 68, 78, 60, 83, 120, 82 ,53, 26
 ```
-Ordonnez-le de la plus petite à la plus grande valeur :
+
+Ordonnons-le de la plus petite à la plus grande valeur\ :
 
 ```{r}
 # Créer du vecteur
@@ -364,13 +365,13 @@ Le premier descripteur des cinq nombres est la **médiane** qui est la valeur se
 median(x)
 ```
 
-Les quartiles séparent l'échantillon en quatre. Le **premier quartile** (Q1) sera la valeur pour laquelle 25% des observations seront plus petites. Elle se situe donc entre la valeur minimale et la médiane. Cette médiane est égale au second quartile (50% des observations plus petites). Le **troisième quartile** (Q3) est la valeur pour laquelle 75% des observations de l'échantillon sont plus petites^[Notez que, lorsque la coupure tombe entre deux observations, une valeur intermédiaire est utilisée. Ici par exemple, le premier quartile est entre 53 et 55, donc, il vaut 54. Le troisième quartile se situe entre 78 et 82. Il vaut donc 80.]. Enfin, la valeur **minimale** et la valeur **maximale** observées dans l'échantillon complètent ces cinq nombres qui décrivent de manière synthétique la *position* et l'*étendue* des observations.
+En effet, nous voyons sur le vecteur ordonné que cinq valeurs sont plus petites que 68 et cinq valeurs sont plus grandes. Les quartiles séparent l'échantillon en quatre. Le **premier quartile** (Q1) sera la valeur pour laquelle 25% des observations seront plus petites. Elle se situe donc entre la valeur minimale et la médiane. Cette médiane est égale au second quartile (50% des observations plus petites). Le **troisième quartile** (Q3) est la valeur pour laquelle 75% des observations de l'échantillon sont plus petites^[Notez que, lorsque la coupure tombe entre deux observations, une valeur intermédiaire est utilisée. Ici par exemple, le premier quartile est entre 53 et 55, donc, il vaut 54. Le troisième quartile se situe entre 78 et 82. Il vaut donc 80.]. Enfin, la valeur **minimale** et la valeur **maximale** observées dans l'échantillon complètent ces cinq nombres qui décrivent de manière synthétique la *position* et l'*étendue* des observations.
 
 ```{block2, type='note'}
 Les **cinq nombres** sont : la **valeur minimale**, le **premier quartile**, la **médiane** (ou deuxième quartile), le **troisième quartile** et la **valeur maximale**.
 ```
 
-Voici comment on les calcules facilement dans R :
+Voici comment on les calcules facilement dans R\ :
 
 ```{r}
 fivenum(x)
@@ -379,7 +380,7 @@ fivenum(x)
 La boite de dispersion est une représentation graphique codifiée de ces cinq nombres. La représentation de `x` sous forme de nuage de points n'est ni très esthétique, ni très lisible, surtout si nous avons affaire à des milliers ou des millions d'observations qui se chevauchent sur le graphique^[Il est possible de modifier la transparence des points et/ou de les déplacer légèrement vers la gauche ou vers la droite de manière aléatoire pour résoudre le problème de chevauchement des points sur un graphique en nuage de points univarié.].
 
 ```{r nuage-de-points, fig.cap="Nuage de points univarié.", echo=FALSE}
-df <- data_frame(x = x)
+df <- tibble(x = x)
 chart(data = df, x ~ 0) +
   geom_point() +
   theme(axis.text.x = element_blank(),
@@ -534,7 +535,7 @@ b <- ggplot_box_legend()
 combine_charts(list(a, b))
 ```
 
-Les instructions dans R pour produire un graphique en boites de dispersion parallèles (comparaison de la distribution d'une variable numérique pour différents niveaux d'une autre variable facteur) sont :
+Un des gros avantages de la boite de dispersion est de mettre en évidence de manière synthétique la distribution des données sur l'axe. La **boite de dispersion parallèle** places *plusieurs* boites de dispersion côte à côte en face d'un même axe. C'est un excellent moyen de *comparer* la dispersion de données numériques en fonction des niveau d'une variable **factor**.  Les instructions dans R pour produire un graphique en boites de dispersion parallèles sont\ :
 
 ```{r boxplot, fig.cap="Distribution des tailles par groupes taxonomiques pour le zooplancton."}
 chart(data = copepoda, size ~ class) +
@@ -558,7 +559,7 @@ chart(data = df, Valeur ~ Facteur) +
   geom_point(color = "red") 
 ```
 
-La boite de dispersion **`A`** est calculée à partir de seulement quatre observations. C'est trop peu. Comme les points représentant les observations ne sont habituellement pas superposés à la boite, cela peut passer inaperçu et tromper le lecteur ! Une bonne pratique consiste à ajouter *n*, le nombre d'observations au-dessus de chaque boite. Cela peut se faire facilement avec les fonctions `give_n()` et `stat_summary()` ci-dessous.
+La boite de dispersion pour le niveau **`A`** est calculée à partir de seulement quatre observations. C'est trop peu. Comme les points représentant les observations ne sont habituellement pas superposés à la boite, cela peut passer inaperçu et tromper le lecteur\ ! Une bonne pratique consiste à ajouter *n*, le nombre d'observations au-dessus de chaque boite. Cela peut se faire facilement avec les fonctions `give_n()` et `stat_summary()` ci-dessous^[a fonction `give_n()` est une **fonction personnalisée** que nous avons écrite nous-même. Il est possible, et même assez facile, dans R d'écrire ses *propres* fonctions. Néanmoins cela dépasse du cadre du cours pour l'instant. Pour utiliser `give_n()` dans vos documents R Markdown, copiez simplement sa définition dans un chunk avant de l'utiliser comme c'est fait ici.].
 
 ```{r boxplot2, fig.cap="Taille de copépodes pour différents groupes taxonomiques (le nombre d'observations est indiqué au dessus de chaque boite)."}
 give_n <- function(x)
@@ -570,11 +571,11 @@ chart(data = copepoda, size ~ class) +
 ```
 
 
-### En fonction de 2 facteurs
+### En fonction de deux facteurs
 
 La Fig. \@ref(fig:boxplot-tooth) présente un graphique en boites de dispersion parallèles qui combine l'usage de *deux* variables facteurs différentes.
 
-```{r boxplot-tooth, fig.cap=" Croissance de dents de cochons d'Inde en fonction de la supplémentation (OJ = jus d'orange, VC = vitamine C) et de la dose administrée (n indiqué au dessus de chaque boite)."}
+```{r}
 # Importation du jeu de données ToothGrowth
 (tooth_growth <- read("ToothGrowth", package = "datasets"))
 # Remaniement et labelisation du jeu de données
@@ -591,7 +592,20 @@ tooth_growth <- labelise(tooth_growth, self = FALSE,
     dose = "mg/J"
   )
 )
-# Réalisation graphique
+```
+
+Petits commentaires sur ce code\ :
+
+- La fonction `labelise()` appliquée au tableau tout entier et avec l'argument `self= FALSE` s'applique aux **colonnes** du tableau, c'est-à-dire aux variables. Ensuite, les arguments `label=` et `units=` reçoivent une `list()` nommée pour en modifier les attributs (`nom = "valeur"`). C'est une manière pratique et efficace de changer tous les labels et unités des variables en une seule étape (il n'est pas indispensable de reprendre *toutes* lesvariables, on peut indiquer seulement celles que l'on veut modifier).
+ 
+- Nous avons utilisé `as.ordered()` à la place de `as.factor()`. Les objets "facteurs ordonnés" dans R (ou **ordered**) sont identiques aux facteurs à ceci près que l'ordre de niveaux a aussi un sens du plus petit au plus grand. Ainsi, des niveaux de `supp`\ : soit "VC" pour vitamine C ou "OJ" pour vitamine C dans du jus d'orange n'ont pas d'ordre précis. Nous utilisons un objet **factor**.  Par contre, les doses de vitamines C `0.5 < 1 < 2` exprimées en mg/J ont un ordre. Dans ce cas, nous préférons les objets **ordered**, qui s'utilisent en pratique comme les objets **factor** dans R (mais notez bien l'indication de l'ordre des niveaux de la variable à l'aide de `<` dans `Levels:`, c'est ce qui distingue un objet **ordered** d'un objet **factor**).
+
+```{r}
+head(tooth_growth)$dose
+```
+
+```{r boxplot-tooth, fig.cap=" Croissance de dents de cochons d'Inde en fonction de la supplémentation (OJ = jus d'orange, VC = vitamine C) et de la dose administrée (nombre d'observations *n* indiqué au dessus de chaque boite)."}
+# Réalisation du graphique (nous réutilisons give_n() ici!)
 chart(data = tooth_growth, len ~ supp %fill=% dose) +
   geom_boxplot() +
   stat_summary(fun.data = give_n, geom = "text", hjust = 0.5,
@@ -617,17 +631,17 @@ chart(data = tooth_growth, len ~ supp %fill=% dose) +
 ## Figures composées
 
 Il arrive fréquemment de vouloir combiner plusieurs graphiques dans une même figure.
-Plusieurs fonctions sont à votre disposition pour cela. Il faut tout d'abord distinguer deux types de figures multi-graphiques :
+Plusieurs fonctions sont à votre disposition pour cela. Il faut tout d'abord distinguer deux types de figures multi-graphiques\ :
 
-1. Soit il s'agit d'un seul graphique que vous souhaitez subdiviser par rapport à une ou des variables facteurs.
+1. Soit il s'agit d'un seul graphique que vous souhaitez subdiviser par rapport à une ou plusieurs variables facteurs.
 2. Soit il s'agit de graphiques indépendants que vous souhaitez assembler dans une même figure parce que les données ont un lien entre elles, ou parce que ces graphiques sont complémentaires pour comprendre les données.
 
-Dans le premier cas, les fonctions `facet_XXX()` comme `facet_grid()` peuvent être employées. Dans le second cas, la fonction `combine_charts()` est l'une des alternatives possibles.
+Dans le premier cas, les fonctions `facet_XXX()` comme `facet_grid()` peuvent être employées (ou l'opérateur `|` dans une formule). Dans le second cas, la fonction `combine_charts()` est l'une des alternatives possibles.
 
 
 ### Facettes
 
-L'une des règles les plus importantes que vous devez impérativement garder à l'esprit lors de la réalisation de vos graphiques est *la simplicité*. Au plus votre graphique contiendra d'information au plus il sera compliqué à décoder par vos lecteurs. 
+L'une des règles les plus importantes que vous devez impérativement garder à l'esprit lors de la réalisation de vos graphiques est *la simplicité*. Plus votre graphique contiendra d'information, plus il sera compliqué à décoder par vos lecteurs. 
 
 ```{r chick1, fig.cap= "Croissance de poulets en utilisant quatre aliments différents."}
 # Importation de données relative à la croissance de poulets
@@ -638,7 +652,7 @@ chart(data = chick_weight, weight ~ Time %col=% Diet) +
   labs(x = "Age [j]", y = "Masse [g]")
 ```
 
-Le graphique à la Fig. \@ref(fig:chick1) est mal adapté pour montrer les différences entre les quatre aliments : tous les points sont entremêlés. Il peut typiquement être simplifié en utilisant des facettes pour représenter les résultats relatifs aux différents régimes alimentaires sur des graphiques séparés. L'information est la même mais la lecture est beaucoup plus aisée.
+Le graphique à la Fig. \@ref(fig:chick1) est mal adapté pour montrer les différences entre les quatre aliments\ : tous les points sont entremêlés. Il peut typiquement être simplifié en utilisant des facettes pour représenter les résultats relatifs aux différents régimes alimentaires sur des graphiques séparés. L'information est la même mais la lecture est beaucoup plus aisée.
 
 ```{r chick-facette, fig.cap= "Croissance de poulets en utilisant quatre aliments différents (1-4)."}
 chart(data = chick_weight, weight ~ Time | Diet) +
