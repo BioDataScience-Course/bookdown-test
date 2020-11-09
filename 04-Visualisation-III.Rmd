@@ -550,16 +550,16 @@ La formule à employer est `YNUM (size) ~ XFACTOR (class)`. Ensuite, pour réali
 Lors de la réalisation de boites de dispersion, vous devez être vigilant au nombre d'observations qui se cachent sous chacune d'elles. En effet, réaliser une boite de dispersion à partir d'échantillons ne comportant que cinq valeurs ou moins n'a *aucun* sens ! 
 
 ```{r boxplot-points, fig.cap= "Piège des boites de dispersion : trop peu d'observations disponibles pour `a`.", echo= FALSE}
-df <- data_frame(Facteur = rep(c("A", "B", "C"), times = c(4, 11, 8)), 
-                 Valeur  = c(55, 83, 120, 26,
-                             1, 71, 55, 68, 78, 60, 83, 120, 82, 53, 26,
-                             1, 71, 78, 60, 83, 120, 53, 26))
+df <- tibble(
+  Facteur = rep(c("A", "B", "C"), times = c(4, 11, 8)), 
+  Valeur  = c(55, 83, 120, 26, 1, 71, 55, 68, 78, 60, 83, 120,
+              82, 53, 26, 1, 71, 78, 60, 83, 120, 53, 26))
 chart(data = df, Valeur ~ Facteur) +
   geom_boxplot() +
   geom_point(color = "red") 
 ```
 
-La boite de dispersion pour le niveau **`A`** est calculée à partir de seulement quatre observations. C'est trop peu. Comme les points représentant les observations ne sont habituellement pas superposés à la boite, cela peut passer inaperçu et tromper le lecteur\ ! Une bonne pratique consiste à ajouter *n*, le nombre d'observations au-dessus de chaque boite. Cela peut se faire facilement avec les fonctions `give_n()` et `stat_summary()` ci-dessous^[a fonction `give_n()` est une **fonction personnalisée** que nous avons écrite nous-même. Il est possible, et même assez facile, dans R d'écrire ses *propres* fonctions. Néanmoins cela dépasse du cadre du cours pour l'instant. Pour utiliser `give_n()` dans vos documents R Markdown, copiez simplement sa définition dans un chunk avant de l'utiliser comme c'est fait ici.].
+La boite de dispersion pour le niveau **`A`** est calculée à partir de seulement quatre observations. C'est trop peu. Comme les points représentant les observations ne sont habituellement pas superposés à la boite, cela peut passer inaperçu et tromper le lecteur\ ! Une bonne pratique consiste à ajouter *n*, le nombre d'observations au-dessus de chaque boite. Cela peut se faire facilement avec les fonctions `give_n()` et `stat_summary()` ci-dessous^[La fonction `give_n()` est une **fonction personnalisée** que nous avons écrite nous-même. Elle positionne du texte `y=` 10% plus haut que le `max(x)`, et ce texte est `length(x)`, la longueur du vecteur qui correspond au nombre d'observations pour `x` (`x`étant utilisé en interne par le moteur graphique). Il est possible, et même assez facile, dans R d'écrire ses *propres* fonctions. Néanmoins cela dépasse du cadre du cours pour l'instant. Pour utiliser `give_n()` dans vos documents R Markdown, copiez simplement sa définition dans un chunk avant de l'utiliser comme c'est fait ici. Elle est aussi réutilisable plus loin dans le même R Markdown, une fois qu'elle est définie.].
 
 ```{r boxplot2, fig.cap="Taille de copépodes pour différents groupes taxonomiques (le nombre d'observations est indiqué au dessus de chaque boite)."}
 give_n <- function(x)
@@ -570,6 +570,7 @@ chart(data = copepoda, size ~ class) +
   stat_summary(fun.data = give_n, geom = "text", hjust = 0.5)
 ```
 
+La fonction `stat_summary()` ajoute des éléments à un graphique sur base d'un *calcul*. Ici, nous rajoutons du texte `geom = "text"`, sur base du calcul effectué avec notre fonction `give_n()` définie plus haut. L'argument `hjust = 0.5` indique simplement que le texte doit être justifié horizontalement à 0.5 (= centré, car 0 = justification à gauche, et 1 = justification à droite).
 
 ### En fonction de deux facteurs
 
