@@ -268,7 +268,7 @@ Le graphe en barres pour représenter les moyennes est très répandu dans le do
 
 ##### A vous de jouer {-}
 
-`r learnr("A04La_barres", title = "Graphique en barres", toc = "Réalisation de graphiques en barres dans R")`
+`r learnr("A04La_barres", title = "Graphique en barres", toc = "Graphiques en barres dans R")`
 
 ##### Pour en savoir plus {-} 
 
@@ -327,7 +327,7 @@ Dans ce dernier cas, c'est bien plus facile\ : il y a effectivement 24 observati
 
 ##### A vous de jouer {-}
 
-`r learnr("A04Lb_barres", title = "Graphique en camembert", toc = "Réalisation de graphiques en camembert dans R")`
+`r learnr("A04Lb_barres", title = "Graphique en camembert", toc = "Graphiques en camembert dans R")`
 
 ##### Pour en savoir plus {-} 
 
@@ -616,7 +616,7 @@ chart(data = tooth_growth, len ~ supp %fill=% dose) +
 
 ##### A vous de jouer {-}
 
-`r learnr("A04Lc_boxplot", title = "Boite de dispersion", toc = "Réalisation de boites de dispersion dans R")`
+`r learnr("A04Lc_boxplot", title = "Boite de dispersion", toc = "Boites de dispersion dans R")`
 
 ##### Pour en savoir plus {-} 
 
@@ -661,12 +661,12 @@ chart(data = chick_weight, weight ~ Time | Diet) +
   labs(x = "Age [j]", y = "Masse [g]")
 ```
 
-Vous observez que les échelles en abscisse et en ordonnée sont similaires sur tous les graphiques. Cela permet une meilleure comparaison. Notez toutefois que, plus le nombre de facettes augmente, plus chaque graphique individuel devient petit. Faites attention à ne pas finir avec des graphiques individuels tellement petits qu'ils en deviennent illisibles !
+Vous observez que les échelles en abscisse et en ordonnée sont similaires sur tous les graphiques. Cela permet une meilleure comparaison. Notez toutefois que, plus le nombre de facettes augmente, plus chaque graphique individuel devient petit. Faites attention à ne pas finir avec des graphiques individuels tellement petits qu'ils en deviennent illisibles\ !
 
 
 ### Graphiques assemblés
 
-La fonction `combine_charts()` permet de combiner plusieurs graphiques dans une figure unique. Nous l'avons déjà utilisée à plusieurs reprises. Cette fonction attend une liste de graphiques de type `chart()` à assembler.
+La fonction `combine_charts()` permet de combiner plusieurs graphiques dans une figure unique. Nous l'avons déjà utilisée à plusieurs reprises. Cette fonction attend une liste (`list()`) de graphiques de type `chart()` à assembler, et il est possible d'en combiner les légendes à l'aide de `common.legend = TRUE`.
 
 ```{r combine-charts, fig.cap= "A) Masse d'oursins en fonction de leur taille  et de leur origine. B) Masse totale en fonction de la masse des parties solides de ces mêmes oursins."}
 # Importation des données
@@ -686,7 +686,7 @@ Il existe d'autres fonctions permettant de combiner plusieurs graphiques comme [
 
 ##### A vous de jouer {-}
 
-`r learnr("A04Ld_fig_composees", title = "Graphiques composés", toc = "Réalisation de graphiques composés dans R")`
+`r learnr("A04Ld_fig_composees", title = "Graphiques composés", toc = "Graphiques composés dans R")`
 
 ```{r, echo=FALSE, results='asis'}
 assignation("A03Ga_graphe_avance", part = NULL,
@@ -696,6 +696,7 @@ assignation("A03Ga_graphe_avance", part = NULL,
     'S-BIOG-921' = "https://classroom.github.com/a/3EMyegs8"),
   toc = "Réalisation de différents graphiques avancés.")
 ```
+
 
 ##### Pour en savoir plus {-} 
 
@@ -716,13 +717,12 @@ assignation("A03Ga_graphe_avance", part = NULL,
 
 </center>
 
-
-Depuis le début, l'ensemble des graphiques que nous vous avons proposés utilise la fonction `chart()` du package **chart**. Cependant, il ne s'agit pas de la seule fonction permettant de réaliser des graphiques dans R, loin de là. En fait, **chart** est tout récent et a été développé pour homogénéiser autant que possible les graphiques issus de trois moteurs graphiques différents : **ggplot2**, **lattice** et les graphiques **base**. La fonction `chart()` a d'autres avantages également :
+Depuis le début, l'ensemble des graphiques que nous vous avons proposés utilise la fonction `chart()` du package {chart}. Cependant, il ne s'agit pas de la seule fonction permettant de réaliser des graphiques dans R, loin de là. En fait, {chart} est tout récent et a été développé pour homogénéiser autant que possible les graphiques issus de trois moteurs graphiques différents\ : {ggplot2}, {lattice} et les graphiques de base. La fonction `chart()` a d'autres avantages également\ :
 
 - Un thème par défaut qui est le plus proche possible d'un rendu typique d'une publication scientifique.
-- La possibilité d'utiliser l'interface formule avec **ggplot2**.
+- La possibilité d'utiliser l'interface formule avec {ggplot2}.
 - La cohérence des objets graphiques obtenus qui peuvent tous êtres combinés en une figure composée, même si ils sont produits avec des moteurs graphiques différents.
-- Un libellé automatique des axes et autres éléments du graphique en fonction des attributs `label` et `units` des variables (pour l'instant, seulement les graphiques de type **ggplot2**).
+- Un libellé automatique des axes et autres éléments du graphique en fonction des attributs `label` et `units` des variables (pour l'instant, seulement les graphiques de type {ggplot2}).
 
 ```{r chart-example, fig.cap= "Graphique typique obtenu avec `chart()` : rendu par défaut publiable tel quel, et libellé automatique des axes avec les unités."}
 # Importation des données
@@ -735,18 +735,18 @@ chart(data = urchin, height ~ weight %col=% origin) +
 
 ### ggplot2
 
-Le moteur graphique **[ggplot2](https://ggplot2.tidyverse.org)** est écrit pas Hadley Wickham, un personnage emblématique de la "révolution [tidyverse](https://www.tidyverse.org)" qui propose une surcouche moderne au dessus de R. **ggplot2** implémente une "grammaire graphique" particulièrement puissante et flexible, proposée et popularisée par le statisticien Leland Wilkinson. Par défaut, `chart()` crée en réalité un graphique **ggplot2** adapté. Voici la version **ggplot2** standard du même graphique représenté à la Fig. \@ref(fig:chart-example) :
+Le moteur graphique {[ggplot2](https://ggplot2.tidyverse.org)} est écrit pas Hadley Wickham, un personnage emblématique de la "révolution [tidyverse](https://www.tidyverse.org)" qui propose une surcouche moderne au dessus de R. {ggplot2} implémente une "grammaire graphique" particulièrement puissante et flexible, proposée et popularisée par le statisticien Leland Wilkinson. Par défaut, `chart()` crée en réalité un graphique {ggplot2} adapté. Voici la version {ggplot2} standard du même graphique représenté à la Fig. \@ref(fig:chart-example) :
 
-```{r ggplot2-example, fig.cap= "Graphique typique obtenu avec `ggplot()` (moteur graphique **ggplot2**)."}
+```{r ggplot2-example, fig.cap= "Graphique typique obtenu avec `ggplot()` (moteur graphique {ggplot2})."}
 ggplot(data = urchin, mapping = aes(x = weight, y = height, col = origin)) + 
   geom_point() 
 ```
 
-En comparant les Figs. \@ref(fig:chart-example) et \@ref(fig:ggplot2-example) (en faisant abstraction des instructions R utilisées pour l'instant), plusieurs points sautent immédiatement aux yeux:
+En comparant les Figs. \@ref(fig:chart-example) et \@ref(fig:ggplot2-example) (en faisant abstraction des instructions R utilisées pour l'instant), plusieurs éléments sautent immédiatement aux yeux\ :
 
-- Le thème par défaut de **ggplot2** est très reconnaissable avec un quadrillage blanc sur fond gris clair. On aime ou on n'aime pas, mais il est clair que (1) ce n'est pas une présentation "standard" d'un graphique scientifique, et (2) le thème tord un peu le cou à une règle importante pour réaliser un graphique de qualité : **minimiser la quantité d'"encre" nécessaire pour représenter un graphique**, autrement dit, plus le graphique est simple et sobre, mieux c'est. Le thème par défaut de `chart()` respecte mieux tout ceci^[Notez que plusieurs thèmes existent dans **ggplot2**. Il est facile d'en changer et de les personnaliser... mais c'est toujours appréciable d'avoir un rendu impeccable dès le premier essai.].
+- Le thème par défaut de {ggplot2} est très reconnaissable avec un quadrillage blanc sur fond gris clair. On aime ou on n'aime pas, mais il est évident que (1) ce n'est pas une présentation "standard" d'un graphique scientifique, et (2) le thème tord un peu le cou à une règle importante pour réaliser un graphique de qualité\ : **minimiser la quantité d'"encre" nécessaire pour représenter un graphique**, autrement dit, plus le graphique est simple et sobre, mieux c'est. Le thème par défaut de `chart()` respecte mieux tout ceci^[Notez que plusieurs thèmes existent dans **ggplot2**. Il est facile d'en changer et de les personnaliser... mais c'est toujours appréciable d'avoir un rendu impeccable dès le premier essai.].
 
-- La taille des caractères est légèrement plus grande dans la Fig. \@ref(fig:chart-example) réalisée avec `chart()`. Le manque de lisibilité des parties textuelles dans un graphique est un défaut fréquent, dépendant de la résolution et de la taille de reproduction du graphique dans le document final. Le choix de `chart()` recule un peu ce risque.
+- La taille des caractères est légèrement plus grande dans la Fig. \@ref(fig:chart-example) réalisée avec `chart()` (surtout pour les nombres sur les axes). Le manque de lisibilité des parties textuelles dans un graphique est un défaut fréquent, dépendant de la résolution et de la taille de reproduction du graphique dans le document final. Le choix de `chart()` recule un peu ce risque.
 
 - `chart()` est capable d'aller lire les métadonnées (libellés en français et unités des variables) et les utilisent automatiquement pour proposer des libellés corrects et complets des axes par défaut. `ggplot()` ne peut pas le faire, et il faut utiliser la fonction `labs()` pour l'indiquer manuellement.
 
@@ -754,19 +754,19 @@ En comparant les Figs. \@ref(fig:chart-example) et \@ref(fig:ggplot2-example) (e
 De manière générale, par rapport à `ggplot()`, `chart()` a été conçu pour produire le graphique le plus proche d'un rendu final impeccable avec tous les paramètres par défaut.
 ```
 
-Quelques règles simples vous permettent de passer des **instructions** `ggplot()` à `chart()` et _vice versa_^[Etant donné l'abondante littérature écrite sur **ggplot2**, il est utile de pouvoir convertir des exemples **ggplot2** en graphiques `chart()`, si vous êtes convaincu par cette nouvelle interface.] :
+Quelques règles simples vous permettent de passer des **instructions** `ggplot()` à `chart()` et _vice versa_^[Étant donné l'abondante littérature écrite sur {ggplot2}, il est utile de pouvoir convertir des exemples {ggplot2} en graphiques `chart()`, si vous êtes convaincu par cette nouvelle interface.]\ :
 
-1. On peut toujours remplacer `ggplot()` par `chart()` dans les instructions R (à condition que le package **chart** soit chargé bien sûr, par exemple via `SciViews::R`). Dans ce cas, le thème par défaut diffère, et le libellé automatique des axes (non disponible avec `ggplot()`) est activé.
+1. On peut toujours remplacer `ggplot()` par `chart()` dans les instructions R (à condition que le package {chart} soit chargé bien sûr, par exemple via `SciViews::R`). Dans ce cas, le thème par défaut diffère, et le libellé automatique des axes (non disponible avec `ggplot()`) est activé.
 
-2. Avec `chart()` on peut utiliser `aes()` pour spécifier les "esthétiques" (éléments à visualiser sur le graphique) comme pour `ggplot()`, mais on peut _aussi_ utiliser une interface formule plus compacte. Cette interface formule rapproche la version `chart()` des graphiques **ggplot2** d'un autre moteur de graphique dans R : **lattice**.
+2. Avec `chart()` on peut utiliser `aes()` pour spécifier les "esthétiques" (éléments à visualiser sur le graphique) comme pour `ggplot()`, mais on peut _aussi_ utiliser une interface formule plus compacte. Cette interface formule rapproche la version `chart()` des graphiques {ggplot2} d'un autre moteur de graphique dans R\ : {lattice}.
 
-3. Outre les esthétiques classiques `x` et `y`, l'interface formule de `chart()` permet d'en inclure d'autres directement dans la formule à l'aide d'opérateurs spécifiques `%<esth>%=`. Par exemple, `aes(x = weight, y = height, col = origin)` dans la Fig. \@ref(fig:ggplot2-example) se traduit en la formule plus concise `height ~ weight %col=% origin` avec `chart()` (notez la position _inversée_ de `x` et `y ` dans la formule puisqu'on a `y ~ x`). **Tous** les esthétiques de **ggplot2** sont supportés de cette manière.
+3. Outre les esthétiques classiques `x` et `y`, l'interface formule de `chart()` permet d'en inclure d'autres directement dans la formule à l'aide d'opérateurs spécifiques `%<esth>%=`. Par exemple, `aes(x = weight, y = height, col = origin)` dans la Fig. \@ref(fig:ggplot2-example) se traduit en la formule plus concise `height ~ weight %col=% origin` avec `chart()` (notez la position _inversée_ de `x` et `y ` dans la formule puisqu'on a `y ~ x`). **Tous** les esthétiques de {ggplot2} sont supportés de cette manière.
 
-4. Partout où `aes()` est utilisé pour les instructions **ggplot2**, on peut utiliser à la place `f_aes()` et y spécifier plutôt une formule de type `chart()`.
+4. Partout où `aes()` est utilisé pour les instructions {ggplot2}, on peut utiliser à la place `f_aes()` et y spécifier plutôt une formule de type `chart()`.
 
-5. Avec `ggplot()` les facettes doivent être spécifiées à l'aide de `facet_XXX()`. A condition d'utiliser `chart()`, il est possible d'inclure les spécifications des facettes les plus utilisées directement dans la formule en utilisant l'opérateur `|`. Cette façon de procéder est, encore une fois, identique à ce qui se fait dans **lattice** (voir plus loin).
+5. Avec `ggplot()` les facettes doivent être spécifiées à l'aide de `facet_XXX()`. A condition d'utiliser `chart()`, il est possible d'inclure les spécifications des facettes les plus utilisées directement dans la formule en utilisant l'opérateur `|`. Cette façon de procéder est, encore une fois, identique à ce qui se fait dans {lattice} (voir plus loin).
 
-Le point (5) mérite une petite démonstration pour comparaison :
+Le point (5) mérite une petite démonstration pour comparaison\ :
 
 ```{r chart-ggplot2-facets, fig.cap= "Graphique à facettes. A. version `chart()`, B. version `ggplot()`."}
 a <- chart(data = urchin, height ~ weight | origin) + 
@@ -779,16 +779,33 @@ b <- ggplot(data = urchin, mapping = aes(x = weight, y = height)) +
 combine_charts(list(a, b))
 ```
 
+##### A vous de jouer {-}
+
+Afin de vous exercer à réaliser des graphiques `chart()`/`ggplot()`, proposez trois graphiques inédits (qui n'ont pas été vu jusqu'ici) dans vos différents projets (assignations GitHub Classroom). Employez par exemple les liens suivants pour vous inspirer\ :
+
+- <https://www.r-graph-gallery.com>
+
+- <http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html>
+
+
+##### Pour en savoir plus {-}
+
+- Chapitre [Data visualisation](http://r4ds.had.co.nz/data-visualisation.html) de R for Data Science qui utilise `ggplot()`. 
+
+- Site rassemblant des [extensions pour ggplot2](http://www.ggplot2-exts.org/gallery/)
+
+**La suite de cette section est facultative\ : elle est importante pour comprendre les différents types de graphiques que vous allez rencontrer avec R. Cependant, si vous vous cantonnez aux graphiques `chart()`/`ggplot()` vous pouvez déjà réaliser énormément de visualisations différentes sans forcément connaitre les autres moteurs graphiques existant dans R.**
+
 
 ### lattice
 
-Autant **ggplot2** est complètement modulable en ajoutant littéralement à l'aide de l'opérateur `+` des couches successives sur le graphique, autant **lattice** vise à réaliser les graphiques **en une seule instruction**. **lattice** utilise également abondamment l'interface formule pour spécifier les variables à utiliser dans le graphique. La version **lattice** du graphique d'exemple est présentée à la Fig. \@ref(fig:lattice-example).
+Autant {ggplot2} est complètement modulable en ajoutant littéralement à l'aide de l'opérateur `+` des couches successives sur le graphique, autant {lattice} vise à réaliser les graphiques **en une seule instruction**. {lattice} utilise également abondamment l'interface formule pour spécifier les variables à utiliser dans le graphique. La version {lattice} du graphique d'exemple est présentée à la Fig. \@ref(fig:lattice-example).
 
 ```{r lattice-example, fig.cap= "Graphique exemple réalisé avec **lattice**."}
 xyplot(height ~ weight, data = urchin, groups = origin, auto.key = TRUE)
 ```
 
-Et voici la version `chart()` utilisant le moteur **lattice**. Notez la façon d'appeler la fonction `xyplot()` de **lattice** via `chart$xyplot()` :
+Et voici la version `chart()` utilisant le moteur {lattice}. Notez la façon d'appeler la fonction `xyplot()` de {lattice} via `chart$xyplot()` :
 
 ```{r chart-lattice-example, fig.cap= "Graphique exemple réalisé avec `chart()` A. avec le moteur **lattice**, B. avec le moteur **ggplot2**."}
 theme_sciviews_lattice(n = 2)
@@ -803,23 +820,23 @@ b <- chart(data = urchin, height ~ weight %col=% origin) +
 combine_charts(list(a, b))
 ```
 
-La quantité d'instructions nécessaires pour rendre la version **lattice** proche de la version **ggplot2** devrait disparaître dans les prochaines versions de `chart()`. Un autre objectif est aussi de gommer le plus possible les différences entre les rendus des différents moteurs de graphiques R, et en particuliers entre **ggplot2** et **lattice**. Comparez la Fig. \@ref(fig:chart-lattice-example)A avec la Fig. \@ref(fig:lattice-example) pour apprécier le gain déjà obtenu en matière d'homogénéisation.
+La quantité d'instructions nécessaires pour rendre la version {lattice} proche de la version {ggplot2} devrait disparaître dans les prochaines versions de `chart()`. Un autre objectif est aussi de gommer le plus possible les différences entre les rendus des différents moteurs de graphiques R, et en particuliers entre {ggplot2} et {lattice}. Comparez la Fig. \@ref(fig:chart-lattice-example)A avec la Fig. \@ref(fig:lattice-example) pour apprécier le gain déjà obtenu en matière d'homogénéisation.
 
 ```{block2, type='info'}
-Par rapport à **ggplot2**, les graphiques **lattice** sont moins flexibles du fait qu'ils doivent être spécifiés en une seule instruction. Cependant, ils sont beaucoup plus rapides à générer (appréciable quand il y a beaucoup de points à tracer) ! **lattice** offre également quelques types de graphiques non supportés par **ggplot2** comme les graphiques en 3D à facettes, par exemple.
+Par rapport à {ggplot2}, les graphiques {lattice} sont moins flexibles du fait qu'ils doivent être spécifiés en une seule instruction. Cependant, ils sont beaucoup plus rapides à générer (appréciable quand il y a beaucoup de points à tracer)\ ! {lattice} offre également quelques types de graphiques non supportés par {ggplot2} comme les graphiques en 3D à facettes, par exemple.
 ```
 
-Voici un graphique à facettes réalisé avec `chart()` et le moteur **lattice**. Notez que la formule utilisée est *identique* à celle employée pour la version **ggplot2** avec `chart()`.
+Voici un graphique à facettes réalisé avec `chart()` et le moteur {lattice}. Notez que la formule utilisée est *identique* à celle employée pour la version {ggplot2} avec `chart()`.
 
-```{r lattice-facets, fig.cap= "Graphique à facettes, avec `chart()` version **lattice**."}
+```{r lattice-facets, fig.cap= "Graphique à facettes, avec `chart()` version {lattice}."}
 chart$xyplot(data = urchin, height ~ weight | origin,
   scales = list(alternating = 1),
   xlab = "Masse totale [g]", ylab = "Hauteur du test [mm]")
 ```
 
-Mise à part les instructions additionnelles encore nécessaires dans cette version de `chart()`, l'appel et le rendu sont très similaires par rapport à la version **ggplot2** du même graphique avec `chart()` :
+Mise à part les instructions additionnelles encore nécessaires dans cette version de `chart()`, l'appel et le rendu sont très similaires par rapport à la version {ggplot2} du même graphique avec `chart()` :
 
-```{r ggplot2-facets2, fig.cap= "Graphique à facettes, avec `chart()` version **ggplot2**."}
+```{r ggplot2-facets2, fig.cap= "Graphique à facettes, avec `chart()` version {ggplot2}."}
 chart(data = urchin, height ~ weight | origin) + 
   geom_point()
 ```
@@ -827,7 +844,7 @@ chart(data = urchin, height ~ weight | origin) +
 
 ### Graphiques de base
 
-Comme son nom le suggère, le moteur graphique de base est celui qui est implémenté de manière natif dans R. Il est donc utilisé un peu partout. Il est vieillissant et est plus difficile à manipuler que **ggplot2** certainement, et même que **lattice**. Néanmoins, il est très flexible et rapide, ... mais son rendu par défaut n'est plus vraiment au goût du jour. Voici notre graphique d'exemple rendu avec le moteur graphique R de base :
+Comme son nom le suggère, le moteur graphique de base est celui qui est implémenté de manière natif dans R. Il est donc utilisé un peu partout. Il est vieillissant et est plus difficile à manipuler que {ggplot2} certainement, et même que {lattice}. Néanmoins, il est très flexible et rapide, et encore beaucoup utilisé,... mais son rendu par défaut n'est plus vraiment au goût du jour. Voici notre graphique d'exemple rendu avec le moteur graphique R de base\ :
 
 ```{r base-example, fig.cap="Graphique exemple réalisé avec le moteur graphique R de base."}
 plot(urchin$weight, urchin$height,
@@ -836,20 +853,9 @@ legend(x = 80, y = 10, legend = c("Culture", "Pêcherie"),
   col = c("red", "darkgreen"), pch = 1)
 ```
 
-Vous rencontrerez très fréquemment la fonction `plot()`. C'est une fonction dite **générique** dont le comportement change en fonction de l'objet fourni en premier argument. Ainsi, elle réalise le graphique le plus pertinent à chaque fois en fonction du contexte. Notez tout de suite les instructions un peu confuses nécessaires pour spécifier la couleur souhaitée en fonction de l'origine des oursins. Le moteur graphique de base ne gère **pas** automatiquement des aspects plus complexes du graphique, telle que le positionnement d'une légende. Donc, à moins d'avoir prévu la place suffisante _avant_ de tracer le graphique, nous ne pouvons que l'inclure à l'intérieur du cadre du graphique dans un second temps à l'aide de la fonction `legend()`. Comme cette dernière ne comprend rien à ce qui a été réalisé jusqu'ici, il faut lui respécifier les couleurs, formes et tailles de points utilisés ! C'est un des aspects pénibles du moteur graphique R de base.
+Vous rencontrerez très fréquemment la fonction `plot()`. C'est une fonction dite **générique** dont le comportement change en fonction de l'objet fourni en premier argument. Ainsi, elle réalise le graphique le plus pertinent à chaque fois en fonction du contexte. Notez tout de suite les instructions un peu confuses nécessaires pour spécifier la couleur souhaitée en fonction de l'origine des oursins. Le moteur graphique de base ne gère **pas** automatiquement des aspects plus complexes du graphique, telle que le positionnement d'une légende. Donc, à moins d'avoir prévu la place suffisante _avant_ de tracer le graphique, nous ne pouvons que l'inclure à l'intérieur du cadre du graphique dans un second temps à l'aide de la fonction `legend()`. Comme cette dernière ne comprend rien à ce qui a été réalisé jusqu'ici, il faut lui respécifier les couleurs, formes et tailles de points utilisés\ ! C'est un des aspects pénibles du moteur graphique R de base.
 
-Voici maintenant une version `chart()` de ce graphique de base :
-
-```{r, eval=FALSE}
-chart$base({
-  par(mar = c(5.1, 4.1, 4.1, 6.1))
-  plot(urchin$weight, urchin$height,
-    col = scales::hue_pal()(2)[urchin$origin], pch = 19, cex = 0.8,
-    xlab = "Masse totale [g]", ylab = "Hauteur du test [mm]")
-  legend(x = 105, y = 20, legend = c("Culture", "Pêcherie"), title = "Origine",
-    col = scales::hue_pal()(2), pch = 19, bty = "n", cex = 0.8, y.intersp = 2)
-})
-```
+Voici maintenant une version `chart()` de ce graphique de base\ :
 
 ```{r chart-base, fig.keep=2, fig.cap="Graphique exemple réalisé avec le moteur graphique de base et la fonction `chart()`."}
 chart$base({
@@ -863,38 +869,25 @@ chart$base({
 ```
 
 ```{block2, type='note'}
-Notez que le graphique est généré deux fois : une première fois dans un format propre aux graphiques R de base, et ensuite, il est traduit en une forme compatible avec les autres graphiques **ggplot2** et **lattice** (et au passage, il gagne la grille en traits grisés). Dans le chunck, nous devons spécifier `fig.keep = 2` pour éviter d'imprimer la première version dans le rapport lorsqu'on utilise `chart$base()`.
+Vous ne le voyez pas dans le bookdown, mais vous le réaliserez si vous utilisez ce genre de code dans vos propres documents R Markdown\ : le graphique est en réalité généré deux fois\ : une première fois dans un format propre aux graphiques R de base, et ensuite, il est traduit en une forme compatible avec les autres graphiques {ggplot2} et {lattice} (et au passage, il gagne la grille en traits grisés). Dans le chunck, nous devons spécifier `fig.keep = 2` si nous voulons éviter d'imprimer la première version dans le rapport lorsqu'on utilise `chart$base()`.
 ```
 
-Pour l'instant, le seul avantage de `chart()` avec les graphiques de base est qu'il les convertit en une forme combinable avec les autres graphiques dans une figure composite (sinon, ce n'est pas possible). A part cela, il faut fournir à `chart$base()` tout le code nécessaire pour tracer et personnaliser le graphique. Comme on peut le voir sur cet exemple, cela demande une quantité considérable de code. C'est aussi un autre aspect pénible de ce moteur graphique : il est très flexible, mais l'interface n'est pas optimale. Pour finir, les graphiques de base ont plus de mal avec les facettes, mais il peuvent quand même générer les versions les plus simples, par exemple à l'aide de la fonction `coplot()` qui accepte une formule très similaire à ce qui s'utilise avec **lattice** :
+Pour l'instant, le seul avantage de `chart()` avec les graphiques de base est qu'il les convertit en une forme combinable avec les autres graphiques dans une figure composite (sinon, ce n'est pas possible). A part cela, il faut fournir à `chart$base()` tout le code nécessaire pour tracer et personnaliser le graphique. Comme on peut le voir sur cet exemple, cela demande une quantité considérable de code. C'est aussi un autre aspect pénible de ce moteur graphique\ : il est très flexible, mais l'interface n'est pas optimale. Pour finir, les graphiques de base ont plus de mal avec les facettes, mais il peuvent quand même générer les versions les plus simples, par exemple à l'aide de la fonction `coplot()` qui accepte une formule très similaire à ce que nous avons employé jusqu'ici, mais avec un rendu différent\ :
 
 ```{r coplot-example, fig.cap="Graphique à facettes avec le moteur graphique de base."}
 coplot(data = urchin, height ~ weight | origin)
 ```
 
-A l'issue de cette comparaison, vous pourrez décider du moteur graphique que vous préférerez utiliser. Dans le cadre de ce cours, nous n'utiliserons en tous cas que quasi-exclusivement des graphiques **ggplot2** créés à l'aide la fonction `chart()`.
-
-
-##### A vous de jouer {-}
-
-Proposez trois graphiques inédits (qui n'ont pas été vu jusqu'ici) dans vos différents projets. Employez par exemple les liens suivants pour vous inspirer :
-
-- <https://www.r-graph-gallery.com>
-
-- <http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html>
+A l'issue de cette comparaison, vous pourrez décider du moteur graphique que vous préférerez utiliser. Dans le cadre de ce cours, nous n'utiliserons en tous cas que quasi-exclusivement des graphiques {ggplot2} créés à l'aide la fonction `chart()`.
 
 
 ##### Pour en savoir plus {-}
-
-- Chapitre [Data visualisation](http://r4ds.had.co.nz/data-visualisation.html) de R for Data Science qui utilise `ggplot()`. 
-
-- Site rassemblant des [extensions pour ggplot2](http://www.ggplot2-exts.org/gallery/)
 
 - [Introduction rapide à lattice](https://www.statmethods.net/advgraphs/trellis.html)
 
 - [Variantes de graphiques avec lattice](https://www.r-bloggers.com/conditioning-and-grouping-with-lattice-graphics/)
 
-- [Comparaison de lattice et ggplot2](https://learnr.wordpress.com/2009/08/26/ggplot2-version-of-figures-in-lattice-multivariate-data-visualization-with-r-final-part/). Cette page fait aussi référence à un ensemble de graphiques différents générés en **lattice** et en **ggplot2** pour comparaison (en anglais).
+- [Comparaison de lattice et ggplot2](https://learnr.wordpress.com/2009/08/26/ggplot2-version-of-figures-in-lattice-multivariate-data-visualization-with-r-final-part/). Cette page fait aussi référence à un ensemble de graphiques différents générés en {lattice} et en {ggplot2} pour comparaison (en anglais).
 
 - [Divers exemples de graphiques réalisés avec le moteur de base](http://bl.ocks.org/patilv/raw/7360425/)
 
