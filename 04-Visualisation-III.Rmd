@@ -781,12 +781,29 @@ combine_charts(list(a, b))
 
 ##### A vous de jouer {-}
 
+```{block2, type = "bdd"}
+
 Afin de vous exercer à réaliser des graphiques `chart()`/`ggplot()`, proposez trois graphiques inédits (qui n'ont pas été vu jusqu'ici) dans vos différents projets (assignations GitHub Classroom). Employez par exemple les liens suivants pour vous inspirer\ :
 
 - <https://www.r-graph-gallery.com>
 
 - <http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html>
 
+```
+
+::: {.S-BIOG-006 .S-BIOG-027}
+
+```{block2, type = "bdd"}
+Dans le cadre d'une collaboration entre le cours English For Science et le cours de Science des données I, vous êtes amené créer et à maintenir un blog scientifique. 
+
+Ce blog va comprendre des articles qui traitent d'analyse de la littérature de vulgarisation scientifique et de description de données.
+
+Vous devez à présent ajouter un nouvel article qui va décrire un graphique de votre choix. 
+
+Les consignes sont disponible dans le README du template <https://github.com/BioDataScience-Course/blog-template>
+```
+
+:::
 
 ##### Pour en savoir plus {-}
 
