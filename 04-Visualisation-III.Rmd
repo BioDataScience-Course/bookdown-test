@@ -327,7 +327,7 @@ Dans ce dernier cas, c'est bien plus facile\ : il y a effectivement 24 observati
 
 ##### A vous de jouer {-}
 
-`r learnr("A04Lb_barres", title = "Graphique en camembert", toc = "Graphiques en camembert dans R")`
+`r learnr("A04Lb_camembert", title = "Graphique en camembert", toc = "Graphiques en camembert dans R")`
 
 ##### Pour en savoir plus {-} 
 
