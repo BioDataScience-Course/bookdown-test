@@ -321,7 +321,7 @@ floor(x)
 
 ##### A vous de jouer {-}
 
-`r h5p(42, height = 270, toc = "Type des variables")`
+`r h5p(42, height = 270, toc = "Arrondir des nombres")`
 
 ### Quantitatif à qualitatif
 
