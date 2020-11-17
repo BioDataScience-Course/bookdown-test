@@ -747,17 +747,6 @@ Consignez vos résultats dans une document R Markdown avec une explication de vo
 ```
 
 
-- Terminez ce module en vérifiant que vous en avez acquis les notions principales.
-
-```{block2, type='bdd'}
-
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A05a_test")
-
-```
-
-
 ##### Pour en savoir plus {-}
 
 - [Présentation en détail du "dot-pipe"](https://github.com/WinVector/wrapr/blob/master/extras/wrapr_pipe.pdf) assez proche fonctionnellement de `%>.%` du package **flow**.
