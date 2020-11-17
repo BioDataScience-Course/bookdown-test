@@ -689,7 +689,7 @@ Il existe d'autres fonctions permettant de combiner plusieurs graphiques comme [
 `r learnr("A04Ld_fig_composees", title = "Graphiques composés", toc = "Graphiques composés dans R")`
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A03Ga_graphe_avance", part = NULL,
+assignation("A04Ga_graphe_avance", part = NULL,
   url = "https://github.com/BioDataScience-Course/A04Ga_graphe_avance",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/a/eKp2zsPG",
@@ -915,6 +915,6 @@ A l'issue de cette comparaison, vous pourrez décider du moteur graphique que vo
 
 ## Récapitulatif des exercices
 
-Ce module 4 vous a permis de réaliser de découvrir de nouveau graphiques. Vous savez maintenant réaliser des graphiques en barres, des graphiques en camembert et des boites de dispersion. Vous êtes aussi capable de réaliser des graphiques composés. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+Ce module 4 vous a permis de réaliser et de découvrir de nouveau graphiques. Vous savez maintenant réaliser des graphiques en barres, des graphiques en camembert et des boites de dispersion. Vous êtes aussi capable de réaliser des graphiques composés. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
 
 `r show_ex_toc()`

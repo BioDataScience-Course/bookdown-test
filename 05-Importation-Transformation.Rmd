@@ -723,32 +723,22 @@ Le pipe permet d'éviter de répéter le nom des objets (version avec variables 
 
 ##### A vous de jouer {-}
 
-- Maintenant que vous venez d'apprendre à importer correctement vos données, à les remanier avec quelques-uns des opérateurs les plus fréquents, et que vous savez chaîner vos instructions, il est temps de vous exercer sur un cas concret.
+- Maintenant que vous venez d'apprendre à importer correctement vos données, à les remanier avec quelques-uns des opérateurs les plus fréquents, et que vous savez chaîner vos instructions, il est temps de vous exercer.
 
+`r learnr("A05La_traitement", title = "Traitement des données I", toc = "Traitement des données dans R")`
 
-```{block2, type='bdd'}
-Pour cette activité, vous allez **travailler seul** sur les données d'un projet étudiant la croissance des coraux.
-
-Créez un rapport et effectuez les différents exercices en suivant les instructions qui sont dans le fichier `README.md`du dépôt accessible depuis : 
-
-* Pour l'année académique 2019-2020, les URLs à utiliser pour accéder à votre tâche sont les suivants : 
-  
-    * Cours de Bioinformatique et Sciences des données à Charleroi : https://classroom.github.com/a/XkmTR88D
-    * Cours de Sciences des données I à Mons : https://classroom.github.com/a/4eP5yL1L 
-  
-* Pour les autres utilisateurs de ce livre, veuillez faire un "fork" du dépôt [sdd1_coral_growth](https://github.com/BioDataScience-Course/sdd1_coral_growth). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la branche correspondante à l'année que vous recherchez
-
+```{r, echo=FALSE, results='asis'}
+assignation("A05Ga_transformation", part = NULL,
+  url = "https://github.com/BioDataScience-Course/A05Ga_transformation",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/a/...",
+    'S-BIOG-921' = "https://classroom.github.com/a/RvIUO8iY"),
+  toc = "Importation et transformation des données.")
 ```
 
-- Afin d'appliquer vos nouvelles conniassances, des challenges vous sont proposés afin d'améliorer vos compétences en remaniement de données. 
+- Afin d'appliquer vos nouvelles connaissances, un challenge vous est proposé afin d'améliorer vos compétences en remaniement de données. 
 
 ```{block2, type='bdd'}
-Réalisez dans le projet sur la biométrie humaine les exercies suivants : 
-  
-  <https://github.com/BioDataScience-Course/sdd_lesson/blob/2019-2020/sdd1_05/exercises/sdd1_05_biometry.md>
-
-Consignez vos résultats dans une document R Markdown avec une explication de vos différents remaniements.
-  
 Réalisez dans le projet sur le zooplankton les exercies suivants : 
   
   <https://github.com/BioDataScience-Course/sdd_lesson/blob/2019-2020/sdd1_05/exercises/sdd1_05_zooplankton.md>
@@ -774,3 +764,8 @@ Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante da
 
 - [Section sur le pipe dans "R for Data Science"](https://r4ds.had.co.nz/pipes.html) expliquant l'utilisation du pipe de magrittr (et aussi quand ne pas l'utiliser !)
 
+## Récapitulatif des exercices
+
+Le module 5 vous venez de terminer vous a permis d'apprendre à importer des données depuis différents formats et sources grâce à la fonction `read()` et de transfomer un tableau de données. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
