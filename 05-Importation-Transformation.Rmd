@@ -41,7 +41,7 @@ small_dataset
 Dans la plupart des cas, vous utiliserez ou collecterez des données stockées dans des formats divers : feuilles Excel, fichiers CSV ("comma-separated-values", un format standard d'encodage d'un tableau de données sous forme textuelle), formats spécifiques à divers logiciels statistiques comme SAS, Stata ou Systat, ... Ces données peuvent être sur un disque local ou disponibles depuis un lien URL sur le net^[R permet également d'interroger des bases de données spécialisées, mais nous n'aborderons ce sujet spécifique qu'au cours de Science des Données Biologique 5 en Master 2.]. De nombreuses fonctions existent dans R pour importer toutes ces données. La fonction `read()` du package `data.io` est l'une des plus simples et conviviales d'entre-elles. Vous l'avez déjà utilisée, mais reprenons un exemple pour en discuter les détails.
 
 ```{r}
-(biometry <- read("biometry", package = "BioDataScience", lang = "fr"))
+(biometry <- read("biometry", package = "BioDataScience1", lang = "fr"))
 ```
 
 Le jeu de données `biometry` est disponible dans le package R **BioDataScience1**. Dans ce cas, il ne faut pas spécifier de chemin d'accès au fichier : R sait où le trouver tout seul. Il est également spécifié ici que la langue souhaitée est le français avec l'argument `lang = "fr"`. Le résultat de l'importation est assigné à la variable `biometry`(mais elle pourrait tout aussi bien porter un autre nom). Pour finir, le tout est entouré, de manière optionnelle, de parenthèses afin de forcer l'impression du résultat.
@@ -86,6 +86,10 @@ N'oubliez pas que le chemin d'accès à votre fichier peut s'écrire de manière
 ```
 
 Les explications détaillées concernant l'organisation de vos projets dans RStudio pour qu'ils soient portables, la gestion des chemins d'accès aux fichiers et les chemins relatifs sont détaillés dans l'annexe \@ref(prise), à la section \@ref(rs-projet). **C'est le moment de vérifier que vous avez bien compris et assimilé son contenu.**
+
+##### A vous de jouer {-}
+
+`r h5p(38, height = 400, toc = "Chemin d'accès")`
 
 
 ##### Pièges et astuces {-}
@@ -152,6 +156,9 @@ coral <- read("../data/coral.rds")
 Faites toujours la distinction entre **données brutes** et **données nettoyées**. Ne les mélangez jamais et documentez toujours de manière reproductible le processus qui mène des unes aux autres ! C'est tout aussi important que de garder un lien vers la source originale des données dans votre code et d'utiliser toujours des chemins relatifs vers vos fichiers pour une analyse portable et reproductible.
 ```
 
+##### A vous de jouer {-}
+
+`r h5p(39, height = 270, toc = "Utilité de .gitignore")`
 
 ### Données depuis un package
 
@@ -242,6 +249,9 @@ urchin_FR %>.%
 
 Le code a dû être modifier dans l'instruction `filter()` lors du passage à `urchin_FR` (`Farm` -> `Pêcherie`). Bien évidemment, pour un rapport *plus formel* en français, **tout** doit être traduit en français et l'option `lang = "FR"` accompagnée d'une vérification et une adaptation éventuelle du code est à préférer dans ce cas précis.
 
+##### A vous de jouer {-}
+
+`r h5p(40, height = 270, toc = "Importation de données provenant d'un package")`
 
 ## Types de variables
 
@@ -283,8 +293,12 @@ La fonction `skim()` du package `skimr` permet de visualiser la classe de la var
 ```{r, echo=TRUE}
 skimr::skim(biometry)
 ```
+
 Avec une seule instruction, on obtient une quantité d'information sur notre jeu de données comme le nombre d'observations, le nombre de variables et un traitement spécifique pour chaque type de variable. Cette instruction permet de visualiser et d'appréhender le jeu de données mais ne doit généralement pas figurer tel quel dans un rapport d'analyse. 
 
+##### A vous de jouer {-}
+
+`r h5p(41, height = 270, toc = "Type des variables")`
 
 ## Conversion de variables
 
@@ -305,6 +319,9 @@ ceiling(x)
 floor(x)
 ```
 
+##### A vous de jouer {-}
+
+`r h5p(42, height = 270, toc = "Type des variables")`
 
 ### Quantitatif à qualitatif
 
@@ -524,7 +541,7 @@ urchin_sub3 <- filter(urchin2, height > 20 & origin == "Farm")
 rmarkdown::paged_table(urchin_sub3)
 ```
 
-Avec des variables facteurs composées de nombreux niveaux comme on peut en retrouver dans le jeu de données `zooplankton` du package **BioDataScience1**, vous pouvez être amené à sélectionner plusieurs niveaux au sein de cette variable. L'opérateur `%in%` permet d'indiquer que nous souhaitons garder tous les niveaux qui sont dans une liste. Il n'existe pas d'opérateur `%not_in%`, mais il suffit d'inverser le résultat en précédent l'instruction de `!` pour obtenir cet effet. Par exemple, `!letters %in% c("a", "d", "f")` conserve toutes les lettres *sauf* a, d et f. L'opérateur `!` est d'ailleurs utilisable avec toutes les comparaisons pour en inverser les effets. Ainsi, `!x == 1` est équivalent à `x != 1`.
+Avec des variables facteurs composées de nombreux niveaux comme on peut en retrouver dans le jeu de données `zooplankton` du package **data.io**, vous pouvez être amené à sélectionner plusieurs niveaux au sein de cette variable. L'opérateur `%in%` permet d'indiquer que nous souhaitons garder tous les niveaux qui sont dans une liste. Il n'existe pas d'opérateur `%not_in%`, mais il suffit d'inverser le résultat en précédent l'instruction de `!` pour obtenir cet effet. Par exemple, `!letters %in% c("a", "d", "f")` conserve toutes les lettres *sauf* a, d et f. L'opérateur `!` est d'ailleurs utilisable avec toutes les comparaisons pour en inverser les effets. Ainsi, `!x == 1` est équivalent à `x != 1`.
 
 ```{r}
 zooplankton <- read("zooplankton", package = "data.io", lang  = "FR")
@@ -731,11 +748,13 @@ Le pipe permet d'éviter de répéter le nom des objets (version avec variables 
 assignation("A05Ga_transformation", part = NULL,
   url = "https://github.com/BioDataScience-Course/A05Ga_transformation",
   course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/...",
+    'S-BIOG-006' = "https://classroom.github.com/a/CwnfcuI_",
     'S-BIOG-921' = "https://classroom.github.com/a/RvIUO8iY"),
   toc = "Importation et transformation des données.")
 ```
 
+
+<!---- A retravailler 
 - Afin d'appliquer vos nouvelles connaissances, un challenge vous est proposé afin d'améliorer vos compétences en remaniement de données. 
 
 ```{block2, type='bdd'}
@@ -746,6 +765,7 @@ Réalisez dans le projet sur le zooplankton les exercies suivants :
 Consignez vos résultats dans une document R Markdown avec une explication de vos différents remaniements.
 ```
 
+---->
 
 ##### Pour en savoir plus {-}
 
