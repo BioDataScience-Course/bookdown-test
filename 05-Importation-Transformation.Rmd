@@ -558,6 +558,9 @@ urchin_sub4 <- drop_na(urchin)
 rmarkdown::paged_table(urchin_sub4)
 ```
 
+##### A vous de jouer {-}
+
+`r h5p(44, height = 270, toc = "Filtrer un tableau")`
 
 ### `mutate()`
 
@@ -598,6 +601,10 @@ rmarkdown::paged_table(select(urchin, skeleton, skeleton_log, skeleton_sqrt))
 ```
 
 La fonction `transmute()` effectue la même opération, mais en plus, elle laisse tomber les variables d'origine pour ne garder *que* les nouvelles variables calculées.
+
+##### A vous de jouer {-}
+
+`r h5p(43, height = 270, toc = "Calculer de nouvelles variable")`
 
 
 ### `group_by()`
