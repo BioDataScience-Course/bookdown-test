@@ -809,7 +809,7 @@ Les consignes sont disponible dans le README du template <https://github.com/Bio
 
 - Chapitre [Data visualisation](http://r4ds.had.co.nz/data-visualisation.html) de R for Data Science qui utilise `ggplot()`. 
 
-- Site rassemblant des [extensions pour ggplot2](http://www.ggplot2-exts.org/gallery/)
+- Site rassemblant des [extensions pour ggplot2](https://exts.ggplot2.tidyverse.org/gallery/)
 
 **La suite de cette section est facultative\ : elle est importante pour comprendre les différents types de graphiques que vous allez rencontrer avec R. Cependant, si vous vous cantonnez aux graphiques `chart()`/`ggplot()` vous pouvez déjà réaliser énormément de visualisations différentes sans forcément connaitre les autres moteurs graphiques existant dans R.**
 
