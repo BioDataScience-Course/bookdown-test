@@ -44,7 +44,7 @@ Dans la plupart des cas, vous utiliserez ou collecterez des données stockées d
 (biometry <- read("biometry", package = "BioDataScience", lang = "fr"))
 ```
 
-Le jeu de données `biometry` est disponible dans le package R **BioDataScience1**. Dans ce cas, il ne faut pas spécifier de chemin d'accès au fichier : R sait où le trouver tout seul. Il est également spécifié ici que la langue souhaitée est le français avec l'argument `lang = "fr"`. Le résultat de l'importation est assigné à la variable `biometry`(mais elle pourrait tout aussi bien porter un autre nom). Pour finir, le tout est entouré, de manière optionnelle, de parenthèses afin de forcer l'impression du résultat.
+Le jeu de données `biometry` est disponible dans le package R **BioDataScience**. Dans ce cas, il ne faut pas spécifier de chemin d'accès au fichier : R sait où le trouver tout seul. Il est également spécifié ici que la langue souhaitée est le français avec l'argument `lang = "fr"`. Le résultat de l'importation est assigné à la variable `biometry`(mais elle pourrait tout aussi bien porter un autre nom). Pour finir, le tout est entouré, de manière optionnelle, de parenthèses afin de forcer l'impression du résultat.
 
 ```{block, type = 'note'}
 **Visualisez toujours votre tableau de données juste après l'importation.** Vérifiez que les différentes colonnes ont été importées au bon format. *En particulier*,
