@@ -414,7 +414,7 @@ Les erreurs de mesures sont inévitables lors de l'acquisition de nos données. 
 
 ##### A vous de jouer {-}
 
-`r h5p(54, height = 270, toc = "Données et métadonnées")`
+`r h5p(54, height = 270, toc = "Précision et exactitudes")`
 
 <!----
 La figure ci-dessous illustre de manière visuelle la différence qu'il y a entre précision et exactitude.
