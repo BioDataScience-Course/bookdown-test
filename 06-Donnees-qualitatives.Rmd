@@ -33,6 +33,10 @@ Nous nous efforcerons de toujours créer un tableau de ce type pour les données
 
 Par exemple, considérez les données suivantes concernant la taille adulte mesurée en cm pour deux espèces de petits rongeurs\ :
 
+`r h5p(48, height = 270, toc = "Tableau cas par variables 1")`
+
+<!----
+
 | hamster  | cobaye  |
 |:---------|:--------|
 | 15,4     | 21,7    |
@@ -42,7 +46,13 @@ Par exemple, considérez les données suivantes concernant la taille adulte mesu
 | 16,8     |         |
 
 Nous notons immédiatement que ce *n'est pas* un tableau correctement présenté en cas par variable. En effet, un même individu ne peut appartenir simultanément aux hamsters et aux cobayes. Il s'agit forcément d'individus différents mesurés. Nous n'avons donc pas respecté ici la règle de "une ligne = un individu". D'ailleurs, nous avons plus de hamsters mesurés ici que de cobayes, ce qui se marque par un déséquilibre dans le remplissage du tableau... qui doit aussi être un signal d'alarme (à moins qu'il n'y ait des valeurs manquantes).
+----->
 
+Considérez ce second tableau de données concernant également la taille adulte mesurée en cm de deux espèces de petits rongeurs\ : 
+
+`r h5p(49, height = 270, toc = "Tableau cas par variables 2")`
+
+<!----
 Une présentation correcte de ces données consiste à utiliser une colonne "taille" et une seconde "espèce" pour indiquer toutes les caractéristiques pertinentes dans le cadre de l'étude tout en respectant les conventions d'un tableau cas par variables. Cela donne\ :
 
 | espèce  |  taille  |
@@ -58,9 +68,15 @@ Une présentation correcte de ces données consiste à utiliser une colonne "tai
 | cobaye  | 23,9     |
 
 Ce dernier tableau est moins compact et plus "verbeux" que le présenter (il faut répéter "hamster" ou "cobaye" plusieurs fois dans la première colonne). Pour cette raison, un novice ou un encodeur ignorant les règles élémentaires des sciences des données est souvent amené, de bonne fois, à adopter la présentation qui semble la plus compacte, **mais ce n'est pas toujours la plus pertinente\ !** Heureusement, dons R le outils existent pour passer d'une forme à l'autre facilement.
+---->
 
-Considérez maintenant ce second exemple fictif avec le résultat d'un test enregistré avant et après un traitement sensé améliorer le résultat du test\ :
+Considérez maintenant ce troisième exemple fictif avec le résultat d'un test enregistré avant et après un traitement sensé améliorer le résultat du test\ :
 
+`r h5p(50, height = 270, toc = "Tableau cas par variables 3")`
+
+`r h5p(51, height = 270, toc = "Tableau cas par variables 4")`
+
+<!----
 | individu         |  résultat  |
 |:-----------------|:-----------|
 | individu 1 avant |  10,3      |
@@ -77,6 +93,8 @@ Ici, les labels utilisés dans la colonne "individu" suggère que l'expérience 
 | 10,3   | 12,5  |
 | 11,6   | 12,4  |
 | 10,8   | 10,6  |
+
+--->
 
 ```{block2, type='note'}
 Avant toute analyse, vérifier le type de tableau de données que vous avez à disposition. Le point de départ le plus courant et le plus sûr est le **tableau cas par variables**. La question à se poser pour vérifier si le tableau est bien présenté est\ : "a-t-on une et une seule ligne dans le tableau pour chaque individu\ ?" Si ce n'est pas le cas, il faut remanier le tableau avant de commencer son analyse.
@@ -130,16 +148,25 @@ rep(c("a", "b", "c"), each = 5)
 
 Pour de plus gros tableaux, il vaut mieux utiliser un tableur tel que Excel ou LibreOffice Calc pour l'encodage. Les tableurs en ligne comme Google Sheets ou Excel Online conviennent très bien également et facilitent un travail collaboratif ainsi que la mise à disposition sut le Net, comme nous avons vu au module \@ref(import).
 
-
 ### Tableaux de contingence
 
-Le tableau cas par variables n'est toutefois pas la seule représentation (correcte) possible des données. Un **tableau de contingence** représente de manière bien plus compacte le dénombrement de l’occurrence de chaque niveau d'une (tableau à une entrée) ou de deux variables **qualitatives** (tableau à double entrée). La fonction `table()` crée ces deux types de tableaux de contingence à partir de données encodées en tableau cas par variables :
+Le tableau cas par variables n'est toutefois pas la seule représentation (correcte) possible des données. Un **tableau de contingence** représente de manière bien plus compacte le dénombrement de l’occurrence de chaque niveau d'une (tableau à une entrée) ou de deux variables **qualitatives** (tableau à double entrée). 
+
+##### A vous de jouer {-}
+
+`r h5p(52, height = 270, toc = "Tableau de contingences")`
+
+La fonction `table()` crée ces deux types de tableaux de contingence à partir de données encodées en tableau cas par variables :
 
 ```{r}
 biometry$age_rec <- cut(biometry$age, include.lowest = FALSE, right = TRUE,
   breaks = c(14, 27, 90))
 (bio_tab <- table(biometry$gender, biometry$age_rec))
 ```
+
+##### A vous de jouer {-}
+
+`r h5p(52, height = 270, toc = "Tableau de contingences")`
 
 Le tableau de contingence peut toujours être calculé à partir d'un tableau cas par variable, mais il peut également être encodé directement si nécessaire. Voici un petit tableau de contingence à simple entrée encodé directement comme tel (vecteur nommé transformé en objet `table` à l'aide de la fonction `as.table()`) :
 
@@ -260,7 +287,6 @@ comment(frog$jump)
 comment(frog$weight) # Rien!
 ```
 
-
 ### Dictionnaire des données
 
 Le dictionnaire des données est un [élément important de la constitution d'une base de données](https://ineumann.developpez.com/tutoriels/merise/initiation-merise/#LII-B). Il s'agit d'un tableau annexe qui reprend le **nom** de chaque variable, son **label** (nom plus long et explicite), son **type** (numérique, facteur, facteur ordonné, date, ...), la taille (de moindre importance pour nous), et un **commentaire** éventuel. Dans notre contexte, il est également utile de renseigner les **unités** de mesure, et la façon dont les **données manquantes** sont encodées. Cela donne donc un tableau du genre :
@@ -278,6 +304,9 @@ Ce tableau peut-être encodé sous forme textuelle et placé dans le même dossi
 Le dictionnaire des données est un outil important pour comprendre ce que contient le tableau de données, et donc, son interprétation. _Ne le négligez pas !_
 ```
 
+##### A vous de jouer {-}
+
+`r h5p(53, height = 270, toc = "Données et métadonnées")`
 
 ## Population et échantillonnage
 
@@ -326,7 +355,6 @@ En pratique, nous pourrons utiliser la fonction `sample()` dans R. Elle permet d
 set.seed(67567)
 ```
 
-
 ```{r}
 # Echantillon de 5 souris témoins
 sample(1:213, size = 5)
@@ -353,7 +381,6 @@ L'échantillonnage aléatoire n'est pas la seule stratégie correcte. L'**échan
 Par exemple, vous voulez comparer des prélèvements sanguins faits sur une population d'européens hospitalisés dans le but de déterminer les critères qui permettent de diagnostiquer une infection nosocomiale^[Une infection nosocomiale est une infection contractée dans un hopital.] rare. Les individus sont suivis en hopital par définition et nous admettrons que l'on sait *a priori* s'ils sont atteints de la maladie ou non grâce à d'autres tests plus lourds et coûteux. La maladie est rare heureusement. Sa prévalence n'est que de 1 cas sur 10.000.
 
 Dans ce cas, si vous effectuez un échantillonnage aléatoire de 100 patients ou même de 1.000 patients hospitalisés, vous avez toutes les chances de ne pas include même un seul patient atteint de l'infection\ ! Ici l'échantillonnage stratifié est utile. Il consiste à séparer les patients en deux sous-populations\ : ceux qui sont atteints et les autres. Ensuite, vous décidez, par exemple, d'analyser 50 prélèvements sanguins dans chacune des deux sous-populations. Vous échantillonnez alors 50 patients aléatoirement comme nous l'avons fait plus haut pour nos souris, mais à l'intérieur de chaque sous-population. Au final, votre échantillon contiendra alors 50 patients infectés et 50 autres qui ne le sont pas. Cet échantillon est également représentatif (sauf, bien sûr, de la prévalence de l'infection).
-
 
 ## Acquisition de données
 
@@ -383,17 +410,23 @@ Nous traitons ici des premières étapes qui visent à acquérir les données.
 
 ### Précision et exactitude
 
-Les erreurs de mesures sont inévitables lors de l'acquisition de nos données. Cependant, il est possible de les minimiser en choisissant un instrument plus précis ("precise" en anglais) et plus exact ("accurate" en anglais). La figure ci-dessous illustre de manière visuelle la différence qu'il y a entre précision et exactitude.
+Les erreurs de mesures sont inévitables lors de l'acquisition de nos données. Cependant, il est possible de les minimiser en choisissant un instrument plus précis ("precise" en anglais) et plus exact ("accurate" en anglais).
+
+##### A vous de jouer {-}
+
+`r h5p(54, height = 270, toc = "Données et métadonnées")`
+
+<!----
+La figure ci-dessous illustre de manière visuelle la différence qu'il y a entre précision et exactitude.
 
 ![](images/sdd1_06/targets.png)
-
+---->
 
 ### Codification des données
 
 Afin d'éviter que divers collaborateurs encodent différemment la même information, vous allez devoir préciser très clairement comment encoder les différentes variables de votre jeu de données. Par exemple pour une variable `genre`, est-ce que vous indiquez `homme` ou `femme`, ou `h` / `f`, ou encore `H` / `F` ?
 
 De même, vous allez devoir attribuer un code **unique** à chaque individu mesuré. Enfin, vous devez vous assurer que toutes les mesures sont réalisées de la même manière et avec des instruments qui, s'ils sont différents, seront cependant **intercalibrés**. Comment faire ? Réfléchissez à cette question sur base d'une mesure de la masse des individus à l'aide de pèse-personnes différents ! 
-
 
 #### Respect de la vie privée
 
@@ -434,48 +467,15 @@ Il garde néanmoins les correspondances dans son carnet de laboratoire, au cas o
 
 A partir des données du tableau général consolidé, personne à part lui ne peut revenir sur ces données d'origine et mettre un nom sur les individus mesurés. Et lui-même n'a pas la possibilité de déterminer *qui* se cache derrière les autres identifiants tels `3_1`, `12_4`, `21_2`, etc.
 
-
-##### A vous de jouer {-}
-
-```{block2, type='bdd'}
-
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A06a_test")
-
-```
-
-Votre objectif est d'acquérir des données pour étudier la prévalence de l'obésité dans la population. En classe, vous allez réfléchir par équipes aux données qu'il vous faudra mesurer : *quoi ?* *pourquoi ?* *comment ?* Les résultats de votre réflexion seront ensuite consolidées pour arriver à un *consensus*  général. Ensuite, le fruit de cette réflexion ainsi que l'analyse que vous réaliserez seront à ajouter dans le projet **sdd1_biometry**. Une feuille Google Sheets sera mise à disposition pour encoder vos données de manière collaborative sur base des spécifications que vous aurez formulées.
-
-
-```{block2, type='bdd'}
-Pour les étudiants du cours de bioinformatique et sciences des données des données à Charleroi :
-  
-  - Le tableau de données que vous devez completer est disponible via le lien suivant : https://docs.google.com/spreadsheets/d/1XopTEpRjM0TdyVfJHva80JWaAyB7TmBbm1_k99ewzWM/edit?usp=sharing
-
-  - Le dictionnaire des données est disponible via le lien suivant : https://docs.google.com/document/d/1eBnbmzanzZXBk-UMVl8d3uQeUWzePfK0sYjW7SlzIDk/edit?usp=sharing
-
-  - Le tableau de données est téléchargeable via le lien suivant : https://docs.google.com/spreadsheets/d/e/2PACX-1vS9UthgeinmFnbJjziwOR6t0qXKgIAQdY7vkd7PZIax4XHxlvr632rVn4-NT3djJFKfgEshftEvuiJa/pub?gid=0&single=true&output=csv
-
-Pour les étudiants du cours de sciences des données des données à Mons :
-  
-  - Le tableau de données que vous devez completer est disponible via le lien suivant : <https://docs.google.com/spreadsheets/d/1GJAGWjwNBtEGqQXqFcNxkrwcw-5n-gqwmiGAzxUZrxg/edit?usp=sharing> 
-
-  - Le dictionnaire des données est disponible via le lien suivant : <https://docs.google.com/spreadsheets/d/1j55bB9YEAVbS4eRE-i6L-NEYhHXua-dxs-aQr_qko7k/edit?usp=sharing>
-
-  - Le tableau de données est téléchargeable via le lien suivant : <https://docs.google.com/spreadsheets/d/e/2PACX-1vSfY7b0ICF64uv9vIYi8Jg38Rw3pKvLHC5TW0XOZYVQ4ce2dTmXGM5Cm8J922MsYm_fk75DKOK2wC4b/pub?output=csv>
-  
-```
-
-**Attention, veuillez à respectez les conventions** que vous aurez édifiées ensemble lors de l'encodage... et n'oubliez pas de préciser également les métadonnées !
-
 ## Recombinaison de tableaux
 
 ### Formats long et large
 
 <!-- Newer versions (for svbox20?) propose pivot_long() and pivot_large() instead of spread() and gather() with a more intuitive syntax and arguments names, see: https://blog.methodsconsultants.com/posts/data-pivoting-with-tidyr/ => to be change later on ! -->
 
+<!----
 ![`gather()` versus `spread()` par [gadenbuie](https://github.com/gadenbuie/tidyexplain/blob/master/images/tidyr-spread-gather.gif).](images/sdd1_06/tidyr-spread-gather.gif)
+---->
 
 Le **format long** d'un tableau de données correspond à un encodage en un minimum de colonnes, les données étant réparties sur un plus grand nombre de lignes en comparaison du **format large** qui regroupe les données dans plusieurs colonnes successives. Voici un exemple fictif d'un jeu de données au fomat long :
 
@@ -507,12 +507,14 @@ Dans le format large, les différents niveaux de la variable facteur `treatment`
 C'est la règle qui veut qu'**une ligne corresponde à un et un seul individu** dans un tableau cas par variables qui permet de décider si le format long ou le format large est celui qui est correctement encodé. 
 ```
 
-Encoder correctement un tableau de données n'est pas une chose simple. Il peut y avoir plusieurs manières de le représenter. De plus, beaucoup de scientifiques ignorent ou oublient l'importance de bien encoder un tableau sous forme cas par variables. Lorsque vous souhaitez effectuer une représentation graphique, un format peut convenir mieux qu'un autre également, en fonction de ce que vous souhaitez visualiser sur le graphique. Il est donc important de connaitre les fonctions permettant de recombiner simplement un tableau de données d'une forme vers l'autre : `gather()` et `spread()`. 
+Encoder correctement un tableau de données n'est pas une chose simple. Il peut y avoir plusieurs manières de le représenter. De plus, beaucoup de scientifiques ignorent ou oublient l'importance de bien encoder un tableau sous forme cas par variables. Lorsque vous souhaitez effectuer une représentation graphique, un format peut convenir mieux qu'un autre également, en fonction de ce que vous souhaitez visualiser sur le graphique. Il est donc important de connaître les fonctions permettant de recombiner simplement un tableau de données d'une forme vers l'autre : `pivot_longer()` et `pivot_wider()`. 
 
 ```{block, type='info'}
+<!----
 L'aide-mémoire [Data Import](https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf) est un outil pratique pour vous aider à retrouver les fonctions. Les explications relatives à cette partie s'y trouvent dans la section **Reshape Data**.
+---->
 
-L'utilisation des fonction `gather()` et `spread()` provenant du package **tidyr** est également décrite en détails dans [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#spreading-and-gathering). 
+L'utilisation des fonction `pivot_longer()` et `pivot_wider()` provenant du package **tidyr** est également décrite en détails dans [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#pivoting). 
 ```
 
 Prenons l'exemple d'un jeu de données provenant de l'article scientifique suivant : [Paleomicrobiology to investigate copper resistance in bacteria : isolation and description of Cupriavidus necator B9 in the soil of a medieval foundry](http://di.umons.ac.be/details.aspx?pub=0a0de102-c145-403f-9e1c-8ad4fdc1fc39). L'article est basé sur l'analyse métagénomique de type "shotgun" pour quatre communautés microbiennes (notées `c1`, `c4`, `c7`et `c10`, respectivement)^[Les analyses métagénomiques coûtent très cher. Il est souvent impossible de faire des réplicats. Un seul échantillon d'ADN a donc été séquencé ici pour chaque communauté.]. Il en résulte une longue liste de séquences que l'on peut attribuer à des règnes.
@@ -532,15 +534,27 @@ rmarkdown::paged_table(shotgun_wide)
 Ce tableau est clair et lisible... seulement, est-il correctement encodé en cas par variables d'après vous\ ? Quelle que soit la réponse à cette question, il est toujours possible de passer de ce format large à un format long dans R de la façon suivante :
 
 ```{r}
- shotgun_long <- gather(shotgun_wide,
-   c1, c4, c7, c10, key = "batch", value = "sequences")
+shotgun_long <- pivot_longer(shotgun_wide, cols = c(c1, c4, c7, c10),
+          names_to = "batch", values_to = "sequences")
 
 rmarkdown::paged_table(shotgun_long)
 ```
 
-Voici la logique derrière `gather()`, présentée sous forme d'une animation :
+L'argument `cols =` est assez flexible. Toutes les formes ci-dessous permettent d'obtenir le même résultat. 
 
-![`gather()` par [apreshill](https://github.com/apreshill/teachthat/blob/master/gather/gather.gif).](images/sdd1_06/gather.gif)
+```{r, eval=FALSE, echo=TRUE}
+shotgun_long <- pivot_longer(shotgun_wide, cols = c1:c10,
+          names_to = "batch", values_to = "sequences")
+shotgun_long <- pivot_longer(shotgun_wide, cols = 2:5,
+          names_to = "batch", values_to = "sequences")
+shotgun_long <- pivot_longer(shotgun_wide, cols = starts_with("c"),
+          names_to = "batch", values_to = "sequences")
+```
+
+
+Voici la logique derrière `pivot_longer()`, présentée sous forme d'une animation :
+
+![`pivot_longer()` par [apreshill](https://github.com/apreshill/teachthat/blob/master/pivot/pivot_longer_smaller.gif).](images/sdd1_06/pivot_longer_smaller.gif)
 
 Vous conviendrez que le tableau nommé `shotgun_long` est moins compact et moins aisé à lire comparé à `shotgun_wide`. C'est une raison qui fait que beaucoup de scientifiques sont tentés d'utiliser le format large alors qu'ici il ne correspond **pas** à un tableau cas par variables correct, puisqu'il est impossible que les *mêmes* individus soient présents dans les différents lots (il s'agit de communautés microbiennes *indépendantes* les unes des autres). De plus, seul le format `shotgun_long` permet de produire des graphiques pertinents^[Notez malgré tout que, à condition de bien en comprendre les implications, le format complémentaire peut se justifier dans une publication pour y présenter un tableau le plus lisible possible, ce qui est le cas ici. Mais pour les analyses, c'est le format qui correspond à un tableau cas par variables qui **doit** être utilisé.].
 
@@ -555,17 +569,14 @@ Essayez de réaliser ce type de graphique en partant de `shotgun_wide`... Bonne 
 Très souvent, lorsqu'il est impossible de réaliser un graphique avec `chart()` ou `ggplot()` parce que les données se présentent mal, c'est parce que le jeu de données est encodé de manière incorrecte ! Si les données sont, par contre, correctement encodées, demandez-vous alors si le graphique que vous voulez faire est pertinent.
 ```
 
-Pour passer du format long au format large (traitement inverse à `gather()`), il faut utiliser la fonction `spread()`. Ainsi pour retrouver le tableau d'origine (ou quelque chose de très semblable) à partir de `shotgun_long` nous utiliserons : 
+
+
+Pour passer du format long au format large (traitement inverse à `pivot_longer()`), il faut utiliser la fonction `pivot_wider()`. Ainsi pour retrouver le tableau d'origine (ou quelque chose de très semblable) à partir de `shotgun_long` nous utiliserons : 
 
 ```{r}
-shotgun_wide2 <- spread(shotgun_long, key = batch, value = sequences) 
-
+shotgun_wide2 <- pivot_wider(shotgun_long, names_from  = batch, values_from = sequences) 
 rmarkdown::paged_table(shotgun_wide2)
 ```
-
-La logique de `spread()` est illustrée via l'animation suivante :
-
-![`spread()` par [apreshill](https://github.com/apreshill/teachthat/blob/master/spread/spread.gif).](images/sdd1_06/spread.gif)
 
 
 ### Recombinaison de variables
@@ -596,6 +607,10 @@ La fonction complémentaire à `unite()` est `separate()`. Elle permet de sépar
 crabs <- separate(crabs, col = "sp_sex", into = c("sex", "species"), sep = "_")
 rmarkdown::paged_table(crabs)
 ```
+
+##### A vous de jouer {-}
+
+`r learnr("A06La_recombinaison", title = "Recombinaison de tableaux", toc = "Remodelage de tableaux  dans R")`
 
 
 ## Traitements multi-tableaux
@@ -728,41 +743,19 @@ Il existe, en fait, plusieurs versions pour la fusion de tableaux, représentée
 
 ##### A vous de jouer {-}
 
-```{block2, type='bdd'}
+`r learnr("A06Lb_multi_tableau", title = "Traitements multi-tableaux", toc = "Traitements multi-tableaux dans R")`
 
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
+##### A vous de jouer {-}
 
-    BioDataScience1::run("A06b_recombinaison")
+Vous avez à réaliser un projet libre par 3 sur la démographie en Belgique. Ce projet requiert d'avoir assimilé les 6 premiers module de ce cours.
 
-```
-
- - Pour les étudiants de Bioinformatique et Sciences des données à charleroi
- 
-```{block2, type='bdd'}
-Pour cette activité, vous allez **travailler en équipe** sur les données d'une analyse métagénomique sur 4 communautés microbiennes obtenues par  une équipe de recherche de l'Université de Mons.
-
-Créez un rapport et effectuez les différents exercices en suivant les instructions qui sont dans le fichier `README.md`du dépôt accessible depuis : 
-
-* Pour l'année académique 2019-2020, les URLs à utiliser pour accéder à votre tâche sont les suivants : 
-  
-    * Cours de Bioinformatique et Sciences des données à Charleroi : https://classroom.github.com/g/6UoszJja
-    * Cours de Sciences des données I à Mons : 
-  
-* Pour les autres utilisateurs de ce livre, veuillez faire un "fork" du dépôt [sdd1_metagenomics](https://github.com/BioDataScience-Course/sdd1_metagenomics). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la branche correspondante à l'année que vous recherchez.  
-```
-
-- Pour les étudiants de Sciences des données I à Mons  : 
-
-```{block2, type='bdd'}
-Pour cette activité, vous allez **travailler en binome** sur les données de la population belge.
-
-Créez un rapport et effectuez les différents exercices en suivant les instructions qui sont dans le fichier `README.md`du dépôt accessible depuis : 
-
-* Pour l'année académique 2019-2020, l'URL à utiliser pour accéder à votre tâche sont les suivants : 
-
-    * Cours de Sciences des données I à Mons : <https://classroom.github.com/g/nohKNIkL>
-  
-* Pour les autres utilisateurs de ce livre, veuillez faire un "fork" du dépôt [belgium_inhabitants](https://github.com/BioDataScience-Course/belgium_inhabitants). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la branche correspondante à l'année que vous recherchez.  
+```{r, echo=FALSE, results='asis'}
+assignation("A06Ga_belgium_demo", part = NULL,
+  url = "https://github.com/BioDataScience-Course/A06Ga_belgium_demo",
+  course.urls = c(
+    'S-BIOG-006' = "https://classroom.github.com/g/h1HgkuuH",
+    'S-BIOG-921' = "https://classroom.github.com/a/..."),
+  toc = "Analyse de la démographie en Belgique")
 ```
 
 ##### Pour en savoir plus {-}
