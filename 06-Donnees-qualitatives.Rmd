@@ -33,7 +33,7 @@ Nous nous efforcerons de toujours créer un tableau de ce type pour les données
 
 Par exemple, considérez les données suivantes concernant la taille adulte mesurée en cm pour deux espèces de petits rongeurs\ :
 
-`r h5p(48, height = 270, toc = "Tableau cas par variables 1")`
+`r h5p(47, height = 270, toc = "Tableau cas par variables 1")`
 
 <!----
 
@@ -50,7 +50,7 @@ Nous notons immédiatement que ce *n'est pas* un tableau correctement présenté
 
 Considérez ce second tableau de données concernant également la taille adulte mesurée en cm de deux espèces de petits rongeurs\ : 
 
-`r h5p(49, height = 270, toc = "Tableau cas par variables 2")`
+`r h5p(48, height = 270, toc = "Tableau cas par variables 2")`
 
 <!----
 Une présentation correcte de ces données consiste à utiliser une colonne "taille" et une seconde "espèce" pour indiquer toutes les caractéristiques pertinentes dans le cadre de l'étude tout en respectant les conventions d'un tableau cas par variables. Cela donne\ :
@@ -72,9 +72,9 @@ Ce dernier tableau est moins compact et plus "verbeux" que le présenter (il fau
 
 Considérez maintenant ce troisième exemple fictif avec le résultat d'un test enregistré avant et après un traitement sensé améliorer le résultat du test\ :
 
-`r h5p(50, height = 270, toc = "Tableau cas par variables 3")`
+`r h5p(49, height = 270, toc = "Tableau cas par variables 3")`
 
-`r h5p(51, height = 270, toc = "Tableau cas par variables 4")`
+`r h5p(50, height = 270, toc = "Tableau cas par variables 4")`
 
 <!----
 | individu         |  résultat  |
@@ -166,7 +166,7 @@ biometry$age_rec <- cut(biometry$age, include.lowest = FALSE, right = TRUE,
 
 ##### A vous de jouer {-}
 
-`r h5p(52, height = 270, toc = "Tableau de contingences")`
+`r h5p(51, height = 270, toc = "La fonction table()")`
 
 Le tableau de contingence peut toujours être calculé à partir d'un tableau cas par variable, mais il peut également être encodé directement si nécessaire. Voici un petit tableau de contingence à simple entrée encodé directement comme tel (vecteur nommé transformé en objet `table` à l'aide de la fonction `as.table()`) :
 
@@ -577,14 +577,14 @@ Pour passer du format long au format large (traitement inverse à `pivot_longer(
 
 ```{r}
 shotgun_wide2 <- pivot_wider(shotgun_long, names_from  = batch, values_from = sequences) 
+
 rmarkdown::paged_table(shotgun_wide2)
 ```
 
-#####
 
 ### Recombinaison de variables
 
-Parfois, ce sont les variables qui sont encodées de manière inappropriée par rapport aux analyses que vous souhaitez faire. Les fonctions `separate()` et `unite()` permettent de séparer une colonne en plusieurs, ou inversément.
+Parfois, ce sont les variables qui sont encodées de manière inappropriée par rapport aux analyses que vous souhaitez faire. Les fonctions `separate()` et `unite()` permettent de séparer une colonne en plusieurs, ou inversement.
 
 ```{block, type='info'}
 L'aide-mémoire [Data Import](https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf) vous rappelle ces fonctions dans sa section **Split Cells**. Elles sont également décrites en détails dans [R for Data Science](https://r4ds.had.co.nz/tidy-data.html#separating-and-uniting).
@@ -763,3 +763,10 @@ assignation("A06Ga_belgium_demo", part = NULL,
 ##### Pour en savoir plus {-}
 
 - Un [aide-mémoire général](https://www.business-science.io/r-cheatsheet.html) en science des données avec lien vers les sites webs importants et les autres aide-mémoires.
+
+
+## Récapitulatif des exercices
+
+Vous venez de terminer le module 6. Ce module vous a permis d'apprendre à recombiner, remodeler et fusionner des tableaux. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
