@@ -569,7 +569,9 @@ Essayez de réaliser ce type de graphique en partant de `shotgun_wide`... Bonne 
 Très souvent, lorsqu'il est impossible de réaliser un graphique avec `chart()` ou `ggplot()` parce que les données se présentent mal, c'est parce que le jeu de données est encodé de manière incorrecte ! Si les données sont, par contre, correctement encodées, demandez-vous alors si le graphique que vous voulez faire est pertinent.
 ```
 
+##### A vous de jouer {-}
 
+`r h5p(55, height = 270, toc = "De long vers large")`
 
 Pour passer du format long au format large (traitement inverse à `pivot_longer()`), il faut utiliser la fonction `pivot_wider()`. Ainsi pour retrouver le tableau d'origine (ou quelque chose de très semblable) à partir de `shotgun_long` nous utiliserons : 
 
@@ -578,6 +580,7 @@ shotgun_wide2 <- pivot_wider(shotgun_long, names_from  = batch, values_from = se
 rmarkdown::paged_table(shotgun_wide2)
 ```
 
+#####
 
 ### Recombinaison de variables
 
@@ -611,7 +614,6 @@ rmarkdown::paged_table(crabs)
 ##### A vous de jouer {-}
 
 `r learnr("A06La_recombinaison", title = "Recombinaison de tableaux", toc = "Remodelage de tableaux  dans R")`
-
 
 ## Traitements multi-tableaux
 
