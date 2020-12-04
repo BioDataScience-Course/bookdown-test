@@ -146,7 +146,7 @@ rep(c("a", "b", "c"), 5)
 rep(c("a", "b", "c"), each = 5)
 ```
 
-Pour de plus gros tableaux, il vaut mieux utiliser un tableur tel que Excel ou LibreOffice Calc pour l'encodage. Les tableurs en ligne comme Google Sheets ou Excel Online conviennent très bien également et facilitent un travail collaboratif ainsi que la mise à disposition sut le Net, comme nous avons vu au module \@ref(import).
+Pour de plus gros tableaux, il vaut mieux utiliser un tableur tel que Excel ou LibreOffice Calc pour l'encodage. Les tableurs en ligne comme Google Sheets ou Excel Online conviennent très bien également et facilitent un travail collaboratif ainsi que la mise à disposition sur le Net, comme nous avons vu au module \@ref(import).
 
 ### Tableaux de contingence
 
@@ -232,7 +232,7 @@ Les données dans un tableau de données doivent **impérativement** être assoc
 
 $$Donn\acute{e}es \ de \ qualit\acute{e} \ = \ tableau \ de \ donn\acute{e}es + \ m\acute{e}tadonn\acute{e}es$$
 
-Les données correctement qualifiées et documentée sont les seules qui peuvent être utilisées par un collaborateur externe. C'est à dire qu'une personne externe à l'expérience ne peut interpréter le tableau de données que si les métadonnées sont complètes et explicites. 
+Les données correctement qualifiées et documentées sont les seules qui peuvent être utilisées par un collaborateur externe. C'est à dire qu'une personne externe à l'expérience ne peut interpréter le tableau de données que si les métadonnées sont complètes et explicites. 
 
 Exemple de métadonnées :
 
@@ -322,13 +322,13 @@ De même, un **individu** statistique est une entité sur laquelle nous effectuo
 
 La **variabilité** tant au niveau de la population que de l'échantillon provient essentiellement de deux facteurs\ :
 
-1. La **variabilité individuelle** inhérente (nous n'avons pas tous la même taille ne la même masse, par exemple),
+1. La **variabilité individuelle** inhérente (nous n'avons pas tous la même taille ni la même masse, par exemple),
 
 2. Les **erreurs de mesure**.
 
 Ces deux facteurs se cumulent pour contribuer à disperser les valeurs d'un individu à l'autre. Nous n'avons que peu de prise sur la variabilité individuelle, mais nous pouvons parfois réduire les erreurs de mesure si cela s'avère souhaitable en utilisant un appareil de mesure plus précis, par exemple. Quoi qu'il en soit, plus la variabilité est importante, plus la taille de l'échantillon devra également être grande pour concerver une bonne "représentativité" de la population.
 
-Du point de vue de la notation mathématique, nous utiliserons une lettre latine majuscule en italique pour représenter un variable, par exemple, *X*. La taille de l'échantillon est souvent notée *n*. Les observations individuelles de la variable *x* pour les *n* individus de l'échantillon seront alors notés avec une lettre minuscule en italique assortie d'un indice compris entre 1 et *n*, donc, *x~i~* de manière générale avec l'indice *i* variant de 1 à *n*. Ainsi, *x*~5~ représente la cinquième observation pour la variable *X* dans notre échantillon, et *x~n~* est la dernière observation.
+Du point de vue de la notation mathématique, nous utiliserons une lettre latine majuscule en italique pour représenter une variable, par exemple, *X*. La taille de l'échantillon est souvent notée *n*. Les observations individuelles de la variable *x* pour les *n* individus de l'échantillon seront alors notés avec une lettre minuscule en italique assortie d'un indice compris entre 1 et *n*, donc, *x~i~* de manière générale avec l'indice *i* variant de 1 à *n*. Ainsi, *x*~5~ représente la cinquième observation pour la variable *X* dans notre échantillon, et *x~n~* est la dernière observation.
 
 
 ### Échantillonnage aléatoire
@@ -349,7 +349,7 @@ Une bonne sélection aléatoire **doit** faire intervenir le hasard (tirage au s
 2. Donner un identifiant numérique unique à chacune de vos souris. Ensuite tirer deux fois cinq identifiants à partir d'une urne, ou effectuer ce même traitement virtuellement à l'aide d'un ordinateur. Dans ce cas, l'échantillonnage sera réellement aléatoire et correctement réalisé\ !
 ```
 
-En pratique, nous pourrons utiliser la fonction `sample()` dans R. Elle permet de simulation facilement et rapidement le processus de tirage au hasard depuis une urne. Dans le cas de nos deux groupes de cinq souris à partir d'un élevage qui contient 213 animaux numérotés de 1 à 213 (identifiants uniques), nous ferons\ :
+En pratique, nous pourrons utiliser la fonction `sample()` dans R. Elle permet de simuler facilement et rapidement le processus de tirage au hasard depuis une urne. Dans le cas de nos deux groupes de cinq souris à partir d'un élevage qui contient 213 animaux numérotés de 1 à 213 (identifiants uniques), nous ferons\ :
 
 ```{r, echo=FALSE, results='hide'}
 set.seed(67567)
@@ -626,7 +626,7 @@ L'aide-mémoire [Data Transformation](https://github.com/rstudio/cheatsheets/blo
 
 ### Empilement vers le bas
 
-Pour empiler des tableaux l'un au dessus de l'autre, la fonction la plus simple est `bind_rows()`. Partons de données mesurée dans les mésoscosmes de notre laboratoire lors des travaux pratiques du cours d'océanographie générale. Les différentes variables mesurées sont les suivantes\ : 
+Pour empiler des tableaux l'un au dessus de l'autre, la fonction la plus simple est `bind_rows()`. Partons de données mesurées dans les mésoscosmes de notre laboratoire lors des travaux pratiques du cours d'océanographie générale. Les différentes variables mesurées sont les suivantes\ : 
 
 - les données **physico-chimiques** : la température, le pH, la salinité, l'oxygène dissous à l'aide, respectivement, d'un pHmètre, d'un conductimètre et d'un oxymètre
 - la concentration en **nutriments** : orthophosphates (PO~4~^3-^) et nitrates (NO~3~^-^) dissous dans l'eau par analyse colorimétrique
@@ -669,7 +669,7 @@ rmarkdown::paged_table(physico)
 
 ### Empilement à droite
 
-Pour combiner des tableaux de données par les colonnes, de gauche à droite, la fonction la plus simple à utiliser est `bind_cols()`. Les étudiants ont également réalisé des prélèvements d'eaux qui ont été dosés par colorimétrie avec un autoanalyseur. Les échantillons des deux groupes ont été analysés dans la même série par l'appareil, ce qui donne le tableau suivant pour les nutriments :
+Pour combiner des tableaux de données par les colonnes, de gauche à droite, la fonction la plus simple à utiliser est `bind_cols()`. Les étudiants ont également réalisé des prélèvements d'eau qui ont été dosés par colorimétrie avec un autoanalyseur. Les échantillons des deux groupes ont été analysés dans la même série par l'appareil, ce qui donne le tableau suivant pour les nutriments :
 
 ```{r}
 nutrients <- as_dataframe(tibble(
@@ -756,7 +756,7 @@ assignation("A06Ga_belgium_demo", part = NULL,
   url = "https://github.com/BioDataScience-Course/A06Ga_belgium_demo",
   course.urls = c(
     'S-BIOG-006' = "https://classroom.github.com/g/h1HgkuuH",
-    'S-BIOG-921' = "https://classroom.github.com/a/..."),
+    'S-BIOG-921' = "https://classroom.github.com/g/RW1vkL7f"),
   toc = "Analyse de la démographie en Belgique")
 ```
 
