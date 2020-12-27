@@ -33,9 +33,9 @@ Il y a 30 ans, pas d'internet (ou un embryon d'internet disponible uniquement po
 
 - Consommation électrique d'un supercalculateur\ : se mesure en mégawatts, alors que le cerveau humain consomme 12-13W seulement\ !
 
-- "Le **transhumanisme** est une approche interdisciplinaire qui nous amène à comprendre et à évaluer les avenues qui nous permettrons de surmonter nos limites biologiques par les progrès technologiques. Les trans-humanistes cherchent à développer les possibilités techniques afin que les gens vivent plus longtemps et ..."
+- "Le **transhumanisme** est une approche interdisciplinaire qui nous amène à comprendre et à évaluer les avenues qui nous permettrons de surmonter nos limites biologiques par les progrès technologiques. Les transhumanistes cherchent à développer les possibilités techniques afin que les gens vivent plus longtemps et ..."
 
-Ce petit rappel historique et ces quelques informations concernant les données vous donne d'une part un aperçu de la vitesse à laquelle notre monde change, et d'autre part ils vous montrent que le monde dans lequel nous vivons est de plus en plus inondé d'information. Vous pouvez maintenant imaginer l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Pour ce cours de sciences des données,  plusieurs outils puissants sont mis à votre disposition (Vous trouverez sur l'hyperlien suivant, un poster présentant la philosophie du cours <https://github.com/BioDataScience-Course/RencontresRRennes2018>)
+Ce petit rappel historique et ces quelques informations concernant les données vous donne d'une part un aperçu de la vitesse à laquelle notre monde change, et d'autre part ils vous montrent que le monde dans lequel nous vivons est de plus en plus inondé d'information. Vous pouvez maintenant imaginer l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Pour ce cours de sciences des données,  plusieurs outils puissants sont mis à votre disposition (Vous trouverez sur l'hyperlien suivant, un poster présentant la philosophie du cours <https://github.com/BioDataScience-Course/sdd_presentations/raw/master/2018_rennes/poster_rennes_ge.pdf>)
 
 ## Découverte des outils
 
