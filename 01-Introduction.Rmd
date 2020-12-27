@@ -35,7 +35,7 @@ Il y a 30 ans, pas d'internet (ou un embryon d'internet disponible uniquement po
 
 - "Le **transhumanisme** est une approche interdisciplinaire qui nous amène à comprendre et à évaluer les avenues qui nous permettrons de surmonter nos limites biologiques par les progrès technologiques. Les transhumanistes cherchent à développer les possibilités techniques afin que les gens vivent plus longtemps et ..."
 
-Ce petit rappel historique et ces quelques informations concernant les données vous donne d'une part un aperçu de la vitesse à laquelle notre monde change, et d'autre part ils vous montrent que le monde dans lequel nous vivons est de plus en plus inondé d'information. Vous pouvez maintenant imaginer l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Pour ce cours de sciences des données,  plusieurs outils puissants sont mis à votre disposition (Vous trouverez sur l'hyperlien suivant, un poster présentant la philosophie du cours <https://github.com/BioDataScience-Course/sdd_presentations/raw/master/2018_rennes/poster_rennes_ge.pdf>)
+Ce petit rappel historique et ces quelques informations concernant les données vous donne d'une part un aperçu de la vitesse à laquelle notre monde change, et d'autre part ils vous montrent que le monde dans lequel nous vivons est de plus en plus inondé d'information. Vous pouvez maintenant imaginer l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Pour ce cours de sciences des données,  plusieurs outils puissants sont mis à votre disposition (voir un [poster présentant la philosophie du cours](https://github.com/BioDataScience-Course/sdd_presentations/raw/master/2018_rennes/poster_rennes_ge.pdf)).
 
 ## Découverte des outils
 
@@ -94,16 +94,16 @@ Après avoir rédigé votre document, vous devez cliquer sur le bouton `Preview`
 
 - [Markdown](https://daringfireball.net/projects/markdown/). Explication en anglais de l'intérêt d'employer Markdown ainsi que la syntaxe à employer.
 
-- [Rédigez en Markdown !](https://openclassrooms.com/fr/courses/1304236-redigez-en-markdown)
+- [Rédigez en Markdown\ !](https://openclassrooms.com/fr/courses/1304236-redigez-en-markdown)
 
 
 - [Un guide pour bien commencer avec Markdown](https://blog.wax-o.com/2014/04/tutoriel-un-guide-pour-bien-commencer-avec-markdown/)
 
-- [Le Markdown comme langage d’écriture universel ?](https://blog.genma.fr/?Le-Markdown-comme-langage-d-ecriture-universel)
+- [Le Markdown comme langage d’écriture universel\ ?](https://blog.genma.fr/?Le-Markdown-comme-langage-d-ecriture-universel)
 
-- [Comment écrire confortablement et professionnellement ? Le Markdown !](https://dolys.fr/forums/topic/comment-ecrire-confortablement-professionnellement-markdown/). Utilisation de Markdown afin de revenir à l'essence de la rédaction.
+- [Comment écrire confortablement et professionnellement\ ? Le Markdown !](https://dolys.fr/forums/topic/comment-ecrire-confortablement-professionnellement-markdown/). Utilisation de Markdown afin de revenir à l'essence de la rédaction.
 
-- [Écrire tout simplement – Introduction à Markdown](http://www.boiteaoutils.info/2013/02/ecrire-tout-simplement-introduction/). Pourquoi utiliser Markdown ?
+- [Écrire tout simplement – Introduction à Markdown](http://www.boiteaoutils.info/2013/02/ecrire-tout-simplement-introduction/). Pourquoi utiliser Markdown\ ?
 
 
 ### Gestionnaire de version Git
@@ -135,7 +135,7 @@ Dans quel fichier se trouve la dernière version de chaque personne ayant collab
 
 Différents outils informatiques existent pour faciliter le travail collaboratif comme\ :
 
-- Le partage de fichiers en ligne ([Dropbox](https://www.dropbox.com/business/landing-t68fl?_tk=sem_b_goog&_camp=sem-b-goog-emea-be-fre-exact-restructure&_kw=dropbox|e&_ad=244691468861|1t1|c&gclid=CjwKCAjwzenbBRB3EiwAItS-u3vb9iSK6F4MFnw3oWaEq0gwxQk74_ekOASIah0P-9u_pYFis8hxFxoCdOIQAvD_BwE), [Google Drive](https://www.google.com/drive/), [One Drive](https://onedrive.live.com/about/fr-be/)). Ces espaces de stockage sur le "cloud" ne règlent toujours pas le problème de collaboration sur le même fichier.
+- Le partage de fichiers en ligne ([Dropbox](https://www.dropbox.com), [Google Drive](https://www.google.com/drive/), [OneDrive](https://onedrive.live.com/about/fr-be/)). Ces espaces de stockage sur le "cloud" ne règlent toujours pas le problème de collaboration sur le même fichier.
 
 - L'utilisation d'un programme d'édition collaboratif en temps réel ([Etherpad](http://etherpad.org/), [Google Drive - Docs](https://www.google.com/intl/fr_be/docs/about/), [Gobby](https://gobby.github.io/)). Il est possible de travailler en même temps sur un même fichier. Cette option ne règle pas le problème du retour vers une ancienne version. Lorsqu'une modification a été réalisée l'ancienne version est tout simplement écrasée.
 
@@ -197,24 +197,22 @@ Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails d
 
 - [Git : comprendre la gestion de versions](https://blog.axopen.com/2017/02/git-comprendre-la-gestion-de-versions/). Explication en français sur ce qu'est Git et comment cela s'utilise en pratique.
 
-- Introduction en anglais de GitHub dans RStudio à l'aide d'une [vidéo](https://www.rstudio.com/resources/webinars/rstudio-essentials-webinar-series-managing-part-2/).
-
 - [Happy Git and GitHub for the useR](http://happygitwithr.com). Complet, mais un peu technique et en anglais.
 
 - Installation et première utilisation de [Git et GitHub](http://r-pkgs.had.co.nz/git.html) dans R. En anglais.
 
 - [Git](https://git-scm.com/). Site en anglais comprenant toute la documentation de Git.
 
-- [GitHub pour les nuls : pas de panique, lancez-vous !](https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/).
+- [GitHub pour les nuls\ : pas de panique, lancez-vous\ !](https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/).
 
 
 #### GitHub Classroom {#classroom}
 
-**GitHub Classroom** est une extension de GitHub qui facilite le travail avec GitHub dans le contexte d'exercices à réaliser dans le cadre d'un cours. Vous serez amené à cloner et modifier des dépôts issus de GitHub Classroom pour réaliser vos exercices. **Ces dépôts seront privés**. Cela signifie que, seuls vous-mêmes et vos enseignants auront accès à ces dépôts. A la fin de la formation, tous ces dépôts seront détruits. **Donc, si vous voulez les conserver, il faudra les "forker" sur votre propre compte.** Rassurez-vous : nous vous préviendrons avant de faire le ménage ! 
+**[GitHub Classroom](https://classroom.github.com)** est une extension de GitHub qui facilite le travail avec GitHub dans le contexte d'exercices à réaliser dans le cadre d'un cours. Vous serez amené à cloner et modifier des dépôts issus de GitHub Classroom pour réaliser vos exercices. **Ces dépôts seront privés**. Cela signifie que, seuls vous-mêmes et vos enseignants auront accès à ces dépôts. A la fin de la formation, tous ces dépôts seront détruits. **Donc, si vous voulez les conserver, il faudra les "forker" sur votre propre compte.** Rassurez-vous\ : nous vous préviendrons avant de faire le ménage\ ! 
 *Maintenant que vous comprenez mieux avec quels outils informatiques nous allons travaillez, vous pouvez passer à votre premier exercice pour découvrir la SciViews Box, RStudio, Markdown, Git et GitHub : vous allez réaliser un site web professionnel en ligne...*
 
 
-Avant de poursuivre, Répondez aux questions ci-dessous 
+Avant de poursuivre, Répondez aux questions ci-dessous\ :
 
 `r h5p(13, height = 270, toc = "Questions récapitulatives sur les outils")`
 

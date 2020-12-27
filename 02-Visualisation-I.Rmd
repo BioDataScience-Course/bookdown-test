@@ -7,7 +7,7 @@ SciViews::R
 
 ##### Objectifs {-}
 
-- Découvrir --et vous émerveiller de--  ce que l'on peut faire avec le [logiciel R](http://www.r-project.org) [@R-base]
+- Découvrir --et vous émerveiller de--  ce que l'on peut faire avec le [logiciel R](https://www.r-project.org) [@R-base]
 
 - Être capable de réaliser différentes variantes d'un graphique en nuage de points dans R avec la fonction `chart()`
 
@@ -44,23 +44,23 @@ que l'on peut lire "y en fonction de x". Pour les deux variables numériques _x_
 urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 chart(data = urchin, height ~  weight) + 
   geom_point() +
-  labs( x = "Label de l'axe x  + [Unité]", 
-        y = "Label de l'axe y + [Unité]") +
-  theme(axis.text.x = element_text(colour = "#a80039", size = 15), 
+  labs(x = "Label de l'axe x  + [Unité]", 
+       y = "Label de l'axe y + [Unité]") +
+  theme(axis.text.x  = element_text(colour = "#a80039", size = 15), 
         axis.title.x = element_text(colour = "#029687", size = 15), 
-        axis.text.y = element_text(colour = "#a80039", size = 15), 
+        axis.text.y  = element_text(colour = "#a80039", size = 15), 
         axis.title.y = element_text(colour = "#029687", size = 15),
-        axis.line.x = element_line(colour = "#a80039"),
-        axis.line.y = element_line(colour = "#a80039")
+        axis.line.x  = element_line(colour = "#a80039"),
+        axis.line.y  = element_line(colour = "#a80039")
   )
 ```
 
-Les éléments indispensables à la compréhension d'un graphique en nuage de points sont mis en évidence à la Fig. \@ref(fig:first-scatterplot) :  
+Les éléments indispensables à la compréhension d'un graphique en nuage de points sont mis en évidence à la Fig. \@ref(fig:first-scatterplot)\ :
 
 - Les axes avec les graduations (en rouge),
 - les labels et les unités des axes (en bleu).
 
-Les instructions dans R pour produire un tel nuage de point sont :
+Les instructions dans R pour produire un tel nuage de points sont\ :
 
 ```{r, warning=FALSE, message=FALSE}
 # Chargement de SciViews::R
@@ -81,7 +81,7 @@ chart(data = urchin, height ~ weight) +
   geom_point()
 ```
 
-La fonction `chart()` n'est pas accessible dans R de base, mais l'extension chargée via l'instruction `SciViews::R` rend cette fonction disponible. Elle requiert comme argument le jeu de donnée (`data = urchin`, c'est un objet `dataframe` ou `tibble` dans le langage de R), ainsi que la formule à employer dans laquelle vous avez indiqué le nom des variables que vous voulez sur l'axe des ordonnées à gauche et des abscisses à droite de la formule, les deux membres étant séparés par un "tilde" (`~`). Vous voyez que le jeu de données contient beaucoup de variables (les titres des colonnes du tableau en sortie). Parmi toutes ces variables, nous avons choisi ici de représenter `height` en fonction de `weight`, la hauteur en fonction de la masse des oursins. Jusqu'ici, nous avons spécifié _ce que_ nous voulons représenter, mais pas encore _comment_ (sous quelle apparence), nous voulons les matérialiser sur le graphique. Pour un nuage de points, nous voulons les représenter sous forme de ... points ! Donc, nous devons ajouter la fonction `geom_point()` pour indiquer cela.
+La fonction `chart()` n'est pas accessible dans R de base, mais l'extension chargée via l'instruction `SciViews::R` rend cette fonction disponible. Elle requiert comme argument le jeu de donnée (`data = urchin`, c'est un objet `dataframe` ou `tibble` dans le langage de R), ainsi que la formule à employer dans laquelle vous avez indiqué le nom des variables que vous voulez sur l'axe des ordonnées à gauche et des abscisses à droite de la formule, les deux membres étant séparés par un "tilde" (`~`). Vous voyez que le jeu de données contient beaucoup de variables (les titres des colonnes du tableau en sortie). Parmi toutes ces variables, nous avons choisi ici de représenter `height` en fonction de `weight`, la hauteur en fonction de la masse des oursins. Jusqu'ici, nous avons spécifié _ce que_ nous voulons représenter, mais pas encore _comment_ (sous quelle apparence), nous voulons les matérialiser sur le graphique. Pour un nuage de points, nous voulons les représenter sous forme de ... points\ ! Donc, nous devons ajouter la fonction `geom_point()` pour indiquer cela.
 
 
 ### Le nuage de points en vidéo
@@ -94,7 +94,7 @@ Vous trouverez une vidéo ci-dessous vous expliquant la création du nuage de po
 #vembedr::embed_youtube("-QzG3Xr202w", width = 770, height = 433)
 ```
 
-Cette vidéo ne vous a montré que les principaux outils disponibles lors de la réalisation de graphiques. Soyez curieux et expérimentez par vous-même !
+Cette vidéo ne vous a montré que les principaux outils disponibles lors de la réalisation de graphiques. Soyez curieux et expérimentez par vous-même\ !
 
 ##### A vous de jouer {-}
 
@@ -102,13 +102,13 @@ Cette vidéo ne vous a montré que les principaux outils disponibles lors de la 
 
 ### Echelles de graphiques
 
-Vous devez être vigilant lors de la réalisation d'un nuage de point particulièrement sur l'étendue des valeurs présentées sur vos axes. Vous devez utilisez votre expertise de biologiste pour vous posez les deux questions suivantes :
+Vous devez être vigilant lors de la réalisation d'un nuage de point particulièrement sur l'étendue des valeurs présentées sur vos axes. Vous devez utilisez votre expertise de biologiste pour vous posez les deux questions suivantes\ :
 
-- Est ce que l'axe représente des valeurs plausibles de hauteurs et de masses de ces oursins appartenant à l'espèce *Paracentrotus lividus* ?
+- Est ce que l'axe représente des valeurs plausibles de hauteurs et de masses de ces oursins appartenant à l'espèce *Paracentrotus lividus*\ ?
 
-- Quels est la précision des mesures effectuées ?
+- Quels est la précision des mesures effectuées\ ?
 
-Dans certains cas, la forme du nuage de points peut être distendu par la présence de valeurs aberrantes. Ce n'est pas le cas ici, mais nous pouvons le simuler en distendant artificiellement soit l'axe X, soit l'axe Y, soit les deux :
+Dans certains cas, la forme du nuage de points peut être distendu par la présence de valeurs aberrantes. Ce n'est pas le cas ici, mais nous pouvons le simuler en distendant artificiellement soit l'axe X, soit l'axe Y, soit les deux\ :
 
 
 ```{r, echo=FALSE, fig.cap="Piège du nuage de points. A) graphique initial montrant la variation de la hauteur [mm] en fonction de la masse [g]. B) graphique A avec la modification de l'échelle de l'axe X. C) Graphique A avec une seconde modification de l'axe X. D) Graphique A avec modification simultanée des deux axes."}
@@ -134,7 +134,6 @@ Appliquez par vous même la modification des échelles des axes via l'applicatio
 
 Vous avez la possibilité d'appliquer une transformation de vos données (il est même conseillé de le faire) afin qu'elles soient plus facilement analysables. Par exemple, il est possible d'utiliser des fonctions de puissance, racines, logarithmes, exponentielles^[Pour les proportions (`prop`) ou les pourcentages (`perc`) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : $prop′ = \arcsin \sqrt{prop}$ ou $perc′ = \arcsin \sqrt{perc / 100}$.] pour modifier l'apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d'analyser statistiquement des données qui s'alignent le long d'une droite).
 
-
 ##### A vous de jouer {-}
 
 Appliquez la meilleure transformation sur nos données de hauteurs et de masses d'oursins ci-dessous
@@ -150,7 +149,7 @@ chart(data = DF, YNUM ~ XNUM) +
   geom_point()
 ```
 
-Vous avez à votre disposition un ensemble de snippets que vous pouvez retrouver dans l'aide-mémoire consacré à [**SciViews**](https://github.com/BioDataScience-Course/cheatsheets/blob/master/keynote/sciviews_cheatsheet.pdf). Vous avez également à votre disposition l'aide-mémoire sur la visualisation des données ([**Data Visualization Cheat Sheet**](https://www.rstudio.com/resources/cheatsheets/)) qui utilise la fonction `ggplot()` plutôt que `chart()` et une interface légèrement différente pour spécifier les variables à utiliser pour réaliser le graphique (`aes(x = ..., y = ...)`).
+Vous avez à votre disposition un ensemble de snippets que vous pouvez retrouver dans l'aide-mémoire consacré à [**SciViews**](https://github.com/BioDataScience-Course/sdd_cheatsheets/raw/master/SciViews/sciviews.pdf). Vous avez également à votre disposition l'aide-mémoire sur la visualisation des données ([**Data Visualization Cheat Sheet**](https://www.rstudio.com/resources/cheatsheets/)) qui utilise la fonction `ggplot()` plutôt que `chart()` et une interface légèrement différente pour spécifier les variables à utiliser pour réaliser le graphique (`aes(x = ..., y = ...)`).
 
 
 ##### A vous de jouer {-}
@@ -170,12 +169,11 @@ Inspirez-vous du script dans le dépôt **[sdd1_iris](https://github.com/BioData
 
 Prêtez une attention toute particulière à l'organisation d'un script R. En plus des instructions R, il contient aussi sous forme de commentaires, un titre , la date de la dernière mise à jour, le nom de l'auteur, et des sections qui organisent de façon claire le contenu du script. A ce sujet, vous trouverez des explications détaillées concernant l'utilisation des scripts R dans l'annexe \@ref(script).
 
-
 ##### Pour en savoir plus {-}
 
 - [Visualisation des données dans R for Data Science](http://r4ds.had.co.nz/data-visualisation.html). Chapitre du livre portant sur la visualisation des données, en anglais.
 
-- [ggplot2 nuage de point](http://www.sthda.com/french/wiki/ggplot2-nuage-de-points-guide-de-d-marrage-rapide-logiciel-r-et-visualisation-de-donn-es#nuage-de-points-simples). Tutoriel en français portant sur l'utilisation d'un nuage de points avec le package `ggplot2` et la fonction `geom_point()`.
+- [ggplot2 nuage de point](http://www.sthda.com/french/wiki/ggplot2-nuage-de-points-guide-de-d-marrage-rapide-logiciel-r-et-visualisation-de-donn-es#nuage-de-points-simples). Tutoriel en français portant sur l'utilisation d'un nuage de points avec le package {ggplot2} et la fonction `geom_point()`.
 
 - [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/). Un livre en anglais sur les fondamentaux de la visualisation graphique.
 
@@ -211,7 +209,6 @@ Vous devez bien entendu avoir autant de balises d'entrée que de balises de sort
 Vous ne devez bien évidemment pas commencer avec un script R. Vous pouvez commencer d'emblée avec un R Markdown/R Notebook et écrire vos instructions R directement dedans. Il vous est toujours possible d'exécuter ces instructions ligne après ligne dans la fenêtre **Console** pour les tester tout comme à partir d'un script R.
 ```
 
-
 ##### Pour en savoir plus {-}
 
 - [Communicating results with R Markdown](https://rviews.rstudio.com/2018/11/01/r-markdown-a-better-approach/) explique la même chose que dans la vidéo, avec plus de détails et des liens vers d'autres documents utiles (en anglais).
@@ -220,20 +217,19 @@ Vous ne devez bien évidemment pas commencer avec un script R. Vous pouvez comme
 
 - [Introduction to R Markdown](https://rmarkdown.rstudio.com/articles_intro.html). Tutoriel en anglais, par RStudio.
 
-- [R Markdown : the definitive guide](https://bookdown.org/yihui/rmarkdown/) est **le** manuel par excellence pour R Markdown (en anglais uniquement, malheureusement).
+- [R Markdown: the definitive guide](https://bookdown.org/yihui/rmarkdown/) est **le** manuel par excellence pour R Markdown (en anglais uniquement, malheureusement).
 
-- Aide-mémoire R Markdown: dans les menus de RStudio : `Help -> Cheatsheets -> R Markdown Cheat Sheet`
+- Aide-mémoire R Markdown, dans les menus de RStudio\ : `Help -> Cheatsheets -> R Markdown Cheat Sheet`
 
-- Référence rapide à Markdown : dans les menus RStudio `Help -> Markdown Quick Reference`
+- Référence rapide à Markdown, dans les menus RStudio\ : `Help -> Markdown Quick Reference`
 
-- [Introduction à R Markdown](https://rstudio-pubs-static.s3.amazonaws.com/32239_0956f02cef24443abd9525551368ef12.html#6). Présentation en français par Agrocampus Ouest - Rennes.
+- [Introduction à R Markdown](https://rstudio-pubs-static.s3.amazonaws.com/32239_0956f02cef24443abd9525551368ef12.html#6). Présentation en français par Agrocampus Ouest, Rennes.
 
 - [Le langage R Markdown](https://www.fun-mooc.fr/c4x/UPSUD/42001S02/asset/RMarkdown.pdf). Introduction en français concise, mais relativement complète.
 
 - [Reproducible reports](https://rworkshop.uni.lu/lectures/lecture04_rmarkdown.html#1) with R Markdown. Une explication en anglais de la raison d'être de R Markdown.
 
 - [Why I love R Notebooks](https://rviews.rstudio.com/2017/03/15/why-i-love-r-notebooks/) explique (en anglais) pourquoi le format R Notebook est particulièrement bien adapté à la science des données.
-
 
 ##### A vous de jouer {-}
 
