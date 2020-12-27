@@ -4,26 +4,23 @@
 SciViews::R
 ```
 
-
 ##### Objectifs {-}
 
-- Savoir importer des données depuis différents formats et différentes sources via la fonction `read()`.
+- Pouvoir importer des données depuis différents formats et différentes sources via la fonction `read()`.
 
 - Appréhender les types de variables et l'importance de les encoder convenablement.
 
-- Etre capable de convertir des variables d'un type à l'autre, y compris par l'utilisation du découpage en classes pour passer de variable quantitative à qualitative.
+- Être capable de convertir des variables d'un type à l'autre, y compris par l'utilisation du découpage en classes pour passer de variable quantitative à qualitative.
 
-- Savoir remanier des variables, filtrer un tableau et le résumer afin d'en extraire l'information importante.
-
+- Comprendre comment remanier des variables, filtrer un tableau et le résumer afin d'en extraire l'information importante.
 
 ##### Prérequis {-}
 
 Le contenu du module \@ref(intro) doit être parfaitement maîtrisé. Il est également souhaitable, mais pas indispensable, de comprendre comment réaliser des graphiques dans R pour pouvoir comprendre le contenu de ce module.
 
-
 ## Importation des données
 
-Il est possible d'encoder des très petits jeux de données dans R. La fonction `tribble()` permet de le faire facilement. Notez que les noms des colonnes du tableau sont à rentrer sous forme de **formules** (`~var`), que chaque entrée est séparée par une virgule, et que les chaines de caractères sont entourées de guillemets. Les espaces sont optionnels et peuvent être utilisés pour aligner les données afin que le tout soit plus lisible. Des commentaires peuvent être utilisés éventuellement en fin de ligne (un dièse `#` suivi du commentaire).
+Il est possible d'encoder des très petits jeux de données dans R. La fonction `tribble()` permet de le faire facilement. Notez que les noms des colonnes du tableau sont à rentrer sous forme de **formules** (`~ var`), que chaque entrée est séparée par une virgule, et que les chaînes de caractères sont entourées de guillemets. Les espaces sont optionnels et peuvent être utilisés pour aligner les données afin que le tout soit plus lisible. Des commentaires peuvent être utilisés éventuellement en fin de ligne (un dièse `#` suivi du commentaire).
 
 ```{r}
 small_dataset <- tribble(
@@ -38,7 +35,7 @@ small_dataset <- tribble(
 small_dataset
 ```
 
-Dans la plupart des cas, vous utiliserez ou collecterez des données stockées dans des formats divers : feuilles Excel, fichiers CSV ("comma-separated-values", un format standard d'encodage d'un tableau de données sous forme textuelle), formats spécifiques à divers logiciels statistiques comme SAS, Stata ou Systat, ... Ces données peuvent être sur un disque local ou disponibles depuis un lien URL sur le net^[R permet également d'interroger des bases de données spécialisées, mais nous n'aborderons ce sujet spécifique qu'au cours de Science des Données Biologique 5 en Master 2.]. De nombreuses fonctions existent dans R pour importer toutes ces données. La fonction `read()` du package `data.io` est l'une des plus simples et conviviales d'entre-elles. Vous l'avez déjà utilisée, mais reprenons un exemple pour en discuter les détails.
+Dans la plupart des cas, vous utiliserez ou collecterez des données stockées dans des formats divers\ : feuilles Excel, fichiers CSV ("comma-separated-values", un format standard d'encodage d'un tableau de données sous forme textuelle), formats spécifiques à divers logiciels statistiques comme SAS, Stata ou Systat, ... Ces données peuvent être sur un disque local ou disponibles depuis un lien URL sur le net^[R permet également d'interroger des bases de données spécialisées, mais nous n'aborderons ce sujet spécifique qu'au cours de Science des Données Biologique 5 en Master 2.]. De nombreuses fonctions existent dans R pour importer toutes ces données. La fonction `read()` du package `data.io` est l'une des plus simples et conviviales d'entre-elles. Vous l'avez déjà utilisée, mais reprenons un exemple pour en discuter les détails.
 
 ```{r}
 (biometry <- read("biometry", package = "BioDataScience", lang = "fr"))
@@ -56,15 +53,15 @@ Le jeu de données `biometry` est disponible dans le package R **BioDataScience*
 L'impression du tableau de données est une façon de voir cela, mais il y en a bien d'autres : essayez `View(biometry)`, `str(biometry)`, ou cliquez sur la petite icône bleue avec une flèche devant `biometry` dans l'onglet **Environnement**.
 ```
 
-Avant d'importer vos données dans R, vous devez vous poser les deux questions suivantes :
+Avant d'importer vos données dans R, vous devez vous poser les deux questions suivantes\ :
 
-- Où ces données sont stockées ?
+- Où ces données sont-elles stockées\ ?
 
 Vous venez d'importer des données depuis un package R. Vous pouvez également les lire depuis un fichier sur le disque ou via une URL depuis le Web. Tous ces cas sont gérés par `read()` qui unifie donc de manière simple vos accès aux données.
 
-- Quels est le format de vos données ?
+- Quels est le format de vos données\ ?
 
-Souvent ce format est renseigné par l'**extension** du fichier. Par exemple **.xlsx** pour un Microsoft Excel ou **.csv** pour du "comma-separated-value". Attention ! L'extension du fichier est cachée sous Windows, et parfois sous MacOS. Visualisez vos fichiers dans l'onglet **Files** dans RStudio pour voir leurs noms complets, avec les extensions. Pour l'instant, `read()` supporte 32 formats de fichiers différents, mais cette liste est amenée à s'agrandir à l'avenir. Pour découvrir les formats supportés, et les fonctions d'importation spécifiques appelées à chaque fois, utilisez :
+Souvent ce format est renseigné par l'**extension** du fichier. Par exemple **.xlsx** pour un Microsoft Excel ou **.csv** pour du "comma-separated-value". Attention\ ! L'extension du fichier est cachée sous Windows, et parfois sous MacOS. Visualisez vos fichiers dans l'onglet **Files** dans RStudio pour voir leurs noms complets, avec les extensions. Pour l'instant, `read()` supporte 32 formats de fichiers différents, mais cette liste est amenée à s'agrandir à l'avenir. Pour découvrir les formats supportés, et les fonctions d'importation spécifiques appelées à chaque fois, utilisez\ :
 
 ```{r}
 getOption("read_write")
@@ -72,8 +69,7 @@ getOption("read_write")
 
 Par la suite, vous allez apprendre à importer vos données depuis différentes sources.
 
-
-### Données sur le disque 
+### Données sur le disque
 
 Lorsque l'extension du fichier reflète le format des données, il vous suffit juste d'indiquer le chemin d'accès au fichier à `read()`. La plupart du temps, cela suffira pour importer correctement les données.
 
@@ -91,27 +87,25 @@ Les explications détaillées concernant l'organisation de vos projets dans RStu
 
 `r h5p(38, height = 400, toc = "Chemin d'accès")`
 
-
 ##### Pièges et astuces {-}
 
 - Si l'extension est incorrecte, vous pouvez forcer un format de fichier particulier à l'importation en l'indiquant dans l'appel à `read()` comme `read$<ext>()`. Par exemple, pour forcer l'importation d'un fichier de type "comma-separated-values" pour un fichier qui se nommerait `my_data.txt`, vous écrirez `read$csv(my_data.txt)`.
 
 - Si les données ne sont pas importées correctement, cela signifie que les arguments d'importation par défaut ne sont pas adaptés. Les arguments à spécifier sont différents d'un format à l'autre. Voyez d'abord la fonction appelée en interne par `read()`dans le tableau obtenu via `getOption("read_write")`. Par exemple, pour un fichier `xlsx`, il s'agit de la fonction `readxl::read_excel()` qui est utilisée. Ensuite, voyez l'aide de cette dernière fonction pour en découvrir les différents arguments (`?readxl::read_excel`). Là, vous pourrez découvrir les arguments `sheet =`qui indiquent la feuille à importer depuis le fichier (première feuille par défaut), ou `range = ` qui indique la plage de données dans le feuille à utiliser (par défaut, depuis la cellule A1 en haut à gauche jusqu'à la fin du tableau). Donc, si votre fichier `my_data.xlsx` contient les feuilles `sheet1`, `sheet2` et `sheet3`, et que les données qui vous intéressent sont dans la plage `C5:E34` de `sheet2`, vous pourrez écrire: `read("my_data.xlsx", sheet = "sheet2", range = "C5:E34")`.
 
-
 ### Données depuis Internet
 
-Il existe différents logiciels qui permettent d'éditer des tableaux de données en ligne et de les partager sur le Net. [Google Sheets](https://www.google.com/intl/fr_BE/sheets/about/) est l'un d'entre eux, tout comme [Excel Online](https://office.live.com/start/Excel.aspx). Des stockages spécifiques pour les données scientifiques existent aussi comme [Figshare](https://figshare.com) ou [Zenodo](https://zenodo.org). Ces sites permettent de partager facilement des jeux de données sur le Net.
+Il existe différents logiciels qui permettent d'éditer des tableaux de données en ligne et de les partager sur le Net. [Google Sheets](https://www.google.com/intl/fr_BE/sheets/about/) est l'un d'entre eux, tout comme [Excel Online](https://office.live.com/start/Excel.aspx). Des stockages spécifiques pour les données scientifiques existent aussi comme [Figshare](https://figshare.com) ou [Zenodo](https://zenodo.org). Ces sites permettent de partager facilement des jeux de données sur Internet.
 
 ```{block, type = 'info'}
-La science est de plus en plus ouverte, et les pratiques d'**Open Data** de plus en plus fréquentes et même imposées par des programmes de recherche comme les [programmes européens](https://europa.eu/european-union/documents-publications/open-data_fr) ou le [FNRS](http://www.recherchescientifique.be/index.php?id=1628) en Belgique. Vous serez donc certainement amenés à accéder à des données depuis des dépôts spécialisés sur Internet.
+La science est de plus en plus ouverte, et les pratiques de **données ouvertes** (*Open Data*) de plus en plus fréquentes et même imposées par des programmes de recherche comme les [programmes européens](https://europa.eu/european-union/documents-publications/open-data_fr) ou le [FNRS](http://www.recherchescientifique.be/index.php?id=1628) en Belgique. Vous serez donc certainement amenés à accéder à des données depuis des dépôts spécialisés sur Internet.
 
-Concentrez-vous sur les outils spécifiques à la gestion de ce type de données. il s'agit, en effet, d'une compétence clé qu'un bon scientifique des données se doit de maîtriser parfaitement. En recherchant à chaque fois la meilleure façon d'accéder à des données sur le Net, vous développerez cette compétence progressivement par la pratique... et **vous pourrez faire valoir un atout encore rare mais apprécié lors d'un entretien d'embaûche plus tard.** 
+Concentrez-vous sur les outils spécifiques à la gestion de ce type de données. il s'agit, en effet, d'une compétence clé qu'un bon scientifique des données se doit de maîtriser parfaitement. En recherchant à chaque fois la meilleure façon d'accéder à des données sur Internet, vous développerez cette compétence progressivement par la pratique... et **vous pourrez faire valoir un atout encore rare mais apprécié lors d'un entretien d'embauche plus tard.** 
 ```
 
-Voici un exemple de feuille de données Google Sheets : https://docs.google.com/spreadsheets/d/1iEuGrMk4IcCkq7gMNzy04DkSaPeWH35Psb0E56KEQMw. Il est possible d'importer ce genre de données **directement** depuis R, mais il faut d'abord déterminer l'[URL à utiliser pour obtenir les données](https://www.labnol.org/internet/direct-links-for-google-drive/28356/) dans un format reconnu. Dans le cas de Google Sheets, il suffit d'indiquer à la fin de cette URL que l'on souhaite exporter les données au format CSV en rajoutant `/export?format=csv` à la fin de l'URL.
+Voici un exemple de feuille de données Google Sheets\ : https://docs.google.com/spreadsheets/d/1iEuGrMk4IcCkq7gMNzy04DkSaPeWH35Psb0E56KEQMw. Il est possible d'importer ce genre de données **directement** depuis R, mais il faut d'abord déterminer l'[URL à utiliser pour obtenir les données](https://www.labnol.org/internet/direct-links-for-google-drive/28356/) dans un format reconnu. Dans le cas de Google Sheets, il suffit d'indiquer à la fin de cette URL que l'on souhaite exporter les données au format CSV en rajoutant `/export?format=csv` à la fin de l'URL.
 
-Cette URL est très longue. Elle est peu pratique et par ailleurs, elle a toujours la même structure : `"https://docs.google.com/spreadsheets/d/{id}/export?format=csv"` avec `{id}` qui est l'identifiant unique de la feuille Google Sheets (ici `1iEuGrMk4IcCkq7gMNzy04DkSaPeWH35Psb0E56KEQMw`). Vous pouvez indiquer explicitement ceci dans votre code et profiter des capacités de remplacement de texte dans des chaînes de caractères de la fonction `glue::glue()` pour effectuer un travail impeccable. 
+Cette URL est très longue. Elle est peu pratique et par ailleurs, elle a toujours la même structure\ : `"https://docs.google.com/spreadsheets/d/{id}/export?format=csv"` avec `{id}` qui est l'identifiant unique de la feuille Google Sheets (ici `1iEuGrMk4IcCkq7gMNzy04DkSaPeWH35Psb0E56KEQMw`). Vous pouvez indiquer explicitement ceci dans votre code et profiter des capacités de remplacement de texte dans des chaînes de caractères de la fonction `glue::glue()` pour effectuer un travail impeccable.
 
 ```{r}
 googlesheets_as_csv <- "https://docs.google.com/spreadsheets/d/{id}/export?format=csv"
@@ -125,13 +119,13 @@ Vous n'aurez alors plus qu'à lire les données depuis cette URL. N'oubliez pas 
 (coral <- read$csv(coral_url))
 ```
 
-Lorsque vous travaillez sur des données issues d'une source externe, et donc susceptibles d'être modifiées ou même pire, de disparaître. Il est préférable d'enregistrer une **copie locale** de ces données dans votre projet (dans le sous-dossier `data` de préférence). Si vous travaillez exclusivement avec R, l'un des meilleurs formats est RDS, un format natif qui conservera toutes les caractéristiques de votre objet, y compris sa classe, et d'éventuels attributs^[Si vous devez aussi accéder à vos données à partir d'autres langages comme Python, Java ou C++, utilisez un format commun reconnu par les différents logiciels. Le CSV fonctionne généralement bien, mais des formats binaires plus performants sont également disponibles. Parmi ces formats "inter-langages", gardez un œil sur [Apache Arrow](https://arrow.apache.org) très prometteur et avec une version pour R qui sera disponible prochainement.]. Par défaut, les données seront stockées non compressées, mais vous pourrez aussi décider de compresser avec les algorithmes `"gz"` (plus rapide et répandu), `"bz2"` (intermédiaire), ou `"xz"` (le plus efficace en taux de compression mais aussi le plus lent et gourmand en ressources CPU). Par exemple, pour enregistrer les données avec compression `"gz"`, vous écrirez :
+Lorsque vous travaillez sur des données issues d'une source externe, et donc susceptibles d'être modifiées ou même pire, de disparaître. Il est préférable d'enregistrer une **copie locale** de ces données dans votre projet (dans le sous-dossier `data` de préférence). Si vous travaillez exclusivement avec R, l'un des meilleurs formats est RDS, un format natif qui conservera toutes les caractéristiques de votre objet, y compris sa classe, et d'éventuels attributs^[Si vous devez aussi accéder à vos données à partir d'autres langages comme Python, Java ou C++, utilisez un format commun reconnu par les différents logiciels. Le CSV fonctionne généralement bien, mais des formats binaires plus performants sont également disponibles. Parmi ces formats "inter-langages", gardez un œil sur [Apache Arrow](https://arrow.apache.org) très prometteur et avec une version pour R qui sera disponible prochainement.]. Par défaut, les données seront stockées non compressées, mais vous pourrez aussi décider de compresser avec les algorithmes `"gz"` (plus rapide et répandu), `"bz2"` (intermédiaire), ou `"xz"` (le plus efficace en taux de compression mais aussi le plus lent et gourmand en ressources CPU). Par exemple, pour enregistrer les données avec compression `"gz"`, vous écrirez\ :
 
 ```{r, eval=FALSE}
 write$rds(coral, file = "../data/coral.rds", compress = "gz")
 ```
 
-Ensuite, vous pourrez simplement charger ces données plus loin depuis la version locale dans votre R Markdown comme ceci :
+Ensuite, vous pourrez simplement charger ces données plus loin depuis la version locale dans votre R Markdown comme ceci\ :
 
 ```{r, eval=FALSE}
 coral <- read("../data/coral.rds")
@@ -139,10 +133,9 @@ coral <- read("../data/coral.rds")
 
 **Attention, ne supprimez jamais l'instruction permettant de retrouver vos données sur Internet** sous prétexte que vous avez maintenant une copie locale à disposition. C'est le lien, le fil conducteur vers les données originales. Vous pouvez soit mettre l'instruction en commentaire en ajoutant un dièse devant, soit soustraire le chunk de l'évaluation en indiquant `eval=FALSE` dans son entête. Faites-en de même avec l'instruction `write()`. Ainsi, le traitement de vos données commencera à l'instruction `read()` et vous partirez de la copie locale. Si jamais vous voulez effectuer une mise à jour depuis la source initiale, il sera toujours possible de dé-commenter les instructions, ou de passer le chunk à `eval=TRUE` temporairement (ou encore plus simplement, forcez l'exécution du chunk dans l'éditeur en cliquant sur la petite flèche verte en haut à gauche du chunk).
 
-
 ##### Pièges et astuces {-}
 
-- Comme il s'agit seulement d'une *copie* des données originelles, vous pouvez choisir de ne pas inclure le fichier `.rds` dans le système de gestion de version de Git. C'est très simple : il suffit d'ajouter une entrée `.rds` dans le fichier `.gitignore` à la racine de votre dépôt, et tous les fichiers avec cette extension seront ignorés. Notez toutefois que, si vous partagez votre projet sur GitHub, **les données locales n'y apparaitront pas non plus.** D'une part, cela décharge le système de gestion de version, et d'autre part, les gros fichiers de données n'ont pas vraiment leur place sur GitHub. Cependant, soyez conscient que quelqu'un qui réalise un clone ou un fork de votre dépôt devra *d'abord* réimporter lui aussi localement les données avant de pouvoir travailler, ce qui implique de bien comprendre le mécanisme que vous avez mis en place. Documentez-le correctement, avec une note explicite dans le fichier `README.md`, par exemple.
+- Comme il s'agit seulement d'une *copie* des données originelles, vous pouvez choisir de ne pas inclure le fichier `.rds` dans le système de gestion de version de Git. C'est très simple : il suffit d'ajouter une entrée `.rds` dans le fichier `.gitignore` à la racine de votre dépôt, et tous les fichiers avec cette extension seront ignorés. Notez toutefois que, si vous partagez votre projet sur GitHub, **les données locales n'y apparaîtront pas non plus.** D'une part, cela décharge le système de gestion de version, et d'autre part, les gros fichiers de données n'ont pas vraiment leur place sur GitHub. Cependant, soyez conscient que quelqu'un qui réalise un clone ou un fork de votre dépôt devra *d'abord* réimporter lui aussi localement les données avant de pouvoir travailler, ce qui implique de bien comprendre le mécanisme que vous avez mis en place. Documentez-le correctement, avec une note explicite dans le fichier `README.md`, par exemple.
 
 - Les données originales ne sont peut-être pas présentées de la façon qui vous convient. Cela peut nécessiter un travail important de **préparation du tableau de données.** Au fur et à mesure que le ou les chunks d'importation/préparation des données augmentent en taille, ils deviennent de plus en plus gênants dans un document consacré à l'**analyse** de ces données. Si c'est le cas, vous avez deux options possibles :
     1. Séparer votre R Markdown en deux. Un premier document dédié à l'importation/préparation des données et un second qui se concentre sur l'analyse. Une bonne pratique consiste à numéroter les fichiers en tête pour qu'ils apparaissent par ordre logique lorsqu'ils sont listés par ordre alphabétique (`01_import.Rmd`, `02_analysis.Rmd`).
@@ -162,13 +155,13 @@ Faites toujours la distinction entre **données brutes** et **données nettoyée
 
 ### Données depuis un package
 
-Les packages R comme **data.io**, **chart** ou encore **flow**, fournissent une série de fonctions supplémentaires. Certains d'entre eux proposent également des jeux de données. Ici aussi, `read()` permet de les récupérer, même si c'est la fonction `data()` qui est souvent utilisée à cet effet dans R. Comparons `read()` et `data()` dans le cas des données issues de packages R. Avec `data()`, vous n'assignez pas le jeu de données à un nom. Ce nom vous est **imposé** comme le nom initial du jeu de données :
+Les packages R comme {data.io}, {chart} ou encore {flow}, fournissent une série de fonctions supplémentaires. Certains d'entre eux proposent également des jeux de données. Ici aussi, `read()` permet de les récupérer, même si c'est la fonction `data()` qui est souvent utilisée à cet effet dans R. Comparons `read()` et `data()` dans le cas des données issues de packages R. Avec `data()`, vous n'assignez pas le jeu de données à un nom. Ce nom vous est **imposé** comme le nom initial du jeu de données\ :
 
 ```{r}
 data("urchin_bio", package = "data.io") # package = optionnel si déjà chargé
 ```
 
-Le jeu de données `urchin_bio` n'est pas véritablement chargé dans l'environnement utilisateur avec `data()`. Seulement une "promesse" de chargement (`Promise`) est enregistrée. Voyez dans l'onglet **Environnement** ce qui apparaît. Ce n'est qu'à la première utilisation du jeu de données que le tableau est véritablement chargé. Par exemple :
+Le jeu de données `urchin_bio` n'est pas véritablement chargé dans l'environnement utilisateur avec `data()`. Seulement une "promesse" de chargement (`Promise`) est enregistrée. Voyez dans l'onglet **Environnement** ce qui apparaît. Ce n'est qu'à la première utilisation du jeu de données que le tableau est véritablement chargé. Par exemple\ :
 
 ```{r}
 head(urchin_bio)
@@ -176,14 +169,13 @@ head(urchin_bio)
 
 Regardez à nouveau dans l'onglet **Environnement**. Ce coup-ci `urchin_bio` apparaît bien dans la section **Data** et l'icône en forme de petit tableau à la droite qui permet de le visualiser est enfin accessible.
 
-La fonction `read()` permet de choisir librement le nom que nous souhaitons donner à notre jeu de données. Si nous voulons l'appeler `urchin` au lieu de `urchin_bio`, pas de problèmes. De plus, il est directement chargé et accessible dans l'onglet **Environnement** (en effet, si on utilise une instruction qui charge un jeu de données, c'est *très vraissemblablement* parce que l'on souhaite ensuite le manipuler depuis R, non ?). 
+La fonction `read()` permet de choisir librement le nom que nous souhaitons donner à notre jeu de données. Si nous voulons l'appeler `urchin` au lieu de `urchin_bio`, pas de problèmes. De plus, il est directement chargé et accessible dans l'onglet **Environnement** (en effet, si on utilise une instruction qui charge un jeu de données, c'est *très vraissemblablement* parce que l'on souhaite ensuite le manipuler depuis R, non\ ?) 
 
 ```{r}
 urchin <- read("urchin_bio", package = "data.io")
 ```
 
-Nous avons déjà vu que `read()` donne accès également dans certains cas à des métadonnées (par exemple le label et les unités des jeux de données) dans différentes langues, ce que ne permet pas `data()`. Enfin, la syntaxe et la fonction utilisée sont pratiquement identiques pour charger des données depuis un fichier, depuis Internet ou depuis un package avec `read()`. C'est logique et facile à retenir. `data()` ne permet *que* de récupérer des données liées à un package R, et c'est tout !   **Pour toutes ces raisons, nous préférons utiliser ici `read()` à `data()`.**
-
+Nous avons déjà vu que `read()` donne accès également dans certains cas à des métadonnées (par exemple le label et les unités des jeux de données) dans différentes langues, ce que ne permet pas `data()`. Enfin, la syntaxe et la fonction utilisée sont pratiquement identiques pour charger des données depuis un fichier, depuis Internet ou depuis un package avec `read()`. C'est logique et facile à retenir. `data()` ne permet *que* de récupérer des données liées à un package R, et c'est tout\ !   **Pour toutes ces raisons, nous préférons utiliser ici `read()` à `data()`.**
 
 #### Langue du jeu de données
 
@@ -220,10 +212,9 @@ d <- chart(urchin_FR, height ~ weight %col=% origin) +
 combine_charts(list(a, b, c, d))
 ```
 
- 
-- A & B\ : l'argument `lang =` par défaut est `lang = "en"`. Il utilise les labels et unités en anglais avec les unités dans le système international.
-- C\ : l'argument `lang = "fr"` utilise les labels et unités en français. Il laisse cependant les niveaux des variables facteurs en anglais (`Farm` et `Fishery`) afin d'éviter de devoir changer les instructions de manipulation des données qui feraient référence à ces niveaux.
-- D\ : l'argument `lang = "FR"` ajoute les labels et unités en français. De plus, il traduit également les niveaux des variables facteurs (`Culture` et `Pêcherie`).
+- `a` & `b`\ : l'argument `lang =` par défaut est `lang = "en"`. Il utilise les labels et unités en anglais avec les unités dans le système international.
+- `c`\ : l'argument `lang = "fr"` utilise les labels et unités en français. Il laisse cependant les niveaux des variables facteurs en anglais (`Farm` et `Fishery`) afin d'éviter de devoir changer les instructions de manipulation des données qui feraient référence à ces niveaux.
+- `d`\ : l'argument `lang = "FR"` ajoute les labels et unités en français. De plus, il traduit également les niveaux des variables facteurs (`Culture` et `Pêcherie`).
 
 Il vous est conseillé d'employer l'argument `lang = "fr"` lors de vos différents travaux. La langue internationale en science est l'anglais et vous serez très certainement amené dans votre carrière scientifique à produire des documents en français et en anglais. L'utilisation de `lang = "fr"`rend le **même** code réutilisable sur la version française ou anglaise, contrairement à `lang = "FR"`. Observez les exemples ci-dessous.
 
@@ -261,7 +252,7 @@ Lors de la réalisation de graphiques dans les modules précédents vous avez co
 (biometry <- read("biometry", package = "BioDataScience", lang = "fr"))
 ```
 
-La Figure \@ref(fig:two-boxplots) montre deux boites de dispersion parallèles différentes. Laquelle de ces deux représentations est incorrecte et pourquoi ? 
+La Figure\ \@ref(fig:two-boxplots) montre deux boites de dispersion parallèles différentes. Laquelle de ces deux représentations est incorrecte et pourquoi\ ?
 
 ```{r two-boxplots, fig.cap="Boites de dispersion parallèles de la taille (`height`) en fonction de A. une variable qualitative (`gender`) et B. une variable quantitative (`weight`) et couleur en fonction de gender`"}
 a <- chart(biometry, height ~ gender %fill=% gender) +
@@ -273,10 +264,9 @@ b <- chart(biometry, height ~ weight %fill=% gender) +
 combine_charts(list(a, b), common.legend = TRUE)
 ```
 
-C'est la figure \@ref(fig:two-boxplots)B qui tente de représenter une variable quantitative numérique `height`sous forme de boites de dispersion parallèles (correct), mais en fonction d'une variable de découpage en sous-ensemble (`weight`) qui est elle-même une variable quantitative, ... alors qu'une variable qualitative telle que `gender` aurait dû être utilisée (comme dans la Fig. \@ref(fig:two-boxplots)A). Dans le cas présent, R a bien voulu réaliser le graphique (avec juste un petit message d'avertissement), mais comment l'interpréter\ ? Dans d'autres situations, il vous renverra purement et simplement un message d'erreur.
+C'est la Figure\ \@ref(fig:two-boxplots)B qui tente de représenter une variable quantitative numérique `height`sous forme de boites de dispersion parallèles (correct), mais en fonction d'une variable de découpage en sous-ensemble (`weight`) qui est elle-même une variable quantitative, ... alors qu'une variable qualitative telle que `gender` aurait dû être utilisée (comme dans la Fig.\ \@ref(fig:two-boxplots)A). Dans le cas présent, R a bien voulu réaliser le graphique (avec juste un petit message d'avertissement), mais comment l'interpréter\ ? Dans d'autres situations, il vous renverra purement et simplement un message d'erreur.
 
-
-Les jeux de données, lorsqu'ils sont bien encodés (**tableaux "cas par variables"**, en anglais on parlera de [tidy data](http://vita.had.co.nz/papers/tidy-data.html)), sont en fait un ensemble de variables en colonnes mesurées sur un ensemble d'individus en lignes. Vous avez à votre disposition plusieurs *types* de variables pour personnaliser le jeu de données. Deux catégories principales de variables existent, chacune avec deux sous-catégories :
+Les jeux de données, lorsqu'ils sont bien encodés (**tableaux "cas par variables"**, en anglais on parlera de [tidy data](http://vita.had.co.nz/papers/tidy-data.html)), sont en fait un ensemble de variables en colonnes mesurées sur un ensemble d'individus en lignes. Vous avez à votre disposition plusieurs *types* de variables pour personnaliser le jeu de données. Deux catégories principales de variables existent, chacune avec deux sous-catégories\ :
 
 - Les variables **quantitatives** sont issues de mesures quantitatives ou de dénombrements
     + Les variables quantitatives **continues** sont représentées par des valeurs réelles (`double` dans R)
@@ -288,7 +278,7 @@ Les jeux de données, lorsqu'ils sont bien encodés (**tableaux "cas par variabl
 
 Il existe naturellement encore d'autres types de variables. Les dates sont représentées, par exemple, par des objets `Date`, les nombres complexes par `complex`, les données binaires par `raw`, etc.
 
-La fonction `skim()` du package `skimr` permet de visualiser la classe de la variable et bien plus encore. Elle fournit un résumé différent en fonction du type de la variable et propose, par exemple, un histogramme stylisé pour les variables numériques comme le montre le tableau ci-dessous.
+La fonction `skim()` du package {skimr} permet de visualiser la classe de la variable et bien plus encore. Elle fournit un résumé différent en fonction du type de la variable et propose, par exemple, un histogramme stylisé pour les variables numériques comme le montre le tableau ci-dessous.
 
 ```{r, echo=TRUE}
 skimr::skim(biometry)
@@ -302,8 +292,7 @@ Avec une seule instruction, on obtient une quantité d'information sur notre jeu
 
 ## Conversion de variables
 
-Il est possible de convertir les variables seulement dans un sens : du plus détaillé au moins détaillé, c'est-à-dire, quantitatif continu -> quantitatif discret -> qualitatif ordonné -> qualitatif non ordonné.
-
+Il est possible de convertir les variables seulement dans un sens\ : du plus détaillé au moins détaillé, c'est-à-dire, quantitatif continu -> quantitatif discret -> qualitatif ordonné -> qualitatif non ordonné.
 
 ### Quantitatif continu à discret
 
@@ -347,7 +336,7 @@ Ce n'est pas le caractère quantitatif ou qualitatif du mécanisme sous-jacent m
 De même, un plan expérimental qui réduit volontairement les valeurs fixées dans une expérience, comme ici les doses journalières d'acide ascorbique, fera aussi basculer la variable en **qualitative**, et ce, quelle que soit la précision avec laquelle les valeurs sont mesurées par ailleurs. Un découpage en classes aura aussi le même effet de transformer une variable quantitative en variable qualitative ordonnée.
 ```
 
-Indiquons à présent explicitement à R que la variable `dose` doit être considérée comme qualitative :
+Indiquons à présent explicitement à R que la variable `dose` doit être considérée comme qualitative\ :
 
 ```{r}
 tooth$dose <- as.factor(tooth$dose)
@@ -355,7 +344,7 @@ tooth$dose <- as.factor(tooth$dose)
 skimr::skim(tooth)
 ```
 
-Vous pouvez (et devez !) cependant aller encore plus loin car la variable est en réalité qualitative **ordonnée**, et doit être représentée par un objet "facteur ordonné" (`ordered`) plutôt que `factor`. Il y a en effet, une progression dans les doses administrées. Lors de la conversion, R considère les différents niveaux par **ordre alphabéthique** par défaut. Ici cela convient, mais ce n'est pas toujours le cas. Il vaut donc mieux spécifier explicitement l'*ordre*  des niveaux dans l'argument optionnel `levels =`. Cela donne :
+Vous pouvez (et devez\ !) cependant aller encore plus loin car la variable est en réalité qualitative **ordonnée**, et doit être représentée par un objet "facteur ordonné" (`ordered`) plutôt que `factor`. Il y a en effet, une progression dans les doses administrées. Lors de la conversion, R considère les différents niveaux par **ordre alphabétique** par défaut. Ici cela convient, mais ce n'est pas toujours le cas. Il vaut donc mieux spécifier explicitement l'*ordre*  des niveaux dans l'argument optionnel `levels =`. Cela donne\ :
 
 ```{r}
 tooth$dose <- ordered(tooth$dose, levels = c(0.5, 1, 2))
@@ -364,7 +353,6 @@ skimr::skim(tooth)
 ```
 
 Les fonctions `as.factor()` ou `factor()` et `as.ordered()` ou `ordered()` effectuent cette conversion de `character` ou `numeric` vers des objets `factor` ou `ordered`. Une variable facteur ordonnée sera alors reconnue comme telle par un ensemble de fonction dans R. Elle ne sera, de ce fait, pas traitée de la même manière qu'une variable facteur non ordonnée, ni même qu'une variable numérique. Soyez bien attentif à l'encodage correct des données dans R avant d'effectuer vos graphiques et vos analyses. 
-
 
 ### Découpage en classes
 
@@ -393,10 +381,9 @@ chart(biometry, formula = ~ age %fill=% age_rec) +
   ylab("Effectifs")
 ```
 
-
 ### Qualitatif ordonné ou non
 
-Les données qualitatives sont souvent représentées par du texte (nom d'une couleur par exemple) et importées sous forme de chaines de caractère (`character`) par défaut dans R à partir de la fonction `read()`. Vous devez les convertir de manière explicite à l'aide de `as.factor()`, `factor()`, `as.ordered()` ou `ordered()` par la suite. Voici un exemple :
+Les données qualitatives sont souvent représentées par du texte (nom d'une couleur par exemple) et importées sous forme de chaînes de caractère (`character`) par défaut dans R à partir de la fonction `read()`. Vous devez les convertir de manière explicite à l'aide de `as.factor()`, `factor()`, `as.ordered()` ou `ordered()` par la suite. Voici un exemple\ :
 
 ```{r}
 df <- tibble(
@@ -418,21 +405,21 @@ skimr::skim(df)
 Les différents niveaux des variables `factor` ou `ordered` sont et doivent rester entièrement de votre responsabilité. Certains aspects anciens de R essayent de gérer cela pour vous, mais ces fonctions ou options (`StringsAsFactor =` par exemple) tendent heureusement à être remplacées par des versions moins assertives. De même, les niveaux ne sont **pas** réduits lorsque vous filtrez un tableau pour ne retenir que certains niveaux. Vous devez indiquer explicitement ensuite que vous voulez éliminer les niveaux vides du tableau avec la fonction `droplevels()`.
 ```
 
-Le jeu de données `iris` contient des données relatives à trois espèces différentes (`table()` permet de compter le nombre d'observations pour chaque niveau d'une variable qualitative `factor` ou `ordered`) :
+Le jeu de données `iris` contient des données relatives à trois espèces différentes (`table()` permet de compter le nombre d'observations pour chaque niveau d'une variable qualitative `factor` ou `ordered`)\ :
 
 ```{r}
 iris <- read("iris", package = "datasets", lang = "fr")
 table(iris$species)
 ```
 
-Si nous restreignons le tableau aux 20 premiers individus, cela donne :
+Si nous restreignons le tableau aux 20 premiers individus, cela donne\ :
 
 ```{r}
 iris20 <- iris[1:20, ]
 table(iris20$species)
 ```
 
-Nous voyons que le tableau réduit `iris20` ne contient des données que d'une seule espèce. Pourtant `table()` continue de lister les autres niveaux de la variable. Les niveaux connus sont aussi imprimés avec `levels()` :
+Nous voyons que le tableau réduit `iris20` ne contient des données que d'une seule espèce. Pourtant `table()` continue de lister les autres niveaux de la variable. Les niveaux connus sont aussi imprimés avec `levels()`\ :
 
 ```{r}
 levels(iris20$species)
@@ -447,10 +434,9 @@ table(iris20$species)
 
 ```
 
-
 ## Remaniement des données
 
-Dans le module \@ref(visu3), vous avez réalisé vos premiers remaniements de données dans le cadre des graphiques en barres. Nous ne nous sommes pas étendu sur les fonctions utilisées à cette occasion. Le **remaniement des données est une étape cruciale en analyse des données** et il faut en maîtriser au moins les principaux outils. Heureusement, il est déjà possible d'aller loin en combinant une petite dizaine d'outils simples. Les cinq principaux (les plus utilisés) dans l'approche [Tidyverse](https://www.tidyverse.org) utilisée ici sont : 
+Dans le module \@ref(visu3), vous avez réalisé vos premiers remaniements de données dans le cadre des graphiques en barres. Nous ne nous sommes pas étendu sur les fonctions utilisées à cette occasion. Le **remaniement des données est une étape cruciale en analyse des données** et il faut en maîtriser au moins les principaux outils. Heureusement, il est déjà possible d'aller loin en combinant une petite dizaine d'outils simples. Les cinq principaux (les plus utilisés) dans l'approche [Tidyverse](https://www.tidyverse.org) utilisée ici sont\ :
 
 - sélectionner des colonnes au sein d'un jeu de données avec `select()`
 
@@ -462,19 +448,18 @@ Dans le module \@ref(visu3), vous avez réalisé vos premiers remaniements de do
 
 - résumer les variables d'un jeu de données avec `summarise()`
 
-Ces outils provenant du package **dplyr** sont décrits en détails dans le [chapitre 5 de "R for Data Science"](http://r4ds.had.co.nz/transform.html). Nous allons nous familiariser avec eux via une approche pratique sur base d'exemples concrets.
+Ces outils provenant du package {dplyr} sont décrits en détails dans le [chapitre 5 de "R for Data Science"](http://r4ds.had.co.nz/transform.html). Nous allons nous familiariser avec eux via une approche pratique sur base d'exemples concrets.
 
 ```{r}
 urchin <- read("urchin_bio", package = "data.io", lang = "fr")
 rmarkdown::paged_table(urchin)
 ```
 
-
 ### `select()`
 
 ![](images/sdd1_05/select.gif)
 
-Lors de l'utilisation de vos jeux de données, vous serez amené à réduire vos données en sous-tableau ne reprenant qu'un sous-ensemble des variables initiales. `select()` effectue cette opération^[Voyez `?select_helpers` pour une panoplie de fonctions supplémentaires qui permettent une sélection "intelligente" des variables.] :
+Lors de l'utilisation de vos jeux de données, vous serez amené à réduire vos données en sous-tableau ne reprenant qu'un sous-ensemble des variables initiales. `select()` effectue cette opération^[Voyez `?select_helpers` pour une panoplie de fonctions supplémentaires qui permettent une sélection "intelligente" des variables.]\ :
 
 ```{r}
 urchin1 <- select(urchin, origin, solid_parts, test)
@@ -484,7 +469,6 @@ rmarkdown::paged_table(urchin1)
 ```{r}
 urchin2 <- select(urchin, c(1, 4, 14))
 rmarkdown::paged_table(urchin2)
-
 ```
 
 ```{r}
@@ -496,7 +480,6 @@ rmarkdown::paged_table(urchin3)
 urchin4 <- select(urchin, ends_with("ht"))
 rmarkdown::paged_table(urchin4)
 ```
-
 
 ### `filter()`
 
@@ -533,7 +516,7 @@ urchin_sub2 <- filter(urchin2, height > 20)
 rmarkdown::paged_table(urchin_sub2)
 ```
 
-Vous pouvez combiner différentes comparaisons avec les opérateurs "et" (`&`) et "ou" (`|`) :  
+Vous pouvez combiner différentes comparaisons avec les opérateurs "et" (`&`) et "ou" (`|`)\ :
 
 ```{r}
 # Oursins plus hauts que 20 mm ET issus d'élevage ("Farm")
@@ -541,7 +524,7 @@ urchin_sub3 <- filter(urchin2, height > 20 & origin == "Farm")
 rmarkdown::paged_table(urchin_sub3)
 ```
 
-Avec des variables facteurs composées de nombreux niveaux comme on peut en retrouver dans le jeu de données `zooplankton` du package **data.io**, vous pouvez être amené à sélectionner plusieurs niveaux au sein de cette variable. L'opérateur `%in%` permet d'indiquer que nous souhaitons garder tous les niveaux qui sont dans une liste. Il n'existe pas d'opérateur `%not_in%`, mais il suffit d'inverser le résultat en précédent l'instruction de `!` pour obtenir cet effet. Par exemple, `!letters %in% c("a", "d", "f")` conserve toutes les lettres *sauf* a, d et f. L'opérateur `!` est d'ailleurs utilisable avec toutes les comparaisons pour en inverser les effets. Ainsi, `!x == 1` est équivalent à `x != 1`.
+Avec des variables facteurs composées de nombreux niveaux comme on peut en retrouver dans le jeu de données `zooplankton` du package {data.io}, vous pouvez être amené à sélectionner plusieurs niveaux au sein de cette variable. L'opérateur `%in%` permet d'indiquer que nous souhaitons garder tous les niveaux qui sont dans une liste. Il n'existe pas d'opérateur `%not_in%`, mais il suffit d'inverser le résultat en précédent l'instruction de `!` pour obtenir cet effet. Par exemple, `!letters %in% c("a", "d", "f")` conserve toutes les lettres *sauf* a, d et f. L'opérateur `!` est d'ailleurs utilisable avec toutes les comparaisons pour en inverser les effets. Ainsi, `!x == 1` est équivalent à `x != 1`.
 
 ```{r}
 zooplankton <- read("zooplankton", package = "data.io", lang  = "FR")
@@ -551,7 +534,7 @@ copepoda <- filter(zooplankton,
 rmarkdown::paged_table(select(copepoda, ecd:perimeter, class))
 ```
 
-Enfin, la détection et l'élimination de lignes contenant des valeurs manquantes (encodées comme `NA`) est spéciale. En effet, vous ne pouvez pas écrire quelque chose comme `x == NA` car ceci se lit comme "x est égale à ... je ne sais pas quoi", ce qui renvoie à son tour `NA` pour toutes les comparaisons quelles qu'elles soient. Vous pouvez utiliser la fonction spécialement prévue pour ce test `is.na()`. Ainsi, `is.na(x)` effectue en réalité ce que vous voulez et peut être utilisée à l'intérieur de `filter()`. Cependant, il existe une fonction spécialement prévue pour débarrasser les tableaux des lignes contenant des valeurs manquantes : `drop_na()` du package **tidyr**. Si vous spécifier des noms de colonnes (facultatifs), la fonction ira rechercher les valeurs manquantes uniquement dans ces colonnes-là, sinon, elle scrutera tout le tableau.
+Enfin, la détection et l'élimination de lignes contenant des valeurs manquantes (encodées comme `NA`) est spéciale. En effet, vous ne pouvez pas écrire quelque chose comme `x == NA` car ceci se lit comme "x est égale à ... je ne sais pas quoi", ce qui renvoie à son tour `NA` pour toutes les comparaisons quelles qu'elles soient. Vous pouvez utiliser la fonction spécialement prévue pour ce test `is.na()`. Ainsi, `is.na(x)` effectue en réalité ce que vous voulez et peut être utilisée à l'intérieur de `filter()`. Cependant, il existe une fonction spécialement prévue pour débarrasser les tableaux des lignes contenant des valeurs manquantes\ : `drop_na()` du package {tidyr}. Si vous spécifier des noms de colonnes (facultatifs), la fonction ira rechercher les valeurs manquantes uniquement dans ces colonnes-là, sinon, elle scrutera tout le tableau.
 
 ```{r}
 urchin_sub4 <- drop_na(urchin) 
@@ -566,16 +549,16 @@ rmarkdown::paged_table(urchin_sub4)
 
 ![](images/sdd1_05/mutate.gif)
 
-La fonction `mutate()` permet de calculer de nouvelles variables (si le nom fourni n'existe pas encore dans le jeu de donnée) ou écrase les variables existantes de même nom.  Repartons du jeu de données `urchin`. Pour calculer de nouvelles variables, vous pouvez employer : 
+La fonction `mutate()` permet de calculer de nouvelles variables (si le nom fourni n'existe pas encore dans le jeu de donnée) ou écrase les variables existantes de même nom.  Repartons du jeu de données `urchin`. Pour calculer de nouvelles variables, vous pouvez employer\ : 
 
-- les opérateurs arithmétiques :
-    + addition : `+`
-    + soustraction : `-`
-    + multiplication :  `*`
-    + division : `/`
-    + exposant : `^`
-    + modulo (reste lors d'une division entière) : `%%`
-    + division entière :  `%/%` 
+- les opérateurs arithmétiques\ :
+    + addition\ : `+`
+    + soustraction\ : `-`
+    + multiplication\ :  `*`
+    + division\ : `/`
+    + exposant\ : `^`
+    + modulo (reste lors d'une division entière)\ : `%%`
+    + division entière\ :  `%/%` 
 
 ```{r, echo= TRUE}
 urchin <- mutate(urchin, 
@@ -585,7 +568,7 @@ urchin <- mutate(urchin,
 rmarkdown::paged_table(select(urchin, skeleton:spines, sum_skel:skeleton2))
 ```
 
-- les fonctions mathématiques :
+- les fonctions mathématiques\ :
     + `ln()` ou `log()` (logarithme népérien), `lg()` ou `log10()` (logarithme en base 10)
     + `ln1p()` ou `log1p()` (logarithme népérien de x + 1), ou `lg1p()` (logarithme en base 10 de x + 1)
     + `exp()` (exponentielle, e^x^) et `expm1()` (e^x^ - 1)
@@ -606,7 +589,6 @@ La fonction `transmute()` effectue la même opération, mais en plus, elle laiss
 
 `r h5p(43, height = 270, toc = "Calculer de nouvelles variable")`
 
-
 ### `group_by()`
 
 ![](images/sdd1_05/group_by.gif)
@@ -621,7 +603,6 @@ head(urchin_by_orig)
 ```{r}
 identical(ungroup(urchin_by_orig), urchin)
 ```
-
 
 ### `summarise()`
 
@@ -640,7 +621,7 @@ knitr::kable(tooth_summary, digits = 2,
   caption = "Allongement des dents chez des cochons d'Inde recevant de l'acide ascorbique.")
 ```
 
-Voici les mêmes calculs, mais effectués séparément pour les deux types de supplémentations alimentaires :
+Voici les mêmes calculs, mais effectués séparément pour les deux types de supplémentations alimentaires\ :
 
 ```{r}
 tooth_by_supp <- group_by(tooth, supp)
@@ -652,7 +633,6 @@ tooth_summary2 <- summarise(tooth_by_supp,
 knitr::kable(tooth_summary2, digits = 2,
   caption = "Allongement des dents chez des cochons d'Inde en fonction du supplément jus d'orange (OJ) ou vitamine C (VC).")
 ```
-
 
 ##### Pièges et astuces {-}
 
@@ -669,27 +649,26 @@ knitr::kable(tooth_summary2, digits = 2,
   caption = "Allongement des dents chez des cochons d'Inde en fonction du supplément jus d'orange (OJ) ou vitamine C (VC).")
 ```
 
-
 ## Chaînage des instructions
 
 Le chaînage (ou "pipe" en anglais) permet de combiner une suite d'instructions R. Il permet une représentation facilement lisible et compréhensible d'un traitement décomposé en plusieurs étapes simples de remaniement des données.
 
-Différents opérateurs de chaînage existent dans R. Le [Tidyverse](https://www.tidyverse.org) et RStudio sont en faveur de l'adoption d'un opérateur de chaînage **`%>%`** issu du package **[magrittr](https://magrittr.tidyverse.org)**. Si nous sommes sensibles au clin d’œil fait ici à un artiste belge bien connu ("ceci n'est pas un pipe"), nous n'adhérons pas à ce choix pour des raisons multiples et plutôt techniques qui n'ont pas leur place dans ce document^[Le lecteur intéressé pourra lire les différents articles suivants : [more pipes in R](http://www.win-vector.com/blog/2017/12/more-pipes-in-r/), y compris les liens qui s'y trouvent, permet de se faire une idée de la diversité des opérateurs de chaînage dans R et de leur historique. [Dot pipe](https://winvector.github.io/wrapr/articles/dot_pipe.html) présente l'opérateur `%.>%` du package **wrapr** très proche du nôtre et [in praise of syntactic sugar](http://www.win-vector.com/blog/2017/07/in-praise-of-syntactic-sugar/) explique ses avantages. Nous partageons l'idée que le "pipe de base" ne devrait pas modifier l'instruction de droite contrairement à ce que fait `%>%` de **magrittr**, et notre opérateur `%>.%` va en outre plus loin encore que `%.>%` dans la facilité de débogage du code chaîne. ]. Nous vous présentons ici l'un des opérateurs de chaînage du package **flow** : **`%>.%`**. Le jeu de données sur la biométrie humaine est employé pour cette démonstration qui va comparer le remaniement d'un tableau de données avec et sans l'utilisation du chaînage.
+Différents opérateurs de chaînage existent dans R. Le [Tidyverse](https://www.tidyverse.org) et RStudio sont en faveur de l'adoption d'un opérateur de chaînage **`%>%`** issu du package [{magrittr}](https://magrittr.tidyverse.org). Si nous sommes sensibles au clin d’œil fait ici à un artiste belge bien connu ("ceci n'est pas un pipe"), nous n'adhérons pas à ce choix pour des raisons multiples et plutôt techniques qui n'ont pas leur place dans ce document^[Le lecteur intéressé pourra lire les différents articles suivants : [more pipes in R](http://www.win-vector.com/blog/2017/12/more-pipes-in-r/), y compris les liens qui s'y trouvent, permet de se faire une idée de la diversité des opérateurs de chaînage dans R et de leur historique. [Dot pipe](https://winvector.github.io/wrapr/articles/dot_pipe.html) présente l'opérateur `%.>%` du package {wrapr} très proche du nôtre et [in praise of syntactic sugar](http://www.win-vector.com/blog/2017/07/in-praise-of-syntactic-sugar/) explique ses avantages. Nous partageons l'idée que le "pipe de base" ne devrait pas modifier l'instruction de droite contrairement à ce que fait `%>%` de {magrittr}, et notre opérateur `%>.%` va en outre plus loin encore que `%.>%` dans la facilité de débogage du code chaîne.]. Nous vous présentons ici l'un des opérateurs de chaînage du package {flow}\ : **`%>.%`**. Le jeu de données sur la biométrie humaine est employé pour cette démonstration qui va comparer le remaniement d'un tableau de données avec et sans l'utilisation du chaînage.
 
 ```{r}
 biometry <- read("biometry", package = "BioDataScience", lang = "fr")
 ```
 
-Vous vous intéressez à l'indice de masse corporelle ou IMC (BMI en anglais) des individus de moins de 25 ans. Vous souhaitez représenter la moyenne, la médiane et le nombre d'observations de manière séparée pour les hommes et les femmes. Pour obtenir ces résultats vous devez : 
+Vous vous intéressez à l'indice de masse corporelle ou IMC (BMI en anglais) des individus de moins de 25 ans. Vous souhaitez représenter la moyenne, la médiane et le nombre d'observations de manière séparée pour les hommes et les femmes. Pour obtenir ces résultats vous devez\ : 
 
 - calculer le BMI,
 - filtrer le tableau pour ne retenir que les individus de moins de 25 ans,
 - résumer les données afin d'obtenir la moyenne et la médiane par genre,
 - afficher un tableau de données avec ces résultats.
 
-Il est très clair ici que le traitement peut être décomposé en étapes plus simples. Cela apparaît naturellement rien que dans la description de ce qui doit être fait. Sans l'utilisation de l'opérateur de chaînage, deux approches sont possibles :
+Il est très clair ici que le traitement peut être décomposé en étapes plus simples. Cela apparaît naturellement rien que dans la description de ce qui doit être fait. Sans l'utilisation de l'opérateur de chaînage, deux approches sont possibles\ :
 
-- Imbriquer les instructions les unes dans les autres (très difficile à lire et à déboguer) :
+- Imbriquer les instructions les unes dans les autres (très difficile à lire et à déboguer)\ :
 
 ```{r}
 knitr::kable(
@@ -699,7 +678,7 @@ knitr::kable(
         mutate(biometry, bmi = weight / (height/100)^2),
         age <= 25),
       gender),
-    mean = mean(bmi), 
+    mean   = mean(bmi), 
     median = median(bmi),
     number = n()),
   rows = NULL,  digits = 1,
@@ -708,14 +687,14 @@ knitr::kable(
 )
 ```
 
-- Passer par des variables intermédiaires (`biometry_25` et `biometry_tab`). Les instructions sont plus lisibles, mais les variables intermédiaires "polluent" inutilement l'environnement de travail (en tout cas, si elles ne servent plus par après) :
+- Passer par des variables intermédiaires (`biometry_25` et `biometry_tab`). Les instructions sont plus lisibles, mais les variables intermédiaires "polluent" inutilement l'environnement de travail (en tout cas, si elles ne servent plus par après)\ :
 
 ```{r}
 biometry <- mutate(biometry, bmi = weight / (height/100)^2)
 biometry_25 <- filter(biometry, age <= 25)
 biometry_25 <- group_by(biometry_25, gender)
 biometry_tab <- summarise(biometry_25,
-  mean = mean(bmi), 
+  mean   = mean(bmi), 
   median = median(bmi),
   number = n())
 knitr::kable(biometry_tab, rows = NULL, digits = 1,
@@ -723,7 +702,7 @@ knitr::kable(biometry_tab, rows = NULL, digits = 1,
   caption = "IMC d'hommes (M) et femmes (W) de 25 ans maximum.")
 ```
 
-- Des trois approches, la version ci-dessous avec chaînage des opérations est la plus lisible et la plus pratique^[Le chaînage n'est cependant pas forcément plus facile à déboguer que la version avec variables intermédiaires. Le package **flow** propose la fonction `debug_flow()` à appeler directement après un plantage pour inspecter la dernière instruction qui a causé l'erreur, voir `?debug_flow`.].
+- Des trois approches, la version ci-dessous avec chaînage des opérations est la plus lisible et la plus pratique^[Le chaînage n'est cependant pas forcément plus facile à déboguer que la version avec variables intermédiaires. Le package {flow} propose la fonction `debug_flow()` à appeler directement après un plantage pour inspecter la dernière instruction qui a causé l'erreur, voir `?debug_flow`.].
 
 ```{r}
 biometry %>.%
@@ -731,7 +710,7 @@ biometry %>.%
   filter(., age <= 25) %>.%
   group_by(., gender) %>.%
   summarise(.,
-    mean = mean(bmi),
+    mean   = mean(bmi),
     median = median(bmi),
     number = n()) %>.%
   knitr::kable(., rows = NULL, digits = 1, 
@@ -743,7 +722,6 @@ biometry %>.%
 Le pipe `%>.%` injecte le résultat précédent dans l'instruction suivante à travers l'objet `.` Ainsi, en seconde ligne `mutate(.)`, `.` se réfère à `biometry`. A la ligne suivante, `filter(.)`, le `.` se réfère au résultat issu de l'opération `mutate()`, et ainsi de suite. La logique d’enchaînement des opérations sur le résultat, à chaque fois, du calcul précédent est donc le fondement de cet opérateur "pipe".
 
 Le pipe permet d'éviter de répéter le nom des objets (version avec variables intermédiaires), ce qui alourdit inutilement le code et le rend moins agréable à la lecture. L'imbrication des fonctions dans la première version est catastrophique pour la compréhension du code car les arguments des fonctions de plus haut niveau sont repoussés loin. Par exemple, l'argument de l'appel à `group_by()` (`gender`) se retrouve quatre lignes plus loin. Et encore, nous avons pris soin d'indenter le code pour repérer sur un plan vertical qui appartient à qui, mais imaginez ce que cela donne si l'instruction est mise à plat sur une seule ligne ! Le code le plus clair à la lecture est définitivement celui avec chaînage des opérations. Or, un code plus lisible est plus compréhensible... et donc, moins bogué.
-
 
 ##### A vous de jouer {-}
 
@@ -760,12 +738,11 @@ assignation("A05Ga_transformation", part = NULL,
   toc = "Importation et transformation des données.")
 ```
 
-
 <!---- A retravailler 
 - Afin d'appliquer vos nouvelles connaissances, un challenge vous est proposé afin d'améliorer vos compétences en remaniement de données. 
 
 ```{block2, type='bdd'}
-Réalisez dans le projet sur le zooplankton les exercies suivants : 
+Réalisez dans le projet sur le zooplankton les exercies suivants\ :
   
   <https://github.com/BioDataScience-Course/sdd_lesson/blob/2019-2020/sdd1_05/exercises/sdd1_05_zooplankton.md>
   
@@ -776,12 +753,12 @@ Consignez vos résultats dans une document R Markdown avec une explication de vo
 
 ##### Pour en savoir plus {-}
 
-- [Présentation en détail du "dot-pipe"](https://github.com/WinVector/wrapr/blob/master/extras/wrapr_pipe.pdf) assez proche fonctionnellement de `%>.%` du package **flow**.
+- [Présentation en détail du "dot-pipe"](https://github.com/WinVector/wrapr/blob/master/extras/wrapr_pipe.pdf) assez proche fonctionnellement de `%>.%` du package {flow}.
 
-- [Section sur le pipe dans "R for Data Science"](https://r4ds.had.co.nz/pipes.html) expliquant l'utilisation du pipe de magrittr (et aussi quand ne pas l'utiliser !)
+- [Section sur le pipe dans "R for Data Science"](https://r4ds.had.co.nz/pipes.html) expliquant l'utilisation du pipe de magrittr (et aussi quand ne pas l'utiliser\ !)
 
 ## Récapitulatif des exercices
 
-Le module 5 vous venez de terminer vous a permis d'apprendre à importer des données depuis différents formats et sources grâce à la fonction `read()` et de transfomer un tableau de données. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+Le module 5 vous venez de terminer vous a permis d'apprendre à importer des données depuis différents formats et sources grâce à la fonction `read()` et de transformer un tableau de données. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
 
 `r show_ex_toc()`

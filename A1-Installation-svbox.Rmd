@@ -14,7 +14,7 @@ La SciViews Box est une machine virtuelle (c'est-à-dire, l'équivalent d'un ord
 vembedr::embed_youtube("yIVXjl4SwVo", width = 770, height = 433)
 ```
 
-Dans notre cas, le logiciel de gestion de la machine virtuelle, l'hyperviseur, est **VirtualBox**. C'est un logiciel gratuit qui existe pour Windows, MacOS et la plupart des systèmes Linux. L'avantage d'utiliser une machine virtuelle dans le contexte qui nous concerne ici est double :
+Dans notre cas, le logiciel de gestion de la machine virtuelle, l'hyperviseur, est **VirtualBox**. C'est un logiciel gratuit qui existe pour Windows, MacOS et la plupart des systèmes Linux. L'avantage d'utiliser une machine virtuelle dans le contexte qui nous concerne ici est double\ :
 
 1) Elle est **complètement pré-configurée et pré-testée**.
 
@@ -33,29 +33,28 @@ L'installation est simple, mais il y a quand même quelques pièges. Suivez le g
 La SciViews Box, et la Science des Données en général, nécessitent un ordinateur ayant une puissance de calcul suffisante. Les tablettes et autres chromebooks sont donc exclus (sauf à être utilisés comme simples browsers web avec les calculs déportés sur un serveur, voir par exemple [Chromebook Data Science](https://simplystatistics.org/2018/10/01/chromebook-data-science-an-online-data-science-program-for-anyone-with-a-web-browser/)). Si l'utilisation d'un serveur est une bonne idée pour l'apprentissage, ce n'est pas une solution sur le long terme pour tout le monde. En effet, vous êtes et restez dépendant du serveur que l'on a bien voulu configurer et partager avec vous (sera-t-il encore disponible après votre cours, par exemple\ ?). La solution proposée avec la SciViews Box vous rend complètement **autonome** dès le départ. Le choix d'un ordinateur ayant une capacité de calcul suffisante n'est pas aisé et les disparités en matière de performances sont énormes, voir [NovaBench CPU score](https://novabench.com/parts/cpu?all=true).
 
 ```{block, type='info'}
-La **configuration de référence** est la suivante, avec un [score global Novabench](https://novabench.com/results) d'environ 1000 :
+La **configuration de référence** est la suivante, avec un [score global Novabench](https://novabench.com/results) d'environ 1000\ :
 
-- Processeur : à 2 ou 4 coeurs / 4 threads d'une vitesse de calcul suffisante ([score CPU Novabench](https://novabench.com/parts/cpu?all=true) d'environ 500).
-- Mémoire vive : 8Go avec un score RAM Novabench d'environ 200.
-- Disque dur : disque rapide SSD de 256Go ([score disque Novabench](https://novabench.com/parts/storage) d'environ 75 avec vitesse d'écriture >= 300Mo/s et vitesse de lecture >= 400Mo/s).
-- Affichage : 1920x1080 ou mieux. La plupart des cartes graphiques ou des coprocesseurs graphiques intégrés conviennent (pas besoin d'une bête de course si vos calculs ne nécessitent pas des instructions GPU, en tous cas). Comme base, nous considèrerons un [score GPU NovaBench](https://novabench.com/parts/gpu?all=true) d'environ 200 qui correspond au processeur graphique intégré Intel HD 620.
-- Réseau : Wifi à la norme 802.11ac.
-- Connectique : USB 3.0 ou C pour ajouter des périphériques, HDMI ou DisplayPort pour connecter un écran externe, et une prise casque pour visionner des vidéos sans déranger les voisins.
-- Portabilité et autonomie : 13 pouces avec un poids < 1,5kg pour un ordinateur à enmener partout, sinon 15 pouces et un poids <= 2kg. Autonomie d'au moins 5 à 6h.
-- Système d'exploitation : récent et si possible 64-bit. Windows 7 ou plus convient (mais pensez à mettre-à-jour vers Windows 10), MacOS 10.10 Yosemite ou plus, ou un Linux tel Debian 8 (Jessie) ou 9 (Stretch), Ubuntu 16.04 Xenial ou supérieur, ...
-- Une configuration "standard" avec au moins 20Go de libre pour la SciViews Box (nécessairement sur le disque **C:** sous Windows), et une configuration non "bidouillée" (répertoire utilisateur et programmes standards, entre autres).
+- Processeur\ : à 2 ou 4 coeurs / 4 threads d'une vitesse de calcul suffisante ([score CPU Novabench](https://novabench.com/parts/cpu?all=true) d'environ 500).
+- Mémoire vive\ : 8 Go avec un score RAM Novabench d'environ 200.
+- Disque dur\ : disque rapide SSD de 256 Go ([score disque Novabench](https://novabench.com/parts/storage) d'environ 75 avec vitesse d'écriture >= 300Mo/s et vitesse de lecture >= 400Mo/s).
+- Affichage\ : 1920x1080 ou mieux. La plupart des cartes graphiques ou des coprocesseurs graphiques intégrés conviennent (pas besoin d'une bête de course si vos calculs ne nécessitent pas des instructions GPU, en tous cas). Comme base, nous considérerons un [score GPU NovaBench](https://novabench.com/parts/gpu?all=true) d'environ 200 qui correspond au processeur graphique intégré Intel HD 620.
+- Réseau\ : Wifi à la norme 802.11ac au minimum.
+- Connectique\ : USB 3.0 ou C pour ajouter des périphériques, HDMI ou DisplayPort pour connecter un écran externe, et une prise casque pour visionner des vidéos sans déranger les voisins.
+- Portabilité et autonomie\ : 13 pouces avec un poids < 1,5kg pour un ordinateur à emmener partout, sinon 15 pouces et un poids <= 2kg. Autonomie d'au moins 5 à 6h.
+- Système d'exploitation\ : récent et si possible 64-bit. Windows 8.1 ou plus convient (mais pensez à mettre-à-jour vers Windows 10), MacOS 10.10 Yosemite ou plus, ou un Linux tel Debian 8 (Jessie) ou 9 (Stretch), Ubuntu 16.04 Xenial ou supérieur, ...
+- Une configuration "standard" avec au moins 20 Go de libre pour la SciViews Box (nécessairement sur le disque **C:** sous Windows), et une configuration non "bidouillée" (répertoire utilisateur et programmes standards, entre autres).
 ```
 
-Pour une **configuration de base**, vous pouvez aller jusqu'à diviser les scores Novabench et les valeurs (nombre de coeurs CPU, taille de la mémoire vive et du disque) par deux et accepterez un disque dur classique à la place d'un disque SSD plus rapide. Pour une **configuration performante**, multipliez les scores Novabench par deux, et ajoutez-y éventuellement une carte graphique Nvidia performante pour des calculs GPU et un second disque de 1To ou plus pour stocker des gros jeux de données. Un "laptop" (ordinateur portable) est mieux, mais si vous n'avez pas besoin d'une solution nomade, un "desktop" convient aussi et est plus modulable. Pour tester votre système, nous vous proposons donc d'utiliser le logiciel gratuit pour un usage personnel [Novabench](https://novabench.com/download#personal). Vous obtiendrez un rapport, voir ci-dessous un résultat pour un PC en configuration de référence^[Les ordinateurs cités ici sont déjà très anciens (ils le sont comme point de comparaison à l'époque où l'étude des minima matériels requis pour la SciViews Box ont été explorés en détails)\ ; Vous trouverez facilement des machines plus récentes au moins aussi performantes dans le commerce aujourd'hui.] ([Asus Zenbook UX330U](https://www.lesnumeriques.com/ordinateur-portable/asus-zenbook-ux303ua-r4098t-p30911/test.html)) et un Mac en configuration optimale [MacBook Pro 15 pouces mid-2015](https://www.lesnumeriques.com/ordinateur-portable/macbook-pro-retina-15-2-5-ghz-2015-p26477/test.html). Vous pourrez comparer à la configuration de référence :
+Pour une **configuration de base**, vous pouvez aller jusqu'à diviser les scores Novabench et les valeurs (nombre de coeurs CPU, taille de la mémoire vive et du disque) par deux et accepterez un disque dur classique à la place d'un disque SSD plus rapide. Pour une **configuration performante**, multipliez les scores Novabench par deux, et ajoutez-y éventuellement une carte graphique Nvidia performante pour des calculs GPU et un second disque de 1To ou plus pour stocker des gros jeux de données. Un "laptop" (ordinateur portable) est mieux, mais si vous n'avez pas besoin d'une solution nomade, un "desktop" convient aussi et est plus modulable. Pour tester votre système, nous vous proposons donc d'utiliser le logiciel gratuit pour un usage personnel [Novabench](https://novabench.com/download#personal). Vous obtiendrez un rapport, voir ci-dessous un résultat pour un PC en configuration de référence^[Les ordinateurs cités ici sont déjà très anciens (ils le sont comme point de comparaison à l'époque où l'étude des minima matériels requis pour la SciViews Box ont été explorés en détails)\ ; Vous trouverez facilement des machines plus récentes au moins aussi performantes dans le commerce aujourd'hui.] ([Asus Zenbook UX330U](https://www.lesnumeriques.com/ordinateur-portable/asus-zenbook-ux303ua-r4098t-p30911/test.html)) et un Mac en configuration optimale [MacBook Pro 15 pouces mid-2015](https://www.lesnumeriques.com/ordinateur-portable/macbook-pro-retina-15-2-5-ghz-2015-p26477/test.html). Vous pourrez comparer à la configuration de référence\ :
 
 ![](images/annexe_a1/Asus_Zenbook_UX330U_novabench.png)
 
 ![](images/annexe_a1/novabench.png)
 
-
 ### Activation de la virtualisation
 
-La virtualisation fait appel à un jeu d'instructions disponible sur pratiquement tous les processeurs modernes (Intel VT-x ou AMD-v). Malheureusement, elle est désactivée par défaut sur quasi tous les PC (mais les Macs sont, eux, configurés correctement en sortie d'usine). Tant que ces instructions de virtualisation ne seront pas activées, le programme d'installation de la SciViews Box va bloquer avec le message suivant:
+La virtualisation fait appel à un jeu d'instructions disponible sur pratiquement tous les processeurs modernes (Intel VT-x ou AMD-v). Malheureusement, elle est désactivée par défaut sur quasi tous les PC (mais les Macs sont, eux, configurés correctement en sortie d'usine). Tant que ces instructions de virtualisation ne seront pas activées, le programme d'installation de la SciViews Box va bloquer avec le message suivant\ :
 
 <center>
 
@@ -63,7 +62,7 @@ La virtualisation fait appel à un jeu d'instructions disponible sur pratiquemen
 
 </center>
 
-Même si vous arriviez à l'installer quand même, vous ne pourriez pas la démarrer, et verriez juste un message de ce type (issu d'une version antérieure de la SciViews Box):
+Même si vous arriviez à l'installer quand même, vous ne pourriez pas la démarrer, et verriez juste un message de ce type (issu d'une version antérieure de la SciViews Box)\ :
 
 <center>
 
@@ -85,11 +84,10 @@ Si vous n'arrivez pas à entrer dans le BIOS/UEFI, ou à trouver l'entrée corre
 
 **Si votre ordinateur est conforme aux spécifications ci-dessus, et si la virtualisation est activée, vous êtes maintenant prêt à installer votre SciViews Box!** Dans ce cas, passez directement à la section \@ref(install). Si vous n'avez pas encore d'ordinateur et souhaitez en acheter un, voyez quelques conseils utiles ci-dessous pour faire le bon choix.
 
-
 ### Conseils pour acheter un PC {#achat_pc}
 
 ```{block, type='note'}
-Pour les étudiants de l'UMONS et ceux de Charleroi, vous ne _devez pas_ posséder votre propre ordinateur pour suivre le cours de science des données biologiques. Des ordinateurs en configuration de référence (voir [ordinateur](#ordi)) vous sont accessibles au cours et aux travaux pratiques, et en dehors des heures (demander un accès au secrétariat des sciences à la salle "Escher" pour l'UMONS et voyez avec le secrétariat interfacultaire à Charleroi). Toutefois, si vous pouvez acquérir un ordinateur personnel, cela vous apportera un confort et une flexibilité indéniable, **à condition de bien le choisir !**
+Pour les étudiants de l'UMONS et ceux de Charleroi, vous ne _devez pas_ posséder votre propre ordinateur pour suivre le cours de science des données biologiques. Des ordinateurs en configuration de référence (voir [ordinateur](#ordi)) vous sont accessibles au cours et aux travaux pratiques, et en dehors des heures (demander un accès au secrétariat des sciences à la salle "Escher" pour l'UMONS et voyez avec le secrétariat interfacultaire à Charleroi). Toutefois, si vous pouvez acquérir un ordinateur personnel, cela vous apportera un confort et une flexibilité indéniable, **à condition de bien le choisir\ !**
 ```
 
 Si vous suivez les directives ci-dessus, vous ne pourrez pas vous tromper. Mais comme vous n'aurez probablement pas la possibilité de tester les ordinateurs avec Novabench avant l'achat, voici quelques exemples de configurations types et leur coûts approximatifs.
@@ -102,26 +100,25 @@ Prenez aussi comme référence les ordinateurs de votre salle de travaux pratiqu
 
 Lors du choix de votre ordinateur, il faut tout d'abord vous demander si vous voulez un ordinateur pour **apprendre** à traiter des données sur des petits tableaux, et que vous prévoyez de le changer dans 1 ou 2 ans (dans ce cas, une configuration de base convient), ou si vous voulez investir sur du plus long terme. Visez alors plus haut. Naturellement, le prix sera un critère fondamental, également^[Renseignez-vous au niveau des services étudiants et à l'AGE : des aides existent pour les étudiants boursiers qui souhaitent acquérir un ordinateur dans le cadre de leurs études.].
 
-Justification des besoins :
+Justification des besoins\ :
 
-- **Processeur :** l'élément le plus important. Un processeur puissant et multitâche est indispensable. Il vous faut au moins 2 coeurs et 4 threads (selon les modèles, chaque coeur peut gérer une seule tâche -ou "thread" en anglais- ou deux). Un processeur 4 coeurs/4 threads est encore mieux, et à partir de 4 coeurs/8 threads, c'est parfait. Pour la vitesse de calcul, comme indiqué plus haut, un score CPU Novabench de 500 ou mieux, ou un CPUMark de 5000 ou mieux doit être visé pour une configuration de référence ou performante. Avec un score moitié moindre, c'est encore un processeur utilisable, mais ne descendez pas en dessous pour une configuration de base.
+- **Processeur\ :** l'élément le plus important. Un processeur puissant et multitâche est indispensable. Il vous faut au moins 2 coeurs et 4 threads (selon les modèles, chaque coeur peut gérer une seule tâche -ou "thread" en anglais- ou deux). Un processeur 4 coeurs/4 threads est encore mieux, et à partir de 4 coeurs/8 threads, c'est parfait. Pour la vitesse de calcul, comme indiqué plus haut, un score CPU Novabench de 500 ou mieux, ou un CPUMark de 5000 ou mieux doit être visé pour une configuration de référence ou performante. Avec un score moitié moindre, c'est encore un processeur utilisable, mais ne descendez pas en dessous pour une configuration de base.
 
-- **Mémoire vive :** il vous faut suffisamment de mémoire pour la partager entre la machine hôte et la machine virtuelle, et garder assez de resources pour ouvrir des tableaux (moyennement) volumineux. Donc, **visez 8Go de mémoire vive** si possible. Pas moins de 4Go, et plus vous en avez, mieux c'est. Il existe des configurations laptops à 16Go voire plus. C'est utile mais non nécessaire dans le cadre des cours de science des données biologiques !
+- **Mémoire vive\ :** il vous faut suffisamment de mémoire pour la partager entre la machine hôte et la machine virtuelle, et garder assez de resources pour ouvrir des tableaux (moyennement) volumineux. Donc, **visez 8Go de mémoire vive** si possible. Pas moins de 4Go, et plus vous en avez, mieux c'est. Il existe des configurations laptops à 16Go voire plus. C'est utile mais non nécessaire dans le cadre des cours de science des données biologiques\ !
 
-- **Disque dur :** ici, vous devrez peut-être faire un choix entre espace de stockage et vitesse du disque. En effet, les disques mécaniques classiques font maintenant facilement 1To, ce qui est confortable. Par contre, ils sont plus lents que les disques SSD qui sont à privilégier. Mais ces derniers sont de capacité moindre (dans des gammes de prix raisonnables), généralement 128Go ou 256Go. Des configurations plus haut de gamme combinent deux disques : un SSD rapide pour le système et un disque de 1To classique pour les données. **C'est l'idéal.** Si vous investissez dans un ordinateur ayant un disque dur SSD rapide mais pas assez gros pour contenir vos nombreux fichiers, photos, vidéos, morceaux de musique, etc., vous pourrez toujours compléter votre configuration avec un **disque dur de 1To externe** USB 3.0 pour une cinquantaine d'euros. Pensez aussi à investir dans une **clé USB de 8 ou 16Gb** pour transférer vos données. Faites attention de bien choisir un **modèle USB 3.0** reconnaissable à son connecteur bleu, infiniment plus rapide qu'un modèle USB 2.0. Il vous en coûtera une dizaine d'euros.
+- **Disque dur\ :** ici, vous devrez peut-être faire un choix entre espace de stockage et vitesse du disque. En effet, les disques mécaniques classiques font maintenant facilement 1 To, ce qui est confortable. Par contre, ils sont plus lents que les disques SSD qui sont à privilégier. Mais ces derniers sont de capacité moindre (dans des gammes de prix raisonnables), généralement 128 Go ou 256 Go. Des configurations plus haut de gamme combinent deux disques\ : un SSD rapide pour le système et un disque de 1 To classique pour les données. **C'est l'idéal.** Si vous investissez dans un ordinateur ayant un disque dur SSD rapide mais pas assez gros pour contenir vos nombreux fichiers, photos, vidéos, morceaux de musique, etc., vous pourrez toujours compléter votre configuration avec un **disque dur de 1To externe** USB 3.0 pour une cinquantaine d'euros. Pensez aussi à investir dans une **clé USB de 8 ou 16 Gb** pour transférer vos données. Faites attention de bien choisir un **modèle USB 3.0** reconnaissable à son connecteur bleu, infiniment plus rapide qu'un modèle USB 2.0. Il vous en coûtera une dizaine d'euros.
 
-- **Carte graphique et écran :** la qualité de la carte graphique est moins importante ici. La plupart des configurations actuelles conviennent. Voyez plutôt la taille (et donc, le poids) qui est un critère important pour un ordinateur portable. Voulez-vous un PC de 13 ou 14 pouces plus compact et transportable, ou un 15 à 17 pouces plus confortable, mais plus lourd\ ? Pour la résolution d'écran, ne descendez pas en dessous de 1400x900 pixels pour un travail confortable (RStudio affiche plusieurs fenêtres côte-à-côte), et vérifiez visuellement si la qualité de l'écran vous convient.
+- **Carte graphique et écran\ :** la qualité de la carte graphique est moins importante ici. La plupart des configurations actuelles conviennent. Voyez plutôt la taille (et donc, le poids) qui est un critère important pour un ordinateur portable. Voulez-vous un PC de 13 ou 14 pouces plus compact et transportable, ou un 15 à 17 pouces plus confortable, mais plus lourd\ ? Pour la résolution d'écran, ne descendez pas en dessous de 1400x900 pixels pour un travail confortable (RStudio affiche plusieurs fenêtres côte-à-côte), et vérifiez visuellement si la qualité de l'écran vous convient.
 
-- **Wifi et accessoires:** une bonne connexion Wifi sera nécessaire pour vous connecter à Internet. La norme WiFi 802.11ac est idéale. Enfin, vérifiez les connexions proposées : USB rapide (3.0, 3.1 ou C), Thunderbold, DisplayPort, HDMI, etc. pour connecter des périphériques et des écrans externes, lecteur de cartes éventuel, etc. Actuellement l'USB C tend à se généraliser comme connecteur universel.
+- **Wifi et accessoires\ :** une bonne connexion Wifi sera nécessaire pour vous connecter à Internet. La norme WiFi 802.11ac est idéale. Enfin, vérifiez les connexions proposées\ : USB rapide (3.0, 3.1 ou C), Thunderbold, DisplayPort, HDMI, etc. pour connecter des périphériques et des écrans externes, lecteur de cartes éventuel, etc. Actuellement l'USB C tend à se généraliser comme connecteur universel.
 
 **D'autres critères comme la qualité de construction, la robustesse, la qualité du clavier et du trackpad éventuel, l'autonomie pour un portable, ... sont importants.** Pensez à consulter les tests détaillés effectués par des pros avant de vous décider, par exemple, [les numériques](https://www.lesnumeriques.com) en français, [PCMag](https://www.pcmag.com/article2/0,2817,1623917,00.asp) ou [techradar](https://www.techradar.com) en anglais.
 
 Voici quelques configurations types qui conviennent, volontairement choisies chez différents constructeurs pour ne privilégier personne. Dans le cadre de vos études, vous allez certainement vouloir emporter votre ordinateur avec vous partout. Nous vous présentons donc des ordinateurs portables de moins de 2kg, plus adaptés à cet usage.
 
-
 #### Configurations de base
 
-Evitez autant que possible de descendre en dessous de celles-ci. Dites-vous bien que ces machines sont estampillées "bureautique", et sont trop juste pour analyser des gros jeux de données, mais elles peuvent convenir parfaitement dans le cadre du cours de science des données biologiques. Si vous possédez déjà un PC, faites un bilan avec [Novabench](https://novabench.com/download#personal) et décidez par vous-même si vous pouvez ou non l'utiliser de manière confortable, éventuellement en installant la SciViews Box 2018 et en testant ainsi directement. Les options existent aussi pour "booster" un ordinateur un peu juste : ajout de mémoire vive et/ou remplacement du disque dur par un disque SSD rapide.
+Évitez autant que possible de descendre en dessous de celles-ci. Dites-vous bien que ces machines sont estampillées "bureautique", et sont trop juste pour analyser des gros jeux de données, mais elles peuvent convenir parfaitement dans le cadre du cours de science des données biologiques. Si vous possédez déjà un PC, faites un bilan avec [Novabench](https://novabench.com/download#personal) et décidez par vous-même si vous pouvez ou non l'utiliser de manière confortable, éventuellement en installant la SciViews Box 2020 et en testant ainsi directement. Les options existent aussi pour "booster" un ordinateur un peu juste : ajout de mémoire vive et/ou remplacement du disque dur par un disque SSD rapide.
 
 | Modèle                      | Processeur [c/t] (nova/cpu) | Mémoire | Disque     | Graphique    | Ecran            | Poids  | Prix |
 |-----------------------------|--------------------------|---------|------------|--------------|------------------|--------|------|
@@ -129,14 +126,13 @@ Evitez autant que possible de descendre en dessous de celles-ci. Dites-vous bien
 | [Acer Swift 3](https://www.lesnumeriques.com/ordinateur-portable/acer-swift-3-sf314-51-357v-p37401/test.html)  | Core i3-8130U [2/4] (579/5061) | 4Go     | SSD 256Go  | Intel HD620  | 14'' (1920x1080) | 1.45kg | 600€ |
 | [MacBook Air](https://www.lesnumeriques.com/ordinateur-portable/apple-macbook-air-13-3-2016-p40639/test.html)  | Core i5-5350U [2/4] (363/3358) | 8Go     | SSD 128Go  | Intel HD6000  | 13.3'' (1440x900) | 1.35kg | 1000€ |
 
-Avec un budget de 500€-600€, des concessions sont nécessaires. A titre d'exemple, nous reprenons deux configurations sous Windows ici. Le Lenovo choisi a 8Go de mémoire vive, mais un disque SDD de faible capacité (128Go) et un processeur un peu moins puissant. L'Acer a un plus gros disque et un meilleur processeur (toujours i3, cependant), mais n'a que 4Go de mémoire vive. Toutefois, un seul disque dur de seulement 128Go, c'est quand même fort juste sous Windows 10 qui est déjà très gourmand en espace disque à la base. Donc votre préférence ira si possible plutôt vers une configuration du type Acer Swift 3 ci-dessus^[Ce ne sont que des exemples. Recherchez des configurations équivalentes chez d'autres constructeurs aussi !]. Des versions avec processeur Core i5 et 8Go de mémoire existent. Elles sont parfaites, ... mais le prix les alignent presque avec nos configurations de référence ci-dessous. Vous verrez aussi dans les tests que ces machines ne sont pas irréprochables, mais il faut mettre les "défauts" relevés en regard du prix très contenu, et relativiser. Pour la science des données, nous privilégierons des ordinateurs aux processeurs plus rapides, quitte à être un peu moins bien cotés dans les tests sur la qualité de l'écran (comme l'Acer, par exemple).
+Avec un budget de 500€-600€, des concessions sont nécessaires. A titre d'exemple, nous reprenons deux configurations sous Windows ici. Le Lenovo choisi a 8 Go de mémoire vive, mais un disque SDD de faible capacité (128 Go) et un processeur un peu moins puissant. L'Acer a un plus gros disque et un meilleur processeur (toujours i3, cependant), mais n'a que 4 Go de mémoire vive. Toutefois, un seul disque dur de seulement 128 Go, c'est quand même fort juste sous Windows 10 qui est déjà très gourmand en espace disque à la base. Donc votre préférence ira si possible plutôt vers une configuration du type Acer Swift 3 ci-dessus^[Ce ne sont que des exemples. Recherchez des configurations équivalentes chez d'autres constructeurs aussi !]. Des versions avec processeur Core i5 et 8Go de mémoire existent. Elles sont parfaites, ... mais le prix les alignent presque avec nos configurations de référence ci-dessous. Vous verrez aussi dans les tests que ces machines ne sont pas irréprochables, mais il faut mettre les "défauts" relevés en regard du prix très contenu, et relativiser. Pour la science des données, nous privilégierons des ordinateurs aux processeurs plus rapides, quitte à être un peu moins bien cotés dans les tests sur la qualité de l'écran (comme l'Acer, par exemple).
 
-Du côté Mac portables, nous avons le MacBook 12'' et le MacBook Air, présenté ici. Ils sont beaucoup plus chers, mais ce sont des ordinateurs durables et bien finis qui se revendent très bien. Dans les deux cas, le processeur (même si Core i5, ou i7) est fort juste et est plus à l'aise en bureautique. Pour analyser des petits jeux de données, ça fonctionne quand même bien. Ici aussi, des concessions sont nécessaires sur la capacité du disque dur pour tirer le prix à ... 1000€ tout de même ! Ce MacBook Air existait depuis 2015 quasiment inchangé, mais a été changé dans la gamme du constructeur plus tôt dans l'année. Nous l'avons laissé dans la liste car vous pouvez encore en trouver en occasion à prix équivalent aux deux autres machines, **mais faites attention à éviter les modèles anciens à processeurs lents qui se vendent encore, et qui ne sont pas assez puissants !** Un modèle avec un disque de 256Go existe aussi. Si votrte budget le permet, envisagez tout de même le nouveau modèle\ !
-
+Du côté Mac portables, nous avons le MacBook Air, présenté ici. Ils sont beaucoup plus chers, mais ce sont des ordinateurs durables et bien finis qui se revendent très bien. Dans les deux cas, le processeur (même si Core i5, ou i7) est fort juste et est plus à l'aise en bureautique. Pour analyser des petits jeux de données, ça fonctionne quand même bien. Ici aussi, des concessions sont nécessaires sur la capacité du disque dur pour tirer le prix à ... 1000€ tout de même\ ! Ce MacBook Air existait depuis 2015 quasiment inchangé, mais a été changé dans la gamme du constructeur plus tôt dans l'année. Nous l'avons laissé dans la liste car vous pouvez encore en trouver en occasion à prix équivalent aux deux autres machines, **mais faites attention à éviter les modèles anciens à processeurs lents qui se vendent encore, et qui ne sont pas assez puissants !** Un modèle avec un disque de 256Go existe aussi. Si votre budget le permet, envisagez tout de même le nouveau modèle\ !
 
 #### Configurations de référence
 
-Avec un budget un peu plus élevé, vous êtes nettement plus confortable\ : processeur assez rapide **et** 8Go de mémoire vive **et** disque SSD de 256Go. Ces laptops sont parfaits pour le cours de science des données biologiques et pour bien d'autres tâches dans le cadre de vos études.
+Avec un budget un peu plus élevé, vous êtes nettement plus confortable\ : processeur assez rapide **et** 8 Go de mémoire vive **et** disque SSD de 256 Go. Ces laptops sont parfaits pour le cours de science des données biologiques et pour bien d'autres tâches dans le cadre de vos études.
 
 | Modèle                      | Processeur [c/t] (nova/cpu)   | Mémoire | Disque              | Graphique      | Ecran              | Poids  | Prix  |
 |-----------------------------|----------------------------|---------|---------------------|----------------|--------------------|--------|-------|
@@ -144,14 +140,13 @@ Avec un budget un peu plus élevé, vous êtes nettement plus confortable\ : pro
 | [Acer Swift 5](https://www.lesnumeriques.com/ordinateur-portable/acer-swift-5-p40705/test.html)   | Core i5-8250U [2/4] (801/7667) | 8Go    | SSD 256Go   | Intel HD620  | 14'' (1920x1080) | 0.97kg  | 900€  |
 | [MacBook Pro 13''](https://www.lesnumeriques.com/ordinateur-portable/apple-macbook-pro-13-pouces-2017-avec-touch-bar-p44179/test.html)            | Core i5-8259U [2/4] (???/10938)  | 8Go     | SSD 256Go           | Intel Iris+640 | 13'' (2560x1600)   | 1.4kg  | 1600€ |
 
-Le HP Pavilion est un portable à écran tactile représentatif de ce créneau (pour les modèles les plus puissants de la gamme en tous cas). Vous combinez un bon processeur, 8Go RAM, un disque dur rapide de 256Go, une carte graphique accélérée et un écran correct pour l'usage prévu pour un poids raisonnable. L'Acer Swift 5 est repris ici pour son poids plume et ses résultats excellents aux tests, mais sa carte graphique est en retrait par rapport au HP (élément secondaire pour la science des données). Un autre très bon exemple de machine portable qui convient parfaitement pour la science des données. Vivement conseillé, donc.
+Le HP Pavilion est un portable à écran tactile représentatif de ce créneau (pour les modèles les plus puissants de la gamme en tous cas). Vous combinez un bon processeur, 8 Go RAM, un disque dur rapide de 256 Go, une carte graphique accélérée et un écran correct pour l'usage prévu pour un poids raisonnable. L'Acer Swift 5 est repris ici pour son poids plume et ses résultats excellents aux tests, mais sa carte graphique est en retrait par rapport au HP (élément secondaire pour la science des données). Un autre très bon exemple de machine portable qui convient parfaitement pour la science des données. Vivement conseillé, donc.
 
-Nous avons aussi inclu le premier MacBook Pro en version disque de 256Go à titre de comparaison (testé en version 2017) : il est plus cher mais à ce prix, vous avez tout de même un écran incomparablement meilleur, un processeur très rapide et une valeur à la revente bien plus haute. Chez Apple, restez dans la gamme MacBook Pro en laptops. Les processeurs des autres modèles les font tous entrer dans la catégorie de base. Attention aussi au prix des adaptateurs supplémentaires souvent indispensables pour les produits Apple\ ! **N'oubliez pas de demander votre remise "éducation", sur présentation de votre carte d'étudiant** (le tarif indiqué tient compte de cette remise).
-
+Nous avons aussi inclus le premier MacBook Pro en version disque de 256 Go à titre de comparaison (testé en version 2017)\ : il est plus cher mais à ce prix, vous avez tout de même un écran incomparablement meilleur, un processeur très rapide et une valeur à la revente bien plus haute. Chez Apple, restez dans la gamme MacBook Pro en laptops. Les processeurs des autres modèles les font tous entrer dans la catégorie de base. Attention aussi au prix des adaptateurs supplémentaires souvent indispensables pour les produits Apple\ ! **N'oubliez pas de demander votre remise "éducation", sur présentation de votre carte d'étudiant** (le tarif indiqué tient compte de cette remise).
 
 #### Configurations performantes
 
-Un budget plus large permet d'acquérir un laptop de course qui sera utile pendant des années, et même pour un travail lourd plus tard... Dans ces configurations, pas de concessions. On veut un processeur i7 à 4 ou 6 coeurs ou équivalent, 16Go de RAM, un disque SSD d'au moins 512Go, ou mieux deux disques, une carte graphique rapide (sauf sur les ultra-portables) et un excellent écran.
+Un budget plus large permet d'acquérir un laptop de course qui sera utile pendant des années, et même pour un travail lourd plus tard... Dans ces configurations, pas de concessions. On veut un processeur i7 à 4 ou 6 cœurs ou équivalent, 16 Go de RAM, un disque SSD d'au moins 512 Go, ou mieux deux disques, une carte graphique rapide (sauf sur les ultra-portables) et un excellent écran.
 
 | Modèle                      | Processeur [c/t] (nova/cpu)   | Mémoire | Disque              | Graphique         | Ecran              | Poids  | Prix  |
 |-----------------------------|----------------------------|---------|---------------------|-------------------|--------------------|--------|-------|
@@ -162,14 +157,17 @@ Un budget plus large permet d'acquérir un laptop de course qui sera utile penda
 
 Le MSI est un PC dit "gamer". Tous les laptops dans cette catégorie sont très rapides... et conviennent parfaitement bien pour la science des données, **y compris pour les calculs GPU**. Chez MSI, un modèle comme le GS65 Stealth obtient le label de meilleur "gamer laptop 2018" (chez [techradar](https://www.techradar.com/news/mobile-computing/laptops/best-laptops-1304361)) et des modèles similaires sont très bien placés ailleurs. Mais nous préférons le GF63 moins cher car équipé d'une carte graphique un cran en dessous, et du coup, mieux positionné en rapport qualité/prix pour les sciences des données. Il est aussi nettement moins lourd. Chez Asus (ROG) et Lenovo entre autres, des machines quasi-équivalentes existent aussi. Attention : d'autres configurations de "laptops gamers" sont lourdes et elles chauffent beaucoup.
 
-Dans la catégorie **ultraportable**, on trouve aussi diverses machines plus puissantes. Le **Dell XPS 13** de 13'' est l'un des mieux classés systématiquement dans les tests un peu partout et représentatif de ce type d'ordinateurs ultra-compacts, légers, mais très performants. Poids plume oblige, on a un processeur moins puissant que sur un PC gamer (vérifiez qu'il soit suffisamment performant sur le modèle choisi, en effet, il existe plusieurs processeurs i5 et même i7 trop lents) et une carte graphique plus basique (pas grave). Choisissez un modèle avec 16Go de RAM et au moins 256Go de disque dur. Le **[Huawei Matebook X Pro](https://consumer.huawei.com/en/laptops/matebook-x-pro/)** est une splendide machine ultraportable avec un magnifique écran de 3000x2000 pixels (excusez du peu !), mais il n'est pas repris ici, car difficile à trouver en Belgique. Un [test complet](https://www.lesnumeriques.com/ordinateur-portable/huawei-matebook-x-pro-p43303/test.html) est aussi disponible. Ici, vous choisirez la version i5 avec processeur Core i5-8550U, 8Go de RAM et un disque SSD de 256Go pour une configuration de référence à 1500€, mais pourrez opter pour le i7 avec un Core i7-8250U, 16Go de RAM et un disque SDD de 512Go pour une configuration optimale pour environ 2000€. **C'est l'un des meilleurs ordinateurs que l'on pouvait trouver fin 2018 !**
+Dans la catégorie **ultraportable**, on trouve aussi diverses machines plus puissantes. Le **Dell XPS 13** de 13'' est l'un des mieux classés systématiquement dans les tests un peu partout et représentatif de ce type d'ordinateurs ultra-compacts, légers, mais très performants. Poids plume oblige, on a un processeur moins puissant que sur un PC gamer (vérifiez qu'il soit suffisamment performant sur le modèle choisi, en effet, il existe plusieurs processeurs i5 et même i7 trop lents) et une carte graphique plus basique (pas grave). Choisissez un modèle avec 16Go de RAM et au moins 256Go de disque dur. Le **[Huawei Matebook X Pro](https://consumer.huawei.com/en/laptops/matebook-x-pro/)** est une splendide machine ultraportable avec un magnifique écran de 3000x2000 pixels (excusez du peu !), mais il n'est pas repris ici, car difficile à trouver en Belgique. Un [test complet](https://www.lesnumeriques.com/ordinateur-portable/huawei-matebook-x-pro-p43303/test.html) est aussi disponible. Ici, vous choisirez la version i5 avec processeur Core i5-8550U, 8 Go de RAM et un disque SSD de 256 Go pour une configuration de référence à 1500€, mais pourrez opter pour le i7 avec un Core i7-8250U, 16 Go de RAM et un disque SDD de 512 Go pour une configuration optimale pour environ 2000€. **C'est l'un des meilleurs ordinateurs que l'on pouvait trouver fin 2018\ !**
 
 Toujours dans les ultraportables, vous trouverez aussi les **convertibles**. Ceux équipés d'un écran tactile et qui peuvent se "retourner" pour s'utiliser comme une tablette haut de gamme. Les ordinateurs de type **Microsoft Surface** en sont les représentants emblématiques, mais les tests nous conduisent aussi vers l'**Asus Zenbook Flip** comme l'un des meilleurs (et assurément, un excellent rapport qualité/prix). Ici, on trouve des versions en 13'' et en 15'' mais toujours très portables et puissantes. De très bonnes machines pour analyser ses données\ !
 
-A titre de comparaison, l'équivalent chez Apple est également présenté (le MacBook Pro 15'', avec option disque de 512Go et remise "éducation"). Ce dernier est à nouveau beaucoup plus cher. Mais son écran est incomparable, sa finition est impeccable, et il tourne sous MacOS naturellement pour les afficionados\ ! Les modèles 2019 corrigent des défauts de clavier et écrans des années précédentes et proposent aussi des version i7 à 6 coeurs, et même i9 à 8 coeurs. [Voici le test du modèle 2017](https://www.lesnumeriques.com/ordinateur-portable/macbook-pro-15-2017-p39735/test.html). **C'est une excellente machine. Malheureusement, la tendance est au minimalisme pour la connectique : du USB-C et c'est tout. Cela oblige à acheter et à transporter des connecteurs supplémentaires.** Les anciennes générations de MacBook Pro, "pré touch bar" se trouvent encore dans le marché de l'occasion à des prix proches de PC équivalents sous Windows. Ils sont un peu moins performants que les nouveaux, mais restent excellents, ... et possèdent beaucoup plus de connecteurs intégrés (de bonnes affaires, donc).
+A titre de comparaison, l'équivalent chez Apple est également présenté (le MacBook Pro 15'', avec option disque de 512 Go et remise "éducation"). Ce dernier est à nouveau beaucoup plus cher. Mais son écran est incomparable, sa finition est impeccable, et il tourne sous MacOS naturellement pour les afficionados\ ! Les modèles 2019 corrigent des défauts de clavier et écrans des années précédentes et proposent aussi des version i7 à 6 cœurs, et même i9 à 8 cœurs. [Voici le test du modèle 2017](https://www.lesnumeriques.com/ordinateur-portable/macbook-pro-15-2017-p39735/test.html). **C'est une excellente machine. Malheureusement, la tendance est au minimalisme pour la connectique : du USB-C et c'est tout. Cela oblige à acheter et à transporter des connecteurs supplémentaires.** Les anciennes générations de MacBook Pro, "pré-touch bar" se trouvent encore dans le marché de l'occasion à des prix proches de PC équivalents sous Windows. Ils sont un peu moins performants que les nouveaux, mais restent excellents, ... et possèdent beaucoup plus de connecteurs intégrés (de bonnes affaires, donc).
+
+```{block, type='warning'}
+Fin 2020, Apple sort des machines avec ses nouvelles puces Silicon M1 (un MacBook Air et un MacBook Pro 13''). **Ces processeurs ARM ne sont pas compatibles avec les processeurs à instructions x86 d'Intel ezt ne permettent pas de faire fonctionner VirtualBox\ !** Par conséquent, la SciViews Box, et donc tous les logiciels requis pour vos cours de Science des Données Biologiques, ne sont *pas* utilisables sur ces ordinateurs\ !
+```
 
 **Voilà\ ! En espérant que ceci pourra vous aider au mieux dans le choix de votre outil informatique.**
-
 
 ## Installation {#install}
 
@@ -268,11 +266,9 @@ En option, vous pouvez épingler le nouveau programme dans la barre des tâches.
 
 </center>
 
-
 ```{r echo=FALSE, out.width="128px", fig.align='right'}
 knitr::include_graphics('images/block-mac.png')
 ```
-
 
 #### Installation sous MacOS
 
@@ -296,20 +292,17 @@ Laissez l'installation se terminer. Cela peut prendre plusieurs minutes. En opti
 
 </center>
 
-
 ```{r echo=FALSE, out.width="128px", fig.align='right'}
 knitr::include_graphics('images/block-linux.png')
 ```
-
 
 #### Installation sous Linux
 
 Il est parfaitement possible d'installer la SciViews Box sous Linux. Cependant, un programme d'installation simplifié n'a pas encore été développé pour ce système. _Voyez au cas par cas avec vos enseignants pour qu'ils vous expliquent comment installer la SciViews Box manuellement sous Linux._
 
-
 #### Migration et désinstallation
 
-Le disque dur virtuel de la SciViews Box est un fichier volumineux de plus de 15Go. L'installeur fait en sorte qu'il soit partagé entre plusieurs utilisateurs de l'ordinateur, et qu'il reste inchangé au cours de son utilisation. Ainsi, VirtualBox enregistrera dans vos dossiers personnels un fichier qui stocke les différences par rapport à l'état de départ de la Box. Il est donc possible de **désinstaller partiellement** la SciViews Box 2019 sans rien perdre. Pour cela, il suffit de désinstaller l'application (sous Windows, allez dans le panneau de configuration -> Applications -> SciViews Box 2019 -> Désinstaller ; sous MacOS déplacez l'application `SciViews box 2019` depuis le dossier `Applications` vers la corbeille et faites de même pour le fichier '/Users/Shared/SciViews/svbox2019.vdi'). Vous récupèrerez immédiatement près de 16Go d'espace disque. VirtualBox ne pourra plus démarrer la Box, naturellement, mais _conservera vos données_. Si besoin, vous pourrez réinstaller simplement l'application `SciViews Box 2019` pour retrouver votre Box en l'état.
+Le disque dur virtuel de la SciViews Box est un fichier volumineux de plus de 15 Go. L'installeur fait en sorte qu'il soit partagé entre plusieurs utilisateurs de l'ordinateur, et qu'il reste inchangé au cours de son utilisation. Ainsi, VirtualBox enregistrera dans vos dossiers personnels un fichier qui stocke les différences par rapport à l'état de départ de la Box. Il est donc possible de **désinstaller partiellement** la SciViews Box 2020 sans rien perdre. Pour cela, il suffit de désinstaller l'application (sous Windows, allez dans le panneau de configuration -> Applications -> SciViews Box 2020 -> Désinstaller\ ; sous MacOS déplacez l'application `SciViews box 2019` depuis le dossier `Applications` vers la corbeille et faites de même pour le fichier '/Users/Shared/SciViews/svbox2020.vdi'). Vous récupérerez immédiatement près de 16 Go d'espace disque. VirtualBox ne pourra plus démarrer la Box, naturellement, mais _conservera vos données_. Si besoin, vous pourrez réinstaller simplement l'application `SciViews Box 2020` pour retrouver votre Box en l'état.
 
 Une désinstallation complète nécessite d'aller **d'abord** supprimer la machine virtuelle dans VirtualBox (clic bouton droit et sélection de `Supprimer...`) pour _tous_ les utilisateurs qui ont créé une Box _avant_ de désinstaller l'application principale comme ci-dessus.
 
@@ -319,7 +312,6 @@ Si vous avez des projets créés avec des SciViews Box antérieures, deux soluti
 
 2. Migrez-les vers la nouvelle SciViews Box. Copiez vos projets depuis le répertoire `shared` de l'ancienne Box vers celui de la nouvelle. Dans ce cas, vous devrez **vérifier** que votre code fonctionne toujours sous la nouvelle Box, et l'adapter éventuellement.
 
-
 ### Github Desktop
 
 <center>
@@ -328,15 +320,13 @@ Si vous avez des projets créés avec des SciViews Box antérieures, deux soluti
 
 </center>
 
-Dans ce cours, nous utilisons **Git** et **Github** pour gérer les différentes versions de vos projets et les partager avec vos binômes et vos enseignants. [Github Desktop](https://desktop.github.com) facilite grandement la gestion de vos projets sous Git. Ce programme gratuit est directement intégré dans la SciViews Box à partir de sa version 20189, mais elle est aussi très facile à installer en natif (optionel)\ : son téléchargement et le lancement de son installeur ne pose pas de problèmes particuliers.
+Dans ce cours, nous utilisons **Git** et **Github** pour gérer les différentes versions de vos projets et les partager avec vos binômes et vos enseignants. [Github Desktop](https://desktop.github.com) facilite grandement la gestion de vos projets sous Git. Ce programme gratuit est directement intégré dans la SciViews Box à partir de sa version 2019, mais elle est aussi très facile à installer en natif (optionel)\ : son téléchargement et le lancement de son installeur ne pose pas de problèmes particuliers.
 
 **A présent, tous les ligiciels requis sont installés... Il ne reste plus que quelques petites opérations de configuration à réaliser. Voyez ceci à la section suivante.**
-
 
 ## Configuration
 
 Même si la SciViews Box est pré-configurée, vous allez avoir quelques manipulations simples à réaliser pour être complètement opérationnel. Ces étapes sont détaillées ci-dessous. Nous en profiterons par la même occasion par nous familiariser avec quelques uns des outils logiciels que vous utiliserez plus tard, à commencer par le lanceur rapide SciViews Box.
-
 
 ### Lanceur SciViews Box
 
@@ -344,7 +334,7 @@ L'application que vous venez d'installer est un **lanceur rapide** qui facilite 
 
 ![](images/annexe1/svbox-launcher-comment.png)
 
-Dans ce premier cours, vous n'utiliserez pas toutes ses fonctionnalités. Ainsi, vous n'aurez pas besoin de Jupyter(lab), Adminer ou SSH, mais repérez les autres outils. Le message en rouge n'apparait pas systématiquement. Il signale des éléments importants. Ici, il indique que la configuration de la SciViews Box doit encore être faite, et pour cela, vous devez (1) **la démarrer** à l'aide du gros bouton en haut à gauche, (2) **vous logger** (mot de passe = **sv**), et (3) **répondre `Yes`** lorsqu'une boite de dialogue vous propose de configurer la SciViews Box comme ci-dessous\ :
+Dans ce premier cours, vous n'utiliserez pas toutes ses fonctionnalités. Ainsi, vous n'aurez pas besoin de Jupyter(lab), Adminer ou SSH, mais repérez les autres outils. Le message en rouge n'apparaît pas systématiquement. Il signale des éléments importants. Ici, il indique que la configuration de la SciViews Box doit encore être faite, et pour cela, vous devez (1) **la démarrer** à l'aide du gros bouton en haut à gauche, (2) **vous logger** (mot de passe = **sv**), et (3) **répondre `Yes`** lorsqu'une boite de dialogue vous propose de configurer la SciViews Box comme ci-dessous\ :
 
 <center>
 
@@ -359,7 +349,6 @@ Cette dernière étape est importante\ ! Ne cliquez pas `No` ici, sous peine de 
 ```
 
 Le mot de passe vous sera redemandé, et ensuite, la configuration se poursuivra. Elle pourra prendre plusieurs minutes. Soyez patient. Vous pourrez ouvrir la fenêtre où s'opère le travail pour en suivre la progression, si vous le souhaitez. Pour ce faire, lancer une fenêtre de terminal (`Win + T`, `Command + T`, ou `Control + T` selon votre clavier et configuration). Ensuite entrez `xfce4-terminal --drop-down` suivi de la touche `entrée`. Sinon attendez simplement la fenêtre du configurateur de la SciViews Box qui va apparaître à la fin.
-
 
 ### Configurateur de la Box
 
@@ -460,7 +449,6 @@ Après avoir effectué tout ceci,vous pourrez cliquer sur le bouton `OK` de la f
 
 </center>
 
-
 ### Installation des tutoriels {#install-tuto}
 
 Nous allons maintenant installer les tutoriels liés à ces cours de science des données biologiques. Vous allez apprendre par la même occasion comment ajouter des applications dans votre SciViews Box. Cela se fait en trois étapes:
@@ -495,7 +483,6 @@ Ensuite, entrez votre mot de passe comme d'habitude pour vous relogger... A ce m
 
 **Bravo! Vous avez terminé l'installation et la configuration de votre SciViews Box. Cependant, nous allons encore effectuer une petite opération qui vous facilitera la vie, et nous vous expliquerons par la même occasion comment accéder aux fichiers respectifs de la machine virtuelle et du système hôte dans la section suivante.**
 
-
 ### Accès aux fichiers
 
 Le disque physique de votre ordinateur hôte, et le disque virtuel de la SciViews Box sont deux choses différentes. Cela signifie que vous avez, en réalité deux ordinateurs et deux disques indépendants. Donc, vous n'accédez **pas** aux fichiers d'une machine à partir de l'autre^[Le presse-papier est synchronisé entre les deux machines pour le texte qui y est copié.]. Ce n'est pas pratique, et ce n'est pas vrai pour un dossier particuler nommé **shared**.
@@ -509,7 +496,6 @@ Le disque physique de votre ordinateur hôte, et le disque virtuel de la SciView
 Ce dossier **shared** est synchronisé en temps réel entre les deux systèmes. C'est donc l'endroit idéal pour échanger des données et pour faire collaborer vos deux machines. Inutile de préciser, donc, que nous travaillerons essentiellement à l'intérieur de ce dossier. Un sous-dossier, nommé **projects** sera utilisé pour héberger toutes nos analyses. Il est donc primordial d'y accéder facilement à la fois depuis l'ordinateur hôte et depuis la SciViews Box. Vous allez donc apprendre à retrouver ce dossier **projects** facilement.
 
 Sur votre **ordinateur hôte**, ce dossier est un peu difficile à trouver en naviguant dans l'explorateur de fichiers (ou le Finder sur le Mac). Pour cette raison, le lanceur rapide propose un bouton pour y accéder plus facilement.
-
 
 Une fois dans le dossier **shared**, nous vous conseillons d'épingler le sous-dossier **projects** dans les raccourcis rapides de votre explorateur de fichiers. Voici comment faire sous Windows et sous MacOS. 
 
@@ -527,7 +513,7 @@ Sous MacOS, vous glissez-déposez **projects** dans la barre latérale du Finder
 
 ```
 
-Dans la **SciViews Box**, ce dossier est accessible depuis deux endroits: `/media/sf_shared` et `~/shared` (`~` représente le répertoire de l'utilisateur, c'est-à-dire `/home/sv`). Ici aussi vous pouvez épingler votre dossier **projects** pour en facilter l'accès:
+Dans la **SciViews Box**, ce dossier est accessible depuis deux endroits: `/media/sf_shared` et `~/shared` (`~` représente le répertoire de l'utilisateur, c'est-à-dire `/home/sv`). Ici aussi vous pouvez épingler votre dossier **projects** pour en facilter l'accès\ :
 
 ```{block2, type='svbox'}
 Les deux moyens d'accéder au dossier **projects** dans la SciViews Box (à partir de `sf_shared` ou de `sv`, puis `shared) et comment l'épingler sur le côté.
@@ -536,7 +522,7 @@ Les deux moyens d'accéder au dossier **projects** dans la SciViews Box (à part
 
 ```
 
-**A retenir:** le dossier **shared** et ses sous-dossiers comme **projects** sont considérés un peu comme des dossiers réseau par la SciViews Box. Cela implique que certaines fonctions du système de fichiers n'y sont pas accessibles. Parmi celles-ci, la **poubelle**. Donc, vous ne pourrez qu'effacer complètement des items en cliquant bouton droit et sélectionnant 'Delete' dans le menu contextuel dans le gestionnaire de fichiers. Si vous essayer de placer des fichiers ou dossiers depuis **shared** dans la poubelle de la SciViews Box, cela vous sera refusé (voir copie d'écran ci-dessous). _Par contre, cela fonctionne très bien depuis l'ordinateur hôte (Windows, MacOS, ...)._
+**A retenir\ :** le dossier **shared** et ses sous-dossiers comme **projects** sont considérés un peu comme des dossiers réseau par la SciViews Box. Cela implique que certaines fonctions du système de fichiers n'y sont pas accessibles. Parmi celles-ci, la **poubelle**. Donc, vous ne pourrez qu'effacer complètement des items en cliquant bouton droit et sélectionnant 'Delete' dans le menu contextuel dans le gestionnaire de fichiers. Si vous essayer de placer des fichiers ou dossiers depuis **shared** dans la poubelle de la SciViews Box, cela vous sera refusé (voir copie d'écran ci-dessous). _Par contre, cela fonctionne très bien depuis l'ordinateur hôte (Windows, MacOS, ...)._
 
 <center>
 
