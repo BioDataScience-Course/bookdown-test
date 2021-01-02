@@ -14,11 +14,9 @@ SciViews::R
 
 - Connaitre l'équivalent non paramétrique à un facteur (test de Kruskal-Wallis)
 
-
 ##### Prérequis {-}
 
 Ce module continue la comparaison de moyennes entamée, pour deux populations au module \@ref(moyenne). Assurez-vous d'avoir bien compris le test *t* de Student et les subtilités des tests d'hypothèse avant d'entamer la présente section.
-
 
 ## Le danger des tests multiples
 
@@ -98,7 +96,6 @@ Clairement, on oublie cette façon de faire\ ! Prendre le risque de se tromper 9
 
 Nous allons donc travailler différemment... Ci-après nous verrons qu'une simplification des hypothèses et l'approche par décomposition de la variance est une option bien plus intéressante (ANalysis Of VAriance ou ANOVA). Ensuite, nous reviendrons vers ces comparaisons multiples deux à deux, mais en prenant des précautions pour éviter l'inflation du risque global de nous tromper.
 
-
 ## ANOVA à un facteur
 
 Au lieu de s'attaquer aux comparaisons deux à deux, nous pouvons aussi considérer une hypothèse unique que les moyennes de $k$ populations (nos quatre groupes différents de crabes, par exemple) sont égales. L'hypothèse alternative sera qu'au moins une des moyennes diffère des autres. En formulation mathématique, cela donne\ :
@@ -123,7 +120,6 @@ $$SCT = SC_{A-C} = SC_{A-B} + SC_{B-C}$$
 Cette propriété, dite d'additivité des variances, permet de décomposer la variance totale à souhait tout en sachant que la somme des différentes composantes donne toujours la même valeur que la variance totale.
 
 ```
-
 
 ### Modèle de l'ANOVA
 
@@ -203,7 +199,6 @@ combine_charts(list(pl1, pl2))
 
 Intuitivement, une comparaison de "inter" et "intra" permet de différencier la situation de gauche de celle de droite dans la Fig. \@ref(fig:anova2). Si cette comparaison est faite sous forme d'un ratio "inter"/"intra", alors ce ratio sera faible et tendra vers zéro sous $H_0$ (cas A), alors qu'il sera d'autant plus élevé que $H_0$ devient de moins en moins plausible (cas B).
 
-
 ##### Calcul de l'ANOVA {-}
 
 Calcul des sommes des carrés (inter- et intragroupes). Considérant\ :
@@ -235,12 +230,9 @@ Sachant que les parts de variances sont les $\frac{SC}{ddl}$ et sont appelés "c
 
 La **statistique _F_~obs~ est le rapport des carrés moyens inter/intra.** Elle représente donc le ratio que nous avons évoqué plus haut comme moyen de quantifier l'écart par rapport à $H_0$. Le test consiste à calculer la valeur *P* associée à cette statistique. Pour cela, il nous faut une distribution statistique théorique de *F* sous $H_0$. C'est un biologiste - statisticien célèbre nommé Ronald Aylmer Fisher qui l'a calculée. C'est la distribution *F* de Fisher.
 
-
 ### Distribution *F*
 
-##### A vous de jouer ! {-}
-
-
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
@@ -341,7 +333,6 @@ Si la valeur *P* est inférieure au seuil $\alpha$ fixé au préalable, nous dev
 
 La SciViews Box propose des snippets pour accéder à ces différentes analyses. Dans le menu `hypothesis tests: variances` ou `.hv` nous trouvons trois tests dont celui de Bartlett. Dans le menu `hypothesis tests: means` ou `.hm` se trouvent les templates pour l'ANOVA, ainsi que les graphiques d'analyse des résidus dont le graphique quantile-quantile.
 
-
 ##### Résolution de notre exemple {-}
 
 Nous commençons par déterminer si nous avons homoscédasticité. Cosidérons un seuil $\alpha$ de 5% pour tous nos tests. Ensuite\ :
@@ -410,7 +401,6 @@ anova. %>.%
     ylab = "Résidus")
 ```
 
-
 ##### Pour en savoir plus {-}
 
 - [L'ANOVA expliquée en trois minutes](https://www.youtube.com/watch?v=lITNHx2z5FE)
@@ -418,7 +408,6 @@ anova. %>.%
 - Introduction to ANOVA (en anglais). [Part I](https://youtu.be/QUQ6YppWCeg), [part II](https://youtu.be/fFnOD7KBSbw), [part III](https://youtu.be/XdZ7BRqznSA), [part IV](https://youtu.be/WUoVftXvjiQ), and [part V](https://youtu.be/kO8t_q-AXHE).
 
 - Explication de l'analyse de variance en détaillant le calcul par la Kahn academy. [Partie I](https://www.youtube.com/watch?v=tjolTrwJhjM), [partie II](https://youtu.be/DMo9yofC5C8) et [partie III](https://youtu.be/y8nRhsixBPs). Assez long\ : près de 3/4h en tout. Ne regardez que si vous n'avez pas compris ce que sont les sommes des carrés.
-
 
 ## Test "post-hoc"
 
@@ -442,12 +431,11 @@ Si nous gardons notre seuil $\alpha$ de 5%, seuls les mâles ne diffèrent (tout
 
 En conclusion, tous les groupes diffèrent de manière siginificative sauf les mâles (test HSD de Tukey, valeur *P* < 5%).
 
-
 ##### Conditions d'application {-}
 
 Les conditions d'application pour le test post hoc de Tukey sont les mêmes que pour l'ANOVA.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 Suite à la lecture de l'ANOVA à un facteur, réalisez ce projet individuel pour appliquer vos nouvelles connaissances.
@@ -496,7 +484,6 @@ kruskal.test(data = crabs2, aspect ~ group)
 
 Ici, nous rejettons $H_0$ au seuil $\alpha$ de 5%. Nous pouvons dire qu'il y a au moins une différence significative entre les ratios au seuil $\alpha$ de 5% (test Kruskal-Wallis, $\chi^2$ = 140, ddl = 3, valeur *P* << 10^-3^).
 
-
 ##### Conditions d'application {-}
 
 Le test de Kruskal-Wallis est naturellement moins contraignant que l'ANOVA.
@@ -506,7 +493,6 @@ Le test de Kruskal-Wallis est naturellement moins contraignant que l'ANOVA.
 - variable dite **réponse** quantitative,
 - une variable dite **explicative** qualitative à trois niveaux ou plus,
 - les distributions au sein des différentes sous-population sont, si possible, similaires mais de forme quelconque.
-
 
 ### Test "post hoc" non paramétrique
 
@@ -523,8 +509,7 @@ La présentation des résultats est plus détaillée que pour le HSD de Tukey. L
 
 Au final que conclure\ ? Lorsque l'ANOVA peut être utilisée, elle est à préférer. Ici avec une transformation puissance cinq, nous stabilisons la variance qui est le critère le plus sensible. De plus tant avec l'ANOVA qu'avec le Kruskal-Wallis, nous détectons des différences significatives. Les tests "post hoc" nous indiquent des différences significatives au seuil $\alpha$ de 5% sauf peut-être pour les mâles (il faudrait prévoir des mesures supplémentaires pour confirmer ou infirmer à ce niveau).
 
-
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 

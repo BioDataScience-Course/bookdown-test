@@ -6,7 +6,6 @@ SciViews::R
 
 Dans ce module, nous entrons dans le monde de l'inférence statistique et des tests d'hypothèses qui nous permettront de répondre à des questions biologiques sur base de données empiriques malgré une incertitude inévitables (hasard de l'échantillonnage, variabilité individuelle, erreurs de mesure, ...).
 
-
 ##### Objectifs {-}
 
 - Appréhender l'inférence statistique
@@ -18,7 +17,6 @@ Dans ce module, nous entrons dans le monde de l'inférence statistique et des te
 - Connaitre la distribution Chi^2^ et les tests d'hypothèses basés sur cette distribution
 
 - Développer un regard critique (positif\ !) sur le travail de ses collègues via l'évaluation d'un rapport par les pairs (initiation au "peer reviewing")
-
 
 ##### Prérequis {-}
 
@@ -42,7 +40,6 @@ L'estimation de paramètres d'une population par le biais de calculs sur un éch
 
 ```
 
-
 ##### Travail préliminaire {-}
 
 Avant de vous lancer dans l'inférence statistique, assurez-vous d'avoir effectué soigneusement les trois étapes suivantes\ :
@@ -53,7 +50,6 @@ Avant de vous lancer dans l'inférence statistique, assurez-vous d'avoir effectu
 
 3. Vous avez effectué une analyse exploratoire des données. Vous avez représenté les données à l'aide de graphiques appropriés et vous avez interprété ces graphiques afin de comprendre ce que le jeu de données contient. Vous avez également résumé les données sous forme de tableaux synthétiques et vous avez, si nécessaire, remaniés et nettoyés vos données.
 
-
 ## Test d'hypothèse
 
 Le test d'hypothèse ou test statistique est l'outil le plus simple pour répondre à une question via l'inférence. Il s'agit ici de réduire la question à sa plus simple expression en la réduisant à deux **hypothèses** contradictoires (en gros, la réponse à la question est soit "oui", soit "non" et rien d'autre).
@@ -63,8 +59,7 @@ Le test d'hypothèse ou test statistique est l'outil le plus simple pour répond
 
 Les deux hypothèses ne sont pas symétriques. Notre intention est de **rejeter $H_0$**. Dans ce cas, nous pourrons considérer que $H_1$ est vraie, avec un certain degré de certitude que nous pourrons également quantifier. Si nous n'y arrivons pas, nous dirons que nous ne pouvons pas rejeter $H_0$, mais nous ne pourrons jamais dire que que nous l'**acceptons** car dans ce cas, deux explications resteront possibles\ : (1) $H_0$ est effectivement vraie, ou (2) $H_0$ est fausse mais nous n'avons pas *assez* de données à disposition pour le démontrer avec le niveau de certitude recherché.
 
-
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block2, type='bdd'}
 
@@ -73,7 +68,6 @@ Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante da
     BioDataScience1::run("A08a_chi2")
 
 ```
-
 
 ### Becs croisés des sapins
 
@@ -108,11 +102,9 @@ Les scientifiques pensent que les variétés gauches et droites se rencontrent a
 
 Pouvons-nous rejeter $H_0$ ici\ ?
 
-
 ### Test Chi^2^ univarié
 
 Le test Chi^2^ (ou $\chi^2$) de Pearson est un test d'hypothèse qui permet de comparer des effectifs observés notés $a_i$ à des effectifs théoriques $\alpha_i$ sous l'hypothèse nulle pour les différents niveaux $i$ allant de 1 à $n$ d'une variable qualitative (version dite univariée du test). A noter que par rapport à la définition des hypothèses ci-dessus, ce ne sont **pas** les probabilités qui sont testées, mais les effectifs.
-
 
 ##### Conditions d'application {-}
 
@@ -124,12 +116,9 @@ Tout test d'hypothèse impose des **conditions d'application** qu'il faudra vér
 
 Ces conditions d'application sont bien rencontrées ici.
 
-
 ##### Réalisation du test Chi^2^ dans R {-}
 
 Dans R, le test du $\chi^2$ est réalisé facilement à l'aide de la fonction `chisq.test()`. Voici ce que cela donne et comment on l'interprète\ :
-
-
 
 ```{r}
 chisq.test(crossbill_tab, p = c(1/2, 1/2), rescale.p = FALSE)
@@ -155,7 +144,6 @@ L'exécution de ce code nous donne un court rapport avec\ :
 Souvent en biologie, on choisi $\alpha$ = 5%, mais dans les cas où nous souhaitons avoir plus de "certitude" dans notre réponse, nous pouvons aussi choisir un seuil plus restrictif de 1%, voire de 0,1%. Encore une fois, les explications sont détaillées ci-dessous.
 
 Dans notre exemple, nous pouvons donc rejeter $H_0$ et nous dirons que **la probabilité d'observer un bec croisé gauche est significativement plus grande qu'un bec croisé droit au seuil $\alpha$  de 5% dans la population étudiée (test $\chi^2$ = 5,61, ddl = 1, valeur *P* = 0,018)**. A ce stade, notre analyse statistique se termine. Une interprétation *biologique* du résultat, des hypothèses concernant les *mécanismes biologiques* que cela implique, une confrontation à ce que d'autres ont observé via la littérature scientifique et des conclusions et/ou perspectives finalisent l'étude.
-
 
 ##### Explications détaillées {-}
 
@@ -207,7 +195,6 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
   xlab("Quantile") +
   ylab("Densité de probabilité")
 ```
-
 
 ### Seuil α du test
 
@@ -273,7 +260,6 @@ Le test d'hypothèse reporte la valeur *P* afin qu'un lecteur qui aurait choisi 
 - valeur *P* < seuil $\alpha$, $=> \mathrm{R}H_0$ (on rejette $H_0$),
 - valeur *P* ≥ seuil $\alpha$, $=> \rlap{\mathrm{R}} \diagup H_0$ (on ne rejette pas $H_0$).
 
-
 ### Effet de l'effectif étudié
 
 En inférence, la qualité des données (échantillons *représentatifs*) est importante, mais la quantité aussi. **Plus vous pourrez mesurer d'individus, mieux c'est.** Par contre, dès que la taille de l'échantillon (ici, l'effectif total mesuré) est suffisant pour rejeter $H_0$, vous n'avez plus besoin d'augmenter la taille de votre échantillon^[Attention\ ! Vous devez fixer la taille de l'échantillon dès le départ *a priori*. Vous ne pouvez pas accumuler des données jusqu'à obtenir un rejet de $H_0$, sans quoi votre analyse sera biaisée.]. Voyons l'effet de la taille de l'échantillon sur l'étude des becs croisés des sapins. Nous n'avons pas besoin d'un effectif plus grand que celui mesuré, car nous rejetons $H_0$ ici. Qu'aurait donné notre test $\chi^2$, par contre, si l'auteur avait mesuré disons 10 fois moins d'oiseaux, les proportions restant par ailleurs identiques entre becs croisés à gauche et à droite\ ?
@@ -286,13 +272,11 @@ chisq.test(crossbill_tab2, p = c(1/2, 1/2), rescale.p = FALSE)
 
 Nous constatons que la valeur du $\chi^2_{obs}$ dépend de l'effectif. Sa valeur est plus petite ici. Par conséquent, la valeur *P* a également changé et elle vaut à présent 43%. Cette valeur est *supérieure* maintenant à notre seuil $\alpha$ de 5%. Donc, nous ne pouvons pas rejeter $H_0$. Dans un pareil cas, nous conclurons que les becs croisés à gauche ne sont **pas significativement** plus nombreux que ceux à droite au seuil $\alpha$ de 5% (test $\chi^2$ = 0,62, ddl = 1, valeur *P* = 0,43). Notez, c'est important, que nous n'avons pas écrit "ne sont **pas**", mais nous avons précisé "ne sont **pas significativement**" plus nombreux. C'est un détail très important. En effet, cela veut dire que l'on ne peut pas conclure qu'il y ait des différences sur base de l'échantillon utilisé, mais il se peut aussi que l'échantillon ne soit pas suffisamment grand pour mettre en évidence une différence. Or, nous avons analysé en réalité un plus grand échantillon (`crossbill`), et nous savons bien que c'est effectivement le cas. Est-ce que vous saisissez bien ce que le mot **significativement** veut dire, et la subtilité qui apparaît lorsqu'un test d'hypothèse ne rejette **pas** $H_0$\ ? Les conclusions tirées avec `crossbill` et `crossbill2` et le même test d'hypothèse sont diamétralement opposées car l'un rejette et l'autre ne rejette pas $H_0$. Pourtant ces deux analyses ne se contredisent pas\ ! Les deux interprétations sont *simultanément* correctes. C'est l'interprétation asymétrique du test qui permet cela, et l'adverbe **significativement** est indispensable pour introduire cette nuance dans le texte\ !
 
-
 ### Test Chi^2^ d'indépendance
 
 Dans le cas d'un tableau de contingence à **double entrée**, qui croise les niveaux de deux variables qualitatives, nous pouvons effectuer également un test $\chi^2$. Celui-ci sera calculé légèrement différemment et surtout, les hypothèses testées sont différentes.
 
-
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block2, type='bdd'}
 Une séance d'exercice vous est proposée en lien avec le test Chi^2^ d'indépendance. Vous pouvez réaliser ces exercices en parallèle à la lecture de la présente section. Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
@@ -300,7 +284,6 @@ Une séance d'exercice vous est proposée en lien avec le test Chi^2^ d'indépen
     BioDataScience1::run("A08b_chi2")
 
 ```
-
 
 ##### Conditions d'application {-}
 
@@ -310,7 +293,6 @@ Comme toujours, le test $\chi^2$ d'indépendance est assorti de conditions d'app
 - attribution des traitements aux individus de manière aléatoire,
 - aucun effectif théorique nul,
 - Si possible, aucun effectif observé inférieur à 5 (pas règle stricte, mais voir à utiliser un test exact de Fisher ci-dessous dans la section "pour en savoir plus" en base de page dans ce cas).
-
 
 ##### Example et résolution dans R {-}
 
@@ -374,11 +356,9 @@ Enfin, nous comparons cette valeur à la distribution théorique de $\chi^2$  à
 (chi2. <- chisq.test(timolol_table)); cat("Expected frequencies:\n"); chi2.[["expected"]]
 ```
 
-
 ##### Interprétation {-}
 
 La valeur *P* de 0,0026 est inférieure au seuil $\alpha$ choisi de 0,01. Donc, nous rejetons $H_0$. Il n'y a pas indépendance entre les deux variables. Pour voir quels sont les effets de la dépendance entre les variables, nous devons comparer les effectifs théoriques affichés ci-dessus avec les effectifs observés. Dans le cas du placebo, sous $H_0$, nous aurions du obtenir 117 malades contre 30 patients guéris. Or, nous en avons 128 malades et seulement 19 guéris. D'un autre côté, sous $H_0$ nous aurions du observer 127 patients malades et 33 sains avec le timolol. Or, nous en observons 116 malades et 44 sains. Donc, les valeurs observées sont en faveur d'un meilleur effet avec le timolol. Nous pourrons dire\ : le timolol a un effet positif significatif sur la guérison de la maladie au seuil $\alpha$ de 1% ($\chi^2$ d'indépendance = 9,10, ddl = 1, valeur *P* = 0,0026).
-
 
 ##### Correction de Yates {-}
 
@@ -397,7 +377,6 @@ Cela donne 9,98. Or notre test renvoie la valeur de 9,10. A quoi est due cette d
 chisq.test(timolol_table, correct = FALSE)
 ```
 
-
 ### Autres tests Chi^2^
 
 Les test du $\chi^2$ est également utilisé, dans sa forme univariée, pour comparer les effectifs observés par rapport à des effectifs théoriques suivant un loi de distribution discrète. Ce test s'appelle un **test de qualité d'ajustement** ("goodness-of-fit test" en anglais). Dans ce cas, le nombre de degrés de liberté est le nombre de catégories moins le nombre de paramètres de la distribution moins un.
@@ -408,8 +387,7 @@ Pour l'ajustement à une loi de distribution continue, il est possible de décou
 Gardez toujours à l'esprit que, quelle que soit la qualité d'un test d'ajustement, vous n'aurez jamais qu'une réponse binaire (oui ou non l'échantillon s'ajuste à telle distribution théorique). Les causes de dérive sont innombrables et seules des bonnes représentations graphiques (histogramme, graphe en violon, et surtout, graphique quantile-quantile) sont suffisamment riche en information pour explorer *pourquoi* et *comment* la distribution diffère d'une distribution théorique.
 ```
 
-
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block2, type='bdd'}
 
@@ -419,7 +397,6 @@ Employez le test d'hypothèse que vous venez d'apprendre dans votre rapport sur 
 
 ```
 
-
 ##### Pour en savoir plus {-}
 
 - Le [test de Chi2 avec R](http://www.sthda.com/french/wiki/test-de-chi2-avec-r),
@@ -428,13 +405,11 @@ Employez le test d'hypothèse que vous venez d'apprendre dans votre rapport sur 
 
 - Le [test exact de Fisher](http://www.sthda.com/french/wiki/test-exact-de-fisher-avec-r) comme test alternatif, en particulier lorsque les effectifs sont faibles.
 
-
 ## Métriques (étudiants de l'UMONS)
 
 En matière de gestion des données, nous avons vu jusqu'ici comment *encoder* ses données dans un tableau cas par variables, comment *importer* des données dans R, et comment remanier les tableaux de données et les variables (numériques, tranformation en variable `factor`, encodage et gestion des valeurs manquantes, etc.) Toutes les variables présentes dans le tableau de départ à l'importation sont dites **variables brutes**... mais les possibilités ne sont pas seulement limitées à ces variables de départ.
 
 En science des données, les variables brutes ne sont pas toujours les plus utiles par rapport aux questions que nous nous posons. Au delà de la simple transformation des données (logarithme, puissance, racine, inverse, ...) pour linéariser un nuage de points, nous sommes amenés à élaborer des **variables calculées** ou **métriques** qui vont caractériser ou quantifier un aspect particulier présent dans les données.
-
 
 ### Morphométrie de crabes
 
@@ -571,7 +546,6 @@ Les **métriques** sont des variables issues de calculs plus complexes et qui vi
 **Devenez une/une bon(ne) scientifique des données\ : créez et utilisez des métriques adéquates le plus souvent possible.**
 ```
 
-
 ### Biométrie humaine
 
 Le jeu de données sur la biométrie humaine que vous avez vous-mêmes réalisé est un fantastique terrain de jeu pour définir des métriques. La question centrale étant ici d'étudier la question de l'obésité, les métriques les plus importantes sont celles qui permettent de bien quantifier cela.
@@ -599,17 +573,16 @@ L'utilisation de l'IMC comme indice afin de quantifier l'obésité est bien plus
 ```{r}
 biometry %>.%
   mutate(., 
-         bmi = weight / (height / 100)^2,
-         bmi_schedule = case_when(
-           bmi < 18.5 ~ "sous-poids",
-           bmi >= 18.5 & bmi < 25 ~ "poids normal",
-           bmi >= 25 & bmi < 30 ~ "surpoids",
-           bmi >= 30 ~ "obèse"),
-         bmi_schedule = factor(
-           bmi_schedule, 
-           levels = c("sous-poids", "poids normal", "surpoids", "obèse"), 
-           ordered = TRUE)
-         ) -> biometry
+    bmi = weight / (height / 100)^2,
+    bmi_schedule = case_when(
+      bmi < 18.5 ~ "sous-poids",
+      bmi >= 18.5 & bmi < 25 ~ "poids normal",
+      bmi >= 25 & bmi < 30 ~ "surpoids",
+      bmi >= 30 ~ "obèse"),
+    bmi_schedule = factor(bmi_schedule, 
+      levels = c("sous-poids", "poids normal", "surpoids", "obèse"), 
+      ordered = TRUE)
+  ) -> biometry
 
 biometry
 ```
@@ -622,7 +595,7 @@ chart(biometry, ~ bmi_schedule) +
   labs(x = "Echelle de l'IMC", "Dénombrement")
 ```
 
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 Dans le projet portant sur le biométrie humaine, réalisez les instructions proposées  via le lien suivant :
@@ -634,9 +607,7 @@ Afin de vous aider dans la recherche d'indices intéressants et pertinents, des 
 <https://github.com/BioDataScience-Course/sdd_lesson/tree/2019-2020/sdd1_08/biometry_doc_supp>
 
 Débutez votre recherche d'indice avec la lecture de l'article : Comment mesurer la corpulence et le poids idéal ? Histoire, intérêts et limites de l'indice de masse corporelle
-
 ```
-
 
 ## Evaluation par les pairs (étudiants de Charleroi)
 
@@ -644,7 +615,7 @@ En science, l'évaluation par les pairs ("peer-reviewing" en anglais) est le mé
 
 Avant d'être rendus publics, les travaux scientifiques font l'objet d'un ou plusieurs rapports par des pairs. Cette phase est la **révision** de l'article. Le rapport se veut constructif dans le but d'améliorer la qualité du travail. Il ne s'agit pas d'"enfoncer" les auteurs initiaux, mais le "referee" se doit d'être honnête et donc, de mettre le doigt sur les défauts et lacunes du travail également.
 
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 Vous allez vous initier au travail d'arbitrage ("referee" scientifique) sur base du rapport sur la biométrie de l'oursin violet. Vous partagerez votre dépôt Github avec un de vos collègue. Vous recevrez également un accès au dépôt de quelqu'un d'autre. Votre travail consistera à lire avec un œil critique et constructif le travail que vous recevrez.
@@ -657,7 +628,6 @@ N'effacer, ni ne modifiez aucun texte directement dans ce rapport. Si vous devez
 
 De votre côté, lorsque vous recevrez le rapport relatif à votre propre projet, lisez les commentaires. Ne modifiez **pas** le fichier `review.md`, mais par contre, éditez le texte et éliminez les commentaires directement dans le rapport au fur et à mesure que vous le corriger en tenant compte des remarques. Vous pourrez éventuellement apporter des réponses ou des justifications aux commentaires globaux du fichier `review.md`.
 
-Les intructions sont détaillées ici\ :
+Les instructions sont détaillées ici\ :
   <https://github.com/BioDataScience-Course/sdd_lesson/blob/master/sdd1_08/presentations/correction.md>
-
 ```

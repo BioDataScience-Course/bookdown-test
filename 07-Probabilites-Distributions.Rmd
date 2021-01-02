@@ -12,11 +12,9 @@ SciViews::R
 
 - Appréhender les principales lois de distributions et leurs utilisations pratiques
 
-
 ##### Prérequis {-}
 
 Vous devez être à l'aise avec l'utilisation de R, RStudio et R Markdown. Vous avez appris à maîtriser ces outils dans les modules \@ref(intro) & \@ref(visu1).
-
 
 ## Probabilités
 
@@ -27,19 +25,18 @@ vembedr::embed_youtube("5TtwG_LR0iY", width = 770, height = 433)
 ```
 
 ```{block, type='note'}
-Sachant qu'un **événement** en statistique est un fait qui se produit, la **probabilité** que cet événement se produise effectivement peut être quantifiée sur base de l'observation des réalisations passées. Ainsi si l'événement en question s'est produit, disons, 9 fois sur un total de 12 réalisations, on dira que la probabilité que cet événement se produise est de 9/12, soit 0,75. Notez qu'une probabilité est un nombre compris entre zéro (lorsqu'il ne se produit jamais) et un (lorsqu'il se produit toujours).
+Sachant qu'un **évènement** en statistique est un fait qui se produit, la **probabilité** que cet évènement se produise effectivement peut être quantifiée sur base de l'observation des réalisations passées. Ainsi si l'évènement en question s'est produit, disons, 9 fois sur un total de 12 réalisations, on dira que la probabilité que cet évènement se produise est de 9/12, soit 0,75. Notez qu'une probabilité est un nombre compris entre zéro (lorsqu'il ne se produit jamais) et un (lorsqu'il se produit toujours).
 ```
 
-On écrira, pour la probabilité de l'événement *E* :
+On écrira, pour la probabilité de l'évènement *E* :
 
 $$0 \leq \mathrm{P}(E) \leq 1$$
-
 
 ### Dépistage
 
 > Voyons tout de suite une application plus proche de la biologie : le dépistage d'une maladie qui touche 8% de la population. Le test de dépistage mis en place détecte 95% des malades. De plus, le test se trompe dans 10% des cas pour les personnes saines. Comment connaitre le risque d'être malade si on est diagnostiqué positif par ce test ?
 
-Pour résoudre ce problème, nous devons d'abord apprendre à *combiner* des probabilités. Ce n'est pas bien compliqué. Si on a affaire à des **événements successifs indépendants** (c'est-à-dire que l’occurrence de l'un ne dépend pas de l’occurrence de l'autre), la **probabilité que les deux événements successifs indépendants se produisent tous les deux est la multiplication des deux probabiltés**. On pourra écrire :
+Pour résoudre ce problème, nous devons d'abord apprendre à *combiner* des probabilités. Ce n'est pas bien compliqué. Si on a affaire à des **évènements successifs indépendants** (c'est-à-dire que l’occurrence de l'un ne dépend pas de l’occurrence de l'autre), la **probabilité que les deux évènements successifs indépendants se produisent tous les deux est la multiplication des deux probabiltés**. On pourra écrire :
 
 $$\mathrm{P}(E_1 \,\mathrm{et}\, E_2) = \mathrm{P}(E_1) * \mathrm{P}(E_2)$$
 
@@ -50,7 +47,7 @@ Vous pouvez dès lors calculer la probabilité que l'on teste un patient malade 
 (p_sick_positive <- 0.08 * 0.95)
 ```
 
-Ceci n'indique *pas* la probabilité que le test soit positif car il est également parfois (erronément) positif pour des patients sains. Mais au fait, quelle est la probabilité d'avoir un patient sain ? **La probabilité que l'un parmi tous les événements possibles se produise vaut toujours un**. Les seuls événements possibles ici sont que le patient soit sain ou malade. Donc,
+Ceci n'indique *pas* la probabilité que le test soit positif car il est également parfois (erronément) positif pour des patients sains. Mais au fait, quelle est la probabilité d'avoir un patient sain ? **La probabilité que l'un parmi tous les évènements possibles se produise vaut toujours un**. Les seuls évènements possibles ici sont que le patient soit sain ou malade. Donc,
 
 $$\mathrm{P}(sain) + \mathrm{P}(malade) = 1 \rightarrow \mathrm{P}(sain) = 1 - \mathrm{P}(malade) = 0.92$$
 
@@ -62,7 +59,7 @@ Nous pouvons maintenant déterminer la probabilité que le test soit positif dan
 (p_healthy_positive <- 0.92 * 0.10)
 ```
 
-Bon, il nous reste à combiner les probabilités que le test soit positif si la personne est malade et si la personne est saine. Mais comment faire\ ? Ici, on n'a pas affaire à des événements successifs, mais à des évènements mutuellement exclusifs. On les appellent des **événements disjoints**. Pour déterminer si l'un parmi deux événements disjoints se produit, il suffit d'**additionner leurs probabilités respectives**. Nous pouvons maintenant déterminer la probabilité que le test soit positif quelle que soit la personne testée :
+Bon, il nous reste à combiner les probabilités que le test soit positif si la personne est malade et si la personne est saine. Mais comment faire\ ? Ici, on n'a pas affaire à des évènements successifs, mais à des évènements mutuellement exclusifs. On les appellent des **évènements disjoints**. Pour déterminer si l'un parmi deux évènements disjoints se produit, il suffit d'**additionner leurs probabilités respectives**. Nous pouvons maintenant déterminer la probabilité que le test soit positif quelle que soit la personne testée :
 
 
 ```{r}
@@ -79,7 +76,7 @@ p_sick_positive / p_positive
 ... seulement 45,2% qui sont effectivement malades (on parle de **vrais positifs**) ! Ceci ne correspond pas du tout aux indications de départ sur les performances du test.
 
 ```{block2, type='note'}
-Dans le cas de deux faits successifs qui ne peuvent chacun que résulter en deux événements, nous avons seulement quatre situations possibles. Si l'un des cas est qualifié de positif et l'autre de négatif, nous aurons\ :
+Dans le cas de deux faits successifs qui ne peuvent chacun que résulter en deux évènements, nous avons seulement quatre situations possibles. Si l'un des cas est qualifié de positif et l'autre de négatif, nous aurons\ :
   
 - les **vrais positifs** (test positif alors que la personne est malade), ici 0.08 * 0.95
 
@@ -121,26 +118,24 @@ Dans ce cas, un test positif n'aura effectivement détecté un malade que dans .
 
 > Comme nous pouvons le constater ici, le calcul des probabilités est relativement simple. Mais en même temps, les résultats obtenus peuvent être complètement **contre-intuitifs**. D'où l'intérêt de faire ce genre de calcul justement.
 
-
 ### Arbre des probabilités
 
-Il se peut que tout cela vous paraisse très (trop) abstrait. Vous êtes peut-être quelqu'un de visuel qui comprend mieux les concepts en image. Dans ce cas, la méthode alternative de résolution des calculs de probabilités via les **arbres de probabilités** devrait vous éclairer. Le principe consiste à représenter un arbre constitué de nœuds (des faits qui se produisent). De ces nœuds, vous représentez autant de branches (des segments de droites) que d'événements possibles. La figure suivante est l'arbre des probabilités correspondant au cas du dépistage de la maladie qui touche 8% de la population.
+Il se peut que tout cela vous paraisse très (trop) abstrait. Vous êtes peut-être quelqu'un de visuel qui comprend mieux les concepts en image. Dans ce cas, la méthode alternative de résolution des calculs de probabilités via les **arbres de probabilités** devrait vous éclairer. Le principe consiste à représenter un arbre constitué de nœuds (des faits qui se produisent). De ces nœuds, vous représentez autant de branches (des segments de droites) que d'évènements possibles. La figure suivante est l'arbre des probabilités correspondant au cas du dépistage de la maladie qui touche 8% de la population.
 
 ![Arbre de probabilités permettant de déterminer la probabilité d'avoir un résultat positif au test.](images/sdd1_07/probtree.png)
 
-Du premier nœud (le fait qu'une personne est atteinte ou non de la maladie), nous avons deux branches menant aux deux événements "malade" et "sain". Chacune de ces deux situations est un nouveau nœud d'où deux événements sont possibles à chaque fois (2 fois 2 nouvelles branches) : un test "positif", ou un test "négatif". Les nœuds terminaux (les "négatifs" et "positifs" ici) sont aussi appelés les feuilles de l'arbre. L'arbre reprend donc tous les cas possibles depuis le nœud de départ (sa racine), jusqu'aux feuilles.
+Du premier nœud (le fait qu'une personne est atteinte ou non de la maladie), nous avons deux branches menant aux deux évènements "malade" et "sain". Chacune de ces deux situations est un nouveau nœud d'où deux évènements sont possibles à chaque fois (2 fois 2 nouvelles branches) : un test "positif", ou un test "négatif". Les nœuds terminaux (les "négatifs" et "positifs" ici) sont aussi appelés les feuilles de l'arbre. L'arbre reprend donc tous les cas possibles depuis le nœud de départ (sa racine), jusqu'aux feuilles.
 
-L'étape suivante consiste à aller indiquer le long des branches les probabilités associées à chaque événement : 0.08 pour "malade", 0.95 pour un dépistage "positif" si la personne est malade, etc. A ce stade, une petite vérification peut être faite. La somme des probabilités aux feuilles doit toujours valoir un, et il en est de même de la somme de toutes les branches issues d'un même nœud.
+L'étape suivante consiste à aller indiquer le long des branches les probabilités associées à chaque évènement : 0.08 pour "malade", 0.95 pour un dépistage "positif" si la personne est malade, etc. A ce stade, une petite vérification peut être faite. La somme des probabilités aux feuilles doit toujours valoir un, et il en est de même de la somme de toutes les branches issues d'un même nœud.
 
 Le calcul se fait ensuite comme suit. On repère tous les cas qui nous intéressent. Ici, il s'agit de toutes les trajectoires qui mènent à un test "positif". Le calcul des probabilités se fait en **multipliant les probabilités lorsqu'on passe d'un noeud à l'autre et en additionnant les probabilités ainsi calculées le long des feuilles terminales de l'arbre considéré.** Donc, le chemin "malade" -> "positif" correspond à 0.08 \* 0.95 = 0.076. Le chemin "sain" -> "positif" correspond à 0.92 \* 0.10 = 0.092. Enfin, nous sommons les probabilités ainsi calculées pour toutes les feuilles de l'arbre qui nous intéressent. Ici, ce sont toutes les feuilles qui correspondent à un test "positif", soit 0.076 + 0.092 = 0.168. *Et voilà ! Nous avons répondu au problème : la probabilité d'avoir un résultat positif avec le test de dépistage dans un population dont 8% est atteint de la maladie est de 16.8%.*
-
 
 ### Théorème de Bayes
 
 Nous devons introduire ici le concept de probabilité conditionnelle.
 
 ```{block, type='note'}
-Une **probabilité conditionnelle** est la probabilité qu’un événement *E2* se produise si et seulement si un premier événement *E1* s’est produit (*E1* et *E2* sont deux événements successifs). La probabilité conditionnelle s’écrit $\mathrm{P}(E2|E1)$.
+Une **probabilité conditionnelle** est la probabilité qu’un évènement *E2* se produise si et seulement si un premier évènement *E1* s’est produit (*E1* et *E2* sont deux évènements successifs). La probabilité conditionnelle s’écrit $\mathrm{P}(E2|E1)$.
 ```
 
 Vous noterez que l'arbre des probabilités représente, en réalité, des probabilités conditionnelles à partir du second niveau (l'arbre peut être évidemment plus complexe).
@@ -176,15 +171,15 @@ Nous avons maintenant une façon simple de déterminer $\mathrm{P}(malade|positi
 ```{block, type='note'}
 **A retenir**
 
-- Probabilité d'un événement\ :
+- Probabilité d'un évènement\ :
 
 $$\mathrm{P}(E) = \frac{\mathrm{nbr\ occurences\ } E}{\mathrm{nbr\ total\ essais}}$$
 
-- Probabilité de deux événements successifs (cas général) :
+- Probabilité de deux évènements successifs (cas général) :
 
 $$\mathrm{P(A\, \mathrm{et}\, B)} = \mathrm{P}(B|A) * \mathrm{P(A)}$$
 
-- Probabilité qu'un parmi deux événements se produise (cas général)\ :
+- Probabilité qu'un parmi deux évènements se produise (cas général)\ :
 
 $$\mathrm{P(A\, \mathrm{ou}\, B)} = \mathrm{P}(A) + \mathrm{P(B)} - \mathrm{P}(A\, \mathrm{et}\, B)$$
 
@@ -196,15 +191,13 @@ $$\mathrm{P(A\, \mathrm{ou}\, B)} = \mathrm{P}(A) + \mathrm{P(B)} - \mathrm{P}(A
 
 </center>
 
-
 ##### Pour en savoir plus {-}
 
 - Une [autre explication](https://youtu.be/R13BD8qKeTg) du théorème de Bayes (en anglais).
 
-
 ### Probabilités et contingence
 
-Comme un tableau de contingence indique le nombre de fois que des événements ont pu être observés, il peut servir de base à des calculs de probabilités. Partons du dénombrement de fumeur en fonction du revenu dans une population.
+Comme un tableau de contingence indique le nombre de fois que des évènements ont pu être observés, il peut servir de base à des calculs de probabilités. Partons du dénombrement de fumeur en fonction du revenu dans une population.
 
 ```{r}
 tabac <- data.frame(
@@ -216,7 +209,7 @@ rownames(tabac) <- c("fume", "ne fume pas",  "total")
 knitr::kable(tabac)
 ```
 
-- Quelle est la probabilité d'être un fumeur $\mathrm{P}(fumeur)$\ ? Rappelons-nous de la définition de probabilité\ : nombre de cas où l'événement se produit sur le nombre total de cas. Ici, on a 1213 fumeurs dans un effectif total de l'échantillon de 6549 personnes, soit\ :
+- Quelle est la probabilité d'être un fumeur $\mathrm{P}(fumeur)$\ ? Rappelons-nous de la définition de probabilité\ : nombre de cas où l'évènement se produit sur le nombre total de cas. Ici, on a 1213 fumeurs dans un effectif total de l'échantillon de 6549 personnes, soit\ :
 
 ```{r}
 1213 / 6549
@@ -242,8 +235,7 @@ Il s'agit d'une somme de probabilités disjointes.
 1213 / 6549 + 1954 / 6549 - 332 / 6549
 ```
 
-Il s'agit d'une somme de probabilités non disjointes^[Si *E1* et *E2* sont deux événements non disjoints, la probabilité que l’un de ces deux événements se produise est\ : $\mathrm{P}(E1\, ou\, E2) = \mathrm{P}(E1) + \mathrm{P}(E2) - \mathrm{P}(E1\, et\, E2)$.].
-
+Il s'agit d'une somme de probabilités non disjointes^[Si *E1* et *E2* sont deux évènements non disjoints, la probabilité que l’un de ces deux évènements se produise est\ : $\mathrm{P}(E1\, ou\, E2) = \mathrm{P}(E1) + \mathrm{P}(E2) - \mathrm{P}(E1\, et\, E2)$.].
 
 #### Populations de taille infinie
 
@@ -263,8 +255,7 @@ Dans une population, voici les proportions de différents groupes sanguins\ :
 0.10 * 0.10 * 0.10
 ```
 
-Nous avons ici 3 événements successifs indépendants. Donc, on multiplie leurs probabilités respectives.
-
+Nous avons ici 3 évènements successifs indépendants. Donc, on multiplie leurs probabilités respectives.
 
 #### Populations de taille finie
 
@@ -276,26 +267,22 @@ Dans une population de 100 personnes dont les proportions des différentes group
 10 / 100 * 9 / 99 * 8 / 98
 ```
 
-Il s'agit d'événements successifs **non-indépendants**. En effet, le retrait d'un individu de la population de taille finie *modifie* les proportions relatives des groupes sanguins dans le reste de la population, et donc, les probabilités aux tirages suivants. Ainsi pour le groupe B, nous n'avons plus que 9 individus de ce groupe dans une population de 99 individus après le premier tirage d'un individu du groupe B\ ! Autrement dit, $\mathrm{P}(B|B) \neq \mathrm{P}(B|not\ B)$. On a donc, $\mathrm{P}(B|B) = 9/99$ et ensuite $\mathrm{P}(B|B\, \mathrm{et}\, B) = 8/98$.
+Il s'agit d'évènements successifs **non-indépendants**. En effet, le retrait d'un individu de la population de taille finie *modifie* les proportions relatives des groupes sanguins dans le reste de la population, et donc, les probabilités aux tirages suivants. Ainsi pour le groupe B, nous n'avons plus que 9 individus de ce groupe dans une population de 99 individus après le premier tirage d'un individu du groupe B\ ! Autrement dit, $\mathrm{P}(B|B) \neq \mathrm{P}(B|not\ B)$. On a donc, $\mathrm{P}(B|B) = 9/99$ et ensuite $\mathrm{P}(B|B\, \mathrm{et}\, B) = 8/98$.
 
-
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 ```{block2, type='bdd'}
-
 Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
 
     BioDataScience1::run("A07a_proba")
-
 ```
-
 
 ## Lois de distributions
 
-Étant donné que les sciences des données reposent sur un nombre (si possible important) de répétitions d’une mesure -des réplicats-, il est possible de déterminer à quelle fréquence un événement *E* se produit de manière expérimentale. La **probabilité observée** est quantifiable sur base d’un échantillon comme nous venons de le voir dans la section précédente. La **probabilité théorique** est connue si le mécanisme sous-jacent est parfaitement connu. Donc, en situation réelle, seule la probabilité observée est accessible, et ce n’est qu’une approximation de la vraie valeur, ou valeur théorique. Cependant, dans des situations particulières les statisticiens ont calculé les probabilités théoriques. Ce sont des **lois de distribution**. Elles associent une probabilité théorique à chaque événement possible.
+Étant donné que les sciences des données reposent sur un nombre (si possible important) de répétitions d’une mesure -des réplicats-, il est possible de déterminer à quelle fréquence un évènement *E* se produit de manière expérimentale. La **probabilité observée** est quantifiable sur base d’un échantillon comme nous venons de le voir dans la section précédente. La **probabilité théorique** est connue si le mécanisme sous-jacent est parfaitement connu. Donc, en situation réelle, seule la probabilité observée est accessible, et ce n’est qu’une approximation de la vraie valeur, ou valeur théorique. Cependant, dans des situations particulières les statisticiens ont calculé les probabilités théoriques. Ce sont des **lois de distribution**. Elles associent une probabilité théorique à chaque évènement possible.
 
 ```{block, type='info'}
-La comparaison des probabilités théoriques et observées constitue l’un des piliers des statistiques. Le raisonnement est le suivant : si les probabilités observées sont suffisamment proches des probabilités théoriques, alors, nous pouvons considérer que les événements sont générés selon un mécanisme identique ou proche de celui qui est à la base de la loi de distribution théorique correspondante.
+La comparaison des probabilités théoriques et observées constitue l’un des piliers des statistiques. Le raisonnement est le suivant : si les probabilités observées sont suffisamment proches des probabilités théoriques, alors, nous pouvons considérer que les évènements sont générés selon un mécanisme identique ou proche de celui qui est à la base de la loi de distribution théorique correspondante.
 ```
 
 <center>
@@ -304,10 +291,9 @@ La comparaison des probabilités théoriques et observées constitue l’un des 
 
 </center>
 
-Avant d'explorer ces lois de distributions statistiques, nous devons d'abord introduire la distinction entre **probabilité discrète** et **probabilité continue**. Une probabilité discrète est associée à une variable qualitative ou à la rigueur, à une variable continue discrète qui peut prendre un nombre fini -et généralement relativement petit- de valeurs. A chaque valeur est associé un événement, et chaque événement a une certaine probabilité de se produire dans un contexte donné. *Jusqu'à présent, nous n'avons traité que ce cas-là.* Par contre, une variable quantitative continue peut prendre un nombre infini de valeurs matérialisées généralement par l'ensemble des nombres réels. Dans ce cas, l'association d'un événement à une valeur de la variable, et d'une probabilité à chaque événement reste vraie en théorie. Mais en pratique, ces probabilités dites continues ne sont pas calculables par les équations étudiées jusqu'ici. Par contre, les **lois de distributions continues** permettent des calculs, moyennant une petite astuce que nous étudierons plus loin dans ce chapitre.
+Avant d'explorer ces lois de distributions statistiques, nous devons d'abord introduire la distinction entre **probabilité discrète** et **probabilité continue**. Une probabilité discrète est associée à une variable qualitative ou à la rigueur, à une variable continue discrète qui peut prendre un nombre fini -et généralement relativement petit- de valeurs. A chaque valeur est associé un évènement, et chaque évènement a une certaine probabilité de se produire dans un contexte donné. *Jusqu'à présent, nous n'avons traité que ce cas-là.* Par contre, une variable quantitative continue peut prendre un nombre infini de valeurs matérialisées généralement par l'ensemble des nombres réels. Dans ce cas, l'association d'un évènement à une valeur de la variable, et d'une probabilité à chaque évènement reste vraie en théorie. Mais en pratique, ces probabilités dites continues ne sont pas calculables par les équations étudiées jusqu'ici. Par contre, les **lois de distributions continues** permettent des calculs, moyennant une petite astuce que nous étudierons plus loin dans ce chapitre.
 
-
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 Tout au long de cette section des questions sous la forme d'un learnr vous sont proposées. Complétez progressivement le learnr avec vos nouvelles connaissances
 
@@ -318,15 +304,14 @@ BioDataScience1::run("A07b_distri")
 
 ```
 
-
 ## Distribution uniforme
 
-La loi de la distribution uniforme se rapporte à un mécanisme qui génère **tous les événements de manière équiprobable**.
+La loi de la distribution uniforme se rapporte à un mécanisme qui génère **tous les évènements de manière équiprobable**.
 
 
 ### Distribution discrète
 
-Dans le cas d'événements discrets, si $n_E$ est le nombre total d'événements possibles, la probabilité d’un de ces événements vaut donc :
+Dans le cas d'évènements discrets, si $n_E$ est le nombre total d'évènements possibles, la probabilité d’un de ces évènements vaut donc :
 
 $$\mathrm{P}(E) = \frac{1}{n_E}$$
 
@@ -338,20 +323,19 @@ tibble(Portée = 1:4, Probabilité = 1/4) %>.%
   geom_bar(stat = "identity", width = 0.03)
 ```
 
-
 ### Distribution continue
 
-D'emblée, nous pouvons facilement démontrer quel est le problème avec les probabilités dans le cas de la **distribution uniforme continue**. Nous avons en effet, un nombre infini d'événements équiprobables possibles. Donc, la probabilité de chaque événement est ($n_E = \infty$) :
+D'emblée, nous pouvons facilement démontrer quel est le problème avec les probabilités dans le cas de la **distribution uniforme continue**. Nous avons en effet, un nombre infini d'évènements équiprobables possibles. Donc, la probabilité de chaque évènement est ($n_E = \infty$) :
 
 $$\mathrm{P}(E) = \frac{1}{\infty} = 0$$
 
 ... et ce calcul est *correct*\ !
 
 ```{block, type='warning'}
-Dans le cas de probabilités continues, la probabilité d'un événement en particulier est **toujours nulle**. Nous pouvons seulement calculer que l'un parmi plusieurs événements se produise (compris dans un intervalle).
+Dans le cas de probabilités continues, la probabilité d'un évènement en particulier est **toujours nulle**. Nous pouvons seulement calculer que l'un parmi plusieurs évènements se produise (compris dans un intervalle).
 ```
 
-La représentation graphique d'une loi de distribution continue est un outil utile pour la comprendre et vérifier ses calculs. La forme la plus courante consiste à montrer la **courbe de densité de probabilité** pour une distribution continue. Sur l'axe *X*, nous avons les **quantiles** (les valeurs observables), et sur l'axe *Y*, la densité de probabilité^[Plus la densité de probabilité est élevée, plus les événements dans cette région du graphique sont probables.]. Par exemple, si nous constatons qu'un insecte butineur arrive sur une fleur en moyenne toutes les 4 minutes, la probabilité qu'un butineur arrive dans un intervalle de temps compris entre 0 et 4 min depuis le moment initial $t_0$ de nos observations suit une distribution uniforme continue (Fig. \@ref(fig:unif2)).
+La représentation graphique d'une loi de distribution continue est un outil utile pour la comprendre et vérifier ses calculs. La forme la plus courante consiste à montrer la **courbe de densité de probabilité** pour une distribution continue. Sur l'axe *X*, nous avons les **quantiles** (les valeurs observables), et sur l'axe *Y*, la densité de probabilité^[Plus la densité de probabilité est élevée, plus les évènements dans cette région du graphique sont probables.]. Par exemple, si nous constatons qu'un insecte butineur arrive sur une fleur en moyenne toutes les 4 minutes, la probabilité qu'un butineur arrive dans un intervalle de temps compris entre 0 et 4 min depuis le moment initial $t_0$ de nos observations suit une distribution uniforme continue (Fig. \@ref(fig:unif2)).
 
 ```{r unif2, echo=FALSE, fig.cap="Probabilité qu'un nouvel insecte butineur arrive dans un intervalle de 0 à 4 min si, en moyenne, un insecte arrive toutes les 4 min."}
 # Uniform distribution (density probability) with parameters:
@@ -399,7 +383,6 @@ Cela signifie : "la variable aléatoire *X* suit une distribution uniforme 0 à 
 
 La distribution $U(0, 1)$ est particulière et est appelée **distribution uniforme standard**. Elle a la propriété particulière que si $X \sim U(0, 1)$ alors $(1-X) \sim U(0, 1)$.
 
-
 ### Quantiles vers probabilités
 
 L'**aire sous la courbe** représente une probabilité associée à l'intervalle considéré pour les quantiles. Répondez aux questions suivantes pour notre variable $X \sim U(0,4)$\ :
@@ -438,7 +421,6 @@ La réponse est 0,125, soit une fois sur huit.
 Le calcul de probabilités sur base de lois de distributions continues se fait via les aires à gauche ou à droite d'un quantile sur le graphique de densité de probabilité. Pour une aire centrale, nous soustrayons les aires à gauche des deux quantiles respectifs.
 ```
 
-
 ### Probabilités vers quantiles
 
 Le calcul inverse est parfois nécessaire. Par exemple pour répondre à la question suivante\ :
@@ -465,7 +447,6 @@ qunif(1/3, min = 0, max = 4, lower.tail = TRUE)
 
 Donc il faut observer pendant 1,33 min (1 min et 20 sec) pour avoir 1 chance sur 3 d'observer l'arrivée d'un insecte butineur.
 
-
 ### Calcul avec les snippets
 
 La SciViews Box propose différents snippets pour nous aider à effectuer nos différents calculs et graphiques relatifs à la distribution uniforme continue. Ils se retrouvent dans le menu `(d)istributions` accédé depuis `...`. Donc `..i` donne *directement* accès à ce menu, et puis `(d)istributions: uniform` accédé depuis `.iu` directement. Ensuite, il suffit de choisir le snippet dans le menu déroulant (voir ci-dessous).
@@ -487,17 +468,15 @@ set.seed(946)
 runif(10, min = 0, max = 1)
 ```
 
-
 ## Distribution binomiale
 
 Partons d'un exemple pratique pour découvrir cette distribution. La [mucoviscidose](http://www.muco.be/fr/mucoviscidose/maladie-génétique) est, dans la population européenne, la plus fréquente des maladies génétiques héréditaires. Elle se caractérise par un mucus (voies respiratoires) anormalement épais qui est à l’origine de diverses complications. L'altération d'une protéine CFTR est à l'origine de cette maladie. Comme le gène qui code pour cette protéine est récessif, il faut que le deux allèles soient porteurs simultanément de la mutation pour que la maladie apparaisse. Parmi des familles de six enfants dont le père et la mère normaux sont tous deux porteurs hétérozygotes du gène altéré, quelle est la probabilité d'obtenir 0, 1, 2, ..., 6 enfants atteints de mucoviscidose\ ?
 
-
-### Epreuve de Bernoulli
+### Épreuve de Bernoulli
 
 La **distribution binomiale** est un loi de distribution discrète qui répond à ce genre de question. Ses conditions d'applications sont\ :
 
-- résultats binaire (deux événements possibles uniquement\ ; l'un sera nommé "succès" et l'autre "échec" par convention),
+- résultats binaire (deux évènements possibles uniquement\ ; l'un sera nommé "succès" et l'autre "échec" par convention),
 - essais indépendants (les probabilités ne changement pas d'un essai à l'autre),
 - *n* le nombre d'essais totaux est fixé à l'avance,
 - probabilité du "succès" *p* constante (probabilité de l'"échec" = 1 - *p*). 
@@ -514,14 +493,13 @@ $$Y \sim B(n,p)$$
 
 Notre exemple rentre parfaitement dans le cadre de l'épreuve de Bernoulli avec *n* = 6 et *p*, la probabilité du succès, c'est-à-dire, d'avoir un enfant qui ne développe pas la maladie de 3/4\ : $Y \sim B(6, 0.75)$.
 
-
 ### Calculs et graphiques
 
 Les calculs sur base d'une distribution binomiale sont assez similaires à ceux de la distribution uniforme dans R, en remplaçant `unif` par `binom` dans le nom des fonction. Voici la liste des snippets à votre disposition dans la SciViews Box pour vous aider (menu `(d)istributions: binomial` à partir de `.ib`) :
 
 ![](images/sdd1_07/snippets-binomial.png)
 
-Puisqu'il s'agit d'une distribution discrète, un petit nombre d'événements possibles existent. Le snippet `.ibtable` retourne l'ensemble des valeurs possibles pour $j$ allant de 1 à $n$ en une seule étape. Les autres snippets devraient vous être familiers.
+Puisqu'il s'agit d'une distribution discrète, un petit nombre d'évènements possibles existent. Le snippet `.ibtable` retourne l'ensemble des valeurs possibles pour $j$ allant de 1 à $n$ en une seule étape. Les autres snippets devraient vous être familiers.
 
 ```{r}
 (.table <- data.frame(success = 0:6,
@@ -543,7 +521,6 @@ tibble(Quantile = 0:6, Probabilité = dbinom(0:6, size = 6, prob = 0.5)) %>.%
   chart(., Probabilité ~ Quantile) +
   geom_bar(stat = "identity", width = 0.05)
 ```
-
 
 ## Distribution de poisson
 
@@ -570,8 +547,7 @@ factorial(1600)
 
 Or, le factoriel est un nombre qui grandit très, très vite. Déjà le factoriel de 100 est un nombre à 157 chiffres. Nous voyons que R est incapable de calculer précisément le factoriel de 1000. Ce nombre est supérieur au plus grand nombre que l'ordinateur peut représenter pour un `double` en R (`r .Machine$double.xmax`). Donc, nous sommes incapables de répondre à la question à l'aide de la loi binomiale.
 
-
-### Evénements rares
+### Évènements rares
 
 La **distribution de Poisson** permet d'obtenir la réponse à la question posée parce qu'elle effectue le calcul différemment. Cette distribution discrète a un seul paramètre $\lambda$ qui représente le nombre moyen de cas rares que l'on observe dans un échantillon donné, ou sur un laps de temps fixé à l'avance. Cette distribution est **asymétrique pour de faible $\lambda$**. Les conditions d'application sont\ : 
 
@@ -588,7 +564,7 @@ et
 
 $$P(Y=k) = P(Y=k-1) \times \frac{\lambda}{k}$$
 
-Le calcul se réalise de proche en proche en partant de la probabilité de ne jamais observer l'événement. Comme l'événement est rare, la probabilité tend très rapidement vers une valeur extrêmement faible. Seul le calcul des quelques premiers termes est donc nécessaire. A titre d'exercice, faites le calcul pour notre exemple d'un échantillon de la population belge, avec $\lambda = 1$ comme paramètre. La densité de probabilité pour cette distribution est représentée à la Fig. \@ref(fig:poisson).
+Le calcul se réalise de proche en proche en partant de la probabilité de ne jamais observer l'évènement. Comme l'évènement est rare, la probabilité tend très rapidement vers une valeur extrêmement faible. Seul le calcul des quelques premiers termes est donc nécessaire. A titre d'exercice, faites le calcul pour notre exemple d'un échantillon de la population belge, avec $\lambda = 1$ comme paramètre. La densité de probabilité pour cette distribution est représentée à la Fig. \@ref(fig:poisson).
 
 ```{r poisson, echo=FALSE, fig.cap="Probabilité d'occurence de mucoviscidose dans un échantillon aléatoire de 1600 belges."}
 tibble(Quantile = 0:8, Probabilité = dpois(0:8, lambda = 1)) %>.%
@@ -596,22 +572,19 @@ tibble(Quantile = 0:8, Probabilité = dpois(0:8, lambda = 1)) %>.%
   geom_bar(stat = "identity", width = 0.05)
 ```
 
-
 ### Loi de Poisson dans R
 
 Les fonctions dans R relatives à la distribution de Poisson portent des noms `<x>pois()`, tel que `ppois()` pour calculer des probabilités, `qpois()` pour calculer des quantiles ou `rpois()` pour générer des nombres pseudo-aléatoires selon cette distribution. Voici la liste des snippets à votre disposition dans la SciViews Box pour vous aider (menu `(d)istributions: poisson` à partir de `.ip`) :
 
 ![](images/sdd1_07/snippets-poisson.png)
 
+## Distribution Normale
 
-## Distribution normale
-
-La vidéo suivante vous permettra de récapituler certaines notions étudiées jusqu'ici concernant les types de variables et vous introduira la loi de distribution normale ou distribution de Gauss ou encore, gaussienne.
+La vidéo suivante vous permettra de récapituler certaines notions étudiées jusqu'ici concernant les types de variables et vous introduira la loi de distribution Normale ou distribution de Gauss ou encore, gaussienne.
 
 ```{r, echo=FALSE}
 vembedr::embed_youtube("THk2GBxkg4o", width = 770, height = 433)
 ```
-
 
 ### Une "courbe en cloche"
 
@@ -645,10 +618,9 @@ Pour une variable aléatoire $Y$ qui suit une distribution normale avec une moye
 
 $$Y \sim N(μ, σ)$$
 
+### Loi Normale réduite
 
-### Loi normale réduite
-
-Parmi toutes les distributions normales possibles, un est particulière\ : la **distribution normale réduite** qui a toujours une moyenne nulle et un écart type unitaire.
+Parmi toutes les distributions Normales possibles, un est particulière\ : la **distribution Normale réduite** qui a toujours une moyenne nulle et un écart type unitaire.
 
 $$N(0, 1)$$
 
@@ -687,13 +659,11 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
   annotate("text", x = c(-0.5, 1.5), y = 0.05, label = c("P = 68%", "P = 95%"), col = "red")
 ```
 
-
 ### Fonctions et snippets
 
 Les fonctions relatives à la distribution normale dans R sont `<x>norm()`. Le calcul de probabilités se fait à l'aide de `pnorm()`, de quantiles à partir de `qnorm()`. Un échantillon pseudo-aléatoire s'obtient à partir de `rnorm()`. Une série de snippets est à votre disposition dans la SciViews Box pour vous aider (menu `(d)istributions: normal` à partir de `.in`) :
 
 ![](images/sdd1_07/snippets-normal.png)
-
 
 ### Théorème central limite
 
@@ -703,15 +673,13 @@ Une des raisons pour lesquelles la distribution normale est très répandue est 
 vembedr::embed_youtube("4dhm2QAA2x4", width = 770, height = 433)
 ```
 
+## Distribution log-Normale
 
-## Distribution log-normale
-
-La loi log-normale est utilisée pour représenter la distribution d'une variable aléatoire qui résulte de la multiplication d'un grand nombre de petits effets indépendants entre eux. C'est le cas en biologie et en chimie, par exemple, la taille d'un animal, la concentration d'une molécule en solution, la température d'un matériau, etc. Ces variables sont définies uniquement pour des valeurs nulles ou positives. Une taille et une concentration négatives ne sont pas possibles. De même pour une température en dessous du zéro absolu (attention, dans ce cas, la température doit être mesurée en Kelvin).
-
+La loi log-Normale est utilisée pour représenter la distribution d'une variable aléatoire qui résulte de la multiplication d'un grand nombre de petits effets indépendants entre eux. C'est le cas en biologie et en chimie, par exemple, la taille d'un animal, la concentration d'une molécule en solution, la température d'un matériau, etc. Ces variables sont définies uniquement pour des valeurs nulles ou positives. Une taille et une concentration négatives ne sont pas possibles. De même pour une température en dessous du zéro absolu (attention, dans ce cas, la température doit être mesurée en Kelvin).
 
 ### Transformée log
 
-La distribution log-normale devient normale lorsque l'on transforme la variable en son logarithme. Donc, si
+La distribution log-Normale devient normale lorsque l'on transforme la variable en son logarithme. Donc, si
 
 $$X \sim log{\text -}N(0, 0.5)$$
 
@@ -743,7 +711,6 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x)), Prob ~ Quantiles) +
 Les fonctions relatives à la distribution log-normale dans R sont `<x>lnorm()`. Le calcul de probabilités se fait à l'aide de `plnorm()`, les quantiles se déterminent à partir de `qlnorm()` et un échantillon pseudo-aléatoire se calcule en utilisant `rlnorm()`. Les snippets relatifs à la loi log-normale dans la SciViews Box sont accessibles à partir du menu `(d)istributions: log-normal` à partir de `.il`)\ :
 
 ![](images/sdd1_07/snippets-lognormal.png)
-
 
 ## Graphique quantile-quantile
 
@@ -805,8 +772,6 @@ car::qqPlot(eggs[["log_area"]], distribution = "norm",
   envelope = 0.95, col = "Black", ylab = "log(area [mm^2])")
 ```
 
-
 ##### Interprétation {-}
 
 Si quasiment tous les points sont compris dans l'enveloppe de confiance à 95%, le graphique indique que les deux distributions ne sont pas fondamentalement différentes. Ici les points correspondant aux valeurs les plus élevées sortent de l'enveloppe pour un certain nombre d'entre eux d'affilée, et les points 11 et 30 sont considérés comme suspects. Ceci indique que les effectifs observés dans l'échantillon sont plus nombreux en queue droite de distribution que ce que la distribution normale prédit en théorie. Ceci confirme l'impression de distribution asymétrique et/ou bimodale. Il est probable qu'on ait au moins deux types d’œufs allongés différents dans l'échantillon, avec le second type moins nombreux, mais représenté par des œufs plus gros, ce qui enfle la partie droite de la distribution.
-

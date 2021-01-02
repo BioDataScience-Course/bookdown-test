@@ -10,37 +10,37 @@
 
 - Réaliser son premier document écrit en Markdown, un système de formatage de texte.
 
+## Le monde depuis 30 ans {#donnees}
 
-## Le monde il y a 30 ans {#donnees}
+![La bibliothèque était pratiquement le seul lieu de détention du savoir, de l'information --et des données, en général-- avant le 21^ème^siècle.](images/sdd1_01/library.jpg)
 
-Il y a 30 ans, pas d'internet (ou un embryon d'internet disponible uniquement pour quelques privilégiés dans les universités et l'armée américaine), pas de smartphone. Essayez d'imaginer ce que serait votre vie aujourd'hui si ces outils qui font partie de votre quotidien n'existaient pas.
+Il y a 30 ans, pas d'internet (ou un embryon d'internet disponible uniquement pour quelques privilégiés dans les universités et l'armée américaine), pas de smartphone. Essayez d'imaginer ce que serait votre vie aujourd'hui si ces outils qui font partie de votre quotidien n'existaient pas. L'évolution technologique est en marche, à un rythme toujours plus rapide.
 
-- Les révolutions industrielles:
+- Les révolutions industrielles\ :
     * 1770 (1756) révolution 1\ : mécanisation
     * 1870 révolution 2\ : maîtrise de l'énergie
     * 1970 (1979) révolution 3\ : informatique
     * 1990 révolution 4\ : internet (1990 Web, 1992 ISOC = Internet society, 1993 = premier navigateur web)
     * 2000 révolution 5\ : numérique. GAFA = Google - Apple - Facebook - Amazon + Microsoft = GAFAM aux USA et BATX en Chine = Baidu - Alibaba - Tencent - Xiaomi. Aussi NATU = Netflix - Airbnb - Tesla - Uber.
     * 2010 révolution 6\ : NBIC = nanotechnologies - biotechnologies - informatique - sciences cognitives.
-    * 2020 = date prévue pour que l'ordinateur ait la même puissance de traitement de l'information que le cerveau humain
-    * 2030 = trans-humanisme\ : ordinateur plus puissant que l'homme et le remplacera probablement dans de nombreuses tâches.
+    * 2020 \ : l'ordinateur est toujours plus puissant, l'intelligence artificielle toujours plus présente. Les métiers changent parce que les machines remplacent l'homme pour différentes tâches ("ubérisation").
+    * 2030 = transhumanisme\ ? Ordinateur plus puissant que l'homme et le remplacera probablement dans de nombreuses tâches.
 
-- Valeur estimée des données et informations mises à disposition par les utilisateurs du net: 1000 milliards de dollar par an (écrivez ce nombre en chiffres pour vous donner une meilleure idée de ce que cela représente)\ !
+- Valeur estimée des données et informations mises à disposition par les utilisateurs d'Internet\ : 1000 milliards de dollars par an (écrivez ce nombre en chiffres pour vous donner une meilleure idée de ce que cela représente)\ !
 
-- En 2020, quantité d'information ajoutée sur le net\ : 1000 milliards de milliards par semaine (écrivez ce nombre en chiffres également).
+- En 2020, quantité d'information ajoutée sur Internet\ : 1000 milliards de milliards par semaine (écrivez ce nombre en chiffres également).
 
-- Comparaison de puissance de traitement du cerveau humain _versus_ un ordinateur\ : 89 milliards de neurones et travail en multitâche d'un côté, contre 2 milliards de transistors pour un travail essentiellement monotâche pour le petit carré de silicium. Il faut bien avouer que c'est difficile à comparer (combien de transistors équivalent à un neurone\ ?). Une étude a montré en 2017 que l'un des cinq ordinateurs les plus puissants du moment a été capable de simuler le fonctionnement d'environ 1% du cerveau humain en une seconde. Il lui a fallu 40 minutes de calcul pour y arriver. Intel (l'un des principaux constructeurs de processeurs) estimait il y a à peine quelques années que l'évolution permettra d'égaler le cerveau humain en terme de vitesse de traitement vers 2020... On y est, l'intelligence artificielle est partout autour de nous, mais ne nous remplace pas encore (heureusement\ !)
+- Comparaison de puissance de traitement du cerveau humain _versus_ un ordinateur\ : 89 milliards de neurones et travail en multitâche d'un côté, contre 2 milliards de transistors pour un travail essentiellement monotâche pour le petit carré de silicium. Il faut bien avouer que c'est difficile à comparer (combien de transistors équivalent à un neurone\ ?). Une étude a montré en 2017 que l'un des cinq ordinateurs les plus puissants du moment a été capable de simuler le fonctionnement d'environ 1% du cerveau humain en une seconde. Il lui a fallu 40 minutes de calcul pour y arriver. Intel (l'un des principaux constructeurs de processeurs) estimait il y a à peine quelques années que l'évolution permettra d'égaler le cerveau humain en terme de vitesse de traitement vers 2020... On y est, l'intelligence artificielle est partout autour de nous, mais ne nous remplace pas encore (heureusement\ !). Consommation électrique d'un supercalculateur\ : se mesure en mégawatts, alors que le cerveau humain consomme 12-13W seulement\ !
 
-- Consommation électrique d'un supercalculateur\ : se mesure en mégawatts, alors que le cerveau humain consomme 12-13W seulement\ !
+- Aujourd'hui et encore plus à l'avenir, le cerveau humain et le (super)-ordinateur constitué par une constellation de machines mondialement interconnectées se complètement merveilleusement bien. La quantité d'information disponible est telle que sans l'ordinateur, nous ne pouvons pas la valoriser,... mais le cerveau humain est et reste le chef d'orchestre qui décide, qui dirige la façon dont ces données sont valorisées. Ce chef d'orchestre a un nom\ : le **scientifique des données**.
 
-- "Le **transhumanisme** est une approche interdisciplinaire qui nous amène à comprendre et à évaluer les avenues qui nous permettrons de surmonter nos limites biologiques par les progrès technologiques. Les transhumanistes cherchent à développer les possibilités techniques afin que les gens vivent plus longtemps et ..."
-
-Ce petit rappel historique et ces quelques informations concernant les données vous donne d'une part un aperçu de la vitesse à laquelle notre monde change, et d'autre part ils vous montrent que le monde dans lequel nous vivons est de plus en plus inondé d'information. Vous pouvez maintenant imaginer l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Pour ce cours de sciences des données,  plusieurs outils puissants sont mis à votre disposition (voir un [poster présentant la philosophie du cours](https://github.com/BioDataScience-Course/sdd_presentations/raw/master/2018_rennes/poster_rennes_ge.pdf)).
+Ce petit rappel historique et ces quelques informations concernant les données vous donnent d'une part un aperçu de **la vitesse à laquelle notre monde change**, et d'autre part ils vous montrent que le monde dans lequel nous vivons est **de plus en plus inondé d'information**. Vous pouvez maintenant imaginer l'importance d'avoir des outils performants afin d'appréhender les données dont le nombre croit de manière exponentielle. Nous consacrerons la majeure partie de ce premier module à découvrir les outils informatiques qui vont nous permettre d'analyser nos données biologiques.
 
 ## Découverte des outils
 
-La science des données est complexe et requiert d'employer des outils performants que nous avons sélectionnés parce que nous faisons le pari que ce seront les outils qui vous seront les plus utiles... dans les 30 prochaines années, c'est-à-dire pendant une bonne partie de votre carrière (mais nous sommes conscients que c'est un pari risqué\ !).
+![Les outils logiciels que vous apprendrez à utiliser dans ce cours vont littéralement vous transformer. Vos capacités d'analyse et de compréhension du vivant seront transcendées grâce au regard que vous deviendrez capable d'apporter à l'information de base\ : les données biologiques issues d'observations de terrain ou d'expériences en laboratoire.](images/sdd1_01/before_after.png)
 
+La science des données requiert d'employer des outils performants que nous avons sélectionnés pour vous parmi la multitude de logiciels disponibles parce que nous faisons le pari que ce seront les outils qui vous seront les plus utiles... dans les 30 prochaines années, c'est-à-dire pendant une bonne partie de votre carrière (voir un [poster présentant la philosophie du cours](https://github.com/BioDataScience-Course/sdd_presentations/raw/master/2018_rennes/poster_rennes_ge.pdf)).
 
 ### Machine virtuelle
 
@@ -52,6 +52,10 @@ knitr::include_graphics('images/sdd1_01/svBox-256.png')
 
 Des explications détaillées se trouvent dans l'annexe \@ref(svbox) dédiée à l'installation, la configuration et l'utilisation de la SciViews Box.
 
+##### À vous de jouer ! {-}
+
+*Note\ : lorsque vous voyez le petit logo "H5P" comme ci-dessous, cela signifie que vous avez maintenant un exercice interactif. Cet exercice peut prendre différentes formes (quiz, présentation ou vidéo contenant des questions, vrai ou faux, cliquer sur une image, ...).*
+
 `r h5p(18, height = 270, toc = "Découverte de la SciViews Box")`
 
 ### RStudio
@@ -62,10 +66,11 @@ RStudio est l'outil au sein de la SciViews Box que vous allez utiliser le plus f
 
 Il fournit un environnement complet et optimisé pour réaliser vos analyses, vos graphiques et vos rapports. RStudio travaille main dans la main avec le logiciel R qui effectue l'ensemble des traitements.
 
+##### À vous de jouer ! {-}
+
 `r h5p(16, height = 270, toc = "L'environnement de RStudio")`
 
 Des explications détaillées se trouvent dans l'annexe \@ref(rs) qui présente les bases de l'utilisation de RStudio. Vous avez également à votre disposition un aide-mémoire afin d'appréhender cette interface [RStudio IDE Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf). 
-
 
 ##### Pour en savoir plus {-}
 
@@ -74,7 +79,6 @@ Des explications détaillées se trouvent dans l'annexe \@ref(rs) qui présente 
 - [RStudio, un environnement de développement pour R](https://quanti.hypotheses.org/488/). Brève explication de RStudio en français.
 
 - [RStudio : sa vie, son oeuvre, ses ressources](https://elementr.hypotheses.org/237). Un autre site Web consacré à RStudio en français.
-
 
 ### Markdown
 
@@ -88,7 +92,9 @@ Vous avez à votre disposition deux aide-mémoires pour apprendre **Markdown** :
 
 Après avoir rédigé votre document, vous devez cliquer sur le bouton `Preview` ou `Knit` (selon le type de document édité) dans la barre d'outils de la zone d'édition pour obtenir la version finale formatée.
 
-`r h5p(17, height = 270, toc = "Premiers exercices relatifs à Markdown")`
+##### À vous de jouer ! {-}
+
+`r h5p(17, height = 200, toc = "Premiers exercices relatifs à Markdown")`
 
 ##### Pour en savoir plus {-}
 
@@ -104,7 +110,6 @@ Après avoir rédigé votre document, vous devez cliquer sur le bouton `Preview`
 - [Comment écrire confortablement et professionnellement\ ? Le Markdown !](https://dolys.fr/forums/topic/comment-ecrire-confortablement-professionnellement-markdown/). Utilisation de Markdown afin de revenir à l'essence de la rédaction.
 
 - [Écrire tout simplement – Introduction à Markdown](http://www.boiteaoutils.info/2013/02/ecrire-tout-simplement-introduction/). Pourquoi utiliser Markdown\ ?
-
 
 ### Gestionnaire de version Git
 
@@ -141,7 +146,6 @@ Différents outils informatiques existent pour faciliter le travail collaboratif
 
 - La meilleure combinaison pour **gérer ses versions et collaborer** : [Git](https://git-scm.com/) et [GitHub](https://github.com/). Ces outils sont plutôt considérés comme écrits par et pour des geeks. Cependant, ils permettent de gérer et collaborer de manière efficace sur un même projet contenant du code ou non, et des interfaces facilitant leur utilisation apparaissent comme [GitHub Desktop](https://desktop.github.com), ou même, les [outils Git intégrés dans RStudio](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN).
 
-
 #### Git
 
 La gestion de versions est gérée par **Git**. Cet outil remplacera les nombreuses copies d'un même fichier par une sorte d'arbre que l'on peut représenter schématiquement comme ci-dessous :
@@ -161,11 +165,15 @@ Lorsque l'on travaille seul tout en utilisant GitHub, l'évolution de notre proj
 
 On réalise un envoi (**push**) lorsque l'on souhaite synchroniser nos changements locaux avec la version sur le "cloud". Plusieurs **commits** peuvent être envoyés avec un seul **push** sur le réseau, et c'est d'ailleurs généralement comme cela que l'on procède. L'inverse (rapatrier localement les changements que d'autres collaborateurs ont envoyés sur la version réseau de notre projet) s'appelle faire un "**pull**".
 
-*L'image suivante est interactive. Il vous est maintenant demandé de cliquer dessus pour indiquer quelles flèches représentent une action particulière dans le schéma présenté.*
+##### À vous de jouer ! {-}
+
+*Note\ : l'image suivante est interactive. Il vous est maintenant demandé de cliquer dessus pour indiquer quelles flèches représentent une action particulière dans le schéma présenté.*
 
 `r h5p(15, height = 270, toc = "GitHub : repérer les pushs")`
 
 L'avantage principal de **GitHub** ne réside pas vraiment dans la possibilité de réaliser une sauvegarde en ligne mais plutôt dans la possibilité de collaborer avec d'autres personnes présentes sur ce réseau comme l'illustre la figure ci-dessous. Deux scientifiques (les versions représentées par des boules bleues et des boules vertes) collaborent sur un même projet que l'on appelle un **dépôt** (**repository** en anglais) lorsqu'il est en ligne. Le premier chercheur (boules bleues) initie le dépôt et réalise un "push" pour rendre son travail accessible sur le réseau (boules oranges). Son collaborateur (boules vertes) **clône** (**clone** en anglais) ensuite le dépôt sur son ordinateur afin de pouvoir y travailler en local sur son PC. Après avoir fait des changements, il réalise également un **push** sur le réseau. Le premier scientifique, avant de travailler à nouveau sur le projet, devra donc réaliser un **pull** afin d'obtenir en local l'ensemble des modifications fournies par son ou ses collaborateurs. Après des modifications en local il effectuera à nouveau un "push".
+
+##### À vous de jouer ! {-}
 
 *Pour être certain que vous ayez bien compris, encore une image interactive à cliquer...*
 
@@ -205,44 +213,39 @@ Ceci n'est qu'une explication très succincte. Vous trouverez plus de détails d
 
 - [GitHub pour les nuls\ : pas de panique, lancez-vous\ !](https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/).
 
-
 #### GitHub Classroom {#classroom}
 
-**[GitHub Classroom](https://classroom.github.com)** est une extension de GitHub qui facilite le travail avec GitHub dans le contexte d'exercices à réaliser dans le cadre d'un cours. Vous serez amené à cloner et modifier des dépôts issus de GitHub Classroom pour réaliser vos exercices. **Ces dépôts seront privés**. Cela signifie que, seuls vous-mêmes et vos enseignants auront accès à ces dépôts. A la fin de la formation, tous ces dépôts seront détruits. **Donc, si vous voulez les conserver, il faudra les "forker" sur votre propre compte.** Rassurez-vous\ : nous vous préviendrons avant de faire le ménage\ ! 
-*Maintenant que vous comprenez mieux avec quels outils informatiques nous allons travaillez, vous pouvez passer à votre premier exercice pour découvrir la SciViews Box, RStudio, Markdown, Git et GitHub : vous allez réaliser un site web professionnel en ligne...*
+**[GitHub Classroom](https://classroom.github.com)** est une extension de GitHub qui facilite le travail avec GitHub dans le contexte d'exercices à réaliser dans le cadre d'un cours. Vous serez amené à cloner et modifier des dépôts issus de GitHub Classroom pour réaliser vos exercices. **Ces dépôts seront privés**. Cela signifie que, seuls vous-mêmes et vos enseignants auront accès à ces dépôts, mais vous pourrez aussi les rendre publics, si vous voulez *valoriser votre travail* de manière plus large.
 
-
-Avant de poursuivre, Répondez aux questions ci-dessous\ :
+##### À vous de jouer ! {-}
 
 `r h5p(13, height = 270, toc = "Questions récapitulatives sur les outils")`
 
 ## Premier document en Markdown {#premier-markdown}
 
-Dans le cadre de ce premier module, vous allez réaliser votre premier document écrit en Markdown. Nous vous proposons pour ce faire, d'écrire une petite introduction d'un article scientifique sur un animal de votre choix. Vous trouverez le lien pour cette activité dans le rubrique "A vous de jouer" ci-dessous. 
+Dans le cadre de ce premier module, vous allez réaliser votre premier document écrit en Markdown. Nous vous proposons pour ce faire, d'écrire une petite introduction d'un article scientifique sur un animal de votre choix.
 
-L'accès a cette tâche, qui est un travail **individuel**, se fait en utilisant GitHub Classroom \@ref(github-classroom). 
+##### À vous de jouer ! {-}
 
-Lorsque votre assignation est réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé avec la SciViews Box `shared`. Vous aurez alors un nouveau projet RStudio \@ref(rs-projet)
-
-##### A vous de jouer {-}
-
-Maintenant que vous avez appréhendé les différents outils, lancez vous dans la création de votre premier document rédigé en Markdown.
+*Note\ : les assignations GitHub sont marquées du logo "Octocat" (mascotte mi-chat mi-poulpe de GitHub). Ils vous permettent de mettre vos acquis en pratique. L'accès a cette tâche, qui est ici un travail **individuel**, se fait en utilisant GitHub Classroom \@ref(github-classroom). Lorsque votre assignation est crée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé `shared` de la SciViews Box. Vous aurez alors un nouveau projet RStudio \@ref(rs-projet) dans lequel vous pourrez rédiger votre article.*
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A01Ga_markdown", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A01Ga_markdown
-",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/yMmiKjwp",
-    'S-BIOG-921' = "https://classroom.github.com/a/ZhcUC_4v"),
-  toc = "Assignation : réalisation d'un premier document en Markdown")
+if (exists("assignation"))
+  assignation("A01Ga_markdown", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A01Ga_markdown",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/yMmiKjwp",
+      'S-BIOG-921' = "https://classroom.github.com/a/ZhcUC_4v"),
+    toc = "Premier document en Markdown")
 ```
 
 Si vous souhaitez plus d'information sur Github Classroom, vous pouvez vous référer à l'Appendice \@ref(github-classroom).
 
-Afin de terminer ce module en beauté, il est temps d'auto-évaluer votre apprentissage via un **tutoriel** dans RStudio.
+Afin de terminer ce module en beauté, il est temps d'auto-évaluer votre apprentissage via un **tutoriel learnr** dans RStudio.
 
-`r learnr("A01La_outils", title = "Les différents outils", toc = "Tutoriel : auto-évaluation sur les outils")`
+*Note\ : les tutoriels learnrs vous permettent d'auto-évaluation votre progression dans la matière et sont marqués d'une icône en forme de toque verte. Ils s'exécutent directement dans RStudio à l'intérieur de la SciViews Box*
+
+`r learnr("A01La_outils", title = "Les différents outils", toc = "Auto-évaluation sur les outils")`
 
 ::: {.S-BIOG-006 .S-BIOG-027}
 
@@ -258,8 +261,6 @@ Cliquez sur le lien et suivez les instructions :  <http://biodatascience-course.
 
 ## Récapitulatif des exercices
 
-Dans ce module 1 consacré aux outils informatiques que nous utiliserons dans la suite du cours, vous aviez à réaliser les exercices suivants\ :
+Dans ce premier module consacré aux outils informatiques que nous utiliserons dans la suite du cours, vous aviez à réaliser les exercices suivants\ :
 
 `r show_ex_toc()`
-
-

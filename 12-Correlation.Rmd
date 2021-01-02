@@ -18,12 +18,11 @@ SciViews::R
 
 - Être capable de discerner les erreurs principales qui se rencontrent dans les graphiques (et ne pas les faire soi-même).
 
-
 ##### Prérequis {-}
 
 Ce module présente des descripteurs statistiques de l'association de deux variables, ainsi qu'un test d'hypothèse associé. Pour comprendre cette matière, il faut comprendre la logique derrière un test d'hypothèse vue au module \@ref(chi2). La seconde partie reviendra sur les représentations graphiques vues aux modules \@ref(visu1), \@ref(visu2) et \@ref(visu3) qui doivent être bien maîtrisé avant d'aborder cette section.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 En lien avec ce module vous avez une série d'exercices à réaliser. Vous avez à : 
 
@@ -88,7 +87,6 @@ cov(df$X, df$Y2)
 cov(df$X, df$Y3)
 ```
 
-
 La covariance (fonction `cov()` dans R) fait effectivement le boulot de quantifier l'association entre les deux variables *X* et *Y*. Nous avons une valeur positive entre *X* et *Y1*, faible et se rapprochant de zéro entre *X* et *Y2*, et négative pour le cas *X* et *Y3* d'une proportionnalité inverse. Cette mesure n'est cependant pas *normée*, c'est-à-dire qu'elle peut varier vers des valeurs très grandes ou très petites en fonction des données. Donc pour une même forme de nuage de points, la valeur dépendra, par exemple, des unités de mesure choisies. Si je transforme les données de mon jeu fictif `df` en les multipliant par dix pour simuler un changement d'unité dans `df2`, j'obtiens\ :
 
 ```{r}
@@ -135,7 +133,6 @@ L'association entre deux variables numériques peut ainsi s'envisager selon troi
 
 3. La **causalité**. En plus de la relation, nous considérons que c'est la variation d'une des deux variables qui est **à l'origine**, directement ou indirectement de la variation de l'autre. Une relation de cause à effet ne peut être démontrée de manière sûre que par l'expérience, comme expliqué dans la vidéo plus haut.
 
-
 ### Matrice de corrélation
 
 Dans un cas multivarié (plus de deux variables), nous pouvons toujours étudier les associations entre variables numériques à l'aide de *r* (ou à l'aide de la covariance) à conditions de calculer ces descripteurs statistiques pour tous les couples de variables considérées deux à deux. Pour *N* variables, nous rassemblerons tous ces calculs dans une matrice carrée *N* par *N* qui croise tous les cas deux à deux possibles dans un même tableau.
@@ -166,7 +163,6 @@ summary(trees_cor)
 
 Voyez la page d'aide de la fonction `correlation()` pour plus d'information via `?correlation`. Vous pouvez passer un data frame à la fonction, ou encore, l'appeler via `correlation(data = df, ~ var1 + var2 + var3)` en utilisant une formule pour spécifier les variables du tableau à étudier. L'argument `use =` permet de spécifier quoi faire en cas de valeurs manquantes. Si vous indiquez `"complete.obs"`, toute ligne du tableau contenant au moins une valeur manquante sera élimniée avant le calcul. Avec `"pairwise.complete.obs"` les éliminations de valeurs manquantes se font pour chaque paire de variables individuellement des autres.
 
-
 ### Corrélogramme
 
 Il existe aussi des représentation graphiques spécialisées, appelées **corrélogrammes** pour visualiser les coefficents de corrélations dans un cas multivarié. La fonction `plot()` appliquée à notre objet `Correlation` en offre une version simple.
@@ -191,7 +187,6 @@ Vous noterez que les variables `elongation` et `compactness` sont redondantes (*
 ```{r}
 plot(zoo_cor, type = "lower")
 ```
-
 
 ### Importance des graphiques
 
@@ -246,7 +241,6 @@ combine_charts(pl)
 
 Nous voyons que ces trois paires de variables n'ont **rien à voir l'une avec l'autre\ !** Il est même possible d'aller encore plus loin, voir le [datasaurus dozen](https://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html), ou encore [ici](https://www.autodeskresearch.com/publications/samestats), ou en français [ici](https://owdin.live/2017/05/15/ces-12-graphiques-montrent-pourquoi-la-data-viz-est-si-importante/).
 
-
 ### Matrice de nuages de points
 
 La matrice de nuages de points part du même principe que la matrice de corrélation ou que le corrélogramme\ : représenter plusieurs variables deux à deux selon une grille *N* par *N* pour *N* variables numériques. Ici, il s'agit de représenter des **nuages de points** deux à deux. Nous venons de voir pourquoi c'est important de le faire en complément des autres outils dans le cadre de notre exploration de l'association entre ces variables. Dans la SciViews Box, un snippet est disponible dans le menu `charts: multivariate` à partir de `.cm`, entrée de menu `multivariate X-Y scatterplot`.
@@ -257,7 +251,6 @@ GGally::ggscatmat(as.data.frame(trees), 1:3)
 
 Comme dans le cas de la matrice de corrélation, les graphiques en nuage de points sur la diagonale ne seraient pas très utiles puisqu'ils représenteraient une variable par rapport à elle-même. Ils sont donc remplacés par des graphes de densité montrant la répartition des données pour chanque variable considérée individuellement. Sur le triangle supérieur, ce sont les coefficients de corrélation de Pearson qui sont indiqués, et sur le triangle inférieur, les différentes possibilités de nuages de points deux à deux. La variable sur laxe des abscisses se lit dans la colonne au dessus et la variable représentée sur l'axe des ordonnées se lit dans la ligne à droite. Par exemple, le graphique en bas à gauche correspond au diamètre en X et au volume en Y. Cette représentation graphique est donc complémentaire au corrélogramme.
 
-
 ### Matrice de variances-covariances
 
 De même que nous pouvons calculer une matrice de corrélations, nous pouvons calculer une matrice de covariances, mais sachant que $cov_{X,X} = var_X$, nous avons également les variances le long de la diagonale. Pour cette raison, nous appelons ce tableau, une **matrice de variances-covariances**. Par exemple, pour le jeu de données `trees`, cela donne\ :
@@ -267,7 +260,6 @@ cov(trees)
 ```
 
 Comme ces descripteurs statistiques ne sont pas normés, ils sont plus difficiles à interpréter. Nous préférons donc la matrice de corrélations pour étudier l'association entre plusieurs variables numériques. Néanmoins, la matrice de variances-covariances interviendra plus tard dans d'autres traitements statistiques et il est utilie de la connaitre (par exemple, dans le cadre de l'ACP que nous étudierons en Science des Données Biologiques II).
-
 
 ### Corrélations de Spearman et Kendall
 
@@ -296,7 +288,6 @@ correlation(trees) # Equivalent à method = "pearson"
 ```
 
 Les valeurs obtenues diffèrent, mais les tendances restent similaires ici. Les differences sont d'autant plus importantes que le nuage de points est curvilinéaire. A vous de bien choisir votre coefficient en fonction de ce que vous recherchez, une association linéaire (Pearson) ou pas (Spearman, le plus utilisé, ou Kendall éventuellement).
-
 
 ### Test de corrélation
 
@@ -335,7 +326,7 @@ cor.test(data = trees, ~ diameter + height,
 
 Même remarque concernant les ex aequos et valeur *P* très similaire ici à celle du test de Spearman.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 Vous avez a présent toutes les connaissances théoriques afin de :
 
@@ -375,11 +366,9 @@ Hans Rosling est sans nuls doute très doué pour communiquer des résultats sta
 vembedr::embed_youtube("hVimVzgtD6w", width = 770, height = 433)
 ```
 
-
 ### Présentations R Markdown
 
 Parmi tous les formats R Markdown, il en existe plusieurs adaptés aux présentations de type "PowerPoint". Le format **R Presentation** est très simple et parfaitement intégré dans RStudio. Divers formats compilés depuis R Markdown s'affichent dans un explorateur Web (**ioslides** ou **Slidy**, ou encore **mdshower** ou **xaringan**). Enfin, le format **Beamer** permet de créer des présentations en PDF.
-
 
 Le format **[R Presentation](https://support.rstudio.com/hc/en-us/sections/200130218-R-Presentations)** (menu `File -> New file -> R Presentation` dans RStudio) est très simple pour créer des diapositives de présentation directement depuis Markdown sous forme HTML, et pouvant s'exécuter dans RStudio ou dans un explorateur Web. 
 
@@ -419,7 +408,7 @@ Quel type de présentation R Markdown choisir au final\ ? Toute cette panoplie d
 Dans la prochaine version de la SciViews Box, il sera également possible de générer ses présentations directement au format PowerPoint.
 ```
 
-##### A vous de jouer {-} 
+##### À vous de jouer ! {-}
 
 - appliquer vos connaissances dans la seconde partie du projet spécifique du module
 
@@ -499,7 +488,7 @@ Un chercheur compile les statistiques de longévité de diverses professions. Po
 
 -----
 
-##### Etendue des axes {-}
+##### Étendue des axes {-}
 
 ![](images/sdd1_12/bad-graph-truncated1.png)
 
@@ -670,8 +659,7 @@ Par le plus grand des hasards, le numéro 8 est sorti 6 fois en 7 tirages succes
 
 **_Vous est-il arrivé de jouer la suite 1, 2, 3, 4, 5, 6, 7, 8 au lotto (ou rempliriez-vous une grille avec ces nombres si vous deviez y jouer) ? Pourquoi ?_**
 
-
-##### A vous de jouer {-} 
+##### À vous de jouer ! {-}
 
 - appliquer vos connaissances dans la dernière partie du projet spécifique du module
 

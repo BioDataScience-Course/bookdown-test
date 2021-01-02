@@ -12,13 +12,11 @@ SciViews::R
  
 - Comprendre différents types de syntaxe dans R
 
-
 ##### Prérequis {-}
 
 Ce module présente la suite de l'ANOVA initiée au module \@ref(variance). Vous devez avoir bien compris l'ANOVA à un facteur avant d'entamer le présent chapitre.
 
-
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 En lien avec ce module vous avez une série d'exercices à réaliser. Vous avez à : 
 
@@ -46,7 +44,6 @@ Lisez attentivement le README.
 *Ce projet doit être terminé à la fin de ce module*
 ```
 
-
 - réaliser un learnR sur les différentes syntaxe dans R
 
 ```{block, type='bdd'}
@@ -72,7 +69,6 @@ $$y \sim fact$$
 avec $y$ la variable numérique réponse et $fact$ la variable facteur explicative unique.
 
 Si nous prenons notre exemple des crabes *L. variegatus*, nous avions travaillé un peu artificiellement sur une seule variable facteur en regroupant les variables `species` et `sex` en une seule variable `group`. Qu'en est-il si nous voulons quand même considérer les deux variables `species` et `sex` séparément\ ? c'est possible avec une **ANOVA à deux facteurs**. Les sections suivantes vous présentent quelques variantes possibles de cette analyse.
-
 
 ## Modèle sans interactions
 
@@ -170,7 +166,6 @@ anova. %>.%
 
 Encore une fois, nous voyons que les résidus sont quasiment les mêmes que précédemment, mais cela n'aurait pas été le cas si une interaction existait. La distribution s'éloigne un peu d'une Gaussienne pour les valeurs élevées surtout. Mais comme l'ANOVA est robuste à ce critère, et que l'homoscédasticité a été vérifiée sur la tranformation puissance 5 de notre variable, nous pouvons conserver notre analyse moyennant une précaution supplémentaire\ : vérifier que les valeurs *P* sont **beaucoup** plus petites que notre seuil comme sécurité supplémentaires contre les approximations liées à la légère violation de la contrainte de distribution normale des résidus. C'est le cas ici, et nous pouvons donc conclure notre analyse.
 
-
 ##### Conditions d’application {-}
 
 - échantillon représentatif (par exemple, aléatoire),
@@ -180,7 +175,6 @@ Encore une fois, nous voyons que les résidus sont quasiment les mêmes que pré
 - distribution **normale** des résidus $\epsilon_i$,
 - **homoscédasticité** (même variance intragroupes),
 - pas d'**interactions** entre les deux variables explicatives.
-
 
 ## Modèle croisé complet
 
@@ -215,16 +209,13 @@ Notre analyse confirme qu'il n'y a pas d'interactions. La valeur *P* (0,57) en r
 Faites attention à un piège fréquent lorsque vous avez des mesures multiples sur les *mêmes* individus. Par exemple, si vous étudiez trois populations avec disons, cinq réplicats par population et que vous dénombrez des cellules marquées sur dix coupes histologiques réalisées chaque fois dans un organe du *même* individu, vous aurez 3x5x10 = 150 mesures, mais vous ne pouvez pas utiliser une ANOVA à deux facteurs croisés car les 150 observations ne sont pas indépendantes les unes des autres. Vous n'avez jamais mesuré que 15 individus au total. Si vous analysez ces données comme si vous en aviez mesuré 150, **votre analyse sera incorrecte**. Il s'agit ici d'une erreur qui s'appelle la **pseudo-réplication**. Vous devrez utiliser d'autres modèles comme le modèle à facteurs hiérarchisés (voir section suivante) ou le modèle à mesures répétées (voir encore après).
 ```
 
-
 ##### Conditions d'application {-}
 
 Les conditions d'application sont les mêmes que pour l'ANOVA à deux facteurs sans interactions, sauf qu'ici, les interactions sont bien évidemment permises.
 
-
 ##### Pour en savoir plus {-}
 
 - Un blog en français qui explique l'[ANOVA à deux facteurs](https://statistique-et-logiciel-r.com/anova-a-2-facteurs-principe/) de manière plus détaillée qu'ici. Ensuite la [résolution de leur exemple dans R](https://statistique-et-logiciel-r.com/anova-a-2-facteurs-avec-r-tutoriel/). Enfin, des suggestions pour annoter un graphique et [indiquer quelles sont les différences qui sont significatives dessus](https://statistique-et-logiciel-r.com/comparaison-de-moyennes-indiquer-les-differences-significatives-sur-le-graph/).
-
 
 ## Facteurs hiérarchisés
 
@@ -297,7 +288,6 @@ plot(anovaComp.)
 
 Nous pouvons observer des différences significatives au seuil $\alpha$ de 5% entre le labo I et tous les autres labos. Les autres comparaisons n'apparaissent pas significatives.
 
-
 ### Simplification du modèle
 
 Nous pourrions être tentés de simplifier notre analyse en ne testant *que* l'effet laboratoire. Dans ce cas, nous tomberions dans le piège de la **pseudo-réplication**. Nous pourrions aussi travailler sur la mesure moyenne des mesures pour chaque technicien. Du coup, nous aurions deux valeurs par laboratoire, chaque fois réalisée par un technicien différent. Nous pourrions donc considérer que les données sont indépendantes les unes des autres et nous pourrions réduite le problème à un effet unique, celui du laboratoire.
@@ -311,7 +301,6 @@ eggs %>.%
   eggs_means
 skimr::skim(eggs_means)
 ```
-
 
 ```{r}
 eggs_means %>.%
@@ -349,11 +338,9 @@ anova. %>.%
 
 Nous n'avons plus d'effet significatif, malgré que le labo I obtient, en moyenne, une mesure beaucoup plus forte que les autres. En fait, en réduisant de la sorte nos données, nous avons perdu tellement d'information que le test a perdu toute puissance et n'est plus capable de détecter de manière significative des différences entre moyennes pourtant importantes. Si nous avions quatre techniciens par labo qui auraient tous dosés les échantillons en duplicats (également huit mesures par labo au total), nous n'aurions pas une perte d'information aussi forte en effectuant quatre moyennes de duplicats par labo, et l'analyse simplifiée aurait peut-être été utilisable. Il faut voir au cas par cas...
 
-
 ##### Conditions d'application {-}
 
 Les conditions d'application sont les mêmes que pour l'ANOVA à deux facteurs sans interactions, sauf qu'ici, les interactions sont bien évidemment incluses dans le modèle par construction.
-
 
 ## Effet aléatoire
 
@@ -366,7 +353,6 @@ Jusqu'à présent, nous avons considéré que nous échantillonnons toutes les m
 Considérez un plan d'expérience relativement classique où différents items sont comparés dans une sélection au hasard de réalisations. En agronomie, il peut s'agir de comparer différentes variétés d'une céréale cultivées dans quelques fermes. Si nous ne sommes intéressés que par ces fermes-là, alors les effets sont fixes, pas de problèmes. Par contre, si nous sommes intéressés par la production de cette céréale dans une région donnée, les fermes représentent seulement un *échantillon* de l'ensemble des fermes qui s'y trouvent. Autrement dit, toutes les *modalités possibles* ne sont pas reprises dans l'expérience. Dans ce cas, nous parlerons d'un **effet aléatoire** pour l'effet 'ferme'.
 
 Prenons un exemple concret. Dans une analyse réalisée en 1972 par Davies and Goldsmith, six lots différents de pénicilline provenant d'une production de ce médicament sont comparés afin d'estimer la variabilité de l'efficacité antibiotique en fonction du lot de production. La mesure consiste à incuber une bactérie *Bacillus subtilis* dans une série de boites de Pétri (variable *plate*). Dans chaque boite, un volume de solution des six lots de pénicilline (variable *sample*) sont placés à espacement réguler. L'effet de l'antibiotique est mesurée via le diamètre de la zone de non croissance de la bactérie autour du point d'injection (variable *diameter*).
-
 
 ```{r}
 pen <- read("Penicillin", package = "lme4")
@@ -394,7 +380,6 @@ bartlett.test(data = pen, diameter ~ plate)
 ```
 
 Ici, ni le graphique, ni les tests de Batlett ne montrent une quelconque hétérogénéité des variances. Nous pouvons poursuivre avec l'ANOVA classique...
-
 
 ```{r}
 anova(anova. <- lm(data = pen, diameter ~ sample + plate))
@@ -436,7 +421,6 @@ Dans R, la fonction `lm()` utilisée jusqu'ici ne prend pas en compte les facteu
 
 Dans la suite, nous verrons deux modèles aléatoires particuliers qui ont une configuration permettant un calcul correct des valeurs de *p*\ : le modèle en parcelles divisées (split-plot) et le modèle à mesures répétées.
 
-
 ### Modèle en parcelles divisées (split-plot)
 
 Un des modèles pour lequel les valeurs *p* sont calculables est le modèle dit en [parcelles divisées](https://stat.ethz.ch/education/semesters/as2015/anova/08_Split_Plots.pdf) (split-plot en anglais). Cette situation apparait lorsque, parmi deux facteurs, l'un est plus difficile à diviser en sous-unités *indépendantes*. C'est le cas ici avec nos boites de Pétri qui forment chacune un petit microcosme unique. Il est possible de diviser la boite de Pétri en sous-régions. C'est ce qui a été fait ici pour tester les six lots, mais ces sous-régions ne **sont pas indépendantes** les unes des autres, elles continuent d'être liées entre elle au sein de la même boite de Pétri. Nous pouvons néanmoins considérer la boite de Pétri comme facteur aléatoire dans ce modèle split-plot. Dans ce cas, nous avons intérêt à utiliser `lmeTest::lmer()` qui calculera ces valeurs *p* là où elles sont pertinentes^[Notez toutefois qu'il est conseillé de manière générale de **ne pas** utiliser les valeurs *p* du tout, mais de privilégier d'autres approches comme le rapport de la log-vraissemblance entre modèles, voir [ici](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-9450.2010.00852.x), mais cela sort du cadre de ce cours.]. Dans la formule, un facteur aléatoire simple s'écrit `(1 | facteur)`. Cela donne\ :
@@ -453,7 +437,6 @@ anova(split_plot)
 ```
 
 Le titre ("Type III ... Sattertwaite's method") indique que ce n'est pas une ANOVA classique qui a été calculée. Nous n'entrerons pas dans les détails. En tous cas, vous ne voyez qu'une seule ligne dans ce tableau, relative au facteur fixe du modèle, *sample*. L'effet est ici significatif au seuil $\alpha$ de 5%. C'est perturbant. Nous nous attendions à avoir trois lignes comme plus haut (deux facteurs fixes avec `lm()`) et à pouvoir interpréter aussi le facteur *plate* à partir de la table de l'ANOVA. Mais rappelons-nous que *plate* suit maintenant une distribution Normale dont nous devons estimer l'écart type $\sigma_{\tau2}$. Cette dernière valeur est indiquée plus haut dans l'impression de l'objet `split_plot`. Retournez voir\ : nous avons une section `Random effects:` avec un groupe *plate*  et en regard, dans la colonne `Std.dev.`, nous avons la valeur de $\sigma_{\tau2}$ qui vaut 0,85. Comment décider si rejeter $H_0$ ou non par rapport à *plate*\ ? Une façon de faire est de calculer l'intervalle de confiance à (1 - $\alpha$) sur ce paramètre, et de vérifier s'il contient zéro (alors nous ne rejettons pas $H_0$) ou non (nous rejettons). La fonction `confint()` peut être utilisée pour calculer cet intervalle de condiance. Le calcul est un peu long avec la méthode par défaut, voir `?lme4::confint.merMod`\ :
-
 
 ```{r}
 confint(split_plot)
@@ -512,7 +495,6 @@ confint(split_plot2)
 La première ligne `.sig01` est relative à l'écart type *plate* avec un intervalle de confiance qui va de 0,63 à 1,18, et la seconde ligne `.sig02` est relative à l'écart type de *sample* dont l'intervalle de confiance s'étale de 1,10 à 3,56. Dans les deux cas, zéro n'est pas compris dans l'intervalle de confiance et nous rejettons donc $H_0$. A noter que si nous n'avions pas rejeté l'un des deux, nous aurions pu décider d'ajuster un modèle plus simple à un seul facteur aléatoire `y ~ (1 | fact)` en laisant tomber l'autre facteur dans le modèle simplifié.
 
 L'analyse des résidus (indispensable) n'est pas reproduite ici. Elle reste la même que plus haut.
-
 
 ### Modèle à mesures répétées
 
@@ -609,7 +591,6 @@ Nous avons quelques valeurs extrêmes qui étaient déjà repérables sur les gr
 Le modèle utilisé ici considère une variation du temps de réaction identique pour tous les sujets. L'inspection visuelle des données brutes montre que ce n'est peut-être pas le cas. Un modèle plus complexe permet de varier aussi ce paramètre. Il sort du cadre de ce cours, mais vous pouvez lire le développement complet expliqué par un des auteurs de la fonction `lmer()` [ici](http://lme4.r-forge.r-project.org/slides/2010-09-23-Rahway/4Longitudinal.pdf). Au passage, il s'agit d'un excellent exemple de comparaison de deux modèles autrement que via les valeurs *p*, soit une approche maintenant préconisée mais malheureusement pas encore largement intégrée dans la pratique en biologie.
 ```
 
-
 ##### Conditions d’application {-}
 
 Pour tous les modèles contenant un ou plusieurs effets aléatoires, les conditions générale de l'ANOVA restent de mise\ :
@@ -625,13 +606,11 @@ De plus, nous faisons l'hypothèse supplémentaire que les variables à effet al
 
 Dans tous les cas, une analyse des résidus, en particulier un graphique quantile-quantile et un graphique des résidus par rapport aux valeurs ajustées sont indispensables pour confirmer que les conditions d'application sont rencontrées. Si ce n'est pas le cas, nous pouvons tenter de transformer les données. Sinon, nous devons utiliser une version non paramétrique du modèle si elle existe (e.g., test de Friedman), mais ce n'est pas toujours possible.
 
-
 ##### Pour aller plus loin {-}
 
 - On s'y perd facilement dans les différents modèles et les formulations associées pour le code R avec `lm()`, `aov()` ou `lmer()`. Un récapitulatif (en anglais) est présenté [ici](http://conjugateprior.org/2013/01/formulae-in-r-anova/). Une version plus détailler est [aussi disponible](http://www.dwoll.de/rexrepos/posts/anovaMixed.html).
 
 - Dans le cas où les conditions d'application de l'ANOVA à mesures répétées ne sont pas rencontrées, nous pouvons utiliser un test non paramétrique équivalent\ : le **[test de Friedman](https://statistique-et-logiciel-r.com/tutoriel-test-de-friedman/)**.
-
 
 ## Syntaxe de R
 
@@ -654,7 +633,6 @@ Aujourd'hui, on peut distinguer principalement trois styles dans R, [résumés d
 - La **syntaxe "tidyverse"** qui vise à produire des instruction aussi lisibles que possible (lecture proche d'un langage naturel humain). Cette syntaxe utilise quelques astuces de programmation pour rendre les instructions plus digestes et s'affranchir du `df$x` pour pouvoir écrire uniquement `x` à la place. Elle fait également la part belle au chaînage des instructions (opérateur de "pipe") que nous avons étudié à la fin du module \@ref(import). Une instruction type sera `df %>% fun(x, y)`, même si dans SciViews nous préférons l'opérateur plus explicite `%>.%` qui donne `df %>.% fun(., x, y)`. [Tidyverse](https://www.tidyverse.org) est constitué d'un ensemble de packages R qui se conforme à un style bien défini autour d'une version spéciale de data frame appelée `tibble`.
 
 Dans le cadre de ce cours, nous utilisons un style propre à SciViews, le style **SciViews-R**. Il est associé à une série de packages chargés à partir de l'instruction `SciViews::R`. Ce style tente de rendre l'utilisation de R plus cohérente et plus facile en reprenant le meilleur des trois styles précédents, et en y ajoutant une touche personnelle élaborée pour éliminer autant que possible les erreurs fréquentes observées lors de l'apprentissage ou de l'utilisation de R. Dans la suite de cette section, nous allons comparer quelques instructions équivalentes, mais rédigées dans différents styles pour nous familiariser avec eux et pour comprendre leurs atouts respectifs. Assurez-vous de conserver à proximité l'[aide-mémoire sur les différentes syntaxes de R](http://www.amelia.mn/Syntax-cheatsheet.pdf) pour vous aider. Mais avant toute chose, un petit complément concernant l'indiçage dans R est nécessaire.
-
 
 ### Indiçage dans R
 
@@ -776,8 +754,7 @@ df
 
 Maintenant que nous sommes familiarisés avec les différents modes d'indiçage dans R de base, nous pouvons les comparer à d'autres styles.
 
-
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 
@@ -786,7 +763,6 @@ Afin d'appliquer directement les concepts vus au cours dans ce module, ouvrez RS
     BioDataScience1::run("A11b_syntaxr")
 
 ```
-
 
 ### Comparaison de styles
 
@@ -935,7 +911,6 @@ Pour finir, il parait que les belges sont forts en auto-dérision. La caricature
 ![[Prolifération de standards par xkcd](https://xkcd.com/927/).](https://imgs.xkcd.com/comics/standards.png)
 
 </center>
-
 
 ##### Pour en savoir plus {-}
 

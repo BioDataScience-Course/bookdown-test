@@ -4,7 +4,6 @@
 SciViews::R
 ```
 
-
 ##### Objectifs {-}
 
 - Découvrir --et vous émerveiller de--  ce que l'on peut faire avec le [logiciel R](https://www.r-project.org) [@R-base]
@@ -17,18 +16,19 @@ SciViews::R
 
 - Comparer de manière critique un flux de travail "classique" en biologie utilisant Microsoft Excel et Word avec une approche utilisant R et R Markdown\ ; Prendre conscience de l'énorme potentiel de R
 
-
 ##### Prérequis {-}
 
 Si ce n'est déjà fait, vous devez installer et vous familiariser avec la 'SciViews Box', RStudio, Markdown. Vous devez aussi maîtriser les bases de Git et de GitHub (avoir un compte GitHub, savoir cloner un dépôt localement, travailler avec GitHub Desktop pour faire ses "commits", "push" et "pull"). L'ensemble de ces outils a été abordé au module \@ref(intro).
 
-Avant de poursuivre, vous allez devoir découvrir les premiers rudiments de R afin de pouvoir réaliser par la suite vos premiers graphiques. Pour cela, vous aurez à lire attentivement et effectuer tous les exercices de deux tutoriels^[Reportez-vous à l'Appendice \@ref(learnr) pour apprendre à utiliser ces tutoriels.].
+##### À vous de jouer ! {-}
 
-`r learnr("A02La_base", title = "Les bases de R", toc = "Tutoriel sur les bases de R")`
+*Avant de poursuivre, vous allez maintenant découvrir les premiers rudiments de R afin de pouvoir réaliser par la suite vos premiers graphiques. Pour cela, vous aurez à lire attentivement et effectuer tous les exercices de deux tutoriels^[Reportez-vous à l'Appendice \@ref(learnr) pour apprendre à utiliser ces tutoriels.].*
 
-Ensuite vous pouvez également parcourir un second tutoriel qui vous permettra de découvrir un peu plus R à partir d'une analyse concrète\ :
+`r learnr("A02La_base", title = "Les bases de R", toc = "Notions de base de R")`
 
-`r learnr("A02Lb_progression", title = "Progression R", toc = "Tutoriel de progression en R")`
+*Ensuite vous pouvez également parcourir un second tutoriel qui vous permettra de découvrir un peu plus R à partir d'une analyse concrète.*
+
+`r learnr("A02Lb_progression", title = "Progression R", toc = "Progression en R")`
 
 ([BioDataScience1](https://github.com/BioDataScience-Course/BioDataScience1) est un package R spécialement développé pour ce cours et que vous avez dû installer lors de la configuration de votre SciViews Box, voir Appendice \@ref(install-tuto)).
 
@@ -74,7 +74,6 @@ DT::datatable(urchin , filter = 'top', class = "cell-border compact",
   caption = "Jeu de données sur la biométrie des oursins")
 ```
 
-
 ```{r, fig.cap="Taille (hauteur du test) d'oursins en fonction de leur masse."}
 # Réalisation du graphique 
 chart(data = urchin, height ~ weight) +
@@ -83,10 +82,9 @@ chart(data = urchin, height ~ weight) +
 
 La fonction `chart()` n'est pas accessible dans R de base, mais l'extension chargée via l'instruction `SciViews::R` rend cette fonction disponible. Elle requiert comme argument le jeu de donnée (`data = urchin`, c'est un objet `dataframe` ou `tibble` dans le langage de R), ainsi que la formule à employer dans laquelle vous avez indiqué le nom des variables que vous voulez sur l'axe des ordonnées à gauche et des abscisses à droite de la formule, les deux membres étant séparés par un "tilde" (`~`). Vous voyez que le jeu de données contient beaucoup de variables (les titres des colonnes du tableau en sortie). Parmi toutes ces variables, nous avons choisi ici de représenter `height` en fonction de `weight`, la hauteur en fonction de la masse des oursins. Jusqu'ici, nous avons spécifié _ce que_ nous voulons représenter, mais pas encore _comment_ (sous quelle apparence), nous voulons les matérialiser sur le graphique. Pour un nuage de points, nous voulons les représenter sous forme de ... points\ ! Donc, nous devons ajouter la fonction `geom_point()` pour indiquer cela.
 
+##### À vous de jouer ! {-}
 
-### Le nuage de points en vidéo
-
-Vous trouverez une vidéo ci-dessous vous expliquant la création du nuage de points dans R sur ce jeu de données, en analysant d'autres variables.
+*Note : la vidéo ci-dessous vous expliquant la création du nuage de points dans R sur le jeu de données `urchin` est affublée du signe "H5P", ce qui signifie qu'elle contient également des questions auxqeulles vous devez répondre dans le cadre de votre progression dans la matière.*
 
 `r h5p(10, height = 270, toc = "Vidéo d'introduction au graphique en nuage de points")`
 
@@ -94,11 +92,9 @@ Vous trouverez une vidéo ci-dessous vous expliquant la création du nuage de po
 #vembedr::embed_youtube("-QzG3Xr202w", width = 770, height = 433)
 ```
 
-Cette vidéo ne vous a montré que les principaux outils disponibles lors de la réalisation de graphiques. Soyez curieux et expérimentez par vous-même\ !
+*Auto-évaluez maintenant vos acquis avec le tutoriel learnr suivant.*
 
-##### A vous de jouer {-}
-
-`r learnr("A02Lc_nuage", title = "Nuage de points", toc = "Réalisation de graphiques en nuage de points dans R")`
+`r learnr("A02Lc_nuage", title = "Nuage de points", toc = "Graphiques en nuages de points")`
 
 ### Echelles de graphiques
 
@@ -109,7 +105,6 @@ Vous devez être vigilant lors de la réalisation d'un nuage de point particuli�
 - Quels est la précision des mesures effectuées\ ?
 
 Dans certains cas, la forme du nuage de points peut être distendu par la présence de valeurs aberrantes. Ce n'est pas le cas ici, mais nous pouvons le simuler en distendant artificiellement soit l'axe X, soit l'axe Y, soit les deux\ :
-
 
 ```{r, echo=FALSE, fig.cap="Piège du nuage de points. A) graphique initial montrant la variation de la hauteur [mm] en fonction de la masse [g]. B) graphique A avec la modification de l'échelle de l'axe X. C) Graphique A avec une seconde modification de l'axe X. D) Graphique A avec modification simultanée des deux axes."}
 a <- chart(data = urchin, height ~  weight) + 
@@ -124,21 +119,19 @@ d <- a + scale_x_continuous(limits = c(-400, 400)) +
 combine_charts(list(a, b, c, d))
 ```
 
-##### A vous de jouer {-} 
+##### À vous de jouer ! {-} 
 
-Appliquez par vous même la modification des échelles des axes via l'application ci-dessous.
+*Note\ : l'exercice suivant est une **application Shiny**. Il s'agit d'un petit programme interactif écrit en R et qui vise à expérimenter librement avec un concept. Vous pouvez lancer cette exercice directement dans cette page ou l'exécuter dans RStudio à l'intérieur de votre machine virtuelle. Vérifiez d'être bien enregistré (message à l'ouverture de l'app) et n'oubliez pas de cliquer sur le bouton `Submit` pour tester votre choix, mais également sur le bouton `Save & Quit` pour valider définitivement votre réponse pour la prendre en compte dans votre rapport de progression.*
 
-`r launch_shiny("https://sdd.umons.ac.be/A02Sa_limits/", height = 500, delay = 10, toc = "Choisir l'étendue des axes pour un graphique")`
+`r launch_shiny("https://sdd.umons.ac.be/A02Sa_limits/", height = 500, delay = 10, toc = "Étendue des axes d'un graphique")`
 
 ### Transformation des données
 
 Vous avez la possibilité d'appliquer une transformation de vos données (il est même conseillé de le faire) afin qu'elles soient plus facilement analysables. Par exemple, il est possible d'utiliser des fonctions de puissance, racines, logarithmes, exponentielles^[Pour les proportions (`prop`) ou les pourcentages (`perc`) (valeurs bornées entre 0 et 1 ou 0 et 100%) la transformation arc-sinus est souvent utilisée : $prop′ = \arcsin \sqrt{prop}$ ou $perc′ = \arcsin \sqrt{perc / 100}$.] pour modifier l'apparence du nuage de points dans le but de le rendre plus linéaire (car il est plus facile d'analyser statistiquement des données qui s'alignent le long d'une droite).
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-Appliquez la meilleure transformation sur nos données de hauteurs et de masses d'oursins ci-dessous
-
-`r launch_shiny("https://sdd.umons.ac.be/A02Sa_transformation/", height = 500, delay = 10, toc = "Choisir la transformation des axes d'un graphique")`
+`r launch_shiny("https://sdd.umons.ac.be/A02Sa_transformation/", height = 500, delay = 10, toc = "Transformation des axes d'un graphique")`
 
 ##### Pièges et astuces {-}
 
@@ -151,18 +144,18 @@ chart(data = DF, YNUM ~ XNUM) +
 
 Vous avez à votre disposition un ensemble de snippets que vous pouvez retrouver dans l'aide-mémoire consacré à [**SciViews**](https://github.com/BioDataScience-Course/sdd_cheatsheets/raw/master/SciViews/sciviews.pdf). Vous avez également à votre disposition l'aide-mémoire sur la visualisation des données ([**Data Visualization Cheat Sheet**](https://www.rstudio.com/resources/cheatsheets/)) qui utilise la fonction `ggplot()` plutôt que `chart()` et une interface légèrement différente pour spécifier les variables à utiliser pour réaliser le graphique (`aes(x = ..., y = ...)`).
 
+##### À vous de jouer ! {-}
 
-##### A vous de jouer {-}
-
-Une nouvelle tâche vous est demandée ci-dessous en utilisant GitHub Classroom \@ref(classroom). Cette tâche est un travail **individuel**. Une fois votre assignation réalisée, faites un clone local de votre dépôt et placez-le dans le sous-dossier `projects` de votre dossier partagé avec la SciViews Box `shared`. Vous aurez alors un nouveau projet RStudio \@ref(rs-projet).
+*Note\ : pour rappel, le travail ci-dessous est une **assignation GitHub**. Créez le dépôt GitHub relatif à cette assignation, ensuite clonez-le dans `shared/projects` dans votre machine virtuelle et vous aurez un nouveau projet  RStudio \@ref(rs-projet) dans lequel vous pourrez travailler.*
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A02Ga_nuagepoints", part = "I",
-  url = "https://github.com/BioDataScience-Course/A02Ga_nuagepoints",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/zRJk-Ie0",
-    'S-BIOG-921' = "https://classroom.github.com/a/05EuaBKa"),
-  toc = "Réalisez différents graphiques sur `urchin_bio` dans un script R, partie I")
+if (exists("assignation"))
+  assignation("A02Ga_nuagepoints", part = "I",
+    url = "https://github.com/BioDataScience-Course/A02Ga_nuagepoints",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/zRJk-Ie0",
+      'S-BIOG-921' = "https://classroom.github.com/a/05EuaBKa"),
+    toc = "Graphiques sur `urchin_bio`, partie I : script R")
 ```
 
 Inspirez-vous du script dans le dépôt **[sdd1_iris](https://github.com/BioDataScience-Course/sdd1_iris)**. Vous devez commencer par faire un "fork" du dépôt, puis un clone sur votre ordinateur en local pour pouvoir l'utiliser. 
@@ -181,16 +174,15 @@ Prêtez une attention toute particulière à l'organisation d'un script R. En pl
 
 - [geom_point()](http://ggplot2.tidyverse.org/reference/geom_point.html). La fiche technique de la fonction (en anglais).
 
-
 ## Graphiques dans R Markdown
 
 Un fichier R Markdown est un fichier avec une extension `.Rmd`. Il permet de combiner le langage Markdown que vous avez déjà abordé au premier module avec du code R, tel que celui utilisé dans la première partie de ce module 2. 
 
 ![](images/annexe_a2/rmd.gif)
 
-### R Markdown en vidéo
+##### À vous de jouer ! {-}
 
-La vidéo ci-dessous vous montre ce qu'est R Markdown, un format hybride entre Markdown et R bien pratique pour inclure vos graphiques directement dans un rapport. Elle vous montre aussi comment transformer un script R en document R Markdown (ou R Notebook, qui en est une variante).
+*La vidéo ci-dessous vous montre ce qu'est R Markdown, un format hybride entre Markdown et R bien pratique pour inclure vos graphiques directement dans un rapport. Elle vous montre aussi comment transformer un script R en document R Markdown (ou R Notebook, qui en est une variante). Elle contient des questions "H55P" également.*
 
 `r h5p(8, height = 270, toc = "Vidéo de présentation de R Markdown")`
 
@@ -231,32 +223,34 @@ Vous ne devez bien évidemment pas commencer avec un script R. Vous pouvez comme
 
 - [Why I love R Notebooks](https://rviews.rstudio.com/2017/03/15/why-i-love-r-notebooks/) explique (en anglais) pourquoi le format R Notebook est particulièrement bien adapté à la science des données.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 - Vous allez maintenant manipuler un **Rmarkdown** pour construire de manière interactive une analyse en même temps que le rapport associé.
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A02Ga_nuagepoints", part = "II",
-  url = "https://github.com/BioDataScience-Course/A02Ga_nuagepoints",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/zRJk-Ie0",
-    'S-BIOG-921' = "https://classroom.github.com/a/05EuaBKa"),
-  toc = "Réalisez différents graphiques sur `urchin_bio` dans un R Markdown, partie II")
+if (exists("assignation"))
+  assignation("A02Ga_nuagepoints", part = "II",
+    url = "https://github.com/BioDataScience-Course/A02Ga_nuagepoints",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/zRJk-Ie0",
+      'S-BIOG-921' = "https://classroom.github.com/a/05EuaBKa"),
+    toc = "Graphiques sur `urchin_bio`, partie II : R Markdown")
 ```
 
-- Comparaisons du flux de travail en biologie\ : R et Microsoft Word *versus* R et R Markdown.
+- Comparaison du flux de travail en biologie\ : R et Microsoft Word *versus* R et R Markdown.
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A02Gb_workflow", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A02Gb_workflow",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/0bQq-LZG",
-    'S-BIOG-921' = "https://classroom.github.com/g/nL7d4Gr7"),
-  toc = "Comparaison de workflows R-Word *versus* R-R Markdown")
+if (exists("assignation"))
+  assignation("A02Gb_workflow", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A02Gb_workflow",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/0bQq-LZG",
+      'S-BIOG-921' = "https://classroom.github.com/g/nL7d4Gr7"),
+    toc = "Comparaison de workflows R-Word *versus* R-R Markdown")
 ```
 
 ## Récapitulatif des exercices
 
-Ce module 2 vous a permis de réaliser vos premiers graphiques pour visualiser des données et vous a introduit à R Markdown, un système qui allie la facilité de Markdown pour l'écriture de documents textuels et la puissance de calcul de R pour y inclure des analyses directement. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+Ce second module vous a permis de réaliser vos premiers graphiques pour visualiser des données et vous a introduit à R Markdown, un système qui allie la facilité de Markdown pour l'écriture de documents textuels et la puissance de calcul de R pour y inclure des analyses directement. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
 
 `r show_ex_toc()`

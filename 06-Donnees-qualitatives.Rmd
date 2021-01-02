@@ -14,7 +14,6 @@ SciViews::R
 
 - Être capable de remanier des tableaux de données et de fusionner plusieurs tableaux
 
-
 ##### Prérequis {-}
 
 Ce module est la continuation du module \@ref(import) dont le contenu doit être bien compris et maîtrisé avant de poursuivre ici.
@@ -29,7 +28,9 @@ Chaque individu est représenté en ligne et chaque variable en colonne par conv
 
 Nous nous efforcerons de toujours créer un tableau de ce type pour les données brutes. La question à se poser est la suivante\ : est-ce que j'ai un seul et même individu représenté sur *chaque* ligne du tableau\ ? Si la réponse est non, le tableau de données n'est **pas** correctement encodé.
 
-Par exemple, considérez les données suivantes concernant la taille adulte mesurée en cm pour deux espèces de petits rongeurs\ :
+##### À vous de jouer ! {-}
+
+*Considérez les données suivantes concernant la taille adulte mesurée en cm pour deux espèces de petits rongeurs\ :*
 
 `r h5p(47, height = 270, toc = "Tableau cas par variables 1")`
 
@@ -46,7 +47,7 @@ Par exemple, considérez les données suivantes concernant la taille adulte mesu
 Nous notons immédiatement que ce *n'est pas* un tableau correctement présenté en cas par variable. En effet, un même individu ne peut appartenir simultanément aux hamsters et aux cobayes. Il s'agit forcément d'individus différents mesurés. Nous n'avons donc pas respecté ici la règle de "une ligne = un individu". D'ailleurs, nous avons plus de hamsters mesurés ici que de cobayes, ce qui se marque par un déséquilibre dans le remplissage du tableau... qui doit aussi être un signal d'alarme (à moins qu'il n'y ait des valeurs manquantes).
 ----->
 
-Considérez ce second tableau de données concernant également la taille adulte mesurée en cm de deux espèces de petits rongeurs\ : 
+*Considérez ce second tableau de données concernant également la taille adulte mesurée en cm de deux espèces de petits rongeurs\ :*
 
 `r h5p(48, height = 270, toc = "Tableau cas par variables 2")`
 
@@ -68,7 +69,7 @@ Une présentation correcte de ces données consiste à utiliser une colonne "tai
 Ce dernier tableau est moins compact et plus "verbeux" que le présenter (il faut répéter "hamster" ou "cobaye" plusieurs fois dans la première colonne). Pour cette raison, un novice ou un encodeur ignorant les règles élémentaires des sciences des données est souvent amené, de bonne fois, à adopter la présentation qui semble la plus compacte, **mais ce n'est pas toujours la plus pertinente\ !** Heureusement, dons R le outils existent pour passer d'une forme à l'autre facilement.
 ---->
 
-Considérez maintenant ce troisième exemple fictif avec le résultat d'un test enregistré avant et après un traitement sensé améliorer le résultat du test\ :
+*Considérez maintenant ce troisième exemple fictif avec le résultat d'un test enregistré avant et après un traitement sensé améliorer le résultat du test\ :*
 
 `r h5p(49, height = 270, toc = "Tableau cas par variables 3")`
 
@@ -146,13 +147,13 @@ rep(c("a", "b", "c"), each = 5)
 
 Pour de plus gros tableaux, il vaut mieux utiliser un tableur tel que Excel ou LibreOffice Calc pour l'encodage. Les tableurs en ligne comme Google Sheets ou Excel Online conviennent très bien également et facilitent un travail collaboratif ainsi que la mise à disposition sur Internet, comme nous avons vu au module \@ref(import).
 
-### Tableaux de contingence
+### Tableau de contingence
 
 Le tableau cas par variables n'est toutefois pas la seule représentation (correcte) possible des données. Un **tableau de contingence** représente de manière bien plus compacte le dénombrement de l’occurrence de chaque niveau d'une (tableau à une entrée) ou de deux variables **qualitatives** (tableau à double entrée). 
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r h5p(52, height = 270, toc = "Tableau de contingences")`
+`r h5p(52, height = 270, toc = "Tableau de contingence")`
 
 La fonction `table()` crée ces deux types de tableaux de contingence à partir de données encodées en tableau cas par variables\ :
 
@@ -162,9 +163,9 @@ biometry$age_rec <- cut(biometry$age, include.lowest = FALSE, right = TRUE,
 (bio_tab <- table(biometry$gender, biometry$age_rec))
 ```
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r h5p(51, height = 270, toc = "La fonction table()")`
+`r h5p(51, height = 270, toc = "Tableau de contingence dans R")`
 
 Le tableau de contingence peut toujours être calculé à partir d'un tableau cas par variable, mais il peut également être encodé directement si nécessaire. Voici un petit tableau de contingence à simple entrée encodé directement comme tel (vecteur nommé transformé en objet `table` à l'aide de la fonction `as.table()`) :
 
@@ -301,7 +302,7 @@ Ce tableau peut-être encodé sous forme textuelle et placé dans le même dossi
 Le dictionnaire des données est un outil important pour comprendre ce que contient le tableau de données, et donc, son interprétation. _Ne le négligez pas\ !_
 ```
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 `r h5p(53, height = 270, toc = "Données et métadonnées")`
 
@@ -402,14 +403,13 @@ Dans le module \@ref(import), vous avez pris connaissance des types de variable 
 
 Nous traitons ici des premières étapes qui visent à acquérir les données.
 
-
 ### Précision et exactitude
 
 Les erreurs de mesures sont inévitables lors de l'acquisition de nos données. Cependant, il est possible de les minimiser en choisissant un instrument plus précis (*precise* en anglais) et plus exact (*accurate* en anglais).
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r h5p(54, height = 270, toc = "Précision et exactitudes")`
+`r h5p(54, height = 270, toc = "Précision et exactitude")`
 
 <!----
 La figure ci-dessous illustre de manière visuelle la différence qu'il y a entre précision et exactitude.
@@ -563,9 +563,9 @@ Essayez de réaliser ce type de graphique en partant de `shotgun_wide`... Bonne 
 Très souvent, lorsqu'il est impossible de réaliser un graphique avec `chart()` ou `ggplot()` parce que les données se présentent mal, c'est parce que le jeu de données est encodé de manière incorrecte\ ! Si les données sont, par contre, correctement encodées, demandez-vous alors si le graphique que vous voulez faire est pertinent.
 ```
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r h5p(55, height = 270, toc = "De long vers large")`
+`r h5p(55, height = 270, toc = "Transformation de long vers large")`
 
 Pour passer du format long au format large (traitement inverse à `pivot_longer()`), il faut utiliser la fonction `pivot_wider()`. Ainsi pour retrouver le tableau d'origine (ou quelque chose de très semblable) à partir de `shotgun_long` nous utiliserons\ :
 
@@ -605,9 +605,9 @@ crabs <- separate(crabs, col = "sp_sex", into = c("sex", "species"), sep = "_")
 rmarkdown::paged_table(crabs)
 ```
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r learnr("A06La_recombinaison", title = "Recombinaison de tableaux", toc = "Remodelage de tableaux  dans R")`
+`r learnr("A06La_recombinaison", title = "Recombinaison de tableaux", toc = "Remodelage de tableaux")`
 
 ## Traitements multi-tableaux
 
@@ -733,22 +733,20 @@ Il existe, en fait, plusieurs versions pour la fusion de tableaux, représentée
 
 ![`inner_join()` par [gadenbuie](https://github.com/gadenbuie/tidyexplain/blob/master/images/inner-join.gif).](images/sdd1_06/inner-join.gif)
 
+##### À vous de jouer ! {-}
 
-##### A vous de jouer {-}
+`r learnr("A06Lb_multi_tableau", title = "Traitements multi-tableaux", toc = "Traitements multi-tableaux")`
 
-`r learnr("A06Lb_multi_tableau", title = "Traitements multi-tableaux", toc = "Traitements multi-tableaux dans R")`
-
-##### A vous de jouer {-}
-
-Vous avez à réaliser un projet libre par 3 sur la démographie en Belgique. Ce projet requiert d'avoir assimilé les 6 premiers module de ce cours.
+**Note\ : l'assignation GitHub suivante est à réaliser par groupes de trois étudiants, librement formés. Elle requiert d'avoir assimilé l'ensemble de la matière des six premiers modules du cours.**
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A06Ga_belgium_demo", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A06Ga_belgium_demo",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/g/h1HgkuuH",
-    'S-BIOG-921' = "https://classroom.github.com/g/RW1vkL7f"),
-  toc = "Analyse de la démographie en Belgique")
+if (exists("assignation"))
+  assignation("A06Ga_belgium_demo", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A06Ga_belgium_demo",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/g/h1HgkuuH",
+      'S-BIOG-921' = "https://classroom.github.com/g/RW1vkL7f"),
+    toc = "Analyse de la démographie en Belgique")
 ```
 
 ##### Pour en savoir plus {-}
@@ -757,6 +755,6 @@ assignation("A06Ga_belgium_demo", part = NULL,
 
 ## Récapitulatif des exercices
 
-Vous venez de terminer le module 6. Ce module vous a permis d'apprendre à recombiner, remodeler et fusionner des tableaux. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+Vous venez de terminer le module 6 qui clôture la première partie du cours. Ce module vous a permis d'apprendre à recombiner, remodeler et fusionner des tableaux. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
 
 `r show_ex_toc()`

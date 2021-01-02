@@ -18,11 +18,9 @@ SciViews::R
 
 - Connaître également le test de Wilcoxon-Mann-Withney, et pouvoir déterminer quand l'utiliser à la place du test de Student
 
-
 ##### Prérequis {-}
 
 Ce module est élaboré sur les notions vues au module \@ref(proba) concernant les lois de distribution statistiques et sur le concept de test d'hypothèse abordé dans le module \@ref(chi2). Ces deux précédents modules doivent donc être maîtrisés avant d'aller plus avant ici.
-
 
 ## Une histoire de bière...
 
@@ -38,10 +36,9 @@ vembedr::embed_youtube("GFzCIA9kppM", width = 770, height = 433)
 
 Le contrat que Gosset a signé avec son employeur l'empêchait de publier des résultats scientifiques sous son vrai nom. Ainsi, il décida de publier sa trouvaille qui occupe aujourd'hui une place très importante en statistiques sous le pseudonyme de "Student" (l'étudiant). Ce n'est qu'à sa mort, en 1937, que l'on pu révéler le nom de l'auteur qui est derrière cette fantastique trouvaille. Mais au fait, de quoi s'agit-il exactement\ ? Nous allons le découvrir dans la section suivante.
 
-
 ## Distribution d'échantillonnage
 
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
@@ -148,7 +145,6 @@ La première bonne nouvelle, c'est que la moyenne des moyennes des échantillons
 
 La seconde bonne nouvelle, c'est que la distribution des moyennes des échantillons est plus resserrée que la distribution d'origine. En fait, son écart type dépend à la fois de l'écart type de la population de départ et de $n$, la taille de l'échantillon. Elle varie, en fait, comme $\sigma_x = \frac{\sigma}{\sqrt{n}}$. Ainsi, avec $n = 9$ nous obtenions $\sigma_x = \frac{2}{\sqrt{9}} = \frac{2}{3}$\ ; avec $n = 4$, nous avions $\sigma_x = \frac{2}{\sqrt{4}} = \frac{2}{2}$\ ; enfin, avec $n = 100$, nous observions $\sigma_x = \frac{2}{\sqrt{100}} = \frac{2}{10}$.
 
-
 ### Loi de distribution de Student
 
 On dira\ :
@@ -254,7 +250,6 @@ On pourra aussi dire que la moyenne d'un échantillon de neuf observations issu 
 .x1[.x > 6.4627] <- NA
 .x2[.x < 9.5373] <- NA
 
-
 chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
   Prob ~ Quantiles) +
   geom_hline(yintercept = 0, col = "gray") +
@@ -266,7 +261,6 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
   ylab("Densité de probabilité") +
   annotate("text", x = c(6.25, 9.75), y = 0.015, label = c("2.5%", "2.5%"), col = "red")
 ```
-
 
 ### Intervalle de confiance
 
@@ -343,7 +337,6 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
     label = c("2.5%", "2.5%", "5%", "5%"), col = "red")
 ```
 
-
 ### Théorème central limite (encore)
 
 Jusqu'ici, nous avons considéré une population au départ qui a une distribution normale, mais rien ne dit que ce soit le cas. Que se passe-t-il lorsque la distribution est différentes\ ? Ici encore, nous pouvons effectuer une méta-expérience. Considérons, par exemple, une distribution uniforme de même moyenne = 8 et écart type = 2. Sachant que l'écart type d'une distribution uniforme vaut $\frac{max - min}{\sqrt{12}}$, voir [ici](https://fr.wikiversity.org/wiki/Variables_aléatoires_continues/Loi_uniforme), l'intervalle est de\ : $2 \cdot \sqrt{12} = 6,928$. Nous avons donc\ :
@@ -405,7 +398,6 @@ chart(data = NULL, ~ m_unif_n100) +
 
 Nous venons de montrer de manière empirique que lorsque la distribution de la population est différente d'une distribution normale, la distribution d'échantillonnage tend vers une *t* de Student pour un $n$ grand. Ceci se démontre de manière mathématique par le fameux **théorème central limite** que nous avons déjà abordé et qui est si cher aux statisticiens (nous vous épargnons cette démonstration ici).
 
-
 ##### Conditions de validité de l'IC {-}
 
 L'IC sera pertinent si\ :
@@ -416,7 +408,6 @@ L'IC sera pertinent si\ :
     + est normale, alors l'IC basé sur la distribution *t* de Student sera exact,
     + est approximativement normale, l'IC sera approximativement exact,
     + est non normale, l'IC sera approximativement exact si $n$ est grand.
-
 
 ## Test *t* de Student
 
@@ -520,7 +511,6 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x)),
     col = "red", fontface = "bold.italic")
 ```
 
-
 Nous pouvons calculer la valeur *P* nous-même comme ceci, sachant la valeur de $t_{obs} = \frac{\Delta rear}{SE_{\Delta rear}}$ parce que nous travaillons avec une distribution *t* réduite\ :
 
 ```{r}
@@ -541,7 +531,6 @@ t.test(data = crabs, rear ~ sex,
 
 Nous retrouvons exactement toutes les valeurs que nous avons calculées à la main. Dans le cas présent, rappelez-vous la façon d'interpréter le test. Nous comparons la valeur *P* à $\alpha$. Si elle est plus petit, nous rejettons $H_0$, sinon, nous ne la rejettons pas. Ici, nous rejettons $H_0$ et pourrons dire que la largeur à l'arrière de la carapace de *L. variegatus* diffère de manière significative entre les mâles et les femelles au seuil $\alpha$ de 5% (test t bilatéral, *t* = 4,29, ddl = 198, valeur *P* << 10^-3^).
 
-
 ##### Conditions d'application {-}
 
 - échantillon représentatif (échantillonnage aléatoire et individus indépendants les uns des autres),
@@ -558,8 +547,7 @@ Petite astuce... les mesures morphométriques sont dépendantes de la taille glo
 Vous pouvez également comparer les crabes bleus (`species = "B"`) avec les crabes oranges (`species = "O"`) à l'aide du même test.
 ```
 
-
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 
@@ -567,15 +555,13 @@ Appliquez les test de student dans votre projet portant sur la biométrie humain
 
 ```
 
-
 ##### Pour en savoir plus {-}
 
 - Une [vidéo en anglais](https://www.youtube.com/watch?v=QoV_TL0IDGA) qui explique le test *t* de Student un peu différemment.
 
-
 ## Variantes du test *t* de Student
 
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
@@ -586,7 +572,6 @@ Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans
 
 Nous venons de voir ce qu'on appelle très précisément le **test *t* de Student indépendant bilatéral avec variances égales**. Nous allons maintenant étudier d'autres variantes. 
 
-
 ### Variances inégales
 
 Dans le test précédent, nous avons supposé que les variances entre les valeurs $rear_F$ et $rear_M$ étaient égales, mais rien ne dit que cela soit le cas^[Il existe des tests pour le vérifier, comme le **test de Bartlett**, mais ce n'est pas le propos ici.]. Si nous ne voulons pas de cette contrainte, une variante du test permet de comparer deux moyennes même en présence de variances inégales\ : le **test de Welch**. Il consiste à ajuster les degrés de liberté en cas de variances inégales. Il suffit de préciser `var.equal = FALSE`.
@@ -595,7 +580,6 @@ Dans le test précédent, nous avons supposé que les variances entre les valeur
 t.test(data = crabs, rear ~ sex,
   alternative = "two.sided", conf.level = 0.95, var.equal = FALSE)
 ```
-
 
 ### Test unilatéral
 
@@ -632,7 +616,6 @@ Notez que la valeur *P* a été divisée par deux par rapport au test bilatéral
 .x1 <- .x
 .x1[.x < qt(0.05, df = 198, lower.tail = FALSE)] <- NA
 
-
 chart(data = tibble(Quantiles = .x, Prob = .d(.x)),
   Prob ~ Quantiles) +
   geom_hline(yintercept = 0, col = "gray") +
@@ -657,7 +640,6 @@ Un autre exemple évident de test unilatéral\ : si nous mesurons la concentrati
 - $H_1: \overline{[S]} > 0$
 
 Ce test sera nécessairement unilatéral à droite car des concentrations négatives ne sont pas possibles.
-
 
 ### Test *t* apparié
 
@@ -719,7 +701,6 @@ t.test(crabs$front, crabs$rear,
 
 Nous rejettons $H_0$ car la valeur *P* est inférieure à $\alpha$. Nous en concluons que le crabe *L. variegatus* a une carapace significativement plus large à l'avant qu'à l'arrière (t test apparié = 25,3, ddl = 199, valeur *P* << 10^-3^). Naturellement, les variantes unilatérales à gauche et à droite existent aussi pour ce test. Par contre, la question des variances égales ou non ne se pose pas dans ce cas^[Pouvez-vous expliquer pourquoi\ ? Réfléchissez, c'est assez évident.]. Notez que le test se limite à indiquer que la valeur *P* < 2,2 . 10^-16^. Effectivement, notre calcul donne 3.7 . 10^-64^.
 
-
 ##### Conditions d'application {-}
 
 - échantillon représentatif (échantillonnage aléatoires),
@@ -735,7 +716,6 @@ Nous rejettons $H_0$ car la valeur *P* est inférieure à $\alpha$. Nous en conc
 ```{block, type='warning'}
 Avant de réaliser une expérience, vous vous demanderez certainement s'il vaut mieux vous orienter vers une design pour un test apparié ou indépendant. Le test apparié n'est pas toujours possible. Par exemple, si vous comparez deux espèces, il est évident qu'un même individu ne peut appartenir simultanément aux deux espèces\ ! Mais dans tous les cas où c'est possible, **le design apparié est à préférer**. Il permet d'éliminer une bonne part de la variabilité inter-individuelle de l'analyse, puisque cet effet joue de manière équivalente sur les deux mesures pour chaque paire d'observations sur le même individu. Le choix du test apparié permet d'observer des différentes plus subtiles indétectables en mode indépendant pour un même nombre de réplicats, ou alors, il permet d'observer les mêmes effets mais avec un nombre de mesures bien plus faible. Dans tous les cas, on est gagnant.
 ```
-
 
 ##### Encodage correct {-}
 
@@ -765,17 +745,14 @@ chart(data = sleep2, med2 ~ med1) +
   geom_abline(slope = 1, intercept = 0)
 ```
 
-
 ```{r}
 t.test(sleep2$med1, sleep2$med2,
   alternative = "two.sided", conf.level = 0.95, paired = TRUE)
 ```
 
-
 ##### Pour en savoir plus {-}
 
 - Une [autre explication](http://www.sthda.com/french/wiki/test-de-student-apparie-avec-r-comparaison-de-moyennes-de-deux-series-appariees) avec un autre exemple et une explication de la façon d'accéder aux résultats stockés dans l'objet `htest` renvoyé par la fonction `t.test()`.
-
 
 ### Test *t* univarié
 
@@ -807,7 +784,6 @@ t.test(sleep2$med1,
 
 La valeur *P* est supérieure à $\alpha$. Nous ne rejettons pas $H_0$. Nous ne pouvons pas dire que le médicament 1 change de manière significative la durée de sommeil chez les patients au seuil $\alpha$ de 5% (test t univarié = 1,33, ddl = 9, valeur *P* = 0,22). Notez également que dans le cas présent, l'intervalle de confiance [-0,53, 2,03] contient zéro.
 
-
 ##### Conditions d'application {-}
 
 - échantillon représentatif (échantillonnage aléatoires),
@@ -817,7 +793,6 @@ La valeur *P* est supérieure à $\alpha$. Nous ne rejettons pas $H_0$. Nous ne 
     + normale, alors le test basé sur la distribution *t* de Student sera exact,
     + approximativement normale, le test sera approximativement exact,
     + non normale, le test sera approximativement exact si $n$ est grand.
-
 
 ## Test de Wilcoxon
 
@@ -882,15 +857,13 @@ La puissance est de 0,954. Donc, $\beta$ vaut 1 - 0,954 = 0,046 ou pratiquement 
 
 ![Le système judiciaire des statistiques, par Hadley Wickham.](images/sdd1_09/statistical-justice.jpg)
 
-
-##### A vous de jouer ! {-}
+##### À vous de jouer ! {-}
 
 ```{block, type='bdd'}
 
 Appliquez les test de student et ses variantes dans vos projets portant sur la biométrie humaine, sur la croissance des oursins et sur le zooplankton.
 
 ```
-
 
 ## Représentation graphique
 
@@ -932,9 +905,7 @@ chart(data = crabs, rear ~ sex) +
     fun.data = "mean_cl_normal", fun.args = list(conf.int = 0.95))
 ```
 
-##### Pièges et astuces {-}
-
-###### Les barres d'erreurs {-}
+##### Pièges et astuces : barres d'erreurs {-}
 
 Que vous utilisiez le nuage de points ou le graphique en barres, vous devez être extrêmement vigilant aux barres d'erreurs. Vous devez toujours préciser et bien comprendre ce que les barres d'erreurs cachent. Voici 4 graphiques qui présentent différentes barres d'erreurs (la taille de l'axe y a volontairement été figée).
 
@@ -1000,7 +971,6 @@ mean_se(crabs$rear)
 
 Comme nous venons de le voir, les barres d'erreurs sont calculées à partir de différentes fonctions. Il est donc indispensable de préciser explicitement ce que les barres d'erreurs représentent. 
 
-
 ##### Pour en savoir plus {-} 
 
 - [Beware of dynamite](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/TatsukiRcode/Poster3.pdf). Démonstration de l'impact d'un graphe en barres pour représenter la moyenne (et l'écart type) = graphique en "dynamite".
@@ -1009,9 +979,7 @@ Comme nous venons de le voir, les barres d'erreurs sont calculées à partir de 
 
 - [Comparaison de moyennes : indiquez la significativité des différences sur le graph](https://statistique-et-logiciel-r.com/comparaison-de-moyennes-indiquer-les-differences-significatives-sur-le-graph/). Tutoriel sur la comparaison de moyennes avec `ggpubr`
 
-
 Pour terminer, bien que la moyenne soit un descripteur statistique très utile, il est parfois utilisé de manière abusive. Une distribution statistique ne se résume pas à un nombre, fût-ce la moyenne. De plus, si la distribution est *asymétrique*, la moyenne est un mauvais choix (préférer alors la médiane, ou transformer les données pour rendre la distribution plus symétrique). La vidéo suivante détaille le problème qui peut se produire\ :
-
 
 ```{r, echo=FALSE}
 vembedr::embed_youtube("uIx2xvdwIIo", width = 770, height = 433)

@@ -4,7 +4,6 @@
 SciViews::R
 ```
 
-
 ##### Objectifs {-}
 
 - Être capable de réaliser différentes variantes de graphiques visant à montrer *comment les données se distribuent* tel que les histogrammes, les graphes de densité ou encore les diagrammes en violon dans R avec la fonction `chart()`
@@ -110,9 +109,9 @@ combine_charts(list(a, b, c, d))
 
 Comme vous pouvez le voir à la Fig. \@ref(fig:histo-classes), le changement du nombre de classes peut modifier complètement la perception des données via l'histogramme (notez l'utilisation de la fonction `combine_charts()` pour réaliser une figure composite, nous étudierons cette fonction plus en détails dans le prochain module). Le choix idéal est un compromis entre plus de classes (donc plus de détails), et un découpage raisonnable en fonction de la quantité de données disponibles. Si l'intervalle des classes est trop petit, l'histogramme sera illisible. Si l'intervalle des classes est trop grand, il sera impossible de visualiser correctement les différents modes. Dans la figure en exemple, les variantes A et B sont acceptables, mais les C et D manquent de détails.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r launch_shiny("https://sdd.umons.ac.be/A03Sa_histogram/", height = 500, delay = 10, toc = "Choisir le nombre de classes d'un histogramme")`
+`r launch_shiny("https://sdd.umons.ac.be/A03Sa_histogram/", height = 500, delay = 10, toc = "Nombre de classes d'un histogramme")`
 
 ##### Pièges et astuces {-}
 
@@ -175,9 +174,9 @@ chart(data = iris, ~ sepal_length %fill=% species | species) +
 
 Vous découvrez sans doute que les graphiques réalisables avec R sont modulables à souhait en ajoutant une série d'instructions successives qui créent autant de couches superposées dans le graphique. Cette approche permet de réaliser quasiment une infinité de graphiques différents en combinant seulement quelques dizaines d'instructions. Pour s'y retrouver, les fonctions qui ajoutent des couches commencent toutes par `geom_`, et celles qui manipulent les couleurs par `scale_`, par exemple. Vous découvrirez encore d'autres fonctions graphiques plus loin.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r learnr("A03La_univaries", title = "Graphiques univariés", toc = "Réalisation de différents graphiques univariés")`
+`r learnr("A03La_univaries", title = "Graphiques univariés", toc = "Graphiques univariés")`
 
 **note:** Ce tutoriel couvre l'ensemble de la matière de ce module. N'hésitez pas à le réaliser en parallèle de votre lecture.
 
@@ -228,18 +227,19 @@ chart(data = zooplankton, ~ size) +
 
 Ici, nous utilisons donc la fonction `geom_density()`.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
+
+**Note\ : cette assignation individuelle couvre l'ensemble de la matière de ce module. N'hésitez pas à la réaliser en parallèle de votre lecture.**
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A03Gb_distribution", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A03Gb_distribution",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/qi2q9R1N",
-    'S-BIOG-921' = "https://classroom.github.com/a/H4su2oCp"),
-  toc = "Réalisez différents graphiques de distribution sur `zooplankton`")
+if (exists("assignation"))
+  assignation("A03Gb_distribution", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A03Gb_distribution",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/qi2q9R1N",
+      'S-BIOG-921' = "https://classroom.github.com/a/H4su2oCp"),
+    toc = "Graphiques de distribution sur `zooplankton`")
 ```
-
-**Note\ :** cette assignation individuelle couvre l'ensemble de la matière de ce module. N'hésitez pas à la réaliser en parallèle de votre lecture.
 
 ## Diagramme en violon
 
@@ -355,7 +355,7 @@ La collaboration entre plusieurs personnes mène inévitablement à la gestion d
 
 Imaginons que nos deux collaborateurs réalisent une modification du documents `biometry_note.Rmd` *en même temps* et *sur la même partie* du document. 
 
-`r h5p(30, height = 270, toc = "Deux version d'un même fichier")`
+`r h5p(30, height = 270, toc = "Deux versions d'un même fichier")`
 
 Que va-t-il se passer selon vous\ ? Lequel des deux collaborateurs va-t-il avoir le droit d'écraser le contenu de l'autre\ ? GitHub n'est pas capable de décider quelle version est la meilleure. Il va donc demander au dernier collaborateur qui réalise son `push` de gérer ce conflit lui-même.
 
@@ -367,7 +367,7 @@ On peut voir que lorsque le `push` est réalisé, une erreur apparaît. Il faut 
 
 Vous pouvez ensuite vous rendre dans chaque fichier problématique pour retrouver la/les zone(s) de conflit (utiliser l'outil de recherche avec l'icône loupe dans l'éditeur RStudio et recherchez par exemple `>>>>>`).
 
-`r h5p(31, height = 270, toc = "Résolution d'un conflit suite")`
+`r h5p(31, height = 270, toc = "Résolution d'un conflit (suite)")`
 
 La résolution est simple à faire. Vous devez choisir la partie qui vous semble la plus pertinente et effacer tout le reste, y compris les balises ajoutées par GitHub.
 
@@ -381,17 +381,18 @@ Lorsque vous vous lancez dans un projet ou revenez vers lui, il faut toujours fa
 Lorsque vous avez terminé de travailler sur un projet. Il est conseillé de faire toujours un `commit`, suivi d'un `pull` en vérifiant bien si des modifications sont réalisées qu'il n'y a pas de conflits (sinon, on les règle directement) et enfin un `push`. **Ne laissez jamais trainer un conflit\ ! C'est une situation treansitoire normale de votre dépôt, mais qui nécessite une intervention rapide pour l'éliminer avant que d'autres `commit`s ne viennent rendre la situtation plus complexe.**
 ````
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-Une nouvelle tâche vous est demandée. Cette nouvelle assignation GitHub Classroom est un exercice à réaliser en *binôme*. Ce projet est un projet trans-module. Nous allons donc y revenir à plusieurs reprises.
+**Note\ : l'assignation GitHub suivante est un exercice à réaliser en *binôme*. Ce projet est également transmodule, ce qui signifie que vous reviendrez dessus à plusieurs reprises au fur et à mesure de votre progression dans la matière afin de compléter votre analyse de ces données, toujours en binômes. Vous formez les binômes librement comme bon vous semble.**
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A03Ga_urchin", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/g/GDEEO7QD",
-    'S-BIOG-921' = "https://classroom.github.com/g/gqWaZbVm"),
-  toc = "Biométrie de l'oursin violet")
+if (exists("assignation"))
+  assignation("A03Ga_urchin", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/g/GDEEO7QD",
+      'S-BIOG-921' = "https://classroom.github.com/g/gqWaZbVm"),
+    toc = "Biométrie de l'oursin violet")
 ```
 
 ::: {.S-BIOG-006 .S-BIOG-027}

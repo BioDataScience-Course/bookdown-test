@@ -83,9 +83,9 @@ N'oubliez pas que le chemin d'accès à votre fichier peut s'écrire de manière
 
 Les explications détaillées concernant l'organisation de vos projets dans RStudio pour qu'ils soient portables, la gestion des chemins d'accès aux fichiers et les chemins relatifs sont détaillés dans l'annexe \@ref(prise), à la section \@ref(rs-projet). **C'est le moment de vérifier que vous avez bien compris et assimilé son contenu.**
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r h5p(38, height = 400, toc = "Chemin d'accès")`
+`r h5p(38, height = 400, toc = "Chemins relatifs pour les fichiers")`
 
 ##### Pièges et astuces {-}
 
@@ -149,7 +149,7 @@ coral <- read("../data/coral.rds")
 Faites toujours la distinction entre **données brutes** et **données nettoyées**. Ne les mélangez jamais et documentez toujours de manière reproductible le processus qui mène des unes aux autres ! C'est tout aussi important que de garder un lien vers la source originale des données dans votre code et d'utiliser toujours des chemins relatifs vers vos fichiers pour une analyse portable et reproductible.
 ```
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 `r h5p(39, height = 270, toc = "Utilité de .gitignore")`
 
@@ -240,7 +240,7 @@ urchin_FR %>.%
 
 Le code a dû être modifier dans l'instruction `filter()` lors du passage à `urchin_FR` (`Farm` -> `Pêcherie`). Bien évidemment, pour un rapport *plus formel* en français, **tout** doit être traduit en français et l'option `lang = "FR"` accompagnée d'une vérification et une adaptation éventuelle du code est à préférer dans ce cas précis.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 `r h5p(40, height = 270, toc = "Importation de données provenant d'un package")`
 
@@ -286,9 +286,9 @@ skimr::skim(biometry)
 
 Avec une seule instruction, on obtient une quantité d'information sur notre jeu de données comme le nombre d'observations, le nombre de variables et un traitement spécifique pour chaque type de variable. Cette instruction permet de visualiser et d'appréhender le jeu de données mais ne doit généralement pas figurer tel quel dans un rapport d'analyse. 
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
-`r h5p(41, height = 270, toc = "Type des variables")`
+`r h5p(41, height = 270, toc = "Types de variables")`
 
 ## Conversion de variables
 
@@ -308,7 +308,7 @@ ceiling(x)
 floor(x)
 ```
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 `r h5p(42, height = 270, toc = "Arrondir des nombres")`
 
@@ -541,7 +541,7 @@ urchin_sub4 <- drop_na(urchin)
 rmarkdown::paged_table(urchin_sub4)
 ```
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 `r h5p(44, height = 270, toc = "Filtrer un tableau")`
 
@@ -585,7 +585,7 @@ rmarkdown::paged_table(select(urchin, skeleton, skeleton_log, skeleton_sqrt))
 
 La fonction `transmute()` effectue la même opération, mais en plus, elle laisse tomber les variables d'origine pour ne garder *que* les nouvelles variables calculées.
 
-##### A vous de jouer {-}
+##### À vous de jouer ! {-}
 
 `r h5p(43, height = 270, toc = "Calculer de nouvelles variable")`
 
@@ -723,19 +723,18 @@ Le pipe `%>.%` injecte le résultat précédent dans l'instruction suivante à t
 
 Le pipe permet d'éviter de répéter le nom des objets (version avec variables intermédiaires), ce qui alourdit inutilement le code et le rend moins agréable à la lecture. L'imbrication des fonctions dans la première version est catastrophique pour la compréhension du code car les arguments des fonctions de plus haut niveau sont repoussés loin. Par exemple, l'argument de l'appel à `group_by()` (`gender`) se retrouve quatre lignes plus loin. Et encore, nous avons pris soin d'indenter le code pour repérer sur un plan vertical qui appartient à qui, mais imaginez ce que cela donne si l'instruction est mise à plat sur une seule ligne ! Le code le plus clair à la lecture est définitivement celui avec chaînage des opérations. Or, un code plus lisible est plus compréhensible... et donc, moins bogué.
 
-##### A vous de jouer {-}
-
-- Maintenant que vous venez d'apprendre à importer correctement vos données, à les remanier avec quelques-uns des opérateurs les plus fréquents, et que vous savez chaîner vos instructions, il est temps de vous exercer.
+##### À vous de jouer ! {-}
 
 `r learnr("A05La_traitement", title = "Traitement des données I", toc = "Traitement des données dans R")`
 
 ```{r, echo=FALSE, results='asis'}
-assignation("A05Ga_transformation", part = NULL,
-  url = "https://github.com/BioDataScience-Course/A05Ga_transformation",
-  course.urls = c(
-    'S-BIOG-006' = "https://classroom.github.com/a/CwnfcuI_",
-    'S-BIOG-921' = "https://classroom.github.com/a/RvIUO8iY"),
-  toc = "Importation et transformation des données.")
+if (exists("assignation"))
+  assignation("A05Ga_transformation", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A05Ga_transformation",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/CwnfcuI_",
+      'S-BIOG-921' = "https://classroom.github.com/a/RvIUO8iY"),
+    toc = "Importation et transformation des données")
 ```
 
 <!---- A retravailler 
