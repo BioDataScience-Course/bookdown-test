@@ -213,6 +213,10 @@ Dans ce cas, effacer d'abord ce fichier `svbox2020.vdi.xz` corrompu ou renommez-
 knitr::include_graphics('images/block-mac.png')
 ```
 
+```{block, type='error'}
+Ni VirtualBox, ni la SciViews Box ne fonctionnent sur les machines équipées des nouvelles puces Apple M1. Elles ne fonctionneront probablement jamais sous cette architecture\ ! A l'avenir, nous chercherons une solution de remplacement, mais pour l'instant les logiciels du cours de Science des Données Biologiques sont inutilisables sur les Macs à puces M1.
+```
+
 MacOS mets en œuvre une série de protections qui empêchent des logiciels malveillants de s'installer à votre insu. Mais ces protections sont ennuyeuses lorsqu'il s'agit d'installer un logiciel sain, mais non "notarisé" (la procédure de certification des logiciels d'Apple) comme VirtualBox ou le lanceur de la SciViews Box. Vous aurez donc, au début, un certain nombre de messages de sécurité à accepter.
 
 Vous allez d'abord installer VirtualBox, ensuite, le lanceur rapide de la SciViews Box. Ce lanceur rapide détecte si la SciViews Box est installée et réalisera toutes les étapes nécessaires pour aboutir à une machine virtuelle pleinement fonctionnelle dès son premier lancement. Suivez le guide...
