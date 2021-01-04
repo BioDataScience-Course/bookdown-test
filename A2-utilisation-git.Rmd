@@ -4,7 +4,7 @@ Cette annexe comprend une description détaillée des différents outils utilis�
 
 ## RStudio {#rs}
 
-Une fois que vous avez démarré la SciViews Box à partir du lanceur rapide (ou directement à partir de VirtualBox), vous pourrez accéder à RStudio à partir du bouton correspondant dans la bannière rouge en haut de la page https://wp.sciviews.org. Un nouvel onglet s'ouvre dans votre borwser web (Chrome recommandé ici\ !) et le login vers RStudio apparaît. Il faut y entrer les informations suivantes\ :
+Une fois que vous avez démarré la SciViews Box à partir du lanceur rapide (ou directement à partir de VirtualBox), vous pourrez accéder à RStudio de plusieurs façons. Rappelons toutefois que, pour les étudiants UMONS, la seule façon qui assure un enregistrement correct passe par le bouton bleu "RStudio" dans le cours après avoir vérifié que la bannière noire d'enregistrement est bien présente en haut de page. Vous entrez dans RStudio en y entrant les informations suivantes\ :
 
 - Username\ : **sv**
 - Password\ : **sv**
@@ -25,7 +25,7 @@ Pour l'instant, aucun document de travail n'est encore ouvert. Pour en créer un
 
 ![](images/annexe_a2/rstudio3.png)
 
-Le menu **Session** permet d'interagir directement avec **R** qui est lancé automatiquement en arrière plan dès que RStudio est ouvert. Par exemple, il est possible de relancer **R** à partir d'une entrée dans ce menu\ :
+Le menu **Session** permet d'interagir directement avec **R** qui est lancé automatiquement en arrière plan dès que RStudio est ouvert. Par exemple, il est possible de relancer **R** à partir d'une entrée dans ce menu (`Session -> Restart R`)\ :
 
 ![](images/annexe_a2/rstudio4.png)
 
@@ -236,15 +236,15 @@ Tout comme dans un script R, les instructions doivent être également exécuté
 
 Un document R Markdown / R Notebook se structure de la manière suivante\ :
 
-- Un préambule
+- Un préambule, encore appelé entête YAML (du nom du langage utilisé pour y encoder des informations)
 - Des zones d'édition
     + Le language employé est le Markdown
 - Des zones de code R
-    + Ces zones de codes sont appelées des **chunk**s
+    + Ces zones de codes sont appelées des **chunks**
 
 ![](images/annexe_a2/rmd1.png)
 
-Le **préambule** est nécessairement situé au tout début du document et est balisé à l'aide de trois tirets `---` sans rien d'autre sur une ligne au début et à la fin. Le préambule comporte un ensemble d'entrées de type `nom: valeur` qui configurent le document ou la façon dont il sera compilé en rapport final. Nous pouvons y indiquer le titre principal, le ou les auteurs, la date, ...
+Le **préambule** est nécessairement situé au tout début du document et est délimité à l'aide de trois tirets `---` sans rien d'autre sur une ligne au début et à la fin. Le préambule comporte un ensemble d'entrées de type `nom: valeur` qui configurent le document ou la façon dont il sera compilé en rapport final. Nous pouvons y indiquer le titre principal, le ou les auteurs, la date, ...
 
 Le reste du document R Markdown est subdivisé en zones successives et contrastés sur des fonds de couleurs différentes dans RStudio. On y retrouve\ :
 
@@ -328,7 +328,7 @@ Sur GitHub, vous pouvez héberger vos projets (qui se nomment sur GitHub `reposi
 
 Les projets publics sont visibles par tous. La collaboration est le point central de GitHub. Un dépôt public peut être vu par tous. Il peuvent y apporter des modifications et puis vous soumettre les modifications. Nous reviendrons plus tard sur ces apports par la communauté. Pour des projets plus sensibles, vous avez la possibilité d'avoir des projets privés.
 
-Un dépôt sur GitHub est proposé de la manière suivante. Vous pouvez observer le nom du dépôt et la personne ou l'organisation qui travaille sur ce projet (`BioDataScience-Course/sdd-umons-2020`). Dans notre cas, tous les projets relatifs au cours de sciences des données biologiques sont hébergés sur [BioDataScience-Course](https://github.com/BioDataScience-Course)(Il en sera de même pour tous les travaux que vous réaliserez dans le cadre des cours). Sous le nom du dépôt, vous pouvez observer, le dépôts sur lequel ce projet s'inspire (`phgrosjean/bookdown-test`). 
+Un dépôt sur GitHub est proposé de la manière suivante. Vous pouvez observer le nom du dépôt et la personne ou l'organisation qui travaille sur ce projet (`BioDataScience-Course/sdd-umons-2020`). Dans notre cas, tous les projets relatifs au cours de sciences des données biologiques sont hébergés sur [BioDataScience-Course](https://github.com/BioDataScience-Course) (Il en sera de même pour tous les travaux que vous réaliserez dans le cadre des cours). Sous le nom du dépôt, vous pouvez observer, le dépôts sur lequel ce projet s'inspire (`phgrosjean/bookdown-test`). 
 
 Vous pouvez observer une première barre d'outils comprenant les sections `Code`, `Issues`, `Pull requests`, `Projects`, `Security`, `Insights` et `Settings` (toutes les sections ne seront pas détaillées dans cet ouvrage). 
 
@@ -450,7 +450,7 @@ Pour déposer un projet RStudio existant sur GitHub, vous devez commencer par cr
 
 ![](images/annexe_a2/github12.png)
 
-Dans votre projet RStudio, sélectionnez l'onglet `Tools` puis `Shell...`. Un onglet **Terminal** vient de s'ouvrir à côte de l'onglet **Console** de R. Il vous suffit ensuite d'y copier les trois instructions proposée sur GitHub et de taper sur la touche `entrée` et le tour est joué.
+Dans votre projet RStudio, sélectionnez le menu `Tools` puis `Shell...`. Un onglet **Terminal** vient de s'ouvrir à côte de l'onglet **Console** de R. Il vous suffit ensuite d'y copier les trois instructions proposée sur GitHub et de taper sur la touche `entrée` et le tour est joué.
 
 ![](images/annexe_a2/github13.png)
 

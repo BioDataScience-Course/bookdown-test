@@ -1,6 +1,6 @@
 # Tutoriels "learnr" {#learnr}
 
-En complément de ce syllabus, vous allez utiliser également des tutoriels interactifs construits avec [learnr](https://rstudio.github.io/learnr/). Si ce n'est déjà fait, commencez par installer ces tutoriels dans votre SciViews Box (voir \@ref(install-tuto)).
+En complément de ce cours en ligne, vous allez utiliser également des tutoriels interactifs construits avec [learnr](https://rstudio.github.io/learnr/). Si ce n'est déjà fait, commencez par installer ces tutoriels dans votre SciViews Box via l'application `BioDataScience` (voir \@ref(install-tuto)).
 
 Allez dans le bouton **Addins** dans la barre d'outils de RStudio et sélectionnez `Run SDD I tutorial or app`, ou entrez l'instruction ci-dessous dans la fenêtre **Console** de RStudio suivie de la touche `Entrée`\ :
 
@@ -34,9 +34,11 @@ La première chose à vérifier à l'ouverture du tutoriel interactif est le nom
 
 Si vous êtes correctement enregistré, un bandeau bleu l'indiquera avec votre login GitHub en gras comme ci-dessus. Dans le cas contraire, un message sur fond jaune ou rouge (selon le contexte) indiquera le contraire. De même, si vous voyez également un message sur fond rouge qui indique que la base de données est inaccessible, cela signifie que vous n'êtes pas correctement connecté à l'Internet ou que votre connexion Internet ne permet *pas* d'accéder à la base de données qui enregistre votre activité. Essayez un autre réseau, ou même, essayez en redémarrant complètement votre ordinateur. Si la base de données est actuellement inaccessible, vous pouvez toujours effectuer les exercices, mais votre activité sera temporairement enregistrée localement sur votre ordinateur. Dès la prochain e connexion fructueuse, et dès la soumissions d'un exercice learnr, l'ensemble de votre activité sera alors enregistrée d'un coup dans la base.
 
+## Organisation d'un learnr
+
 Le learnr est un outil pédagogique mis au point afin de proposer des tutoriels interactifs comprenant des illustrations, des questions à choix multiples, des exercices R, ... Les learnr qui vous seront proposés tout au long de votre formation en Science des Données Biologiques seront composés de la manière suivante\ :
 
-- Objectif
+- Objectifs
 - Introduction
 - Une série d'exercices
 - Conclusion
@@ -61,9 +63,11 @@ Des zones de codes R vous sont proposées dans certains exercices. Elles vous pe
 
 ![](images/annexe_a3/learnr2.gif)
 
-Selon le cas, vous pouvez alors avoir un encart bleu qui indique simpl;ement que votre réponse est enregistrée, ou alos si l'exercice est assorti d'une correction automatique, vous verrez un encart vert en cas de bonne réponse, ou un encart rouge qui vous donne un indice sur ce qui est incorrect (**attention\ : ces indices sont déterminés automatiquement par l'ordinateur et ne sont pas toujours fiables en l'état actuel\ ; concentrez-vous surtout sur le fait que la réponse n'est pas celle attendue et tentez de déterminer ce qui ne va pas**).
+Selon le cas, vous pouvez alors avoir un encart bleu qui indique simplement que votre réponse est enregistrée, ou alors si l'exercice est assorti d'une correction automatique, vous verrez un encart vert en cas de bonne réponse, ou un encart rouge qui vous donne un indice sur ce qui est incorrect (**attention\ : ces message d'aide sont élaborés automatiquement par l'ordinateur et ne sont pas toujours fiables en l'état actuel\ ; concentrez-vous surtout sur le fait que la réponse n'est pas celle attendue et tentez de déterminer ce qui ne va pas**).
 
-Des boutons `Hint`, lorsqu'ils sont présents, vous proposent des aides si vous êtes bloqués. Un bouton `Solution` ou le dernier `Hint` affiché après celui qui indique que le suivant sera la solution à la question... montrent ce qu'il fallait entrer. **N'allez pas voir directement la solution. Essayez d'abord par vous même !** En effet, à chaque utilisation de `Hint`, vous perdez 10% des points pour la question, et si vous visualisez la solution, vous n'aurez plus que la moitié des points pour cette question. Toutefois, ces aides sont là, en mode auto-évaluatif, pour vous dépanner. Utilisez-les si vous êtes coincés dans l'exercice\ : cela vaut mieux que de ne pas répondre du tout à la question ou de perdre inutilement du temps sur cette question. Dans ce cas, examinez d'autant plus attentivement la solution et essayez de comprendre pourquoi vous n'avez pas pu y répondre directement.
+Des boutons `Hint`, lorsqu'ils sont présents, vous proposent des aides si vous êtes bloqués. Un bouton `Solution` ou le dernier `Hint` affiché après celui qui indique que le suivant sera la solution à la question... montrent ce qu'il fallait entrer. **N'allez pas voir directement la solution. Essayez d'abord par vous même !**
+
+Quelle que soit la façon dont vous répondez à une question, vous obtenez au moins la moitié des points. Si vous avez été voir la solution avant de chercher la réponse par vous-même, nous considérons que c'est parce que vous n'arrivez pas à résoudre cet exercice seul. Dans le cadre d'une auto-évaluation, nous vous faisons confiance pour analyser la réponse et essayer de comprendre où sont vos lacunes pour progresser. *Si vous ne le faites pas, vous n'apprendrez rien, et vous serez incapables de résoudre les exercices dans les assignations GitHub ensuite.* Dans ce cas, le calcul est vite fait\ : moitié des points pour les exercices d'auto-évaluation et une note très basse aux exercices sur GitHub donnera au final... un échec dans la matière\ ! Au moins vous solliciter les aides pour obtenir la réponse, au plus vous obtiendrai une bonne note pour cet exercice. Mais ne perdez pas de temps sur les exercices qui vous semblent difficiles et utilisez les aides à bon escient, notamment les `Hint`s en haut des boites `Code R`.
 
 ### Conclusion
 

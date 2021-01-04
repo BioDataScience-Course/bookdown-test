@@ -47,13 +47,13 @@ sessioninfo::session_info()
 
 ## Vue générale du cours {-}
 
-Cet ouvrage interactif est le premier volume d'une série de trois ouvrages traitant de la science des données biologiques. L'écriture de cette suite de livres a débuté au cours de l'année académique 2018-2019. Pour l'année académique 2020-2021, ceci est le support des cours suivants\ :
+Cet ouvrage est le premier d'une série de trois volumes traitant de la science des données biologiques. L'écriture de cette suite de livres a débuté au cours de l'année académique 2018-2019. Pour l'année académique 2020-2021, ceci est le support des cours suivants\ :
 
 - [Science des données I : visualisation et inférence](http://applications.umons.ac.be/web/fr/pde/2020-2021/ue/US-B2-SCBIOL-006-M.htm) au second Bachelier en Biologie en Faculté des Sciences de l'Université de Mons, et dont le responsable est Philippe Grosjean
 
 - [Bio-informatique et sciences des données](http://applications.umons.ac.be/web/fr/pde/2020-2021/ue/US-B2-SCBIOC-926-C.htm) au second Bachelier en Biologie en Faculté des Sciences à Charleroi en co-diplomation entre l'Université de Mons (UMONS) et l'Université Libre de Bruxelles (ULB), et dont le responsable est Raphaël Conotte
 
-La matière est divisée en 12 modules de sessions de 6h chacun en présentiel. Il nécessitera environ un tiers de ce temps (voir plus, en fonction de votre rythme et de votre technique d'apprentissage) en travail à domicile. **Une première séance de 2h précèdera ces 12 modules afin d'installer les logiciels (SciViews Box, R, RStudio, Github Desktop), et de se familiariser avec eux.**
+La matière est divisée en 12 modules représentant chacun 6h de travail en présentiel. Chaque module nécessitera environ la moitié de ce temps (voir plus, en fonction de votre rythme et de votre technique d'apprentissage) en travail à domicile. **Une première séance de 2h précèdera ces 12 modules afin d'installer les logiciels (SciViews Box, R, RStudio, Github Desktop), et de se familiariser avec eux.**
 
 ```{r diagram-sddI, out.width = '80%', fig.asp = .75, fig.align = 'center', echo = FALSE, warning = FALSE, cache = TRUE}
 DiagrammeR::grViz("
@@ -112,32 +112,38 @@ digraph general_flow {
 
 ## Matériel pédagogique {-}
 
-Le matériel pédagogique, rassemblé dans ce syllabus interactif est aussi varié que possible. Vous pourrez ainsi piocher dans l'offre en fonction de vos envies et de votre profil d'apprenant pour optimiser votre travail. Vous trouverez\ :
+Le matériel pédagogique est aussi varié que possible. Vous pourrez ainsi piocher dans l'offre en fonction de vos envies et de votre profil d'apprenant pour optimiser votre travail. Vous trouverez\ :
 
 - le présent ouvrage en ligne,
 
-- des [exercices H5P](http://www.h5p.org) en ligne repérables par le logo [![h5p](images/list-h5p.png)](https://wp.sciviews.org/h5p/){target='_parent'} sur lequel vous pouvez cliquer pour avoir plus d'infos sur leur utilisation,
+- des [exercices H5P](http://www.h5p.org) repérables par le logo [![h5p](images/list-h5p.png)](https://wp.sciviews.org/h5p/){target='_parent'} sur lequel vous pouvez cliquer pour avoir plus d'informations sur leur utilisation,
 
 - des [applications Shiny](https://shiny.rstudio.com/) qui sont des véritables petits programmes avec interface Web écrits en R. Ils vous démontrent "en live" certains concepts. Ces applications doivent être lancées en cliquant sur l'image contenant le logo [![app](images/list-app.png)](https://wp.sciviews.org/shiny_app/){target='_parent'} et elles doivent être quittées avec le bouton `Quit` ou `Quit & Save` si l'enregistrement est activé. N'oubliez pas de soumettre votre réponse avec le bouton `Submit`. Si le serveur distant est trop lent ou indisponible, il est aussi possible de lancer ces applications Shiny directement dans RStudio (voir le message en italique qui apparaît en dessous de l'application),
 
-- des [tutoriels interactifs learnr](https://rstudio.github.io/learnr/). Vous pourrez exécuter ces tutoriels directement sur votre ordinateur dans RStudio, et vous aurez alors accès à des pages Web réactives contenant des explications, des exercices et des quiz en ligne. Ces tutoriels sont repérables dans l'ouvrage via l'icône suivante [![tuto](images/list-tuto.png)](https://wp.sciviews.org/tutorial/){target='_parent'},
+- des [tutoriels interactifs learnr](https://rstudio.github.io/learnr/). Vous pourrez exécuter ces tutoriels directement sur votre ordinateur dans RStudio, et vous aurez alors accès à des pages Web réactives contenant des explications, des exercices et des quiz en ligne directement dans votre environnerment de travail habituel. Ces tutoriels sont repérables via l'icône suivante [![tuto](images/list-tuto.png)](https://wp.sciviews.org/tutorial/){target='_parent'},
 
 - des [dépôts GitHub Classroom](https://classroom.github.com/) dans la section [BioDataScience-Course](https://www.github.com/BioDataScience-Course) pour réaliser et documenter vos travaux personnels. Les liens vers ces dépôts sont repérables par l'icône GitHub [![assign](images/list-assign.png)](https://wp.sciviews.org/github_assignation/){target='_parent'},
 
-- des renvois vers des documents externes en ligne, types vidéos [Youtube](https://www.youtube.com/) ou [Vimeo](https://vimeo.com/), des ouvrages en ligne en anglais ou en français, des blogs, des tutoriels, des questions sur des sites comme [Stackoverflow](https://stackoverflow.com/) ou issues des [mailing lists R](https://www.r-project.org/mail.html), de [Twitter](https://twitter.com/), ...
+- des renvois vers des documents externes en ligne, des vidéos [Youtube](https://www.youtube.com/) ou [Vimeo](https://vimeo.com/), des livres en anglais ou en français, des blogs, des tutoriels, des questions sur des sites comme [Stackoverflow](https://stackoverflow.com/) ou issues des [mailing lists R](https://www.r-project.org/mail.html), de [Twitter](https://twitter.com/), ...
 
-- des diapositives de présentations distribuées via le dépôt [sdd_lessons sur BioDataScience-Course](https://github.com/BioDataScience-Course/sdd_lessons/tree/2020-2021) viennent compléter le tout.
+- des diapositives de présentations distribuées via le dépôt [sdd_lessons sur BioDataScience-Course](https://github.com/BioDataScience-Course/sdd_lessons/tree/2020-2021).
 
 ```{block, type='info'}
-Tout ce matériel est accessible à partir du [site Web du cours](https://wp.sciviews.org){target='top'}, du présent syllabus interactif (et de Moodle pour les étudiants de l'UMONS et de Charleroi). Ces derniers ont aussi accès au dossier ` SDD` sur `StudentTemp` en Intranet à l'UMONS. Les aspects pratiques seront à réaliser en utilisant la **'SciViews Box'**, une machine virtuelle préconfigurée que nous installerons ensemble lors du premier cours^[Il est donc très important que vous soyez présent à ce cours, et vous pouvez venir aussi si vous le souhaitez avec votre propre ordinateur portable.]. Il vous faudra donc avoir accès à un ordinateur (sous Windows, MacOS, ou Linux peu importe, suffisamment puissant et connecté à Internet ou à l'Intranet UMONS). Enfin, vous pourrez poser vos questions par mail à l'adresse [sdd@sciviews.org](mailto:sdd@sciviews.org) ou sur [Discord](https://discord.com/invite/CuKdwzA).
+Tout ce matériel est accessible à partir du [site Web du cours](https://wp.sciviews.org){target='top'}, du présent syllabus interactif (et de Moodle pour les étudiants de l'UMONS). Ces derniers ont aussi accès au dossier ` SDD` sur `StudentTemp` en Intranet à l'UMONS. Les aspects pratiques seront à réaliser en utilisant la **'SciViews Box'**, une machine virtuelle préconfigurée que nous installerons ensemble lors du premier cours^[Il est très important que vous soyez présent à ce cours, et vous pouvez venir aussi si vous le souhaitez avec votre propre ordinateur portable.]. Il vous faudra donc avoir accès à un ordinateur (sous Windows, MacOS, ou Linux peu importe, suffisamment puissant et connecté à Internet ou à l'Intranet UMONS). Enfin, vous pourrez poser vos questions par mail à l'adresse [sdd@sciviews.org](mailto:sdd@sciviews.org) ou sur [Discord](https://discord.com/invite/CuKdwzA).
 ```
 
-## Comment apprendre? {-}
+## Comment apprendre ? {-}
 
 ```{r}
 fortunes::fortune("brain surgery")
 ```
 
-Version courte: **en pratiquant et en faisant des erreurs !**
+Version courte\ : **en pratiquant et en faisant des erreurs !**
 
-Version longue: aujourd'hui --et encore plus à l'avenir-- les données sont complexes et ne se manipulent plus simplement avec un tableur comme Microsoft Excel. Vous apprendrez donc à maitriser des outils professionnels très puissants mais aussi relativement complexes. La méthode d'apprentissage que nous vous proposons a pour objectif prioritaire de vous faciliter la tâche, quelles que soient vos aptitudes au départ. Envisagez votre voyage en science des données comme l'apprentissage d'une nouvelle langue. **C'est en pratiquant, et en pratiquant encore sur le long terme que vous allez progresser.** Pour vous aider dans cet apprentissage progressif et sur la durée, la formation s'étale sur quatre années, et est répartie en cinq cours de difficulté croissante. N'hésitez pas à expérimenter, tester ou essayer des nouvelles idées (même au delà de ce qui vous sera demandé dans les exercices) et surtout, **n'ayez pas peur de faire des erreurs**. Vous en ferez, ... beaucoup ... _nous vous le souhaitons\ !_ La meilleure manière d'apprendre, c'est en faisant des erreurs et en mettant ensuite tout en œuvre pour les comprendre et les corriger. Donc, si un message d'erreur, ou un "warning" apparaît, ne soyez pas intimidé. Prenez une bonne respiration, lisez-le attentivement, essayez de le comprendre, et au besoin faites-vous aider\ : la solution est sur le Net, 'Google^[Il existe tout de même des outils plus pointus pour obtenir de l'aide sur le logiciel R comme [rseek.org](https://rseek.org), [rdocumentation.org](https://www.rdocumentation.org) ou [rdrr.io](https://rdrr.io). Rien ne sert de chercher 'R' dans Google.] est votre ami'!
+Version longue\ : aujourd'hui --et encore plus à l'avenir-- les données sont complexes et ne se manipulent plus simplement avec un tableur comme [Microsoft Excel](https://www.microsoft.com/fr-be/microsoft-365/excel). Vous apprendrez donc à maîtriser des outils professionnels très puissants mais aussi relativement complexes. La méthode d'apprentissage que nous vous proposons a pour objectif prioritaire de vous faciliter la tâche, quelles que soient vos aptitudes au départ. Envisagez votre voyage en science des données comme l'apprentissage d'une nouvelle langue. **C'est en pratiquant, et en pratiquant encore sur le long terme que vous allez progresser.** Pour vous aider dans cet apprentissage progressif et sur la durée, la formation s'étale sur quatre années, et est répartie en cinq cours de difficulté croissante.
+
+N'hésitez pas à expérimenter, tester ou essayer des nouvelles idées (même au delà de ce qui vous sera demandé dans les exercices) et surtout, **n'ayez pas peur de faire des erreurs**. Vous en ferez, ... beaucoup ... _nous vous le souhaitons\ !_ La meilleure manière d'apprendre, c'est en faisant des erreurs et en mettant ensuite tout en œuvre pour les comprendre et les corriger. Donc, si un message d'erreur apparaît, ne soyez pas intimidé. Prenez une bonne respiration, lisez-le attentivement, essayez de le comprendre, et au besoin faites-vous aider\ : la solution est sur Internet, 'Google^[Il existe tout de même des outils plus pointus pour obtenir de l'aide sur le logiciel R comme [rseek.org](https://rseek.org), [rdocumentation.org](https://www.rdocumentation.org) ou [rdrr.io](https://rdrr.io). Rien ne sert de chercher 'R' dans Google.] est votre ami'\ ! L'idée ici n'est pas tellement éloignée de ce qui est présenté dans la vidéo suivante\ :
+
+```{r, echo=FALSE}
+vembedr::embed_youtube("9vJRopau0g0", width = 770, height = 433)
+```
