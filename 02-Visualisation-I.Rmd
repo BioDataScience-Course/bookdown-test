@@ -12,9 +12,9 @@ SciViews::R
 
 - Découvrir le format R Markdown [@R-rmarkdown] et la recherche reproductible
 
-- Intégrer ensuite des graphiques dans un rapport et y décrire ce que que vous observez
+- Intégrer ensuite des graphiques dans un rapport et y décrire ce que vous observez
 
-- Comparer de manière critique un flux de travail "classique" en biologie utilisant Microsoft Excel et Word avec une approche utilisant R et R Markdown\ ; Prendre conscience de l'énorme potentiel de R
+- Comparer de manière critique un flux de travail "classique" en biologie utilisant Microsoft Excel et Word avec une approche utilisant R et R Markdown\ ; prendre conscience de l'énorme potentiel de R
 
 ##### Prérequis {-}
 

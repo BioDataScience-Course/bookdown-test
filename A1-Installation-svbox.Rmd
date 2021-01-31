@@ -9,7 +9,6 @@ knitr::include_graphics('images/sdd1_01/svBox-256.png')
 
 La SciViews Box est une machine virtuelle (c'est-à-dire, l'équivalent d'un ordinateur complet, mais "dématérialisé" et utilisable à l'intérieur de n'importe quel autre ordinateur physique). Elle est spécialement configurée pour analyser des données et rédiger des documents scientifiques de manière professionnelle.
 
-
 ```{r, echo=FALSE}
 vembedr::embed_youtube("yIVXjl4SwVo", width = 770, height = 433)
 ```

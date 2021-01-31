@@ -4,7 +4,10 @@ bookdown::gitbook:
   css: style.css
   split_by: section
   config:
+    toolbar:
+      position: fixed
     toc:
+      scroll_highlight: yes
       collapse: subsection
       before: |
         <li><a href="./">Science des données biologiques I</a></li>
@@ -16,6 +19,15 @@ bookdown::gitbook:
     edit: https://github.com/BioDataScience-Course/sdd-umons-2020/edit/master/%s
     view: https://github.com/BioDataScience-Course/sdd-umons-2020/blob/master/%s
     #download: ["pdf", "epub"]
+    sharing:
+      facebook: no
+      github: no
+      twitter: yes
+      linkedin: no
+      weibo: no
+      instapaper: no
+      vk: no
+      all: ['github', 'linkedin', 'facebook', 'instapaper']
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
