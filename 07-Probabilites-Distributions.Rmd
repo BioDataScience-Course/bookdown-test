@@ -75,6 +75,11 @@ p_sick_positive / p_positive
 
 ... seulement 45,2% qui sont effectivement malades (on parle de **vrais positifs**) ! Ceci ne correspond pas du tout aux indications de départ sur les performances du test.
 
+##### À vous de jouer ! {-}
+
+`r h5p(68, height = 400, toc = "Lecture de probabilités")`
+
+
 ```{block2, type='note'}
 Dans le cas de deux faits successifs qui ne peuvent chacun que résulter en deux évènements, nous avons seulement quatre situations possibles. Si l'un des cas est qualifié de positif et l'autre de négatif, nous aurons\ :
   
@@ -87,6 +92,7 @@ Dans le cas de deux faits successifs qui ne peuvent chacun que résulter en deux
 - **les faux négatifs** (test négatif alors que la personne est malade), ici 0.08 * 0.05
 
 ```
+
 
 En fait, les performances finales du test de dépistage dépendent *aussi* de la prévalence de la maladie. Ainsi pour une maladie très commune qui affecterait 80% de la population, nous obtenons\ :
 
@@ -117,6 +123,10 @@ Ouf\ ! Dans ce cas-ci le test positif est correct dans 97,4% des cas. Mais qu'en
 Dans ce cas, un test positif n'aura effectivement détecté un malade que dans ... 7,1% des cas\ ! Les 92,9% autres cas positifs seront en fait des personnes saines.
 
 > Comme nous pouvons le constater ici, le calcul des probabilités est relativement simple. Mais en même temps, les résultats obtenus peuvent être complètement **contre-intuitifs**. D'où l'intérêt de faire ce genre de calcul justement.
+
+##### À vous de jouer ! {-}
+
+`r h5p(70, height = 400, toc = "Validité d'un test")`
 
 ### Arbre des probabilités
 
@@ -195,6 +205,10 @@ $$\mathrm{P(A\, \mathrm{ou}\, B)} = \mathrm{P}(A) + \mathrm{P(B)} - \mathrm{P}(A
 
 - Une [autre explication](https://youtu.be/R13BD8qKeTg) du théorème de Bayes (en anglais).
 
+##### À vous de jouer ! {-}
+
+`r h5p(69, height = 400, toc = "Lecture de probabilités 2")`
+
 ### Probabilités et contingence
 
 Comme un tableau de contingence indique le nombre de fois que des évènements ont pu être observés, il peut servir de base à des calculs de probabilités. Partons du dénombrement de fumeur en fonction du revenu dans une population.
@@ -271,11 +285,7 @@ Il s'agit d'évènements successifs **non-indépendants**. En effet, le retrait 
 
 ##### À vous de jouer ! {-}
 
-```{block2, type='bdd'}
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A07a_proba")
-```
+`r learnr("A07La_proba", title = "Probabilités", toc = "Calculs des probabilités")`
 
 ## Lois de distributions
 
@@ -293,16 +303,6 @@ La comparaison des probabilités théoriques et observées constitue l’un des 
 
 Avant d'explorer ces lois de distributions statistiques, nous devons d'abord introduire la distinction entre **probabilité discrète** et **probabilité continue**. Une probabilité discrète est associée à une variable qualitative ou à la rigueur, à une variable continue discrète qui peut prendre un nombre fini -et généralement relativement petit- de valeurs. A chaque valeur est associé un évènement, et chaque évènement a une certaine probabilité de se produire dans un contexte donné. *Jusqu'à présent, nous n'avons traité que ce cas-là.* Par contre, une variable quantitative continue peut prendre un nombre infini de valeurs matérialisées généralement par l'ensemble des nombres réels. Dans ce cas, l'association d'un évènement à une valeur de la variable, et d'une probabilité à chaque évènement reste vraie en théorie. Mais en pratique, ces probabilités dites continues ne sont pas calculables par les équations étudiées jusqu'ici. Par contre, les **lois de distributions continues** permettent des calculs, moyennant une petite astuce que nous étudierons plus loin dans ce chapitre.
 
-##### À vous de jouer ! {-}
-
-Tout au long de cette section des questions sous la forme d'un learnr vous sont proposées. Complétez progressivement le learnr avec vos nouvelles connaissances
-
-```{block2, type='bdd'}
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-BioDataScience1::run("A07b_distri")
-
-```
 
 ## Distribution uniforme
 
@@ -378,7 +378,6 @@ chart(data = tibble(Quantiles = .x, Prob = .dc(.x)), Prob ~ Quantiles) +
 $$X \sim U(0, 4)$$
 
 Cela signifie : "la variable aléatoire *X* suit une distribution uniforme 0 à 4".
-
 ```
 
 La distribution $U(0, 1)$ est particulière et est appelée **distribution uniforme standard**. Elle a la propriété particulière que si $X \sim U(0, 1)$ alors $(1-X) \sim U(0, 1)$.
@@ -387,10 +386,13 @@ La distribution $U(0, 1)$ est particulière et est appelée **distribution unifo
 
 L'**aire sous la courbe** représente une probabilité associée à l'intervalle considéré pour les quantiles. Répondez aux questions suivantes pour notre variable $X \sim U(0,4)$\ :
 
-1. Quelle est la probabilité que *X* = 1 (un insecte butineur arrive après *exactement* 1,00000... min d'observation)\ ?
-2. Quelle est la probabilité que *X* soit compris entre 1 et 1,5\ ?
+##### À vous de jouer ! {-}
 
-La réponse à la question (1) est immédiate. Cette probabilité est **nulle** (voir plus haut)^[La question n'est pas après *environ* une minute, mais à *exactement* 1 min 0 sec, 0 millisec, ..., ce qui est alors hautement improbable.]\ ! Pour la question (2), nous pouvons répondre en calculant l'aire sous la courbe entre les quantiles 1 et 1,5 (représentée par l'aire en rouge à la Fig. \@ref(fig:unif3)).
+`r h5p(71, height = 400, toc = "Distribution continue")`
+
+Quelle est la probabilité que *X* soit compris entre 1 et 1,5\ ?
+
+Nous pouvons répondre en calculant l'aire sous la courbe entre les quantiles 1 et 1,5 (représentée par l'aire en rouge à la Fig. \@ref(fig:unif3)).
 
 ```{r unif3, echo=FALSE, fig.cap="Probabilité qu'un insecte butineur arrive entre 1 et 1,5 min après le début d'une observation (aire P en rouge)."}
 .x2 <- .x
@@ -407,6 +409,10 @@ Ici, le calcul est assez simple à faire à la main. Mais nous verrons d'autres 
 ```{r}
 punif(1.5, min = 0, max = 4, lower.tail = TRUE)
 ```
+
+##### À vous de jouer ! {-}
+
+`r h5p(72, height = 400, toc = "Complétez la fonction punif()")`
 
 Mais comme nous voulons déterminer la probabilité qu'un insecte arrive entre 1 et 1,5 sec, nous devons soustraire à cette valeur la probabilité qu'un insecte arrive en moins de 1 sec (la zone hachurée en rouge dans la Fig \@ref(fig:unif3) est en effet l'aire à gauche depuis le quantile 1,5 *moins* l'aire à gauche depuis le quantile 1) :
 
@@ -447,6 +453,10 @@ qunif(1/3, min = 0, max = 4, lower.tail = TRUE)
 
 Donc il faut observer pendant 1,33 min (1 min et 20 sec) pour avoir 1 chance sur 3 d'observer l'arrivée d'un insecte butineur.
 
+##### À vous de jouer ! {-}
+
+`r h5p(73, height = 400, toc = "Complétez la fonction qunif()")`
+
 ### Calcul avec les snippets
 
 La SciViews Box propose différents snippets pour nous aider à effectuer nos différents calculs et graphiques relatifs à la distribution uniforme continue. Ils se retrouvent dans le menu `(d)istributions` accédé depuis `...`. Donc `..i` donne *directement* accès à ce menu, et puis `(d)istributions: uniform` accédé depuis `.iu` directement. Ensuite, il suffit de choisir le snippet dans le menu déroulant (voir ci-dessous).
@@ -467,6 +477,10 @@ Le snippet `.iurandom` nécessite quelques explications supplémentaires. R est 
 set.seed(946)
 runif(10, min = 0, max = 1)
 ```
+
+##### À vous de jouer ! {-}
+
+`r h5p(74, height = 400, toc = "Fonction set.seed()")`
 
 ## Distribution binomiale
 
@@ -577,6 +591,10 @@ tibble(Quantile = 0:8, Probabilité = dpois(0:8, lambda = 1)) %>.%
 Les fonctions dans R relatives à la distribution de Poisson portent des noms `<x>pois()`, tel que `ppois()` pour calculer des probabilités, `qpois()` pour calculer des quantiles ou `rpois()` pour générer des nombres pseudo-aléatoires selon cette distribution. Voici la liste des snippets à votre disposition dans la SciViews Box pour vous aider (menu `(d)istributions: poisson` à partir de `.ip`) :
 
 ![](images/sdd1_07/snippets-poisson.png)
+
+##### À vous de jouer ! {-}
+
+`r learnr("A07Lb_distri", title = "Lois de distributions", toc = "Lois de distributions")`
 
 ## Distribution Normale
 
@@ -775,3 +793,13 @@ car::qqPlot(eggs[["log_area"]], distribution = "norm",
 ##### Interprétation {-}
 
 Si quasiment tous les points sont compris dans l'enveloppe de confiance à 95%, le graphique indique que les deux distributions ne sont pas fondamentalement différentes. Ici les points correspondant aux valeurs les plus élevées sortent de l'enveloppe pour un certain nombre d'entre eux d'affilée, et les points 11 et 30 sont considérés comme suspects. Ceci indique que les effectifs observés dans l'échantillon sont plus nombreux en queue droite de distribution que ce que la distribution normale prédit en théorie. Ceci confirme l'impression de distribution asymétrique et/ou bimodale. Il est probable qu'on ait au moins deux types d’œufs allongés différents dans l'échantillon, avec le second type moins nombreux, mais représenté par des œufs plus gros, ce qui enfle la partie droite de la distribution.
+
+##### À vous de jouer ! {-}
+
+`r learnr("A07Lc_distri2", title = "Lois de distributions (suite)", toc = "Lois de distributions (suite)")`
+
+## Récapitulatif des exercices
+
+Vous venez de terminer le module 7. Ce module vous a permis d'apprendre les base des probabilités et les principales lois de distribution. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
