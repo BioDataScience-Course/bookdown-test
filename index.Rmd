@@ -129,7 +129,21 @@ Le matériel pédagogique est aussi varié que possible. Vous pourrez ainsi pioc
 - des diapositives de présentations distribuées via le dépôt [sdd_lessons sur BioDataScience-Course](https://github.com/BioDataScience-Course/sdd_lessons/tree/2020-2021).
 
 ```{block, type='info'}
-Tout ce matériel est accessible à partir du [site Web du cours](https://wp.sciviews.org){target='top'}, du présent syllabus interactif (et de Moodle pour les étudiants de l'UMONS). Ces derniers ont aussi accès au dossier ` SDD` sur `StudentTemp` en Intranet à l'UMONS. Les aspects pratiques seront à réaliser en utilisant la **'SciViews Box'**, une machine virtuelle préconfigurée que nous installerons ensemble lors du premier cours^[Il est très important que vous soyez présent à ce cours, et vous pouvez venir aussi si vous le souhaitez avec votre propre ordinateur portable.]. Il vous faudra donc avoir accès à un ordinateur (sous Windows, MacOS, ou Linux peu importe, suffisamment puissant et connecté à Internet ou à l'Intranet UMONS). Enfin, vous pourrez poser vos questions par mail à l'adresse [sdd@sciviews.org](mailto:sdd@sciviews.org) ou sur [Discord](https://discord.com/invite/CuKdwzA).
+
+::: {.nocourse}
+Tout ce matériel est accessible à partir du [site Web du cours](https://wp.sciviews.org){target='top'}, et du présent syllabus interactif.
+:::
+
+::: {.S-BIOG-006 .S-BIOG-027 .S-BIOG-921}
+Tout ce matériel est accessible à partir du [site Web du cours](https://wp.sciviews.org){target='top'}, du présent syllabus interactif et de Moodle pour les étudiants de l'UMONS. Ces derniers ont aussi accès au dossier ` SDD` sur `StudentTemp` en Intranet à l'UMONS. Les aspects pratiques seront à réaliser en utilisant la **'SciViews Box'**, une machine virtuelle préconfigurée que nous installerons ensemble lors du premier cours^[Il est très important que vous soyez présent à ce cours, et vous pouvez venir aussi si vous le souhaitez avec votre propre ordinateur portable.]. Il vous faudra donc avoir accès à un ordinateur (sous Windows, MacOS, ou Linux peu importe, suffisamment puissant et connecté à Internet ou à l'Intranet UMONS). Enfin, vous pourrez poser vos questions par mail à l'adresse [sdd@sciviews.org](mailto:sdd@sciviews.org) ou sur [Discord](https://discord.com/invite/CuKdwzA).
+
+Un **outil d'annotation** et de surlignage est intégré dans le cours en ligne. Il vous permet\ :
+- de personnaliser votre cours en écrivant dedans comme vous le feriez avec un syllabus papier (annotations privées... tout ce qui vous passe par la tête).
+- d'échanger des informations complémentaires entre vous (par exemple, trucs et astuces supplémentaires, liens utiles, etc.) ou avec vos enseignants (passages moins clairs ou lacunes éventuelles). Soyez constructif dans vos commentaires publiques et réservez vos questions pour Discord. Nous tiendrons compte de vos remarques pour améliorer le cours pour les années suivantes.
+
+Pour annoter ou surligner, vous sélectionnez du texte et vous cliquez sur l'un des deux boutons `Annotate` ou `Highlight` qui apparaissent. Vous devez vous créer un compte (gratuit) sur [hypothes.is](https://hypothes.is) auparavant. Vos annotations publiques sont à poster dans le groupe **BioDataScience-Course**. Vous devez [vous y abonner en cliquant sur ce lien](https://hypothes.is/groups/miAKPpWy/biodatascience-course) et ensuite sélectionner ce groupe dans la barre d'outil en haut du panneau d'annotation. 
+:::
+
 ```
 
 ## Comment apprendre ? {-}

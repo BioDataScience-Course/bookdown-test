@@ -740,8 +740,8 @@ Il existe, en fait, plusieurs versions pour la fusion de tableaux, représentée
 **Note\ : l'assignation GitHub suivante est à réaliser par groupes de trois étudiants, librement formés. Elle requiert d'avoir assimilé l'ensemble de la matière des six premiers modules du cours.**
 
 ```{r, echo=FALSE, results='asis'}
-if (exists("assignation"))
-  assignation("A06Ga_belgium_demo", part = NULL,
+if (exists("assignation2"))
+  assignation2("A06Ga_belgium_demo", part = NULL,
     url = "https://github.com/BioDataScience-Course/A06Ga_belgium_demo",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/g/h1HgkuuH",

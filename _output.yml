@@ -7,7 +7,6 @@ bookdown::gitbook:
     toolbar:
       position: fixed
     toc:
-      scroll_highlight: yes
       collapse: subsection
       before: |
         <li><a href="./">Science des données biologiques I</a></li>

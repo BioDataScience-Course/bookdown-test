@@ -386,8 +386,8 @@ Lorsque vous avez terminé de travailler sur un projet. Il est conseillé de fai
 **Note\ : l'assignation GitHub suivante est un exercice à réaliser en *binôme*. Ce projet est également transmodule, ce qui signifie que vous reviendrez dessus à plusieurs reprises au fur et à mesure de votre progression dans la matière afin de compléter votre analyse de ces données, toujours en binômes. Vous formez les binômes librement comme bon vous semble.**
 
 ```{r, echo=FALSE, results='asis'}
-if (exists("assignation"))
-  assignation("A03Ga_urchin", part = NULL,
+if (exists("assignation2"))
+  assignation2("A03Ga_urchin", part = NULL,
     url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/g/GDEEO7QD",

@@ -694,7 +694,7 @@ if (exists("assignation"))
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/a/eKp2zsPG",
       'S-BIOG-921' = "https://classroom.github.com/a/3EMyegs8"),
-    toc = "Graphiques avancés et libres.")
+    toc = "Graphiques avancés et libres")
 ```
 
 ##### Pour en savoir plus {-} 
