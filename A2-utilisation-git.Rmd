@@ -428,7 +428,7 @@ Dans GitHub Desktop, une fenêtre de configuration s'ouvre, il suffit de sélect
 
 ![](images/annexe_a2/githubdesktop2.gif)
 
-```{note}
+```{block, type='note'}
 
 Cette fonction n'est disponible que sur la version Mac et Windows de GitHub Desktop
 
