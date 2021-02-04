@@ -184,7 +184,7 @@ Vous découvrez sans doute que les graphiques réalisables avec R sont modulable
 
 L'histogramme n'est pas le seul outil à votre disposition. Vous pouvez également employer le **graphique de densité** qui se présente un peu comme un histogramme lissé. Le passage d'un histogramme vers un graphe de densité se base sur une **estimation par noyau gaussien**^[L'opération effectuée pour passer d'un histogramme à une courbe de densité consiste effectivement à lisser les pics plus ou moins fortement dans l'histogramme de départ.]
 
-```{r histo-densité, fig.cap= "A. Histogramme et B. graphique de densité montrant la distribution de la taille de zooplancton étudié par analyse d'image. Les couleurs pour les axes et les labels servent à les mettre en évidence, mais en pratique ils seront noirs.", echo=FALSE, message=FALSE}
+```{r histo-densite, fig.cap= "A. Histogramme et B. graphique de densité montrant la distribution de la taille de zooplancton étudié par analyse d'image. Les couleurs pour les axes et les labels servent à les mettre en évidence, mais en pratique ils seront noirs.", echo=FALSE, message=FALSE}
 a <- chart(data = zooplankton, ~ size) +
   geom_histogram(bins = 30) +
   ylab("Effectifs") +
