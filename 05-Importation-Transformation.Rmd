@@ -636,7 +636,7 @@ knitr::kable(tooth_summary2, digits = 2,
 
 ##### Pièges et astuces {-}
 
-Tout comme lors de réalisation d'une boite de dispersion, vous devez être particulièrement vigilant au nombre d'observation par sous-groupe. Pensez toujours à ajoutez à chaque tableau de résumé des données, le nombre d'observation par sous-groupe grâce à la fonction `n()`.
+- Tout comme lors de réalisation d'une boite de dispersion, vous devez être particulièrement vigilant au nombre d'observation par sous-groupe. Pensez toujours à ajoutez à chaque tableau de résumé des données, le nombre d'observation par sous-groupe grâce à la fonction `n()`.
 
 ```{r}
 tooth_summary2 <- summarise(tooth_by_supp,
@@ -648,6 +648,23 @@ tooth_summary2 <- summarise(tooth_by_supp,
 knitr::kable(tooth_summary2, digits = 2,
   caption = "Allongement des dents chez des cochons d'Inde en fonction du supplément jus d'orange (OJ) ou vitamine C (VC).")
 ```
+
+- `summarise()` calcule ses variables dans le même environnement que le tableau de départ. Donc, si vous utiliser des noms de colonnes qui existent déjà, elles seront écrasées par le résultat du calcul. Voici un exemple concret\ :
+
+```{r}
+tooth_summary3 <- summarise(tooth,
+  "len" = mean(len), # Notez le même nom à gauche et à droite du = (len)
+  "len_sd" = sd(len))
+knitr::kable(tooth_summary3, digits = 2,
+  caption = "Exemple de résumé des données erroné à cause de l'écrasement de la variable `len`.")
+```
+
+L'écart type est... `NA` ??? Pour comprendre ce qui s'est passé, il faut lire la transformation réalisée par `summarise()` ligne après ligne\ :
+
+- la moyenne de la variable `len` est placée dans ... `len`. Donc ici, **nous écrasons la variable initiale** de 60 observations par un nombre unique\ : la moyenne,
+- l'écart type de `len` est ensuite calculé. Attendez une minute, de quel `len`s'agit-il ici\ ? Et bien la dernière en date, soit celle qui contient **une seule valeur**, la moyenne. Or, `sd()` nécessite au moins **deux** valeurs pour que l'écart type puisse être calculé, sinon, `NA` est renvoyé. C'est encore heureux ici, car nous aurions pu faire un calcul qui renvoie un résultat, ... mais qui n'est pas celui qu'on croit\ !
+
+Conclusion\ : ne nommez **jamais** vos variables créées avec `summarise()` exactement comme les variables de votre tableau en entrée.
 
 ## Chaînage des instructions
 
