@@ -16,7 +16,6 @@ Dans ce module, nous entrons dans le monde de l'inférence statistique et des te
 
 - Connaitre la distribution Chi^2^ et les tests d'hypothèses basés sur cette distribution
 
-- Développer un regard critique (positif\ !) sur le travail de ses collègues via l'évaluation d'un rapport par les pairs (initiation au "peer reviewing")
 
 ##### Prérequis {-}
 
@@ -24,10 +23,11 @@ Les probabilités et lois de distributions statistiques vues au module \@ref(pro
 
 ## Échantillonnage
 
-Nous avons déjà abordé cette question dans le chapitre 6. Si nous pouvions mesurer **tous** les individus d'une population à chaque fois, nous n'aurions pas besoin des statistiques. Mais ce n'est pratiquement jamais possible. Tout d'abord, le nombre d'individus est potentiellement très grand. Le travail nécessaire risque alors d'être démesuré. Afin de limiter les mesures à un nombre raisonnable de cas, nous effectuons un **échantillonnage** qui consiste à prélever un petit sous-ensemble de taille $n$ donné depuis la population de départ. Il existe différentes stratégies d'échantillonnage, mais nous avons vu que la plus fréquente est l'**échantillonnage aléatoire** pour lequel\ :
+Nous avons déjà abordé cette question dans le chapitre 6. Si nous pouvions mesurer **tous** les individus d'une population à chaque fois, nous n'aurions pas besoin des statistiques. Mais ce n'est pratiquement jamais possible. Tout d'abord, le nombre d'individus est potentiellement très grand. Le travail nécessaire risque alors d'être démesuré. Afin de limiter les mesures à un nombre raisonnable de cas, nous effectuons un **échantillonnage** qui consiste à prélever un petit sous-ensemble de taille $n$ donné depuis la population de départ. Il existe différentes stratégies d'échantillonnage, que nous avons déjà abordé.
 
-- chaque individu dans la population a la même probabilité d'être pris dans l'échantillon,
-- les mesures et les individu sont indépendants les uns des autres.
+##### À vous de jouer ! {-}
+
+`r h5p(81, height = 400, toc = "Méthode d'échantillonnage")`
 
 Nous n'avons pas forcément accès à tous les individus d'une population. Dans ce cas, nous devons la limiter à un sous-ensemble raisonnable. Par exemple, il est impossible de mesurer *toutes* les souris. Par contre, nous pouvons décider d'étudier la ou les souches de souris disponibles dans l'animalerie, ou chez nos fournisseurs.
 
@@ -39,6 +39,12 @@ L'estimation de paramètres d'une population par le biais de calculs sur un éch
 ![](images/sdd1_08/inference.png)
 
 ```
+
+
+##### À vous de jouer ! {-}
+
+`r h5p(82, height = 400, toc = "Inférence statistique")`
+
 
 ##### Travail préliminaire {-}
 
@@ -61,13 +67,12 @@ Les deux hypothèses ne sont pas symétriques. Notre intention est de **rejeter 
 
 ##### À vous de jouer ! {-}
 
-```{block2, type='bdd'}
+`r h5p(83, height = 400, toc = "Hypothèse nulle")`
 
-Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console pour effectuer les exercices d'auto-évaluation en parallèle à la lecture du texte ci-dessous\ :
 
-    BioDataScience1::run("A08a_chi2")
+##### À vous de jouer ! {-}
 
-```
+`r learnr("A08La_chi2", title = "Loi de distribution du Chi2", toc = "Loi de distribution du Chi2")`
 
 ### Becs croisés des sapins
 
@@ -143,7 +148,15 @@ L'exécution de ce code nous donne un court rapport avec\ :
 
 Souvent en biologie, on choisi $\alpha$ = 5%, mais dans les cas où nous souhaitons avoir plus de "certitude" dans notre réponse, nous pouvons aussi choisir un seuil plus restrictif de 1%, voire de 0,1%. Encore une fois, les explications sont détaillées ci-dessous.
 
+##### À vous de jouer ! {-}
+
+`r h5p(84, height = 400, toc = "Description du test d'hypothèse")`
+
+<!--- G.E. je pose une question H5P qui reprend cet élément.
+
 Dans notre exemple, nous pouvons donc rejeter $H_0$ et nous dirons que **la probabilité d'observer un bec croisé gauche est significativement plus grande qu'un bec croisé droit au seuil $\alpha$  de 5% dans la population étudiée (test $\chi^2$ = 5,61, ddl = 1, valeur *P* = 0,018)**. A ce stade, notre analyse statistique se termine. Une interprétation *biologique* du résultat, des hypothèses concernant les *mécanismes biologiques* que cela implique, une confrontation à ce que d'autres ont observé via la littérature scientifique et des conclusions et/ou perspectives finalisent l'étude.
+
+--->
 
 ##### Explications détaillées {-}
 
@@ -278,12 +291,7 @@ Dans le cas d'un tableau de contingence à **double entrée**, qui croise les ni
 
 ##### À vous de jouer ! {-}
 
-```{block2, type='bdd'}
-Une séance d'exercice vous est proposée en lien avec le test Chi^2^ d'indépendance. Vous pouvez réaliser ces exercices en parallèle à la lecture de la présente section. Ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A08b_chi2")
-
-```
+`r learnr("A08Lb_chi2b", title = "Le test du Chi2", toc = "Le test du Chi2")`
 
 ##### Conditions d'application {-}
 
@@ -546,6 +554,12 @@ Les **métriques** sont des variables issues de calculs plus complexes et qui vi
 **Devenez une/une bon(ne) scientifique des données\ : créez et utilisez des métriques adéquates le plus souvent possible.**
 ```
 
+##### À vous de jouer ! {-}
+
+`r h5p(85, height = 400, toc = "Les variables calculées")`
+
+<!--- G.E. cette section est redondante. Je la place en commentaire. Il serait intéressant de décider si on la garde ou pas.
+
 ### Biométrie humaine
 
 Le jeu de données sur la biométrie humaine que vous avez vous-mêmes réalisé est un fantastique terrain de jeu pour définir des métriques. La question centrale étant ici d'étudier la question de l'obésité, les métriques les plus importantes sont celles qui permettent de bien quantifier cela.
@@ -595,21 +609,12 @@ chart(biometry, ~ bmi_schedule) +
   labs(x = "Echelle de l'IMC", "Dénombrement")
 ```
 
-##### À vous de jouer ! {-}
+--->
 
-```{block, type='bdd'}
-Dans le projet portant sur le biométrie humaine, réalisez les instructions proposées  via le lien suivant :
 
-<https://github.com/BioDataScience-Course/sdd_lesson/blob/2019-2020/sdd1_08/presentations/indices.md>
+<!--- G.E. Je ne supprime pas car on pourrait le placer dans un autre module 
 
-Afin de vous aider dans la recherche d'indices intéressants et pertinents, des documents sont mis à votre disposition via le lien suivant:
-
-<https://github.com/BioDataScience-Course/sdd_lesson/tree/2019-2020/sdd1_08/biometry_doc_supp>
-
-Débutez votre recherche d'indice avec la lecture de l'article : Comment mesurer la corpulence et le poids idéal ? Histoire, intérêts et limites de l'indice de masse corporelle
-```
-
-## Evaluation par les pairs (étudiants de Charleroi)
+## Evaluation par les pairs 
 
 En science, l'évaluation par les pairs ("peer-reviewing" en anglais) est le mécanisme le plus efficace pour améliorer la qualité des travaux publiés (articles scientifiques ou ouvrages plus conséquents). Par définition, les résultats publiés en science sont à la frontière de l'inconnu. Il est donc difficile de vérifier si le travail est correct. Les personnes les plus à même de le faire sont les collègues qui travaillent sur le même sujet, ou dans un domaine proche, les "pairs".
 
@@ -631,3 +636,11 @@ De votre côté, lorsque vous recevrez le rapport relatif à votre propre projet
 Les instructions sont détaillées ici\ :
   <https://github.com/BioDataScience-Course/sdd_lesson/blob/master/sdd1_08/presentations/correction.md>
 ```
+
+---->
+
+## Récapitulatif des exercices
+
+Vous venez de terminer le module 8. Ce module vous a permis d'apprendre à réaliser votre premier test d'hypothèse. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
