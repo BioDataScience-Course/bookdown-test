@@ -30,8 +30,7 @@ install.packages(c("knitr", "bookdown", # The bases!
   "rmarkdown",
   "scales",
   "sessioninfo",
-  "skimr",
-  "vembedr"
+  "skimr"
 ))
 
 # From Github (latest devel version)
