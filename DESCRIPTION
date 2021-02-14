@@ -1,7 +1,37 @@
-Package: placeholder
 Type: Book
+Package: placeholder
 Title: SDD I UMONS version 2020
-Version: 3.0.0
-Imports: bookdown
-Depends: learndown
-Remotes: rstudio/bookdown
+Version: 2020.0.0
+Depends: 
+    learndown
+Imports: 
+    bookdown,
+    broom,
+    car,
+    DiagrammeR,
+    DT,
+    fortunes,
+    GGally,
+    ggplot2,
+    ggpubr,
+    ggridges,
+    glue,
+    knitr,
+    lmerTest,
+    multcomp,
+    nparcomp,
+    pander,
+    pwr,
+    rmarkdown,
+    scales,
+    SciViews,
+    sessioninfo,
+    skimr,
+    vembedr
+Remotes: 
+    SciViews/flow,
+    SciViews/data,
+    SciViews/chart,
+    SciViews/SciViews,
+    SciViews/learndown,
+    rstudio/bookdown
