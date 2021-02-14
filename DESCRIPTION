@@ -1,7 +1,7 @@
 Type: Book
 Package: placeholder
 Title: SDD I UMONS version 2020
-Version: 2020.0.0
+Version: 3.0.0
 Depends: 
     learndown
 Imports: 
@@ -30,7 +30,7 @@ Imports:
     vembedr
 Remotes: 
     SciViews/flow,
-    SciViews/data,
+    SciViews/data.io,
     SciViews/chart,
     SciViews/SciViews,
     SciViews/learndown,

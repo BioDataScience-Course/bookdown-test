@@ -36,7 +36,7 @@ install.packages(c("knitr", "bookdown", # The bases!
 
 # From Github (latest devel version)
 devtools::install_github("SciViews/flow")
-devtools::install_github("SciViews/data")
+devtools::install_github("SciViews/data.io")
 devtools::install_github("SciViews/chart")
 devtools::install_github("SciViews/SciViews")
 devtools::install_github("SciViews/learndown")
