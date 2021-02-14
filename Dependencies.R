@@ -1,8 +1,10 @@
 # This bookdown in its version 2020 needs the following R packages
 #  R 3.6.3
 # Use the following to list all demendencies:
-#imports <- unique(c("bookdown", "learndown", "SciViews", attachment::att_from_rmds(".")))
-#attachment::att_to_desc_from_is(path.d = "DESCRIPTION", imports = imports, suggests = NULL)
+#imports <- unique(c("bookdown", "learndown", "SciViews",
+#  attachment::att_from_rmds(".")))
+#attachment::att_to_desc_from_is(path.d = "DESCRIPTION",
+#  imports = imports, suggests = NULL)
 
 # From CRAN
 install.packages(c("knitr", "bookdown", # The bases!
