@@ -280,6 +280,18 @@ Nous constatons que la valeur du $\chi^2_{obs}$ dépend de l'effectif. Sa valeur
 
 `r learnr("A08La_chi2", title = "Loi de distribution du Chi2", toc = "Loi de distribution du Chi2")`
 
+
+```{r, echo=FALSE, results='asis'}
+if (exists("assignation"))
+  assignation("A08Ia_peas", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A08Ia_paes",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/TAoRvmoH",
+      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+    toc = "La génétique mendéliénne")
+```
+
+
 ### Test Chi^2^ d'indépendance
 
 Dans le cas d'un tableau de contingence à **double entrée**, qui croise les niveaux de deux variables qualitatives, nous pouvons effectuer également un test $\chi^2$. Celui-ci sera calculé légèrement différemment et surtout, les hypothèses testées sont différentes.
@@ -390,15 +402,6 @@ Pour l'ajustement à une loi de distribution continue, il est possible de décou
 Gardez toujours à l'esprit que, quelle que soit la qualité d'un test d'ajustement, vous n'aurez jamais qu'une réponse binaire (oui ou non l'échantillon s'ajuste à telle distribution théorique). Les causes de dérive sont innombrables et seules des bonnes représentations graphiques (histogramme, graphe en violon, et surtout, graphique quantile-quantile) sont suffisamment riche en information pour explorer *pourquoi* et *comment* la distribution diffère d'une distribution théorique.
 ```
 
-##### À vous de jouer ! {-}
-
-```{block2, type='bdd'}
-
-Employez le test d'hypothèse que vous venez d'apprendre dans votre rapport sur la biométrie humaine\ :
-    
-    sdd1_biometry-...(nom du groupe)
-
-```
 
 ##### Pour en savoir plus {-}
 
