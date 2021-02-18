@@ -38,15 +38,6 @@ Le contrat que Gosset a signé avec son employeur l'empêchait de publier des r�
 
 ## Distribution d'échantillonnage
 
-##### À vous de jouer ! {-}
-
-```{block, type='bdd'}
-Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A09a_ttest")
-
-```
-
 Pour rappel, nous faisons de l'**inférence** sur base d'un échantillon parce que nous sommes incapables de mesurer tous les individus d'une population. Il faut au préalable que l'échantillon soit **représentatif**, donc réalisé dans les règles de l'art (par exemple, un échantillonnage aléatoire simple de la population). Nous pouvons calculer la moyenne d'un échantillon facilement (eq. \@ref(eq:moyenne)). 
 
 \begin{equation} 
@@ -66,6 +57,10 @@ Nous utiliserons également l'écart type, noté $\sigma_x$ pour la population e
 A noter que $s^2$ est également appelée la **variance**^[L'équation proposée est, en fait, valable pour un échantillon, et est calculé comme tel par R à l'aide des fonctions `sd()` pour l'écart type ou `var()` pour la variance. Pour la population ou pour un échantillon de taille très grande, voire infinie, nous pourrions plutôt diviser par $n$ au lieu de $n - 1$, ... mais puisque $n$ est très grand, cela ne change pas grand chose au final.].
 
 En fait, ce qui nous intéresse, ce n'est pas vraiment la moyenne de l'échantillon, mais celle de la population que l'on notera $\mu$^[Notez que les lettres latines sont utilisées pour se référer aux variables et aux descripteurs statistiques telle que la moyenne pour l'échantillon, alors que les paramètres équivalents de la population, qui sont inconnus, sont représentés par des lettres grecques en statistiques.]. D'où la question\ : comment varie la moyenne d'un échantillon à l'autre\ ?
+
+##### À vous de jouer ! {-}
+
+`r h5p(86, height = 400, toc = "Annotation mathématique")`
 
 Nous pouvons répondre à cette question de manière empirique en utilisant le générateur pseudo-aléatoire de R. Partons d'une distribution théorique de la population qui soit normale, de moyenne $\mu$ = 8 et d'écart type $\sigma$ = 2. Nous pouvons échantillonner neuf individus. Cela donne\ :
 
@@ -105,7 +100,11 @@ sd(means_n9)
 
 La moyenne de la distribution d'échantillonnage est donc égale à la moyenne de la population. Elle peut donc être approximée par la moyenne d'un échantillon. Quant à l'écart type, il vaut 2/3 environ, soit l'écart type de la population divisé par 3.
 
-Effectuons une autre méta-expérience toujours à partir de la même population, mais avec des échantillons plus petits, par exemple, avec $n = 4$\ :
+##### À vous de jouer ! {-}
+
+`r h5p(87, height = 400, toc = "Méta-expérience")`
+
+Détaillons la méta-expérience toujours à partir de la même population, mais avec des échantillons plus petits, par exemple, avec $n = 4$\ :
 
 ```{r}
 means_n4 <- numeric(10000) # Vecteur de 10000 valeurs
@@ -202,6 +201,11 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
 ```
 
 Nous pouvons voir sur la Fig. \@ref(fig:tdistri1) que la distribution *t* de Student est plus resserrée en son centre, mais plus étalée aux extrémités que la distribution normale de même moyenne et écart type. Néanmoins, elle est d'autant plus proche d'une normale que les degrés de libertés sont grands. On dit qu'elle converge vers une normale lorsque $dll \longrightarrow \infty$. En pratique, pour des degrés de liberté égaux ou supérieurs à 30, nous pourrons considérer que les deux distributions sont pratiquement confondues.
+
+##### À vous de jouer ! {-}
+
+`r h5p(89, height = 400, toc = "Tendre vers la distribution normale")`
+
 
 Revenons à nos calculs de quantiles et probabilités. Les questions que l'on se posera seront plutôt\ :
 
@@ -303,6 +307,10 @@ Analogie avec l'homme invisible qui promène son chien. Si vous avez des difficu
 ##### Valeur α {-}
 
 Quel est l'impact du choix de $\alpha$ sur le calcul de l'IC\ ? Plus $\alpha$ sera petit, plus le risque de se tromper sera faible. Cela peut paraître intéressant, donc, de réduire $\alpha$ le plus possible. Mais alors, la longueur de l'IC augmente. Si nous poussons à l'extrême, pour $\alpha$ = 0%, nous aurons toujours un IC compris entre $-\infty$ et $+\infty$. Et cela, nous en sommes certains à 100%\ ! Trivial, non\? Et pas très utile.
+
+##### À vous de jouer ! {-}
+
+`r h5p(88, height = 400, toc = "Intervalle de confiance")`
 
 Comme pour tout en statistique, nous devons accepter un certain risque de nous tromper si nous voulons obtenir des résultats utilisables. Plus ce risque est grand, plus la réponse est précise (ici, plus l'IC sera petit, voir Fig. \@ref(fig:tdistri3)), mais plus le risque de se tromper augmente. On cherchera alors un compromis qui se matérialise souvent par le choix de $\alpha$ = 5%. Nous nous tromperons une fois sur vingt, et nous aurons un IC généralement raisonnable pour ce prix. Naturellement, rien ne vous oblige à utiliser 5%. Vous pouvez aussi choisir 1% ou 0,1% si vous voulez limiter les risques.
 
@@ -417,7 +425,12 @@ Partons d'un exemple concret. Imaginez que vous êtes des biologistes ouest-aust
 
 ![Crabe *Leptograpsus variegatus* par [Johnragla](https://commons.wikimedia.org/wiki/File:Purple_rock_crab_in_Aotea_Harbour_April_2013.jpg).](images/sdd1_09/Leptograpsus-variegatus.jpg)
 
-Ce crabe est rapide et difficile à capturer... mais vous avez quand même réussi à en attraper et mesurer 200 d'entre eux, ce qui constitue un échantillon de taille raisonnable. Comme deux variétés co-existent, la variété bleue (`B`) et la variété orange (`O`) sur votre site d'étude, vous vous demandez si elles diffèrent d'un point de vue morphométrique. Naturellement, nous pouvons également supposer des différences entre mâles et femelles. Vous avez donc décidé de réaliser un **échantillonnage stratifié** consistant à capturer et mesurer autant de bleus que d'oranges et autant de mâles que de femelles. Vous avez donc 50 mâles bleus, 50 femelles bleues, 50 mâles oranges et 50 femelles oranges.
+Ce crabe est rapide et difficile à capturer... mais vous avez quand même réussi à en attraper et mesurer 200 d'entre eux, ce qui constitue un échantillon de taille raisonnable. Comme deux variétés co-existent, la variété bleue (`B`) et la variété orange (`O`) sur votre site d'étude, vous vous demandez si elles diffèrent d'un point de vue morphométrique. Naturellement, nous pouvons également supposer des différences entre mâles et femelles. 
+
+##### À vous de jouer ! {-}
+
+`r h5p(90, height = 400, toc = "Type d'échantillonnage")`
+
 
 ```{r}
 crabs <- read("crabs", package = "MASS", lang = "fr")
@@ -547,28 +560,17 @@ Petite astuce... les mesures morphométriques sont dépendantes de la taille glo
 Vous pouvez également comparer les crabes bleus (`species = "B"`) avec les crabes oranges (`species = "O"`) à l'aide du même test.
 ```
 
-##### À vous de jouer ! {-}
 
-```{block, type='bdd'}
-
-Appliquez les test de student dans votre projet portant sur la biométrie humaine.
-
-```
 
 ##### Pour en savoir plus {-}
 
 - Une [vidéo en anglais](https://www.youtube.com/watch?v=QoV_TL0IDGA) qui explique le test *t* de Student un peu différemment.
 
-## Variantes du test *t* de Student
-
 ##### À vous de jouer ! {-}
 
-```{block, type='bdd'}
-Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
+`r learnr("A09La_ttest", title = "Test t de Student", toc = "Test t de Student")`
 
-    BioDataScience1::run("A09b_ttest_wmw")
-
-```
+## Variantes du test *t* de Student
 
 Nous venons de voir ce qu'on appelle très précisément le **test *t* de Student indépendant bilatéral avec variances égales**. Nous allons maintenant étudier d'autres variantes. 
 
@@ -794,6 +796,10 @@ La valeur *P* est supérieure à $\alpha$. Nous ne rejettons pas $H_0$. Nous ne 
     + approximativement normale, le test sera approximativement exact,
     + non normale, le test sera approximativement exact si $n$ est grand.
 
+##### À vous de jouer ! {-}
+
+`r h5p(91, height = 400, toc = "Variantes du test t de Student")`
+
 ## Test de Wilcoxon
 
 Nous avons vu que le test *t* de Student se réfère à une distribution qui n'est exacte que si la population de départ est normale. Même si le théorème central limite permet encore d'utiliser le test dans le cas contraire lorsque *n* est grand, tous les cas ne sont pas rencontrés. Si *n* est petit et que l'on soupçonne une distribution non normale (pensez au graphique quantile-quantile pour visualiser la distribution) que faire\ ?
@@ -827,6 +833,10 @@ wilcox.test(data = crabs, rear ~ sex,
 
 Nous obtenons un résultat similaire au test *t* de Student indépendant. Nous rejettons $H_0$. Concernant les conditions d'application, elles sont les mêmes que pour le test *t* de Student équivalent à part les contraintes sur la distribution qui disparaissent.
 
+##### À vous de jouer ! {-}
+
+`r h5p(92, height = 400, toc = "Choix du test d'hypothèse")`
+
 Quand choisir le test *t* de Student ou le test de Wilcoxon\ ? Nous serions tentés d'effectuer un test de Wilcoxon à chaque fois puisqu'ainsi nous sommes certains de ne pas comettre d'impair concernant la distribution des données. Mais en fait, le test *t* de Student est à préférer à chaque fois que c'est possible car il est plus **puissant**. Cela signifie qu'il sera capable de détecter un effet significatif plus tôt que le Wilcoxon. La bonne stratégie est donc d'utiliser le test *t* de Student autant que possible et de ne se rabattre sur le test de Wilcoxon que si on ne peut pas faire autrement, soit *n*  petit et distribution non normale ou inconnue. A noter que quand *n* est vraiment petit, il est impossible d'étudier valablement la distribution des données sur cet échantillon. On doit alors se baser sur un échantillon plus grand prélevé sur des données similaires ou alors jouer la sécurité et effectuer un test de Wilcoxon.
 
 Cette analyse est valable pour toute paire de test paramétrique *versus* non paramétrique. Le tableau suivant résume cela.
@@ -859,11 +869,7 @@ La puissance est de 0,954. Donc, $\beta$ vaut 1 - 0,954 = 0,046 ou pratiquement 
 
 ##### À vous de jouer ! {-}
 
-```{block, type='bdd'}
-
-Appliquez les test de student et ses variantes dans vos projets portant sur la biométrie humaine, sur la croissance des oursins et sur le zooplankton.
-
-```
+`r learnr("A09Lb_ttest_wmw", title = "Les tests t de Student et de Wilcoxon/Mann-Withney", toc = "Les tests t de Student et de Wilcoxon/Mann-Withney")`
 
 ## Représentation graphique
 
@@ -984,3 +990,9 @@ Pour terminer, bien que la moyenne soit un descripteur statistique très utile, 
 ```{r, echo=FALSE}
 vembedr::embed_youtube("uIx2xvdwIIo", width = 770, height = 433)
 ```
+
+## Récapitulatif des exercices
+
+Vous venez de terminer le module 9. Ce module vous a permis d'apprendre une grande partie des subtilités qui se cachent derrière la moyenne qui peut nous sembler si simple. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
