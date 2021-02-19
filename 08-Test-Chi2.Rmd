@@ -283,8 +283,8 @@ Nous constatons que la valeur du $\chi^2_{obs}$ dépend de l'effectif. Sa valeur
 
 ```{r, echo=FALSE, results='asis'}
 if (exists("assignation"))
-  assignation("A08Ia_peas", part = NULL,
-    url = "https://github.com/BioDataScience-Course/A08Ia_paes",
+  assignation("A08Ia_pes", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A08Ia_pea",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/a/TAoRvmoH",
       'S-BIOG-921' = "https://classroom.github.com/g/..."),
