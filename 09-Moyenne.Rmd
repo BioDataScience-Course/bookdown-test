@@ -60,7 +60,7 @@ En fait, ce qui nous intéresse, ce n'est pas vraiment la moyenne de l'échantil
 
 ##### À vous de jouer ! {-}
 
-`r h5p(86, height = 400, toc = "Annotation mathématique")`
+`r h5p(86, height = 400, toc = "Notation mathématique")`
 
 Nous pouvons nous poser la question : comment varie la moyenne d'un échantillon à l'autre ? Il est possible de répondre à cette question de manière empirique en utilisant le générateur pseudo-aléatoire de R. Partons d'une distribution théorique de la population qui soit normale, de moyenne $\mu$ = 8 et d'écart type $\sigma$ = 2. Nous pouvons échantillonner neuf individus. Cela donne\ :
 
@@ -87,7 +87,7 @@ chart(data = NULL, ~ means_n9) +
   geom_histogram(bins = 30)
 ```
 
-Nous obtenons une distribution symétrique centrée autour de 8. Elle ressemble à une distribution normale, mais ce n'en est pas une. C'est précisément ici que William Gosset intervient. Il est, en effet, arrivé à décrire cette loi de distribution de la moyenne d'échantillonnage. C'est la distribution *t* de Student qui admet trois paramètres\ : une moyenne $\mu_x$, un écart type $\sigma_x$, et des degrés de liberté ddl ou $\nu$. Les degrés de liberté sont en lien avec la taille de l'échantillon. Ils valent\ :
+Nous obtenons une distribution symétrique centrée autour de 8. Elle ressemble à une distribution Normale, mais ce n'en est pas une. C'est précisément ici que William Gosset intervient. Il est, en effet, arrivé à décrire cette loi de distribution de la moyenne d'échantillonnage. C'est la distribution *t* de Student qui admet trois paramètres\ : une moyenne $\mu_x$, un écart type $\sigma_x$, et des degrés de liberté ddl ou $\nu$. Les degrés de liberté sont en lien avec la taille de l'échantillon. Ils valent\ :
 
 $$ddl = n-1$$
 
@@ -172,7 +172,7 @@ Elle est de 24% environ. Notez que nous avons renseigné la moyenne et l'écart 
 
 Il s'agit du quantile 6,76. Le graphique correspondant est le suivant\ :
 
-```{r tdistri1, echo=FALSE, fig.cap="Une distribution de Student avec aire à gauche de 5% mise en évidence en rouge. La distribution normale équivalente est superposée en bleu clair."}
+```{r tdistri1, echo=FALSE, fig.cap="Une distribution de Student avec aire à gauche de 5% mise en évidence en rouge. La distribution Normale équivalente est superposée en bleu clair."}
 # Student's t distribution (density probability) with parameters:
 .mu <- 8; .s <- 2/3; .df <- 8 # .mu, .s (sigma) and .df
 .col <- 1; .add <- FALSE # Plot parameters
@@ -200,11 +200,11 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
   annotate("text", x = 6.5, y = 0.02, label = "5%", col = "red")
 ```
 
-Nous pouvons voir sur la Fig. \@ref(fig:tdistri1) que la distribution *t* de Student est plus resserrée en son centre, mais plus étalée aux extrémités que la distribution normale de même moyenne et écart type. Néanmoins, elle est d'autant plus proche d'une normale que les degrés de libertés sont grands. On dit qu'elle converge vers une normale lorsque $dll \longrightarrow \infty$. En pratique, pour des degrés de liberté égaux ou supérieurs à 30, nous pourrons considérer que les deux distributions sont pratiquement confondues.
+Nous pouvons voir sur la Fig. \@ref(fig:tdistri1) que la distribution *t* de Student est plus resserrée en son centre, mais plus étalée aux extrémités que la distribution Normale de même moyenne et écart type. Néanmoins, elle est d'autant plus proche d'une Normale que les degrés de libertés sont grands. On dit qu'elle converge vers une normale lorsque $dll \longrightarrow \infty$. En pratique, pour des degrés de liberté égaux ou supérieurs à 30, nous pourrons considérer que les deux distributions sont pratiquement confondues.
 
 ##### À vous de jouer ! {-}
 
-`r h5p(89, height = 400, toc = "Tendre vers la distribution normale")`
+`r h5p(89, height = 400, toc = "Tendre vers la distribution Normale")`
 
 
 Revenons à nos calculs de quantiles et probabilités. Les questions que l'on se posera seront plutôt\ :
@@ -347,7 +347,7 @@ chart(data = tibble(Quantiles = .x, Prob = .d(.x), Prob_N = .d2(.x)),
 
 ### Théorème central limite (encore)
 
-Jusqu'ici, nous avons considéré une population au départ qui a une distribution normale, mais rien ne dit que ce soit le cas. Que se passe-t-il lorsque la distribution est différentes\ ? Ici encore, nous pouvons effectuer une méta-expérience. Considérons, par exemple, une distribution uniforme de même moyenne = 8 et écart type = 2. Sachant que l'écart type d'une distribution uniforme vaut $\frac{max - min}{\sqrt{12}}$, voir [ici](https://fr.wikiversity.org/wiki/Variables_aléatoires_continues/Loi_uniforme), l'intervalle est de\ : $2 \cdot \sqrt{12} = 6,928$. Nous avons donc\ :
+Jusqu'ici, nous avons considéré une population au départ qui a une distribution Normale, mais rien ne dit que ce soit le cas. Que se passe-t-il lorsque la distribution est différentes\ ? Ici encore, nous pouvons effectuer une méta-expérience. Considérons, par exemple, une distribution uniforme de même moyenne = 8 et écart type = 2. Sachant que l'écart type d'une distribution uniforme vaut $\frac{max - min}{\sqrt{12}}$, voir [ici](https://fr.wikiversity.org/wiki/Variables_aléatoires_continues/Loi_uniforme), l'intervalle est de\ : $2 \cdot \sqrt{12} = 6,928$. Nous avons donc\ :
 
 ```{r}
 (xmin <- 8 - sqrt(12))
@@ -404,7 +404,7 @@ chart(data = NULL, ~ m_unif_n100) +
   geom_line(aes(x = .x, y = .d(.x) * 610))
 ```
 
-Nous venons de montrer de manière empirique que lorsque la distribution de la population est différente d'une distribution normale, la distribution d'échantillonnage tend vers une *t* de Student pour un $n$ grand. Ceci se démontre de manière mathématique par le fameux **théorème central limite** que nous avons déjà abordé et qui est si cher aux statisticiens (nous vous épargnons cette démonstration ici).
+Nous venons de montrer de manière empirique que lorsque la distribution de la population est différente d'une distribution Normale, la distribution d'échantillonnage tend vers une *t* de Student pour un $n$ grand. Ceci se démontre de manière mathématique par le fameux **théorème central limite** que nous avons déjà abordé et qui est si cher aux statisticiens (nous vous épargnons cette démonstration ici).
 
 ##### Conditions de validité de l'IC {-}
 
@@ -869,7 +869,7 @@ La puissance est de 0,954. Donc, $\beta$ vaut 1 - 0,954 = 0,046 ou pratiquement 
 
 ##### À vous de jouer ! {-}
 
-`r learnr("A09Lb_ttest_wmw", title = "Les tests t de Student et de Wilcoxon/Mann-Withney", toc = "Les tests t de Student et de Wilcoxon/Mann-Withney")`
+`r learnr("A09Lb_ttest_wmw", title = "Les tests t de Student et de Wilcoxon-Mann-Whitney", toc = "Les tests t de Student et de Wilcoxon-Mann-Whitney")`
 
 ## Représentation graphique
 
