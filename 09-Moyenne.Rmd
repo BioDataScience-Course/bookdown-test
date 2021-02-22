@@ -800,6 +800,16 @@ La valeur *P* est supérieure à $\alpha$. Nous ne rejettons pas $H_0$. Nous ne 
 
 `r h5p(91, height = 400, toc = "Variantes du test t de Student")`
 
+```{r, echo=FALSE, results='asis'}
+if (exists("assignation"))
+  assignation("A09Ia_cardiovascular", part = NULL,
+    url = "https://github.com/BioDataScience-Course/A09Ia_cardiovascular",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/SbW-nS7Q",
+      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+    toc = "Les maladies cardiovasculaires")
+```
+
 ## Test de Wilcoxon
 
 Nous avons vu que le test *t* de Student se réfère à une distribution qui n'est exacte que si la population de départ est normale. Même si le théorème central limite permet encore d'utiliser le test dans le cas contraire lorsque *n* est grand, tous les cas ne sont pas rencontrés. Si *n* est petit et que l'on soupçonne une distribution non normale (pensez au graphique quantile-quantile pour visualiser la distribution) que faire\ ?
@@ -989,6 +999,21 @@ Pour terminer, bien que la moyenne soit un descripteur statistique très utile, 
 
 ```{r, echo=FALSE}
 vembedr::embed_youtube("uIx2xvdwIIo", width = 770, height = 433)
+```
+
+##### À vous de jouer ! {-}
+
+Appliquez vos nouvelles connaissances dans l'assignation de groupe que vous avez débutée lors du module précédent.
+
+
+```{r, echo=FALSE, results='asis'}
+if (exists("assignation2"))
+  assignation2("A08Ga_human_health", part = "II",
+    url = "https://github.com/BioDataScience-Course/A08Ga_human_health",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/g/NVNlyKJH",
+      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+    toc = "La biométrie humaine")
 ```
 
 ## Récapitulatif des exercices

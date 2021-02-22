@@ -560,7 +560,7 @@ Les **métriques** sont des variables issues de calculs plus complexes et qui vi
 
 ```{r, echo=FALSE, results='asis'}
 if (exists("assignation2"))
-  assignation2("A08Ga_human_health", part = NULL,
+  assignation2("A08Ga_human_health", part = "I",
     url = "https://github.com/BioDataScience-Course/A08Ga_human_health",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/g/NVNlyKJH",
