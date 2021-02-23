@@ -20,7 +20,7 @@ Ce module continue la comparaison de moyennes entamée, pour deux populations au
 
 ## Le danger des tests multiples
 
-Les tests *t* de Student et de Wilcoxon sont limités à la comparaison de deux populations. Poursuivons notre analyse des crabes *L. variegatus*. Rappelez-vous, nous avons deux variétés (variable `species`, `B` pour bleue et `O`pour orange). Si nous voulons comparer simultanément les mâles et les femelles des deux variétés, cela nous fait quatre sous-populations à comparer (nous utilisons ici la fonction `paste()` qui rassemble des chaînes de caractère avec trait comme caractère séparateur `sep ="-"` pour former une variable facteur à quatre niveaux, `B-F`, `B-M`, `O-F`, `O-M`). Nous transformaons cette variable en facteur à l'aide de `factor()` et nous ajoutons un label avec `labelise()`.
+Les tests *t* de Student et de Wilcoxon sont limités à la comparaison de deux populations. Poursuivons notre analyse des crabes *L. variegatus*. Rappelez-vous, nous avons deux variétés (variable `species`, `B` pour bleue et `O`pour orange). Si nous voulons comparer simultanément les mâles et les femelles des deux variétés, cela nous fait quatre sous-populations à comparer (nous utilisons ici la fonction `paste()` qui rassemble des chaînes de caractère avec trait comme caractère séparateur `sep ="-"` pour former une variable facteur à quatre niveaux, `B-F`, `B-M`, `O-F`, `O-M`). Nous transformons cette variable en facteur à l'aide de `factor()` et nous ajoutons un label avec `labelise()`.
 
 ```{r}
 crabs <- read("crabs", package = "MASS", lang = "fr")
@@ -43,7 +43,7 @@ chart(data = crabs2, rear ~ group) +
   
 ```
 
-Nous en profitons également pour essayer l'astuce proposée au module précédent. Au lieu de travailler sur la variable `rear` seule, nous allons étudier l'aspect ratio entre largeur à l'arrière (`rear`) et largeur maximale (`width`) de la carapace afin de nous débarrasser d'une source de variabilité triviale qui est qu'un grand crabe est grand partout, et de même un petit crabe est petit pour toutes ses mesures. Nous prenons soin également de libeller cette nouvelle variable correctement avec `labelise()`. Enfin, nous ne conservons que les variables `species`, `sex`, `group` et `aspect` avec `select()\ :
+Nous en profitons également pour essayer l'astuce proposée au module précédent. Au lieu de travailler sur la variable `rear` seule, nous allons étudier l'aspect ratio entre largeur à l'arrière (`rear`) et largeur maximale (`width`) de la carapace afin de nous débarrasser d'une source de variabilité triviale qui est qu'un grand crabe est grand partout, et de même un petit crabe est petit pour toutes ses mesures. Nous prenons soin également de libeller cette nouvelle variable correctement avec `labelise()`. Enfin, nous ne conservons que les variables `species`, `sex`, `group` et `aspect` avec `select()`\ :
 
 ```{r}
 crabs2 %>.%
@@ -57,7 +57,7 @@ skimr::skim(crabs2)
 
 Nous avons 50 individus dans chacun des quatre groupes. **Lorsqu'il y a le même nombre de réplicats dans tous les groupes, on appelle cela un plan balancé**. C'est une situation optimale. Nous devons toujours essayer de nous en rapprocher le plus possible car, si le nombre d'individus mesurés diffère fortement d'un groupe à l'autre, nous aurons forcément moins d'information disponible dans le ou les groupes moins nombreux, ce qui déforcera notre analyse.
 
-Nous voyons également que la variable `aspect` semble avoir une distribution bimodale d'après le petit histogramme représenté dans le résumé. La Fig. \@ref(fig:anova0) avec `aspect montre une différence plus qu'avec `rear` seul, à la Fig. \@ref(fig:crabs_rear).
+Nous voyons également que la variable `aspect` semble avoir une distribution bimodale d'après le petit histogramme représenté dans le résumé. La Fig. \@ref(fig:anova0) avec `aspect montre une différence plus qu'avec `rear` seul, à la Fig. \@ref(fig:crabs-rear).
 
 ```{r anova0, fig.cap="Ratio largeur arrière/largeur max en fonction du groupe de crabes *L. variegatus*. Graphique adéquat pour comparer les moyennes et distributions dans le cas d'un nombre important de répliquat (moyennes en rouge + observations individuelles en noir semi-transparent superposées à des graphiques en violon)."}
 chart(data = crabs2, aspect ~ group) +
@@ -69,11 +69,11 @@ chart(data = crabs2, aspect ~ group) +
   
 ```
 
-Nous voyons ici beaucoup mieux que la distribution bimodale est essentiellement dûe au dymorphiqme sexuel plutôt qu'à des différences entre les variétés, mais qu'en est-il plus précisément car si nous regardons attentivement, il semble que les moyennes pour les crabes bleus sont légèrement inférieures à ces des crabes oranges.
+Nous voyons ici beaucoup mieux que la distribution bimodale est essentiellement dûe au dimorphisme sexuel plutôt qu'à des différences entre les variétés, mais qu'en est-il plus précisément car si nous regardons attentivement, il semble que les moyennes pour les crabes bleus sont légèrement inférieures à ces des crabes oranges.
 
 Comment comparer valablement ces quatre groupes\ ? Comme nous savons maintenant comparer deux groupes à l'aide d'un test *t* de Student, il est tentant d'effectuer toutes les comparaisons deux à deux et de résumer l'ensemble, par exemple, dans un tableau synthétique. Ca fait quant même beaucoup de comparaisons (`B-F` <-> `B-M`, `B-F` <-> `O-F`, `B-F` <-> `O-M`, `B-M` <-> `O-F`, `B-M`<-> `O-M`, et finalement `O-F` <-> `O-M`). Cela fait six comparaisons à réaliser.
 
-N'oublions pas que, à chaque test, nous prenons un risque de nous tromper. **Le risque de se tromper au moins une fois dans l'ensemble des tests est alors décuplé en cas de tests multiples.** Prenons un point de vue naïf, mais qui suffira ici pour démontrer le problème qui apparaît. Admettons que le risque de nous tromper est constant, que nous rejettons ou non $H_0$, et qu'il est de l'ordre de 10% dans chaque test individuellement^[Attention\ ! vous savez bien que c'est plus compliqué que cela. D'une part, le risque de se tromper est probablement différent si on rejette $H_0$ ($\alpha$) ou non ($\beta$), et ces risques sont encore à moduler en fonction de la probabilité *a priori*, un cas similaire au dépistage d'une maladie plus ou moins rare, rappelez-vous, au module \@ref(proba).]. La seule solution acceptable est que *tous* les tests soeijnt corrects. Considérant chaque interprétation indépendante, nous pouvons multiplier les probabilités d'avoir un test correct (90%) le nombre de fois que nous faisons le test, soit $0,9 \times 0,9 \times 0,9 \times 0,9 \times 0,9 \times 0,9 = 0,9^6 = 0,53$. Tous les autres cas ayant au moins un test faux, nous constatons que notre analyse globale sera incorrecte $1 - 0,53 = 47\%$ du temps^[Dans R, vous pouvez utiliser `choose(n, j)` pour calculer le coefficient binomial. Donc votre calcul du risque de se tromper au moins une fois dans un ensemble de `n` tests dont le risque individuel est `r` sera `1 - (1 - r)^choose(n, 2)`.]. **Notre analyse sera incorrecte une fois sur deux environ.**
+N'oublions pas que, à chaque test, nous prenons un risque de nous tromper. **Le risque de se tromper au moins une fois dans l'ensemble des tests est alors décuplé en cas de tests multiples.** Prenons un point de vue naïf, mais qui suffira ici pour démontrer le problème qui apparaît. Admettons que le risque de nous tromper est constant, que nous rejettons ou non $H_0$, et qu'il est de l'ordre de 10% dans chaque test individuellement^[Attention\ ! vous savez bien que c'est plus compliqué que cela. D'une part, le risque de se tromper est probablement différent si on rejette $H_0$ ($\alpha$) ou non ($\beta$), et ces risques sont encore à moduler en fonction de la probabilité *a priori*, un cas similaire au dépistage d'une maladie plus ou moins rare, rappelez-vous, au module \@ref(proba).]. La seule solution acceptable est que *tous* les tests soient corrects. Considérant chaque interprétation indépendante, nous pouvons multiplier les probabilités d'avoir un test correct (90%) le nombre de fois que nous faisons le test, soit $0,9 \times 0,9 \times 0,9 \times 0,9 \times 0,9 \times 0,9 = 0,9^6 = 0,53$. Tous les autres cas ayant au moins un test faux, nous constatons que notre analyse globale sera incorrecte $1 - 0,53 = 47\%$ du temps^[Dans R, vous pouvez utiliser `choose(n, j)` pour calculer le coefficient binomial. Donc votre calcul du risque de se tromper au moins une fois dans un ensemble de `n` tests dont le risque individuel est `r` sera `1 - (1 - r)^choose(n, 2)`.]. **Notre analyse sera incorrecte une fois sur deux environ.**
 
 ```{block, type='info'}
 De manière générale, le nombre de combinaisons deux à deux possibles dans un set de `n` groupes distincts sera calculé à l'aide du coefficient binomial que nous avions déjà rencontré avec la distribution du même nom, ici avec $j$ valant deux.
@@ -174,10 +174,10 @@ D'une part, nous nous trouvons dans une situation d'additivité de la variance s
 
 ```{r anova2, echo=FALSE, fig.cap="A. Cas fictif avec moyennes probablement égales entre populations (étalement des points bien plus large que l'écart entre les moyennes), B. cas où les moyennes sont probablement différentes (écart des moyennes \"inter\" bien plus grand que l'étalement des points en \"intra\"-population)."}
 set.seed(25431)
-dat1 <- data_frame(
+dat1 <- tibble(
   Y = rnorm(30, sd = 0.3),
   Population = rep(c("A", "B", "C"), each = 10))
-dat2 <- data_frame(
+dat2 <- tibble(
   Y = rnorm(30, sd = 0.1) + rep(c(0, -1, 1), each = 10),
   Population = rep(c("A", "B", "C"), each = 10))
 pl1 <- chart(data = dat1, Y ~ Population) +
@@ -232,15 +232,6 @@ La **statistique _F_~obs~ est le rapport des carrés moyens inter/intra.** Elle 
 
 ### Distribution *F*
 
-##### À vous de jouer ! {-}
-
-```{block, type='bdd'}
-Afin d'appliquer directement les concepts vu dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A10a_anova")
-
-```
-
 La distribution *F* est une distribution asymétrique n’admettant que des valeurs nulles ou positives, d'une allure assez similaire à la distribution du $\chi^2$ que nous avons étudiée au module \@ref(chi2). Elle est appelée loi de Fisher, ou encore, loi de Fisher-Snedecor. Elle a une asymptote horizontale à $+\infty$. La distribution *F* admet deux paramètres, respectivement les degrés de liberté au numérateur (inter) et au dénominateur (intra). La Fig. \@ref(fig:fplot) représente la densité de probabilité d'une loi *F* typique^[Les fonctions qui permettent les calculs relatifs à la distribution *F* dans R sont `<x>f()`, et les snippets correspondants dans la SciViews Box sont disponibles à partir de `.if`. Leur utilisation est similaire à celle des distributions vues au module \@ref(proba).].
 
 ```{r fplot, echo=FALSE, fig.cap = "Allure typique de la densité de probabilité de la distribution F (ici ddl inter = 5 et ddl intra = 20). Plus *F~obs* est grand, plus l'hypothèse nulle est suspecte. La zone de rejet est donc positionnée à droite (en rouge)."}
@@ -288,7 +279,7 @@ Nous commençons à avoir l'habitude maintenant. La valeur *P* est calculée com
 - distribution **normale** des résidus $\epsilon_i$,
 - **homoscédasticité** (même variance intragroupes, "homoscedasticity" en anglais, opposé à hétéroscédasticité = variance différente entre les groupes).
 
-Les deux dernières conditions d'applications doivent être vérifiées. La nomralité des résidus doit être rencontrée aussi bien que possible. Un graphique quantile-quantile des résidus permet de se faire une idée, comme sur la Fig. \@ref(fig:resid1). Néanmoins, le test étant relativement robuste à des petites variations par rapport à la distribution normale, surtout si ces variations sont symétriques, nous ne seront pas excessivement stricts ici.
+Les deux dernières conditions d'applications doivent être vérifiées. La normalité des résidus doit être rencontrée aussi bien que possible. Un graphique quantile-quantile des résidus permet de se faire une idée, comme sur la Fig. \@ref(fig:resid1). Néanmoins, le test étant relativement robuste à des petites variations par rapport à la distribution normale, surtout si ces variations sont symétriques, nous ne seront pas excessivement stricts ici.
 
 ```{r resid1, echo = FALSE, results='hide', fig.cap="Graphique quantile-quantile appliqué aux résidus d'une ANOVA pour déterminer si leur distribution se rapproche d'un loi normale."}
 trees <- read("trees", package = "datasets")
@@ -435,17 +426,6 @@ En conclusion, tous les groupes diffèrent de manière siginificative sauf les m
 
 Les conditions d'application pour le test post hoc de Tukey sont les mêmes que pour l'ANOVA.
 
-##### À vous de jouer ! {-}
-
-```{block, type='bdd'}
-Suite à la lecture de l'ANOVA à un facteur, réalisez ce projet individuel pour appliquer vos nouvelles connaissances.
-
-- <https://classroom.github.com/a/bHQ01LHm>
-
-Lisez attentivement le README. 
-
-*Ce projet doit être terminé à la fin de ce module*
-```
 
 ## Test de Kruskal-Wallis
 
@@ -509,22 +489,29 @@ La présentation des résultats est plus détaillée que pour le HSD de Tukey. L
 
 Au final que conclure\ ? Lorsque l'ANOVA peut être utilisée, elle est à préférer. Ici avec une transformation puissance cinq, nous stabilisons la variance qui est le critère le plus sensible. De plus tant avec l'ANOVA qu'avec le Kruskal-Wallis, nous détectons des différences significatives. Les tests "post hoc" nous indiquent des différences significatives au seuil $\alpha$ de 5% sauf peut-être pour les mâles (il faudrait prévoir des mesures supplémentaires pour confirmer ou infirmer à ce niveau).
 
+
 ##### À vous de jouer ! {-}
 
-```{block, type='bdd'}
+Appliquez vos nouvelles connaissances dans l'assignation de groupe que vous avez débutée lors du module précédent.
 
-Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience:1:run("A10b_anova_kruskal")
-
+```{r, echo=FALSE, results='asis'}
+if (exists("assignation2"))
+  assignation2("A08Ga_human_health", part = "III",
+    url = "https://github.com/BioDataScience-Course/A08Ga_human_health",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/g/NVNlyKJH",
+      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+    toc = "La biométrie humaine")
 ```
 
-```{block, type='bdd'}
+## Récapitulatif des exercices
 
-Appliquez l'analyse de variances ou le test de Kruskal-Wallis dans vos projets portant sur la biométrie humaine et sur le zooplankton.
+Vous venez de terminer le module 10. Ce module vous a permis d'apprendre une grande partie des subtilités qui se cachent derrière l'analyse de variances. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
 
-```
+`r show_ex_toc()`
 
+
+<!--- G.E. Gardons nous cet exercice ?  
 ## Sciences des données et littérature
 
 Vous avez à présent vu l'utilisation de plusieurs tests statistiques très courant en science (t-test, Anova, $\chi^2$,...). La restitution correcte de ce test au sein d'un publication scientifique est très importante.
@@ -536,3 +523,4 @@ Intéressez-vous à la restitution de résultat statistique au sein de la litté
 - <https://classroom.github.com/g/bc3Lh7C6>
 
 ```
+--->
