@@ -121,6 +121,10 @@ Cette propriété, dite d'additivité des variances, permet de décomposer la va
 
 ```
 
+##### À vous de jouer ! {-}
+
+`r h5p(100, height = 400, toc = "Hypothèse nulle de l'ANOVA")`
+
 ### Modèle de l'ANOVA
 
 Mais qu'est-ce que cette propriété d'additivité des variances vient faire ici\ ? Nous souhaitons comparer des moyennes, non\ ? Effectivement, mais considérons le **modèle mathématique suivant\ :**
@@ -169,6 +173,10 @@ chart(data = dat, Réponse ~ Population %col=% Population) +
 ```
 
 Notons que ce modèle à trois termes représente bien la situation qui nous intéresse, mais aussi, qu'il décompose la variance totale (entre $\mu$ et chaque point observé) en deux\ : ce que nous appelerons le terme **inter** représentant l'écart entre la moyenne globale $\mu$ et la moyenne de la sous-population concernées ($\tau_j$) et le terme **intra** depuis cette moyenne de la sous-population jusqu'au point observé ($\epsilon_i$).
+
+##### À vous de jouer ! {-}
+
+`r h5p(99, height = 400, toc = "Variance intergroupe dans l'ANOVA")`
 
 D'une part, nous nous trouvons dans une situation d'additivité de la variance si nous décidons de calculer ces "variance inter" et "variance intra". D'autre part, sous $H_0$ nous sommes sensés avoir toutes les moyennes égales à $\mu$, et donc, tous les $\tau_j = 0$. Donc, les valeurs non nulles de $\tau_j$ ne doivent qu'être dus au hasard de l'échantillonnage et être par conséquent largement inférieurs à la variabilité entre les individus, ou variance intra $\epsilon_i$. La Fig. \@ref(fig:anova2) représente deux cas avec à gauche une situation où $H_0$ est plausible, et à droite une situation où elle est très peu plausible. Notez qu'à gauche la variation entre les observations (intra) est bien plus grande que l'écart entre les moyennes (inter), alors qu'à droite c'est l'inverse.
 
@@ -229,6 +237,10 @@ Sachant que les parts de variances sont les $\frac{SC}{ddl}$ et sont appelés "c
 | Intra (résidus) | _n_ - _k_ | _SC~intra~_  | _SC~intra~/ddl~intra~_ |  |  |
 
 La **statistique _F_~obs~ est le rapport des carrés moyens inter/intra.** Elle représente donc le ratio que nous avons évoqué plus haut comme moyen de quantifier l'écart par rapport à $H_0$. Le test consiste à calculer la valeur *P* associée à cette statistique. Pour cela, il nous faut une distribution statistique théorique de *F* sous $H_0$. C'est un biologiste - statisticien célèbre nommé Ronald Aylmer Fisher qui l'a calculée. C'est la distribution *F* de Fisher.
+
+##### À vous de jouer ! {-}
+
+`r h5p(101, height = 400, toc = "Analyse du tableau de l'ANOVA")`
 
 ### Distribution *F*
 
@@ -323,6 +335,10 @@ La condition d'homoscédasticité est plus sensible. Elle mérite donc d'être v
 Si la valeur *P* est inférieure au seuil $\alpha$ fixé au préalable, nous devrons rechercher une transformation des variables qui stabilisera la variance. La première transformation à essayer en biologie et la transformation logarithmique surtout si les valeurs négatives de la variable réponse ne sont pas possibles, signe d'une distribution qui peut être plutôt de type log-normale pour cette variable. Si aucune transformation ne stabilise la variance, nous devrons nous rabattre vers un test non paramétrique équivalent, le test de Kruskal-Wallis que nous aborderons plus loin dans ce module.
 
 La SciViews Box propose des snippets pour accéder à ces différentes analyses. Dans le menu `hypothesis tests: variances` ou `.hv` nous trouvons trois tests dont celui de Bartlett. Dans le menu `hypothesis tests: means` ou `.hm` se trouvent les templates pour l'ANOVA, ainsi que les graphiques d'analyse des résidus dont le graphique quantile-quantile.
+
+##### À vous de jouer ! {-}
+
+`r h5p(102, height = 400, toc = "Variance intragroupe dans l'ANOVA")`
 
 ##### Résolution de notre exemple {-}
 
@@ -426,6 +442,9 @@ En conclusion, tous les groupes diffèrent de manière siginificative sauf les m
 
 Les conditions d'application pour le test post hoc de Tukey sont les mêmes que pour l'ANOVA.
 
+##### À vous de jouer ! {-}
+
+`r learnr("A10La_anova", title = "L'ANOVA et tests post-hoc", toc = "L'analyse de variance et les test post-hoc")`
 
 ## Test de Kruskal-Wallis
 
