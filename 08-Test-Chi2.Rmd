@@ -568,6 +568,19 @@ if (exists("assignation2"))
     toc = "La biométrie humaine")
 ```
 
+
+**Note\ : Ce projet est la continuité d'un projet débuté lors que premier quadrimestre. l'assignation GitHub suivante est un exercice à réaliser en *binôme*. Ce projet est également transmodule, ce qui signifie que vous reviendrez dessus à plusieurs reprises au fur et à mesure de votre progression dans la matière afin de compléter votre analyse de ces données, toujours en binômes. Vous formez les binômes librement comme bon vous semble.**
+
+```{r, echo=FALSE, results='asis'}
+if (exists("assignation2"))
+  assignation2("A03Ga_urchin", part = "II",
+    url = "https://github.com/BioDataScience-Course/A03Ga_urchin",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/g/GDEEO7QD",
+      'S-BIOG-921' = "https://classroom.github.com/g/gqWaZbVm"),
+    toc = "Biométrie de l'oursin violet")
+```
+
 <!--- G.E. cette section est redondante. Je la place en commentaire. Il serait intéressant de décider si on la garde ou pas. PhG: pour ma part, on peut l'éliminer... les étudiants ont déjà assez de travail comme cela avec le reste du module.
 
 ### Biométrie humaine
