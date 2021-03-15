@@ -23,7 +23,7 @@ Les probabilités et lois de distributions statistiques vues au module \@ref(pro
 
 ## Échantillonnage
 
-Nous avons déjà abordé cette question dans le chapitre 6. Si nous pouvions mesurer **tous** les individus d'une population à chaque fois, nous n'aurions pas besoin des statistiques. Mais ce n'est pratiquement jamais possible. Tout d'abord, le nombre d'individus est potentiellement très grand. Le travail nécessaire risque alors d'être démesuré. Afin de limiter les mesures à un nombre raisonnable de cas, nous effectuons un **échantillonnage** qui consiste à prélever un petit sous-ensemble de taille $n$ donné depuis la population de départ. Il existe différentes stratégies d'échantillonnage, que nous avons déjà abordé.
+Nous avons déjà abordé cette question dans le chapitre 6. Si nous pouvions mesurer **tous** les individus d'une population à chaque fois, nous n'aurions pas besoin des statistiques. Mais ce n'est pratiquement jamais possible. Tout d'abord, le nombre d'individus est potentiellement très grand. Le travail nécessaire risque alors d'être démesuré. Afin de limiter les mesures à un nombre raisonnable de cas, nous effectuons un **échantillonnage** qui consiste à prélever un petit sous-ensemble de taille $n$ donné depuis la population de départ. Il existe différentes stratégies d'échantillonnage, que nous avons déjà abordées.
 
 ##### À vous de jouer ! {-}
 
@@ -34,7 +34,7 @@ Nous n'avons pas forcément accès à tous les individus d'une population. Dans 
 Quoi qu'il en soit, l'échantillon n'est qu'un petit sous-ensemble sélectionné par un mécanisme faisant intervenir le hasard. Donc, deux échantillons de la même population ont un très forte probabilité d'être différents l'un de l'autre. Il en va également des statistiques calculées sur ces échantillons, comme les effectifs observés pour chaque niveau de variables qualitatives ou les valeurs moyennes pour les variables quantitatives, par exemple. **Cette variabilité d'un échantillon à l'autre ne nous intéresse pas car elle n'apporte pas d'information sur la population elle-même.** Ce qui nous intéresse, c'est d'estimer au mieux les valeurs (effectifs, moyennes, etc.) dans la population.
 
 ```{block, type='note'}
-L'estimation de paramètres d'une population par le biais de calculs sur un échantillon représentatif issu de cette population s'appelle l'**inférence statistique.** Rappelez-vous le schéma qui relie population et échantillon via l'échantillonnage d'une part, et l'inférence d'autre part.
+L'estimation de paramètres d'une population par le biais de calculs sur un échantillon représentatif issu de cette population s'appelle l'**inférence statistique**. Rappelez-vous le schéma qui relie population et échantillon via l'échantillonnage d'une part, et l'inférence d'autre part.
 
 ![](images/sdd1_08/inference.png)
 
@@ -53,7 +53,7 @@ Avant de vous lancer dans l'inférence statistique, assurez-vous d'avoir effectu
 
 2. Vous avez vérifié que la façon dont les mesures ont été prises permettra effectivement de répondre à la question posée. *En particulier, vous avez vérifié que l'échantillonnage a été réalisé dans les règles pour qu'il soit représentatif de la population étudiée.* En outre, vous cernez clairement quelle est la population effectivement étudiée. C'est important pour éviter plus tard de sur-généraliser les résultats obtenus (les attribuer à une population plus large que celle effectivement étudiée).
 
-3. Vous avez effectué une analyse exploratoire des données. Vous avez représenté les données à l'aide de graphiques appropriés et vous avez interprété ces graphiques afin de comprendre ce que le jeu de données contient. Vous avez également résumé les données sous forme de tableaux synthétiques et vous avez, si nécessaire, remaniés et nettoyés vos données.
+3. Vous avez effectué une analyse exploratoire des données. Vous avez représenté les données à l'aide de graphiques appropriés et vous avez interprété ces graphiques afin de comprendre ce que le jeu de données contient. Vous avez également résumé les données sous forme de tableaux synthétiques et vous avez, si nécessaire, remanié et nettoyé vos données.
 
 ## Test d'hypothèse
 
@@ -138,7 +138,7 @@ L'exécution de ce code nous donne un court rapport avec\ :
 
 - La dernière ligne qui indique le résultat du test. Les détails et explications concernant cette ligne sont développés ci-dessous. L'interprétation se fait en fonction de la valeur *P* (`p-value = 0.01789`). En fonction d'un seuil choisi avant de faire le test, et appelé seuil $\alpha$. La décision est prise comme suit\ :
     - Si la valeur *P* est inférieure à $\alpha$, nous rejetons l'hypothèse $H_0$, considérée comme trop peu probable,
-    - Si la valeur *P* est supérieur ou égale à $\alpha$, nous ne rejetons pas $H_0$, et considérons que notre échantillon ne nous permet pas de considérer cette hypothèse nulle comme suffisamment improbable (soit elle est effectivement correcte, soit l'effectif $n$ de notre échantillon est insuffisant pour démontrer qu'elle ne l'est pas au seuil $\alpha$ choisi).
+    - Si la valeur *P* est supérieure ou égale à $\alpha$, nous ne rejetons pas $H_0$, et considérons que notre échantillon ne nous permet pas de considérer cette hypothèse nulle comme suffisamment improbable (soit elle est effectivement correcte, soit l'effectif $n$ de notre échantillon est insuffisant pour démontrer qu'elle ne l'est pas au seuil $\alpha$ choisi).
 
 Souvent en biologie, on choisi $\alpha$ = 5%, mais dans les cas où nous souhaitons avoir plus de "certitude" dans notre réponse, nous pouvons aussi choisir un seuil plus restrictif de 1%, voire de 0,1%. Encore une fois, les explications sont détaillées ci-dessous.
 
@@ -266,7 +266,7 @@ Dans notre exemple, nous pouvons donc rejeter $H_0$ et nous dirons que **la prob
 
 ### Effet de l'effectif étudié
 
-En inférence, la qualité des données (échantillons *représentatifs*) est importante, mais la quantité aussi. **Plus vous pourrez mesurer d'individus, mieux c'est.** Par contre, dès que la taille de l'échantillon (ici, l'effectif total mesuré) est suffisant pour rejeter $H_0$, vous n'avez plus besoin d'augmenter la taille de votre échantillon^[Attention\ ! Vous devez fixer la taille de l'échantillon dès le départ *a priori*. Vous ne pouvez pas accumuler des données jusqu'à obtenir un rejet de $H_0$, sans quoi votre analyse sera biaisée.]. Voyons l'effet de la taille de l'échantillon sur l'étude des becs croisés des sapins. Nous n'avons pas besoin d'un effectif plus grand que celui mesuré, car nous rejetons $H_0$ ici. Qu'aurait donné notre test $\chi^2$, par contre, si l'auteur avait mesuré disons 10 fois moins d'oiseaux, les proportions restant par ailleurs identiques entre becs croisés à gauche et à droite\ ?
+En inférence, la qualité des données (échantillons *représentatifs*) est importante, mais la quantité aussi. **Plus vous pourrez mesurer d'individus, mieux c'est.** Par contre, dès que la taille de l'échantillon (ici, l'effectif total mesuré) est suffisante pour rejeter $H_0$, vous n'avez plus besoin d'augmenter la taille de votre échantillon^[Attention\ ! Vous devez fixer la taille de l'échantillon dès le départ *a priori*. Vous ne pouvez pas accumuler des données jusqu'à obtenir un rejet de $H_0$, sans quoi votre analyse sera biaisée.]. Voyons l'effet de la taille de l'échantillon sur l'étude des becs croisés des sapins. Nous n'avons pas besoin d'un effectif plus grand que celui mesuré, car nous rejetons $H_0$ ici. Qu'aurait donné notre test $\chi^2$, par contre, si l'auteur avait mesuré disons 10 fois moins d'oiseaux, les proportions restant par ailleurs identiques entre becs croisés à gauche et à droite\ ?
 
 ```{r}
 # Proportions équivalentes, mais échantillon 10x plus petit
@@ -274,7 +274,7 @@ En inférence, la qualité des données (échantillons *représentatifs*) est im
 chisq.test(crossbill_tab2, p = c(left = 1/2, right = 1/2), rescale.p = FALSE)
 ```
 
-Nous constatons que la valeur du $\chi^2_{obs}$ dépend de l'effectif. Sa valeur est plus petite ici. Par conséquent, la valeur *P* a également changé et elle vaut à présent 43%. Cette valeur est *supérieure* maintenant à notre seuil $\alpha$ de 5%. Donc, nous ne pouvons pas rejeter $H_0$. Dans un pareil cas, nous conclurons que les becs croisés à gauche ne sont **pas significativement** plus nombreux que ceux à droite au seuil $\alpha$ de 5% (test $\chi^2$ = 0,62, ddl = 1, valeur *P* = 0,43). Notez, c'est important, que nous n'avons pas écrit "ne sont **pas**", mais nous avons précisé "ne sont **pas significativement**" plus nombreux. C'est un détail très important. En effet, cela veut dire que l'on ne peut pas conclure qu'il y ait des différences sur base de l'échantillon utilisé, mais il se peut aussi que l'échantillon ne soit pas suffisamment grand pour mettre en évidence une différence. Or, nous avons analysé en réalité un plus grand échantillon (`crossbill`), et nous savons bien que c'est effectivement le cas. Est-ce que vous saisissez bien ce que le mot **significativement** veut dire, et la subtilité qui apparaît lorsqu'un test d'hypothèse ne rejette **pas** $H_0$\ ? Les conclusions tirées avec `crossbill` et `crossbill2` et le même test d'hypothèse sont diamétralement opposées car l'un rejette et l'autre ne rejette pas $H_0$. Pourtant ces deux analyses ne se contredisent pas\ ! Les deux interprétations sont *simultanément* correctes. C'est l'interprétation asymétrique du test qui permet cela, et l'adverbe **significativement** est indispensable pour introduire cette nuance dans le texte\ !
+Nous constatons que la valeur du $\chi^2_{obs}$ dépend de l'effectif. Sa valeur est plus petite ici. Par conséquent, la valeur *P* a également changé et elle vaut à présent 43%. Cette valeur est *supérieure* maintenant à notre seuil $\alpha$ de 5%. Donc, nous ne pouvons pas rejeter $H_0$. Dans un pareil cas, nous conclurons que les becs croisés à gauche ne sont **pas significativement** plus nombreux que ceux à droite au seuil $\alpha$ de 5% (test $\chi^2$ = 0,62, ddl = 1, valeur *P* = 0,43). Notez, c'est important, que nous n'avons pas écrit "ne sont **pas**", mais nous avons précisé "ne sont **pas significativement**" plus nombreux. C'est un détail très important. En effet, cela veut dire que l'on ne peut pas conclure qu'il y ait des différences sur base de l'échantillon utilisé, mais il se peut aussi que l'échantillon ne soit pas suffisamment grand pour mettre en évidence une différence. Or, nous avons analysé en réalité un plus grand échantillon (`crossbill`), et nous savons bien que c'est effectivement le cas. Est-ce que vous saisissez bien ce que le mot **significativement** veut dire, et la subtilité qui apparaît lorsqu'un test d'hypothèse ne rejette **pas** $H_0$\ ? Les conclusions tirées avec `crossbill` et `crossbill2` et le même test d'hypothèse sont diamétralement opposées car l'une rejette et l'autre ne rejette pas $H_0$. Pourtant ces deux analyses ne se contredisent pas\ ! Les deux interprétations sont *simultanément* correctes. C'est l'interprétation asymétrique du test qui permet cela, et l'adverbe **significativement** est indispensable pour introduire cette nuance dans le texte\ !
 
 ##### À vous de jouer ! {-}
 
@@ -287,7 +287,7 @@ if (exists("assignation"))
     url = "https://github.com/BioDataScience-Course/A08Ia_pea",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/a/TAoRvmoH",
-      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+      'S-BIOG-921' = "https://classroom.github.com/a/CwFHyyam"),
     toc = "La génétique mendéliénne")
 ```
 
@@ -394,7 +394,7 @@ chisq.test(timolol_table, correct = FALSE)
 
 ### Autres tests Chi^2^
 
-Les test du $\chi^2$ est également utilisé, dans sa forme univariée, pour comparer les effectifs observés par rapport à des effectifs théoriques suivant un loi de distribution discrète. Ce test s'appelle un **test de qualité d'ajustement** ("goodness-of-fit test" en anglais). Dans ce cas, le nombre de degrés de liberté est le nombre de catégories moins le nombre de paramètres de la distribution moins un.
+Le test du $\chi^2$ est également utilisé, dans sa forme univariée, pour comparer les effectifs observés par rapport à des effectifs théoriques suivant une loi de distribution discrète. Ce test s'appelle un **test de qualité d'ajustement** ("goodness-of-fit test" en anglais). Dans ce cas, le nombre de degrés de liberté est le nombre de catégories moins le nombre de paramètres de la distribution moins un.
 
 Pour l'ajustement à une loi de distribution continue, il est possible de découper les données en classes et d'appliquer un test $\chi^2$ dessus ensuite. Il existe cependant d'autres tests considérés comme plus efficaces dans ce cas, comme le test de [Komogorov-Smirnov](https://mistis.inrialpes.fr/software/SMEL/cours/ts/node7.html), notamment avec les corrections introduites par [Lillefors](http://www.statsoft.fr/concepts-statistiques/glossaire/t/test-lilliefors.html). Pour l'ajustement à une distribution normale, des tests spécialisés existent comme le test de [Shapiro-Wilk](http://www.sthda.com/french/wiki/test-de-normalite-avec-r-test-de-shapiro-wilk). Ce dernier est disponible depuis les snippets de la SciViews Box dans le menu `Hypothesis tests: distribution` ou `.hd`, et puis `Shapiro-Wilk test of normality`.
 
@@ -520,7 +520,7 @@ crabs %>.%
     ylab("Ratio largeur arrière/longueur")
 ```
 
-Notre métrique `rear_length` est naturellement ultra-simple. Elle ne permet pas de différencier *tous* les mâles de *toutes* les femelles, mais la séparation est déjà bien meilleure qu'en utilisant soit `rear` soit `length` seuls. A l'aide de techniques statistiques que vous étudierez au [cours de science des données biologiques II](http://biodatascience-course.sciviews.org/sdd-umons2/lm.html) l'an prochain, nous pouvons montrer qu'une meilleure métrique (on parle encore d'indice) pour séparer les mâles des femelles est en réalité\ : `rear / (0.3 * length + 2.4)`^[Pour le lecteur plus avancé, il s'agit en fait de la droite de régression ajustée dans le nuage de points.]. La séparation entre les sexes n'est pas totale, mais s'en rapproche fortement, surtout pour la variété orange.
+Notre métrique `rear_length` est naturellement ultra-simple. Elle ne permet pas de différencier *tous* les mâles de *toutes* les femelles, mais la séparation est déjà bien meilleure qu'en utilisant soit `rear` soit `length` seuls. À l'aide de techniques statistiques que vous étudierez au [cours de science des données biologiques II](http://biodatascience-course.sciviews.org/sdd-umons2/lm.html) l'an prochain, nous pouvons montrer qu'une meilleure métrique (on parle encore d'indice) pour séparer les mâles des femelles est en réalité\ : `rear / (0.3 * length + 2.4)`^[Pour le lecteur plus avancé, il s'agit en fait de la droite de régression ajustée dans le nuage de points.]. La séparation entre les sexes n'est pas totale, mais s'en rapproche fortement, surtout pour la variété orange.
 
 ```{r}
 crabs %>.%
@@ -564,7 +564,7 @@ if (exists("assignation2"))
     url = "https://github.com/BioDataScience-Course/A08Ga_human_health",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/g/NVNlyKJH",
-      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+      'S-BIOG-921' = "https://classroom.github.com/g/eOKWHaFp"),
     toc = "La biométrie humaine")
 ```
 

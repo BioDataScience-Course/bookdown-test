@@ -519,7 +519,7 @@ if (exists("assignation2"))
     url = "https://github.com/BioDataScience-Course/A08Ga_human_health",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/g/NVNlyKJH",
-      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+      'S-BIOG-921' = "https://classroom.github.com/g/eOKWHaFp"),
     toc = "La biométrie humaine")
 ```
 
