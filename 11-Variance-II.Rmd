@@ -16,47 +16,6 @@ SciViews::R
 
 Ce module présente la suite de l'ANOVA initiée au module \@ref(variance). Vous devez avoir bien compris l'ANOVA à un facteur avant d'entamer le présent chapitre.
 
-##### À vous de jouer ! {-}
-
-En lien avec ce module vous avez une série d'exercices à réaliser. Vous avez à : 
-
-- réaliser un learnR sur l'anova à 2 facteurs
-
-```{block, type='bdd'}
-
-Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A11a_anova2")
-
-*Ce projet doit être terminé à la fin de ce module*
-
-```
-
-- compléter des fichiers RMD au sein du projet ci-dessous : 
-
-```{block, type='bdd'}
-Suite à la lecture de l'ANOVA à un 2 facteurs, réalisez ce projet individuel pour appliquer vos nouvelles connaissances.
-
-- <https://classroom.github.com/a/evNsJgOs>
-
-Lisez attentivement le README. 
-
-*Ce projet doit être terminé à la fin de ce module*
-```
-
-- réaliser un learnR sur les différentes syntaxe dans R
-
-```{block, type='bdd'}
-
-Afin d'appliquer directement les concepts vus au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A11b_syntaxr")
-
-*Ce projet doit être terminé à la fin de ce module*
-```
-
-- réaliser au moins 1 ANOVA à deux facteurs dans votre projet transversal sur la biométrie humaine
-
 ## ANOVA à deux facteurs
 
 Dans le cadre de l'ANOVA à un facteur, nous avions une variable réponse numérique étudiée pour différents niveaux d'*une seule* variable facteur à *j* niveaux ou modalités. Le modèle utilisé était\ :
@@ -68,7 +27,13 @@ $$y \sim fact$$
 
 avec $y$ la variable numérique réponse et $fact$ la variable facteur explicative unique.
 
-Si nous prenons notre exemple des crabes *L. variegatus*, nous avions travaillé un peu artificiellement sur une seule variable facteur en regroupant les variables `species` et `sex` en une seule variable `group`. Qu'en est-il si nous voulons quand même considérer les deux variables `species` et `sex` séparément\ ? c'est possible avec une **ANOVA à deux facteurs**. Les sections suivantes vous présentent quelques variantes possibles de cette analyse.
+Si nous prenons notre exemple des crabes *L. variegatus*, nous avions travaillé un peu artificiellement sur une seule variable facteur en regroupant les variables `species` et `sex` en une seule variable `group`. Qu'en est-il si nous voulons quand même considérer les deux variables `species` et `sex` séparément\ ? c'est possible avec une **ANOVA à deux facteurs**. 
+
+##### À vous de jouer ! {-}
+
+`r h5p(116, height = 400, toc = "Principe de l'ANOVA à deux facteurs")`
+
+Les sections suivantes vous présentent quelques variantes possibles de cette analyse.
 
 ## Modèle sans interactions
 
@@ -104,6 +69,10 @@ crabs2 %>.%
     geom_point()
 ```
 
+##### À vous de jouer ! {-}
+
+`r h5p(117, height = 400, toc = "Différents types de variables")`
+
 Au niveau de la description préliminaire des données, nous pourrons utiliser un tableau qui résume la moyenne, l'écart type et le nombre d'observations pout chaque combinaison des deux variables facteurs. Le template de ce code est disponible dans un "snippet" à partir du menu `hypothesis tests: means` ou `.hm`, et ensuite `two-way ANOVA (description)`.
 
 ```{r}
@@ -130,11 +99,15 @@ chart(data = crabs2, aspect5 ~ species | sex) +
     f_aes(means ~ species), size = 3, col = "red")
 ```
 
-Maintenant que nous avons décrit correctement nos données par rapport à l'analyse que nous souhaitons faire, nous pouvons réaliser notre ANOVA à deux facteurs. Nous devons vérifier l'homoscédasticité, mais le test de Batlett que nous réalisons revient au même que celui que nous avons fait en décomposant toutes les sous-populations. Comme nous n'avons pas nécessairement ce calcul réalisé (la variable `group` que nous avions calculée au module \@ref(variance)), nous utilisons la fonction `interaction()` qui effectue ce calcul pour nous directement dans la formule\ :
+Maintenant que nous avons décrit correctement nos données par rapport à l'analyse que nous souhaitons faire, nous pouvons réaliser notre ANOVA à deux facteurs. Nous devons vérifier l'homoscédasticité, mais le test de Bartlett que nous réalisons revient au même que celui que nous avons fait en décomposant toutes les sous-populations. Comme nous n'avons pas nécessairement ce calcul réalisé (la variable `group` que nous avions calculée au module \@ref(variance)), nous utilisons la fonction `interaction()` qui effectue ce calcul pour nous directement dans la formule\ :
 
 ```{r}
 bartlett.test(data = crabs2, aspect5 ~ interaction(species, sex))
 ```
+
+##### À vous de jouer ! {-}
+
+`r h5p(118, height = 400, toc = "L'homoscédasticité et l'hétéroscédasticité")`
 
 Si vous comparez avec le test que nous avions fait dans le cas de l'ANOVA à un facteur sur la variable `group`, vous constaterez qu'il donne exectement le même résultat. Nous continuons avec notre ANOVA. Nous avons un "snippet" pour cela dans le menu `hypothesis tests: means` à partir de `.hm` qui se nomme `two-way ANOVA (without interactions)`.
 
@@ -213,9 +186,27 @@ Faites attention à un piège fréquent lorsque vous avez des mesures multiples 
 
 Les conditions d'application sont les mêmes que pour l'ANOVA à deux facteurs sans interactions, sauf qu'ici, les interactions sont bien évidemment permises.
 
+##### À vous de jouer ! {-}
+
+`r h5p(112, height = 400, toc = "Graphique des interactions")`
+
 ##### Pour en savoir plus {-}
 
 - Un blog en français qui explique l'[ANOVA à deux facteurs](https://statistique-et-logiciel-r.com/anova-a-2-facteurs-principe/) de manière plus détaillée qu'ici. Ensuite la [résolution de leur exemple dans R](https://statistique-et-logiciel-r.com/anova-a-2-facteurs-avec-r-tutoriel/). Enfin, des suggestions pour annoter un graphique et [indiquer quelles sont les différences qui sont significatives dessus](https://statistique-et-logiciel-r.com/comparaison-de-moyennes-indiquer-les-differences-significatives-sur-le-graph/).
+
+<!--- G.E.
+##### À vous de jouer ! {-}
+
+```{r, echo=FALSE, results='asis'}
+if (exists("assignation"))
+  assignation2("A11Ia_anova2", part = "I",
+    url = "https://github.com/BioDataScience-Course/A11Ia_anova2",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/UtYWtzN5",
+      'S-BIOG-921' = "..."),
+    toc = "L'anova à 2 facteurs et ces variantes")
+```
+--->
 
 ## Facteurs hiérarchisés
 
@@ -379,7 +370,7 @@ bartlett.test(data = pen, diameter ~ sample)
 bartlett.test(data = pen, diameter ~ plate)
 ```
 
-Ici, ni le graphique, ni les tests de Batlett ne montrent une quelconque hétérogénéité des variances. Nous pouvons poursuivre avec l'ANOVA classique...
+Ici, ni le graphique, ni les tests de Bartlett ne montrent une quelconque hétérogénéité des variances. Nous pouvons poursuivre avec l'ANOVA classique...
 
 ```{r}
 anova(anova. <- lm(data = pen, diameter ~ sample + plate))
@@ -495,6 +486,21 @@ confint(split_plot2)
 La première ligne `.sig01` est relative à l'écart type *plate* avec un intervalle de confiance qui va de 0,63 à 1,18, et la seconde ligne `.sig02` est relative à l'écart type de *sample* dont l'intervalle de confiance s'étale de 1,10 à 3,56. Dans les deux cas, zéro n'est pas compris dans l'intervalle de confiance et nous rejettons donc $H_0$. A noter que si nous n'avions pas rejeté l'un des deux, nous aurions pu décider d'ajuster un modèle plus simple à un seul facteur aléatoire `y ~ (1 | fact)` en laisant tomber l'autre facteur dans le modèle simplifié.
 
 L'analyse des résidus (indispensable) n'est pas reproduite ici. Elle reste la même que plus haut.
+
+<!--- G.E.
+##### À vous de jouer ! {-}
+
+```{r, echo=FALSE, results='asis'}
+if (exists("assignation"))
+  assignation2("A11Ia_anova2", part = "II",
+    url = "https://github.com/BioDataScience-Course/A11Ia_anova2",
+    course.urls = c(
+      'S-BIOG-006' = "https://classroom.github.com/a/UtYWtzN5",
+      'S-BIOG-921' = "..."),
+    toc = "L'anova à 2 facteurs et variantes")
+```
+
+--->
 
 ### Modèle à mesures répétées
 
@@ -634,6 +640,10 @@ Aujourd'hui, on peut distinguer principalement trois styles dans R, [résumés d
 
 Dans le cadre de ce cours, nous utilisons un style propre à SciViews, le style **SciViews-R**. Il est associé à une série de packages chargés à partir de l'instruction `SciViews::R`. Ce style tente de rendre l'utilisation de R plus cohérente et plus facile en reprenant le meilleur des trois styles précédents, et en y ajoutant une touche personnelle élaborée pour éliminer autant que possible les erreurs fréquentes observées lors de l'apprentissage ou de l'utilisation de R. Dans la suite de cette section, nous allons comparer quelques instructions équivalentes, mais rédigées dans différents styles pour nous familiariser avec eux et pour comprendre leurs atouts respectifs. Assurez-vous de conserver à proximité l'[aide-mémoire sur les différentes syntaxes de R](http://www.amelia.mn/Syntax-cheatsheet.pdf) pour vous aider. Mais avant toute chose, un petit complément concernant l'indiçage dans R est nécessaire.
 
+##### À vous de jouer ! {-}
+
+`r h5p(115, height = 400, toc = "Trois principales syntaxes")`
+
 ### Indiçage dans R
 
 Après l'opérateur particulier `<-` d'*assignation* (associer une valeur à un nom dans un langage informatique), les diverses variantes de l'indiçage de vecteurs, matrices et data frames sont caractéristiques de R. Elles sont puissantes, mais nécessitent de s'y attarder un peu pour bien les comprendre.
@@ -754,16 +764,6 @@ df
 
 Maintenant que nous sommes familiarisés avec les différents modes d'indiçage dans R de base, nous pouvons les comparer à d'autres styles.
 
-##### À vous de jouer ! {-}
-
-```{block, type='bdd'}
-
-Afin d'appliquer directement les concepts vus au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A11b_syntaxr")
-
-```
-
 ### Comparaison de styles
 
 Nous allons réaliser quelques opérations simples sur un jeu de données cas par variables. Nous allons créer un tableau de contingence à une entrée, sélectionner des cas et restreindre les variables du tableau,  calculer une nouvelle variable, pour finir avec une représentation graphique simple. Nous ferons le même travail en utilisant les différents styles de R à des fins de comparaison.
@@ -787,7 +787,7 @@ La fonction `table()` crée un objet du même nom qui se comporte de manière di
 Si vous voulez réaliser la même opération à l'aide d'une formule, vous pouvez utiliser la fonction `tally()` depuis le package `mosaic`. Vous pouvez charger ce package à l'aide de l'instruction `library(mosaic)`, et ensuite utiliser `tally()` comme si de rien était, ou alors vous spécifiez complètement la fonction à l'aide de `mosaic::tally()` (littéralement, "la fonction tally du package mosaic"). Cette dernière approche est favorisée par SciViews-R car elle permet de comprendre immédiatement d'où vient la fonction et d'éviter aussi d'appeler malencontreusement une fonction du même nom qui serait définie dans un autre package.
 
 ```{r}
-#mosaic::tally(data = zoo, ~ class)
+mosaic::tally(data = zoo, ~ class)
 ```
 
 Tidyverse favorise l'assemblage d'un petit nombre de fonction (des "verbes") pour obtenir les mêmes résultats que des fonctions plus spécialisées dans les autres styles. Ainsi, ses instructions seront souvent plus verbeuses (inconvénient), mais aussi beaucoup plus lisibles et compréhensibles par un humain (immense avantage). La réalisation d'un tableau de contingence consiste en fait à regrouper les données en fonction de `class`, et ensuite à compter (contingenter) les observations dans chaque classe. Nous pouvons écrire une instruction qui réalise exactement ce traitement de manière explicite (sachant que la fonction `n()` sert à dénombrer)\ :
@@ -832,6 +832,10 @@ zoo2
 
 Le résultat est le même, mais la syntaxe est très différente. Notez que les variables dans la syntaxe de base sont complètement qualifiées (`zoo$class`), ce qui nécessite de répéter plusieurs fois le nom du jeu de données `zoo` (inconvénient) mais lève toute ambiguïté (avantage). La version de tidyverse est plus "propre" (avantage), mais cela implique d'utiliser une évaluation non standard de `class` qui n'est pas une variable existante dans l'environnement où le code est évalué (inconvénient). La sélection des variables est également différente. Dans R de base, des chaînes de caractères doivent être compilées dans un vecteur d'indiçage à l'aide de `c()`, alors que `select()` de tidyverse permet de spécifier simplement les noms des variables sans autres fioritures (mais cela doit être évalué de manière non standard, encore une fois).
 
+##### À vous de jouer ! {-}
+
+`r h5p(114, height = 400, toc = "Sélection de variables")`
+
 Pour calculer une nouvelle variable, par exemple le logarithme en base 10 de l'aire dans `log_area`, nous ferons comme ceci en R de base\ :
 
 ```{r}
@@ -846,7 +850,7 @@ zoo2 <- mutate(zoo2, log_area = log10(area))
 head(zoo2)
 ```
 
-La syntaxe de tidyverse se lit mieux et est plus propre (avantage), mais elle nécessite pour y arriver une évaluation non standard de `area`, ce qui est un inconvénient par rapport à la snytaxe R de base.
+La syntaxe de tidyverse se lit mieux et est plus propre (avantage), mais elle nécessite pour y arriver une évaluation non standard de `area`, ce qui est un inconvénient par rapport à la syntaxe R de base.
 
 Pour finir, revenons sur les différents moteurs graphiques pour faire un nuage de points en utilisant différents styles. Une petite précaution supplémentaire est nécessaire. Pour `class`, nous devons préalablement laisser tomber les niveaux non utilisés à l'aide de `droplevels()`.
 
@@ -919,3 +923,10 @@ Pour finir, il parait que les belges sont forts en auto-dérision. La caricature
 - [Mosaic](http://mosaic-web.org) est une initiative américaine qui vise en partie un objectif assez similaire à celui de SciViews-R\ : homogénéiser l'interface de R et en faciliter l'apprentissage. [A student's guide to R](https://github.com/ProjectMOSAIC/LittleBooks/blob/master/StudentGuide/MOSAIC-StudentGuide.pdf) est un ouvrage en ligne qui vous apprendra à utiliser R selon le style mosaic qui fait la part belle à l'interface formule.
 
 - La littérature concernant le tidyverse est abondante. Commencez par le [site web](https://www.tidyverse.org) qui pointe également vers [R for Data Science](https://r4ds.had.co.nz) que nous conseillons comme première source pour apprendre R à la sauce tidyverse (une version en français au format papier est également [disponible](https://www.eyrolles.com/Informatique/Livre/r-pour-les-data-sciences-9782212675719/)). Voyez ensuite la page "[learn the tidyverse](https://www.tidyverse.org/learn/)" pour divers ouvrages et autres matériels d'apprentissage.
+
+## Récapitulatif des exercices
+
+Vous venez de terminer le module 11. Ce module vous a permis d'apprendre une grande partie des subtilités qui se cachent derrière l'analyse de variances. Pour évaluer votre compréhension de cette matière vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
+
