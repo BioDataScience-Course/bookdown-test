@@ -190,11 +190,14 @@ Les conditions d'application sont les mêmes que pour l'ANOVA à deux facteurs s
 
 `r h5p(112, height = 400, toc = "Graphique des interactions")`
 
+
+`r learnr("A11La_anova2", title = "L'ANOVA à 2 facteurs", toc = "L'analyse de variance à 2 facteurs")`
+
 ##### Pour en savoir plus {-}
 
 - Un blog en français qui explique l'[ANOVA à deux facteurs](https://statistique-et-logiciel-r.com/anova-a-2-facteurs-principe/) de manière plus détaillée qu'ici. Ensuite la [résolution de leur exemple dans R](https://statistique-et-logiciel-r.com/anova-a-2-facteurs-avec-r-tutoriel/). Enfin, des suggestions pour annoter un graphique et [indiquer quelles sont les différences qui sont significatives dessus](https://statistique-et-logiciel-r.com/comparaison-de-moyennes-indiquer-les-differences-significatives-sur-le-graph/).
 
-<!--- G.E.
+
 ##### À vous de jouer ! {-}
 
 ```{r, echo=FALSE, results='asis'}
@@ -206,7 +209,7 @@ if (exists("assignation"))
       'S-BIOG-921' = "..."),
     toc = "L'anova à 2 facteurs et ces variantes")
 ```
---->
+
 
 ## Facteurs hiérarchisés
 
@@ -487,7 +490,6 @@ La première ligne `.sig01` est relative à l'écart type *plate* avec un interv
 
 L'analyse des résidus (indispensable) n'est pas reproduite ici. Elle reste la même que plus haut.
 
-<!--- G.E.
 ##### À vous de jouer ! {-}
 
 ```{r, echo=FALSE, results='asis'}
@@ -497,10 +499,8 @@ if (exists("assignation"))
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/a/UtYWtzN5",
       'S-BIOG-921' = "..."),
-    toc = "L'anova à 2 facteurs et variantes")
+    toc = "L'anova à 2 facteurs et ces variantes")
 ```
-
---->
 
 ### Modèle à mesures répétées
 
@@ -763,6 +763,10 @@ df
 ```
 
 Maintenant que nous sommes familiarisés avec les différents modes d'indiçage dans R de base, nous pouvons les comparer à d'autres styles.
+
+##### À vous de jouer ! {-}
+
+`r h5p(119, height = 400, toc = "Indiçage dans R")`
 
 ### Comparaison de styles
 
