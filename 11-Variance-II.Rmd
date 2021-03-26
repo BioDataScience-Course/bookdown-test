@@ -920,6 +920,12 @@ Pour finir, il parait que les belges sont forts en auto-dérision. La caricature
 
 </center>
 
+
+##### À vous de jouer ! {-}
+
+
+`r learnr("A11Lb_syntaxr", title = "Syntaxes dans R", toc = "Les grandes syntaxes dans R")`
+
 ##### Pour en savoir plus {-}
 
 - [Swirl](https://swirlstats.com) vous permet d'apprendre la syntaxe de base de R de manière conviviale et interactive. Le site R maintient une page de documents et tutoriaux [ici](https://cran.r-project.org/other-docs.html) (descendez jusqu'à la section concernant les documents en français si vous préférez travailler dans cette langue). Enfin, les [manuels de R](https://cran.r-project.org/manuals.html) sont un peu techniques, mais ils décrivent dans le détail la syntaxe de base.
