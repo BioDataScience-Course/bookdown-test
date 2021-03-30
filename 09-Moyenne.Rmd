@@ -806,7 +806,7 @@ if (exists("assignation"))
     url = "https://github.com/BioDataScience-Course/A09Ia_cardiovascular",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/a/SbW-nS7Q",
-      'S-BIOG-921' = "https://classroom.github.com/g/..."),
+      'S-BIOG-921' = "https://classroom.github.com/a/eBDRw37T"),
     toc = "Les maladies cardiovasculaires")
 ```
 
