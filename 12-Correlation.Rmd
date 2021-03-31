@@ -22,32 +22,6 @@ SciViews::R
 
 Ce module présente des descripteurs statistiques de l'association de deux variables, ainsi qu'un test d'hypothèse associé. Pour comprendre cette matière, il faut comprendre la logique derrière un test d'hypothèse vue au module \@ref(chi2). La seconde partie reviendra sur les représentations graphiques vues aux modules \@ref(visu1), \@ref(visu2) et \@ref(visu3) qui doivent être bien maîtrisé avant d'aborder cette section.
 
-##### À vous de jouer ! {-}
-
-En lien avec ce module vous avez une série d'exercices à réaliser. Vous avez à : 
-
-- Réalisez une séance d'exercice sur la corrélation 
-
-```{block, type='bdd'}
-
-Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A12a_correlation")
-
-```
-
-- compléter des fichiers RMD au sein du projet ci-dessous : 
-
-```{block, type='bdd'}
-
-Un projet couvre toute la matière du module 12. Il y a 3 exercices pour les 3 parties de ce module.
-
-* Pour l'année académique 2019-2020, l'URL à utiliser pour accéder à votre tâche si vous suivez le cours de Sciences des données I à Mons est le suivants : <https://classroom.github.com/a/sjzY0x-h>. Lisez attentivement le `README`. *Ce projet doit être terminé à la fin du module*.
-
-* Pour les autres utilisateurs de ce livre, veuillez faire un "fork" du dépôt [sdd1_module12](https://github.com/BioDataScience-Course/sdd1_module12). Si vous souhaitez accéder à une version précédente de l'exercice, sélectionner la branche correspondante à l'année que vous recherchez.
-
-```
-
 ## Association de deux variables
 
 Nous pouvons décrire l'étendue d'une variable numérique à l'aide de la **variance** qui, pour rappel est la somme des écarts à la moyenne divisée par le nombre de degrés de liberté (*n* dans le cas d'une population et *n* - 1 dans le cas d'un échantillon).
@@ -96,7 +70,13 @@ cov(df2$X, df2$Y2)
 cov(df2$X, df2$Y3)
 ```
 
-C'est embêtant, puisque la forme du nuage de points n'a, lui, pas changé du tout. Le **coefficient de corrélation de Pearson**, noté *r*, est une autre mesure qui est *normée* de telle façon qu'il valle +1 pour une proportionnalité directe parfaite (les points sont strictement alignés le long d'une droite) et -1 lorsque la proportionnalité est inverse parfaite (et toujours 0 en cas de non-association).
+C'est embêtant, puisque la forme du nuage de points n'a, lui, pas changé du tout.
+
+##### À vous de jouer ! {-}
+
+`r h5p(127, height = 400, toc = "Covariance entre 2 variables")`
+
+Le **coefficient de corrélation de Pearson**, noté *r*, est une autre mesure qui est *normée* de telle façon qu'il valle +1 pour une proportionnalité directe parfaite (les points sont strictement alignés le long d'une droite) et -1 lorsque la proportionnalité est inverse parfaite (et toujours 0 en cas de non-association).
 
 $$cor_{X,Y} = r_{X,Y} = \frac{cov_{X,Y}}{\sqrt{S^2_X \cdot S^2_Y}} = \frac{cov_{X,Y}}{\sqrt{S^2_X} \cdot \sqrt{S^2_Y}} = \frac{cov_{X,Y}}{S_X \cdot S_Y}$$
 
@@ -112,6 +92,10 @@ cor(df2$X, df2$Y3)
 ```
 
 Cette fois-ci, nous obtenons la même valeur pour *r* que le calcul se fasse à partir de `df` ou de `df2`. De plus les valeurs absolues très proches de 1 (0,978 dans le cas **A** et 0,923 dans le cas **C**) suggèrent que la proportionnalité est très forte. C'est effectivement ce que nous observons également sur les graphiques.
+
+##### À vous de jouer ! {-}
+
+`r h5p(128, height = 400, toc = "Avantage du coefficient de corrélation de Pearson")`
 
 Faites attention à deux points importants.
 
@@ -132,6 +116,10 @@ L'association entre deux variables numériques peut ainsi s'envisager selon troi
 2. La **relation**. Ici, nous modélisons l'association, par exemple par une droite, dite **droite de régression**. Nous verrons cet outil très important des statistiques et de la science des données dans la partie modélisation du cours de Science des Données Biologiques II. Dans ce cas, nous considérons qu'un mécanisme sous-jacent est responsable de la forme du nuage de points, et nous considérons qu'une fonction mathématique peut être utilisée pour prédire les valeurs d'une variable connaissant celles de l'autre.
 
 3. La **causalité**. En plus de la relation, nous considérons que c'est la variation d'une des deux variables qui est **à l'origine**, directement ou indirectement de la variation de l'autre. Une relation de cause à effet ne peut être démontrée de manière sûre que par l'expérience, comme expliqué dans la vidéo plus haut.
+
+##### À vous de jouer ! {-}
+
+`r h5p(126, height = 400, toc = "Association de 2 variables")`
 
 ### Matrice de corrélation
 
@@ -188,6 +176,10 @@ Vous noterez que les variables `elongation` et `compactness` sont redondantes (*
 plot(zoo_cor, type = "lower")
 ```
 
+##### À vous de jouer ! {-}
+
+`r h5p(129, height = 400, toc = "Variables les plus corrélées")`
+
 ### Importance des graphiques
 
 ```{block, type='warning'}
@@ -208,9 +200,10 @@ ans_x <- anscombe[, 1:4]
 ans_y <- anscombe[, 5:8]
 ```
 
+<!--- G.E.
 Que valent les moyennes^[La fonction `lapply()` distribue la fonction donnée en argument sur tous les éléments du tableau, et calcule ici la moyenne successivement pour les 4 variables.], les variances et les coefficients de corrélation\ ?
 
-```{r}
+```{r, eval=FALSE}
 # Moyennes des X
 lapply(ans_x, mean)
 # Variance des X
@@ -221,13 +214,39 @@ lapply(ans_y, mean)
 lapply(ans_y, var)
 ```
 
-C'est les mêmes valeurs pour les 4 séries. Que donnent les coefficients de corrélation^[Ici, nous croisons les X et les Y, et extrayons la diagonale de ce tableau qui correspond aux coefficients entre *X1* et *Y1*, entre *X2* et *Y2*, entre *X3* et *Y3* et entre *X4* et *Y4*, respectivement.]\ ?
+--->
+
+Que valent les moyennes, les variances les écart-types pour les quatre variables *X* ?
 
 ```{r}
-diag(cor(ans_x, ans_y))
+mean_var <- function(x, na.rm = FALSE){
+  list("mean" = mean(x, na.rm = na.rm), "var" = var(x, na.rm = na.rm), "sd" = sd(x, na.rm = na.rm))
+}
+
+ans_x %>.%
+  purrr::map_dfr(., mean_var) %>.%
+  mutate(., variable = names(ans_x)) %>.%
+  knitr::kable(., col.names = c("Moyenne", "Variance", "Ecart-type", "Variable"))
 ```
 
-Nous avons quatre fois la même valeur... et pourtant\ :
+Le tableau ci-dessus met en avant que les 4 variables ont identiquement la même moyenne, la même variance et le même écart-type.
+
+Que valent les moyennes, les variances les écart-types pour les quatre variables *y* ?
+
+```{r}
+ans_y %>.%
+  purrr::map_dfr(., mean_var) %>.%
+  mutate(., variable = names(ans_y)) %>.%
+  knitr::kable(., col.names = c("Moyenne", "Variance", "Ecart-type", "Variable"))
+```
+
+A nouveau, c'est les mêmes valeurs pour les 4 séries. Que donnent les coefficients de corrélation^[Ici, nous croisons les X et les Y, et extrayons la diagonale de ce tableau qui correspond aux coefficients entre *X1* et *Y1*, entre *X2* et *Y2*, entre *X3* et *Y3* et entre *X4* et *Y4*, respectivement.]\ ?
+
+```{r}
+diag(correlation(ans_x, ans_y))
+```
+
+Nous avons encore quatre fois la même valeur... et pourtant\ :
 
 ```{r}
 pl <- list(
@@ -260,6 +279,10 @@ cov(trees)
 ```
 
 Comme ces descripteurs statistiques ne sont pas normés, ils sont plus difficiles à interpréter. Nous préférons donc la matrice de corrélations pour étudier l'association entre plusieurs variables numériques. Néanmoins, la matrice de variances-covariances interviendra plus tard dans d'autres traitements statistiques et il est utilie de la connaitre (par exemple, dans le cadre de l'ACP que nous étudierons en Science des Données Biologiques II).
+
+##### À vous de jouer ! {-}
+
+`r h5p(130, height = 400, toc = "Matrice de variances-covariances")`
 
 ### Corrélations de Spearman et Kendall
 
@@ -328,31 +351,7 @@ Même remarque concernant les ex aequos et valeur *P* très similaire ici à cel
 
 ##### À vous de jouer ! {-}
 
-Vous avez a présent toutes les connaissances théoriques afin de :
-
-- réaliser le learnR spécifique au module 12
-
-```{block, type='bdd'}
-
-Afin d'appliquer directement les concepts vu au cours dans ce module, ouvrez RStudio dans votre SciViews Box, puis exécutez l'instruction suivante dans la fenêtre console\ :
-
-    BioDataScience1::run("A12a_correlation")
-
-```
-
-- appliquer vos connaissances dans la première partie du projet spécifique du module
-
-```{block, type='bdd'}
-La première partie porte sur la corrélation. Le lien pour débuter ce projet ce trouve en début de module 12
-
-- <http://biodatascience-course.sciviews.org/sdd-umons/correlation.html>
-```
-
-- appliquer vos connaissances dans le projet de biométrie humaine
-
-```{block, type='bdd'}
-Retournez dans votre projet de biométrie humaine et réalisez au moins un test de corrélation.
-```
+`r h5p(131, height = 400, toc = "Test de corrélation")`
 
 ## Communication
 
@@ -408,15 +407,6 @@ Quel type de présentation R Markdown choisir au final\ ? Toute cette panoplie d
 Dans la prochaine version de la SciViews Box, il sera également possible de générer ses présentations directement au format PowerPoint.
 ```
 
-##### À vous de jouer ! {-}
-
-- appliquer vos connaissances dans la seconde partie du projet spécifique du module
-
-```{block, type='bdd'}
-La seconde partie porte sur la réalisation d'une présentation. Le lien pour débuter ce projet ce trouve en début de module 12
-
-- <http://biodatascience-course.sciviews.org/sdd-umons/correlation.html>
-```
 
 ## Critique statistique
 
@@ -659,17 +649,14 @@ Par le plus grand des hasards, le numéro 8 est sorti 6 fois en 7 tirages succes
 
 **_Vous est-il arrivé de jouer la suite 1, 2, 3, 4, 5, 6, 7, 8 au lotto (ou rempliriez-vous une grille avec ces nombres si vous deviez y jouer) ? Pourquoi ?_**
 
-##### À vous de jouer ! {-}
-
-- appliquer vos connaissances dans la dernière partie du projet spécifique du module
-
-```{block, type='bdd'}
-La dernière partie porte sur la critique statistique. Le lien pour débuter ce projet ce trouve en début de module 12
-
-- <http://biodatascience-course.sciviews.org/sdd-umons/correlation.html>
-```
-
-
 -----
 
+## Récapitulatif des exercices
+
+Vous venez de terminer le module 12. Ce module vous a permis d'apprendre une grande partie des subtilités qui se cachent derrière l'analyse de variances. Bravo ! Vous êtes arrivé à fin du premier cours de Science des données 1.
+
 ![](images/sdd1_12/rstudio_joke.jpg)
+
+Pour évaluer votre compréhension de ce dernier, vous aviez les exercices suivants à réaliser\ :
+
+`r show_ex_toc()`
