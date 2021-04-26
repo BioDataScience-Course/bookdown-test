@@ -353,6 +353,8 @@ Même remarque concernant les ex aequos et valeur *P* très similaire ici à cel
 
 `r h5p(131, height = 400, toc = "Test de corrélation")`
 
+`r learnr("A12La_correlation", title = "Association de deux variables", toc = "Association de deux variables")`
+
 ## Communication
 
 Savoir communiquer ses résultats est vital en science des données. Ce n'est pas si facile car il faut pouvoir simplifier les analyses et utiliser au mieux les visuels (c'est-à-dire, les graphiques) pour raconter une histoire qui soit à la fois captivante et compréhensible. **Communiquer le fruit de ses recherches de la meilleure façon qui soit pour que les non-initiés puissent le comprendre fait partie du bagage indispensable du scientifique des données**.
