@@ -202,7 +202,7 @@ Les conditions d'application sont les mêmes que pour l'ANOVA à deux facteurs s
 
 ```{r, echo=FALSE, results='asis'}
 if (exists("assignation"))
-  assignation2("A11Ia_anova2", part = "I",
+  assignation("A11Ia_anova2", part = "I",
     url = "https://github.com/BioDataScience-Course/A11Ia_anova2",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/a/UtYWtzN5",
@@ -494,7 +494,7 @@ L'analyse des résidus (indispensable) n'est pas reproduite ici. Elle reste la m
 
 ```{r, echo=FALSE, results='asis'}
 if (exists("assignation"))
-  assignation2("A11Ia_anova2", part = "II",
+  assignation("A11Ia_anova2", part = "II",
     url = "https://github.com/BioDataScience-Course/A11Ia_anova2",
     course.urls = c(
       'S-BIOG-006' = "https://classroom.github.com/a/UtYWtzN5",
